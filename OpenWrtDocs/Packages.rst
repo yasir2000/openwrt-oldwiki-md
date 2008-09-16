@@ -1,121 +1,142 @@
+## NOTE:
+## This is not where documentation for specific packages goes.  This page documents the packaging system.
+##
+## Add pages documenting packages to http://wiki.openwrt.org/OpenWrtDocs/Packages/<package name>
+## and add them to the CategoryPackage category
+##
 OpenWrtDocs [[TableOfContents]]
 
-== Official packages ==
-The [http://downloads.openwrt.org/whiterussian/packages/ official packages] are supported by !OpenWrt and are known to work on the latest stable '''White Russian''' release (those repositories here are '''not for kamikaze'''). Please use the official packages whenever possible.  The {{{/etc/ipkg.conf}}} file should have these lines:
+== Where to get packages ==
+=== Official packages ===
+The official packages for the Kamikaze release can be found here: [http://downloads.openwrt.org/kamikaze/].  Almost all packages are architecture-dependent, and some, e.g. kmods, are kernel version specific.  The linux command {{{uname -a}}} can be used to determine architecture.  ''Most'' residential gateways are mipsel (little endian MIPS).
 
-{{{
-src whiterussian http://downloads.openwrt.org/whiterussian/packages
-src non-free http://downloads.openwrt.org/whiterussian/packages/non-free
-}}}
-'''TIP:''' If you copy & paste this into your {{{/etc/ipkg.conf}}} file, make sure that you don't get a trailing space. If you do, {{{ipkg update}}} will look like it's updating but files will not be created in {{{/usr/lib/ipkg/lists}}}.
+Legacy White Russian packages are still available:
+  * [http://downloads.openwrt.org/whiterussian/packages/ White Russian packages]
+  * [http://downloads.openwrt.org/backports/0.9 White Russian backports]
 
-== Backports ==
-Some useful packages have been backported from the development branch (trunk) to White Russian. See the [http://downloads.openwrt.org/backports/rc6/00-README RC6 00-README] file for more details.
+=== Third party packages ===
+Third party packages are untested and unsupported by !OpenWrt, and no warranties are made about their safety or usefulness. That said, you will find most third-party packages quite fine. Please get support for third-party packages from the maintainers of those packages, not the !OpenWrt developers.  Here are some common sources:
+  * [http://www.ipkg.be/ ipkg.be package tracker]
+  * [http://ipkg.nslu2-linux.org/feeds/optware/ddwrt/cross/stable nslu2 "optware" package feed] (targeted at devices with external storage)
+  * [:http://wiki.openwrt.org/OpenWrtDocs/xwrt: X-Wrt], a third-party quasi-supported web interface package
 
-To use the packages from the backports repository edit {{{/etc/ipkg.conf}}} and add:
 
-{{{
-src backports http://downloads.openwrt.org/backports/0.9
-}}}
-Now run {{{ipkg update}}} and you will see new packages.
-
-== Third party packages ==
-Third party packages are untested and unsupported by !OpenWrt, and no warranties are made about their safety or usefulness. That said, you will find most third-party packages quite fine. Please get support for third-party packages from the maintainers of those packages, not the !OpenWrt developers.
-
-=== webif^2: Enhanced HTTP management console ===
-'''webif^2^''' is a new HTTP based management console for White Russian, and soon Kamikaze. It is part of the X-Wrt project to enhance the end user experience of OpenWrt.
-
-It offers a large number of new features and is constantly being improved. Some of the many things it offers are:
-
- * Firewall configuration
- * QoS configuration
- * DHCP/Dnsmasq configuration
- * File editor/browser
- * CPU and traffic graphs (SVG)
- * Installable themes.
- * Etherwake/Wake-On-LAN support
- * Hotspot management
- * Wireless site surveys
- * Too much to possibly list...
-[http://www.x-wrt.org Information and Download]
-
-=== Optware ===
-Large collection  of packages (600+) for routers with external storage (USB, IDE) provided by [http://www.nslu2-linux.org nslu2] project. All packages are installed into /opt directory. Optware features system independent uClibc library and own /opt/bin/ipkg packaging system.
-
-Optware consists of many perl and python packages. There is also complete native toolchain (optware-devel meta-package) for compiling software on router itself.
-
-Optware runs on X-Wrt and OpenWRT RC6 firmwares with Broadcom processors (mipsel). This mainly covers Asus wireless routers with USB2 port for external hard disk attachment; Linksys WRTSL54GS is also supported.
-
-See [http://ipkg.nslu2-linux.org/feeds/optware/ddwrt/cross/stable ddwrt package feed] for complete listing.
-
-[http://www.nslu2-linux.org/wiki/FAQ/Optware-uClibcBuild Information and installation instructions]
-
-=== uPnP ===
-'''uPnP''' is Universal Plug and Play.
-
-Since many users require UPNP, it has been made available in the [ftp://ftp.berlios.de/pub/xwrt X-Wrt repository] through the miniupnpd package. This package has also been added to Kamikaze.
-
-Documentation and the background of uPnP can be found at ["OpenWrtDocs/upnp"], though it primarily describes the linux-igd UPNPd.
-
-=== CUPS - Printing system with spooling ===
-You can't print a testpage on the local cups, because this would need to have ghostscript installed on your embedded system.
-
-If you have a special Postscript Printer Description (ppd) file for your printer, copy it to /usr/share/cups/model/ and restart cupsd. Cups will install it in /etc/cups/ppd and you can choose it via the web interface. (192.168.1.1:631)
-
-If you have problems with permissions, try to change /etc/cups/cupsd.conf to fit your local TCP/IP network:
-
-{{{
-<Location />
-Order Deny,Allow
-Deny From All
-Allow from 127.0.0.1
-Allow from 192.168.1.0/24 #your ip area.
-</Location>
-}}}
-MacOS X tip: Configure your extended printer settings. If you use the standard printer settings and add an IPP printer, MacOS X will add after the server adress /ipp . But this class etc. does not exist on your cupsd.
-
-=== ether-wake/wol - Wake on LAN ===
-If you have trouble using wol to wake up your PC ...
-
- * make sure you enabled WOL for your NIC with [http://sourceforge.net/projects/gkernel/ ethtool] before shutting down your PC.
- * play around with wol options. It seems like wol (v 0.7.1) sends the magic packet out your default gateway (WAN) if you just use wol x:x:x:x:x:x.  You need to specify the subnet and port to make it work, e.g.: wol -p 65535 -h 192.168.1.255 x:x:x:x:x:x
- * give ether-wake a try. Since ether-wake uses an ethernet frame instead of an UDP packet it might be what you're looking for.
-Also check out the wiki document ["Wake-On-LAN"].
-
-=== srelay - socks proxy ===
-There is a socks proxy available for !OpenWrt, it is called '''srelay''' (Find via the package tracker). However, there is no documentation for this package. So, here is a quick guide:
-
-Srelay comes with a configuration file: /etc/srelay.conf. It has some examples, but basically you will want to do this:
-
-{{{
-192.168.1.0/24 any -
-}}}
-This should give every computer in the 192.168.1.0 subnet access to srelay while keeping everything else out.
-
-Another interpretation about the config file is that it configures proxy chaining. You can specify what the next proxy hop should be for a specific destination. If you want srelay to directly connect to any destination you can use a config file like this:
-
-{{{
-# destination                  port range      next-hop/port
-0.0.0.0                          any
-}}}
-Then start srelay: '''srelay -c /etc/srelay.conf -r -s'''. Find out more about the available options with '''srelay -h'''.
-
-Keep in mind that this information was found using trial-and-error-methods, so it might still be faulty or have unwanted side effects.
-
-=== SEMS ===
-
-The SIP Express Media Server is a free, high performance, extensible media server for SIP based VoIP services.
-
-You can register your router to a SIP registrar (e.g. some service), have it send voicemail, host conferences, play announcements,
-do auto-attendant etc.
-
-A short [http://svn.berlios.de/wsvn/sems/openwrt/Readme.openWRT?op=file&rev=0&sc=0 Readme] is available, and packages can be found 
-here [http://ftp.iptel.org/pub/sems/openwrt/]. 
-
-== Other ==
-Some third-party can be searched for via http://www.ipkg.be/.
-
-ShorewallHowTo has instructions on how to use the Shorewall firewall configuration package with !OpenWrt.
+Most are only for mipsel, and some only support mipsel Broadcom devices.
 
 == Building your own packages ==
 To build your own packages for !OpenWrt use the SDK, see BuildingPackagesHowTo.
+
+= opkg / ipkg =
+The opkg utility is a lightweight package manager used to download and install !OpenWrt packages from the internet. (GNU/Linux users familiar with {{{apt-get}}} will recognise the similarities)
+
+The firmware itself is designed to occupy as little space as possible while still providing a reasonably friendly command line interface or web administration interface. With no packages installed, !OpenWrt will configure the network interfaces, setup a basic NAT firewall, a secure shell server, a DNS forwarder and DHCP server.
+
+||'''Command''' ||'''Description''' ||
+||opkg update ||Download a list of packages available ||
+||opkg list ||View the list of packages ||
+||opkg install dropbear ||Install the dropbear package ||
+||opkg remove dropbear ||Remove the dropbear package ||
+
+More options can be found via {{{opkg --help}}}.
+
+== How to install packages ==
+=== opkg.conf ===
+{{{opkg.conf}}} was inspired by Debian's apt.conf.  Instead of installing individual packages manually with pre-downloaded files and URLs, packages from repositories listed in {{{/etc/opkg.conf}}} can be installed with a user-friendly command.
+
+To use the official packages, add these lines to {{{/etc/opkg.conf}}} (older versions use {{{/etc/ipkg.conf}}}:
+
+{{{
+# This depends on your release and platform.  If you're using a custom build,
+# hosting the bin directory on a local webserver can be very convenient.
+src kamikaze-7.09 http://downloads.openwrt.org/kamikaze/7.09/brcm-2.4/packages/
+
+# This depends on the architecture you're using.  These packages may be a bit
+# dated, but the *generally* run on both older and more recent Kamikaze builds.
+src packages http://downloads.openwrt.org/kamikaze/packages/mipsel/
+}}}
+
+'''TIP:''' If you copy & paste this into your {{{/etc/ipkg.conf}}} file, make sure that you don't get a trailing space. If you do, {{{ipkg update}}} will look like it's updating but files will not be created in {{{/usr/lib/ipkg/lists}}}.
+
+Other lines can be added to {{{/etc/opkg.conf}}}, adding a third party repository to the package set, however, this is not recommended.
+
+After changing {{{/etc/opkg.conf}}}, run {{{opkg update}}} to get the system to recognize the new packages.
+
+=== Installation ===
+To install a package is present in a repository (usually this is the case), do
+{{{
+opkg install wireless-tools
+}}}
+
+To install a package from a URL or downloaded file, do
+{{{
+opkg install <filename> | <URL>
+}}}
+
+In both cases, opkg will attempt to resolve dependencies with packages in the repositories.  If it cannot, it will report an error, and not install any of the packages.
+
+Missing dependencies with third-party packages are probably available from the source of the package.  To ignore dependencies, pass the {{{-force-depends}}} flag to opkg.
+
+== Listing installed packages ==
+{{{
+opkg list_installed
+}}}
+
+== Removing Packages ==
+{{{
+opkg remove <package name listed by list_installed>
+}}}
+
+== Upgrading ==
+The process for upgrading a single package is the same as installing a package: {{{opkg install}}}.
+
+To upgrade all packages, do
+{{{
+opkg upgrade
+}}}
+
+This is '''not''' recommended for most users, jffs2 and ext2 users excepted.  A typical OpenWrt system stores the base system in a read-only squashfs partition.  While the upgrade process works fine, it uses far more space than a default installation as the base packages are duplicated in the base squashfs partition and the user jffs2 partition.  Instead of upgrading, upgrading OpenWrt with a reflash is recommended.
+
+== Out of space ==
+When opkg runs out of space, it usually fails to elegantly recover.  If the lock was not removed,
+{{{
+Collected errors:
+ * Could not obtain administrative lock
+}}}
+it can be deleted from {{{/usr/lib/opkg/lock}}}.
+
+Additionally, opkg doesn't remove the files it was installing.  One way to do this is get a list of the files it was installing, then delete them.
+{{{
+mkdir /tmp/opkg_cleanup
+cd /tmp/opkg_cleaup
+opkg download <package>
+gunzip -c *.ipk | tar -x
+gunzip -c data.tar.gz | tar -x
+
+find .
+}}}
+
+The files other than {{{control.tar.gz}}}, {{{data.tar.gz}}}, {{{debian-binary}}}, and {{{*.ipk}}} were (or would have been) added by opkg.
+== External storage ==
+If you have USB storage, or install packages to a destination other than root, the shell script {{{ipkg-link}}} will create automatic symlinks to the root filesystem for those packages. See the info on {{{ipkg-link}}} on the UsbStorageHowto.
+
+== Proxy support ==
+To use opkg through a proxy, add the following to {{{/etc/opkg.conf}}}
+
+{{{
+option http_proxy http://aaa.bbb.ccc.ddd:port/
+option ftp_proxy ftp://aaa.bbb.ccc.ddd:port/
+}}}
+
+these are for if you need authentication
+
+{{{
+option proxy_username xxxx
+option proxy_password xxxx
+}}}
+
+If the authentication with the above options in {{{/etc/opkg.conf}}} is not working, try the following format:
+
+{{{
+option http_proxy http://username:password@aaa.bbb.ccc.ddd:port/
+option ftp_proxy http://username:password@aaa.bbb.ccc.ddd:port/
+}}}
