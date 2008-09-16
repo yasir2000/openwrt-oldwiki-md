@@ -69,3 +69,5 @@ root@openwrt:~# wake aeris
 Waking up 00:99:d4:0f:dc:62...
 root@openwrt:~#
 }}}
+
+CategoryPackage
