@@ -12,13 +12,6 @@
 ||[http://www-au.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=AU/Layout&cid=1130279411957&pagename=Linksys/Common/VisitorWrapper WAG54GP2] ||1 ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] TNETD7300A @ 150MHz ||8MB ||32MB ||TI TNETW1130 ACX111 (["VLYNQ"]) ||ADM6996L ||["PSPBoot"] ||Yes ||Yes ||No ||[:AR7Port:WiP] ||
 ||[http://www-nz.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=NZ/Layout&cid=1160628844303&pagename=Linksys/Common/VisitorWrapper WAG54GP2] ||2 ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] ||8MB? ||32MB? ||TI ACX111 (["VLYNQ"]) || ||["ADAM2"] || || ||No ||[:AR7Port:WiP] ||
 ||[http://www1.linksys.com/products/product.asp WAG54GX2] ||1 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM96348 Broadcom 6348] @ 240MHz ||8MB ||32MB ||Broadcom (mini-PCI) ||BCM5325 || ||Yes ||Yes ||No || ||
-
----- /!\ '''Edit conflict - other version:''' ----
-||[http://www1.linksys.com/products/product.asp WAG54GX2] ||1 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM96348 Broadcom 6348] @ 240MHz ||8MB ||32MB ||Broadcom (mini-PCI) || || ||Yes ||Yes ||No || ||
-
----- /!\ '''Edit conflict - your version:''' ----
-
----- /!\ '''End of edit conflict''' ----
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=608 WAP54G] ||1.0 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||2MB / 4MB ||8MB ||Broadcom (mini-PCI) ||None ||off ||No UART ||No ||No ||[:WAP54GHowto:WiP] ||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=608 WAP54G] ||1.1 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94702 Broadcom 4710] @ 125MHz ||2MB (or 4MB?) ||16MB? ||Broadcom (mini-PCI) ||None ||off ||No UART ||No ||No ||WiP ||
 ||[http://www1.linksys.com/products/product.asp?grid=33&scid=35&prid=608 WAP54G] ||2.0 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz ||2MB ||8/16MB ||Broadcom (integrated) ||None ||off ||Yes ||Yes ||No ||WiP ||
