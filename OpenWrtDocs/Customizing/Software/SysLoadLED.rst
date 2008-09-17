@@ -77,3 +77,5 @@ Finally, enable the init script
 chmod 755 /etc/init.d/loadmon
 /etc/init.d/loadmon enable
 }}}
+
+CategoryHowTo
