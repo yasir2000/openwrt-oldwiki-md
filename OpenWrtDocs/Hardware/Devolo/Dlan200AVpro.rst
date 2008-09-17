@@ -176,4 +176,21 @@ start -c "console=ttyS1,115200 rootfstype=squashfs mtdparts=IXP4XX-Flash.0:0x3c0
 
 You then get shell access and allow network interfaces to be loaded with the NPE microcode.
 
+== Interrupts ==
+
+{{{
+# cat /proc/interrupts
+           CPU0
+  0:          0      IXP4xx  IXP4XX NPE-A
+  1:         13      IXP4xx  IXP4XX NPE-B
+  2:         13      IXP4xx  IXP4XX NPE-C
+  3:          0      IXP4xx  ixp400_eth QM1
+  5:      11716      IXP4xx  IXP4xx Timer Tick
+  7:          1      IXP4xx  devolo dLAN PLC/CLC Switch
+ 13:        665      IXP4xx  serial
+ 18:      53739      IXP4xx  ixp400_eth PMU timer
+ 26:          1      IXP4xx  devolo AVHost factory default button
+Err:          0
+}}}
+
  . CategoryModel ["CategoryIXP4xxDevice"]
