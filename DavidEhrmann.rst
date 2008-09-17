@@ -31,3 +31,6 @@ But it's still changing...
 = A few external links =
   * [http://s3mp.org s3mp]: My Amazon S3-based mp3 player.  Extra pre-beta.
   * [http://knol.google.com/k/knol/system/knol/pages/Search?nodeId=1aqx1s1xle2uu.0 My Knols]: Mostly focused on technical things.  Some java, some netowrking, some math.  Random stuff, really.
+
+----
+CategoryHomepage
