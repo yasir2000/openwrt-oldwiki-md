@@ -2,7 +2,9 @@
 [[TableOfContents]]
 
 = T-Com Speedport W701V =
-Speak to loswillios on #openwrt and #ar7 on freenode for more info.
+Speak to hydra or loswillios on #openwrt and #ar7 on freenode for more info.
+
+This page was originally written by Hydra and some of it's contents is used on the W901V page also on this wiki.  Any references to 'I', 'me' or 'my' refer to Hydra.
 
 == Status ==
 Wifi: loading acx-mac80211 freezes the router (chip: TNETW1350A, it's a chip with features somewhere between the supported TNETW1150 and the TNETW1450)
@@ -1438,25 +1440,31 @@ mtd0 is rather odd as it's 0 length!
 To install OpenWRT you need an OpenWRT Kamikaze image file, it's best to build your own if you have a Linux system around, the process is quite simple and well documented, there's just a few options that need to be changed from the build system's defaults.
 
 === Building OpenWrt ===
-svn co https://svn.openwrt.org/openwrt/trunk/
 
-cd trunk
+Revision r12244 is the latest known versions to work due to this bug: https://dev.openwrt.org/cgi-bin/trac.fcgi/ticket/3123#comment:6
 
-make defconfig
+`svn co https://svn.openwrt.org/openwrt/trunk@r12244 trunk_r12244`
 
-scripts/feeds update -a
+`cd trunk_r12244`
 
-scripts/feeds install -a
+`make defconfig`
+
+`scripts/feeds update -a`
+
+`scripts/feeds install -a`
 
 apply the patch from http://article.gmane.org/gmane.comp.embedded.openwrt.devel/1688
 
-make menuconfig
+`make menuconfig`
+
+In menu config '*' means it'll be built into the image 'M' means it'll be built into an ipkg package which you can install later.
 
  * select Target System (TI AR7 [2.6])
- * select Base system ---> br2684ctl
+ * select Base system ---> br2684ctl (only needed if you use PPPoE, for PPPoA this is not required)
  * select Kernel modules  ---> Network Devices  ---> kmod-sangam-atm-annex (a for analog / b for isdn)
+ * in Networking make sure you choose PPPoA or PPPoE as required, it's best to build support in rather than making it as a module/ipkg
 
-time make world V=99
+`time make world V=99`
 
 (see https://dev.openwrt.org/ticket/2561)
 
