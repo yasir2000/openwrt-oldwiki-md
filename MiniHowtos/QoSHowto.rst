@@ -575,3 +575,5 @@ Fair NAT is a script I wrote in 2003, when I had to share a slow DSL line with 5
 Switching from a stand alone Linux PC router to an embedded OpenWRT box with limited resources, I adapted my old Fair NAT script to work with OpenWRT. It's a simple shell script, organized into subroutines. There is no configuration file. If you want to use this script, you will need to know about how shell scripts, iptables and tc work, as you'll have to adapt the script to your own needs. Since every user can do with his part of the bandwidth whatever he wants, each user has his own subroutine for classifying and prioritizing traffic according to his own needs.
 
 You can obtain Fair NAT from this URL: http://www.metamorpher.de/fairnat/
+
+CategoryHowTo
