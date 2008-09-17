@@ -56,6 +56,9 @@ The firmware itself is designed to occupy as little space as possible while stil
 
 More options can be found via {{{opkg --help}}}.
 
+== ipkg vs. opkg ==
+Older versions of OpenWrt use ipkg, while recent versions use opkg.  The latter is essentially a drop in replacement that addresses [http://lists.openmoko.org/pipermail/devel/2008-July/000496.html a number of issues].  Documentation in the OpenWrt wiki is inconsistent, so almost all references of either simply mean "the package manager on the system."
+
 == How to install packages ==
 === opkg.conf ===
 {{{opkg.conf}}} was inspired by Debian's apt.conf.  Instead of installing individual packages manually with pre-downloaded files and URLs, packages from repositories listed in {{{/etc/opkg.conf}}} can be installed with a user-friendly command.
