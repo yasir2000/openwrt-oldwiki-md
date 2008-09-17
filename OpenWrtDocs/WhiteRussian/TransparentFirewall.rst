@@ -333,3 +333,4 @@ If someone gets this working over wireless, fill in here and let us know...
 As always, you need to test test test.  I am new to Linux, so dont count on my scripts to be perfect.  I'm just trying to save someone else some time, and to help demonstrate how robust OpenWRT can be.
 
 CategoryWhiteRussian
+CategoryHowTo
