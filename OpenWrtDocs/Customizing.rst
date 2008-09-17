@@ -1,7 +1,9 @@
 [[TableOfContents]]
 
 = Disclaimer =
-The contents of this section of the wiki can have serious consequences. While every effort has been made to test and verify the items herein, if executed incorrectly, or if you just happen to have a bad day you '''COULD SERIOUSLY DAMAGE YOUR HARDWARE'''. Neither I (inh) nor anyone else will be held responsible for anything you do.
+The contents of this section of the wiki can have serious consequences. While every effort has been made to test and verify the items herein, if executed incorrectly, or if you just happen to have a bad day you '''COULD SERIOUSLY DAMAGE YOUR HARDWARE'''. No OpenWrt developers or wiki editors can be held responsible for damage customizing might do.  Customize at your own risk.
+
+Most of the pages for customizing can be found in CategoryHowTo
 
 = Hardware =
  * http://www.dpeddi.com/index.php?file=wrt54g&language=en 2 WRT54G as very long rs232 cable
@@ -29,17 +31,10 @@ The contents of this section of the wiki can have serious consequences. While ev
  * [:OpenWrtDocs/Customizing/Hardware/I2C RTC:/Hardware/I2C RTC] add an I2C bus a Real Time Clock
  * [:OpenWrtDocs/Customizing/Hardware/RAM upgrade:/Hardware/RAM upgrade] (WRT54GL) replace the RAM chip to allow for 64MB memory
 = Software =
- * Networking
   * [http://www.hetos.de/bwlog.html WRTbwlog] A tool that shows internet traffic on all wired and wireless interfaces, as well as many other useful and related functions. (WRTbwlog doesn't count traffic in OpenWRT, because it uses "find -mtime -1", but "find" from OpenWRT WhiteRussian RC6 doesn't support "-mtime")
-  * BandwithTestPage - A simple CGI script for testing the instantaneous bandwidth to the wireless router. Just drop into /www/cgi-bin and chmod+x.
-  * ["OpenWrtDocs/WhiteRussian/TransparentFirewall"]
-  * System
-   * ["OpenWrtDocs/Customizing/Software/SysLoadLED"]
-   * Wireless
     * [http://wiviz.natetrue.com WiViz] - A very nice wireless network visualization tool ||
-    * [http://www.bolkesteijn.nl/blog/static.php?page=openwrtstuff RC4 WifiToggle] WRT54GL switching wifi on/off by front EasySetup button for RC4
-    * [http://www.bolkesteijn.nl/blog/static.php?page=evenmoreopenwrtstuff RC6 WifiToggle] WRT54GL switching wifi on/off by front EasySetup button for RC6
-  * ["DHCP Notify"] A tweak to get your router to notify you of any changes in DHCP Leases (add/del). Never miss again an un-wanted client that connects to your network.
+for RC6
+
 = Firmware =
  * ["OpenWrtDocs/Customizing/Firmware/CFE"] The guide howto gain access to and use the common firmware enviroment
 ----
