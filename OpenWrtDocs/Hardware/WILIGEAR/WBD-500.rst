@@ -17,7 +17,7 @@ The WILIGEAR WBD-500 is a powerful, 500mW (27dBm) 2.4 GHz integrated radio board
 ||'''JTAG''' ||No ||
 ||'''Power''' || 9V - 52V PoE and DC jack [[BR]] polarity independent with overvoltage protection ||
 
-= Installing OpenWrt with RedBoot =
+= Installing OpenWrt =
 
 Get a TFTP server for your computer.
 
