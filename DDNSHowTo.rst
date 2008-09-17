@@ -81,6 +81,20 @@ start_daemon_for_all_ddns_sections
 exit
 }}}
 
+== Tweaks ==
+=== dyndns.org ===
+Full API documentation available here: [https://www.dyndns.com/developers/specs/syntax.html]
+
+To enable wildcard domains (*.foo.dyndns.org) on dyndns.org, replace the line in {{{/usr/lib/ddns/services}}} with this:
+{{{
+"dyndns.org"            "http://[USERNAME]:[PASSWORD]@members.dyndns.org/nic/update?wildcard=ON&hostname=[DOMAIN]&myip=[IP]"
+}}}
+
+To retain the wildcard setting on dyndns.org, replace the line in {{{/usr/lib/ddns/services}}} with this:
+{{{
+"dyndns.org"            "http://[USERNAME]:[PASSWORD]@members.dyndns.org/nic/update?wildcard=NOCHG&hostname=[DOMAIN]&myip=[IP]"
+}}}
+
 = Old methods =
 DDNS scripts have been a surprisingly complicated part of OpenWrt.  There have been many other scripts and packages used.
 
