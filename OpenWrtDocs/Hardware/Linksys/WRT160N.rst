@@ -6,7 +6,7 @@
 
 The Linksys WRT160N is the Linksys Ultra Range Plus Wireless-N Broadband Router. It runs Linux out of the box. The source code tarball is available from the [http://www.linksys.com/servlet/Satellite?c=L_Content_C1&childpagename=US%2FLayout&cid=1115416836002&pagename=Linksys%2FCommon%2FVisitorWrapper Linksys GPL Code Center]
 
-OpenWRT will run on WRT160N v1.1. Please see what version you have and add information to the wiki or post in this [http://forum.openwrt.org/viewtopic.php?id=15321 forum thread]. It is not directly supported by any pre-built firmware images on the download page yet, You need to [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT160N#head-6bc46006cdfb30edaf9f048ef09ad1250a2aee2d compile it yourself] or try an image from [http://snipes420.googlepages.com/ Here].
+OpenWRT will run on WRT160N v1.1.  It is not directly supported by any pre-built firmware images on the download page yet, You need to [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT160N#head-6bc46006cdfb30edaf9f048ef09ad1250a2aee2d compile it yourself] or try an image from [http://snipes420.googlepages.com/ Here].
 
 '''NOTE:''' The wireless part is only supported on the 2.4 Kernel version of Kamikaze. The 2.6 Kernel runs fine on the box, but (because the wl.o driver from Broadcom is only available for 2.4 Kernels and the opensource b43 driver is not ready yet) the wireless does not work if you flash a image with a 2.6 Kernel. 802.11N is not supported until the upstream provider can support it.
 
@@ -16,14 +16,16 @@ Link to Product info page at linksys.com -> [http://www.linksys.com/servlet/Sate
 
 = Supported Versions =
 
+Please see what version you have and add information to the wiki or post in this [http://forum.openwrt.org/viewtopic.php?id=15321 forum thread].
 According to Wikipedia there is more than one version of this device. [http://en.wikipedia.org/wiki/Linksys_WRT300N_series#WRT160N Reference]
+DD-Wrt [http://www.dd-wrt.com/wiki/index.php/Supported_Devices#Linksys Devices list] also mentions more than one.
 
-Please add info here if you can.
+Please add/confirm info here if you can.
 
-||'''Model''' ||'''CPU''' ||'''Wireless''' ||'''Flash''' ||'''RAM''' ||'''S/N''' ||'''!OpenWrt Kamikaze''' ||
-||WRT160N v1.0 ||? ||? ||4MB ||32MB || ? || X ||
-||WRT160N v1.1 || BCM4703||BCM4321 ||4MB ||16MB ||CSE01 || X (See Below)||
-||WRT160N v2.0 ||? ||? || ||? ||CSE11 || X ||
+||'''Model''' ||'''CPU''' ||'''Wireless''' ||'''Flash''' ||'''RAM''' ||'''S/N''' ||'''FCC ID''' ||'''!OpenWrt Kamikaze''' ||
+||WRT160N v1.0 ||? ||? ||4MB ||32MB || ? || || X ||
+||WRT160N v1.1 || BCM4703||BCM4321 ||4MB ||16MB ||CSE01 ||Q87WRT160N || X (See Below)||
+||WRT160N v2.0 ||? ||ralink || ? ||8 ||CSE11 ||Q87WRT160NV2 || X ||
 
 
 = Hardware =
