@@ -164,12 +164,13 @@ Now you can flash the firmware image in /bin to your WRT160N using the Linksys w
 || '''boardnum''' || 42 ||
 || '''boardflags''' || 0x0010 ||
 
-== TODO ==
+= TODO =
 
+ * Confirm existence of different versions of this model
  * Find the data sheets for the chips used in this device.
  * Figure out what JP1, JP3 are for and the exact pin outs.
 
-== Other Categories this device is in ==
+= Other Categories this device is in =
 
  . Category80211nDevice
  . CategoryNotSupported
