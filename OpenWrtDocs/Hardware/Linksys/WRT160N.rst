@@ -72,14 +72,13 @@ Now you can flash the firmware image in /bin to your WRT160N using the Linksys w
 ||'''CPU Speed''' ||266 Mhz ||
 ||'''Flash size''' ||4 MiB ||
 ||'''RAM''' ||16 MiB ||
-||'''Wireless''' ||Broadcom BCM47xx 802.11b/g/n Wireless LAN (integrated) ||
+||'''Wireless''' ||Broadcom BCM4321 802.11b/g/n Wireless LAN (integrated) ||
 ||'''Ethernet''' ||Switch in CPU ||
 ||'''USB''' ||No ||
 
 === Chipset ===
 
  * CPU - BCM4703 [http://www.broadcom.com/collateral/pb/4703_4704-PB00-R.pdf Product_Brief] (the original linksys firmware calls it a BCM4704 in /proc/cpuinfo)
- * BCM4321 [http://www.broadcom.com/collateral/pb/4321_2055-PB02-R.pdf Product_Brief]
  * BCM5325 [http://www.broadcom.com/collateral/pb/5325-PB05-R.pdf Product_Brief]
 
 === Flashchip ===
@@ -88,6 +87,7 @@ Now you can flash the firmware image in /bin to your WRT160N using the Linksys w
 
 === Wireless Chip ===
 
+ * BCM4321 [http://www.broadcom.com/collateral/pb/4321_2055-PB02-R.pdf Product_Brief]
  * BCM2055 (under the shield) [http://www.broadcom.com/collateral/pb/4321_2055-PB02-R.pdf Product_Brief]
 
 === NVRAM ===
