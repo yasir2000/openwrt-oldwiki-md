@@ -16,6 +16,8 @@
   * '''target''': which chain to send the packet in a rule to.  Valid values are "DROP" and "ACCEPT."
   * '''protocol''': the protocol of the packet.  It isn't strictly an [http://en.wikipedia.org/wiki/Transport_Layer transport layer] or [http://en.wikipedia.org/wiki/Internet_Layer internet layer] protocol.  Valid values are "tcp," "udp," and "ICMP."
 
+To specify a range of ports for '''src_dport''' and '''dest_port''' separate the values with a hypen, e.g. '''27000-27999'''
+
 == Examples ==
 === Opening ports ===
 The default configuration accepts all LAN traffic, but blocks all incoming WAN traffic on ports not currently used for connections or NAT.  To open a port for a service, add a "rule" entry:
