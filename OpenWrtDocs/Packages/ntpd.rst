@@ -15,7 +15,7 @@ ntp             123/udp     # Network Time Protocol
 }}}
 
 2. Set the listen interface
-Some versions require the listen interface to set in /etc/ntpd.conf.  To see if yours does, precede to start the server, then try using ntpdate or ntpclient on another computer to get the time:
+Some versions require the listen interface to set in /etc/ntpd.conf.  To see if yours does, proceed to start the server, then try using ntpdate or ntpclient on another computer to get the time:
 
 {{{
 # -d instructs ntpdate to not set the date
