@@ -15,37 +15,22 @@ ntp             123/udp     # Network Time Protocol
 }}}
 
 2. Set the listen interface
-Now, configure the server to listen on an interface by modifying /etc/ntp.conf
+Some versions require the listen interface to set in /etc/ntpd.conf.  To see if yours does, precede to start the server, then try using ntpdate or ntpclient on another computer to get the time:
+
 {{{
-# use a random selection of 8 public stratum 2 servers
-# see http://twiki.ntp.org/bin/view/Servers/NTPPoolServers
+# -d instructs ntpdate to not set the date
+ntpdate -d <host>
 
-#restrict default nomodify notrap noquery
-#restrict default noquery
+# lack of -s instructs ntplcient to just check the date
+ntpclient -c 1 -h <host>
+}}}
 
-
-restrict 127.0.0.1
-
-driftfile  /etc/ntp.drift
-
-server 0.pool.ntp.org iburst
-server 1.pool.ntp.org iburst
-server 2.pool.ntp.org iburst
-server 3.pool.ntp.org iburst
-
-
-# GPS(NMEA)+PPS
-#server 127.127.20.0 minpoll 4 prefer
-#fudge 127.127.20.0 flag3 1 flag2 0
-
-# SMA PPS
-#server 127.127.28.0 minpoll 4 prefer
-#fudge 127.127.28.0 refid PPS flag3 1
-
-#server 192.168.1.253
+If it doesn't work, create {{{/etc/ntpd.conf}}} with this:
+{{{
+servers openwrt.pool.ntp.org
 
 # 0.0.0.0 means all interfaces
-'''listen on 0.0.0.0'''
+listen on 0.0.0.0
 }}}
 
 3. Restart ntpd
@@ -53,6 +38,9 @@ server 3.pool.ntp.org iburst
 /etc/init.d/ntpd restart
 }}}
 
+4. Firewall setup
+If this service will be offered to non-local computers, you might have to open UDP port 123 for ntpd.
+See also: [OpenWrtDocs/Kamikaze/FirewallConfiguration]
 == Configuring ntp client ==
 Todo:
 ----
