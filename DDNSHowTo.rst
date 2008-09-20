@@ -11,24 +11,27 @@ The DDNS service comes in handy for establishing connections from computers on t
  * A recent !OpenWrt version. This howto was written for the 'Kamikaze 7.07' and later releases.
  * An account with a compatible DDNS service, currently
    * dyndns.org
-    * changeip.com
-    * zoneedit.com
-    * no-ip.com
-    * freedns.afraid.org
-    * Any other that can update when some URL is accessed.  The script's quite versatile.
+   * changeip.com
+   * zoneedit.com
+   * no-ip.com
+   * freedns.afraid.org
+   * Any other that can update when some URL is accessed.  The script's quite versatile.
 
 == Installation ==
 Install the ddns-scripts package.
 {{{
-# use ipkg on older Kamikaze builds
-opkg update
 opkg install ddns-scripts
+}}}
+
+If you like to configure {{{ddns-script}}} using the LuCI WebUI also this package:
+{{{
+opkg install luci-app-ddns
 }}}
 
 == Configuration ==
 The configuration is stored in /etc/config/ddns which contains more thorough documentation.
 
-In order to enable dynamic dns you need at least one section, and in that section the "enabled" option must be set to one.
+In order to enable Dynamic DNS you need at least one section, and in that section the "enabled" option must be set to one.
 
 Each section represents an update to a different service.  This sections specifies several things:
   * service (dyndns.org, etc.)
@@ -71,6 +74,18 @@ config service "myddns"
         #option update_url      "http://[USERNAME]:[PASSWORD]@members.dyndns.org/nic/update?hostname=[DOMAIN]&myip=[IP]"
 }}}
 
+A short example for a dyndns.org service to configure via UCI CLI:
+
+{{{
+uci set ddns.myddns.enabled=1
+uci set ddns.myddns.domain=host.dyndns.org
+uci set ddns.myddns.username=<username>
+uci set ddns.myddns.password=<password>
+uci set ddns.myddns.enabled=1
+uci commit ddns
+ACTION=ifup INTERFACE=wan /sbin/hotplug-call iface
+}}}
+
 == Trying it out ==
 The script runs when hotplug events happen or a monitored IP address changes, so initially, you have to start it manually.  After setting "enabled" to 1, run the following:
 
@@ -79,6 +94,12 @@ sh
 . /usr/lib/ddns/dynamic_dns_functions.sh # note the leading period
 start_daemon_for_all_ddns_sections
 exit
+}}}
+
+You can also simulate a hotplug event to trigger a DDNS update manually:
+
+{{{
+ACTION=ifup INTERFACE=wan /sbin/hotplug-call iface
 }}}
 
 == Tweaks ==
