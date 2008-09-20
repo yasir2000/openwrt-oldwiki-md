@@ -20,7 +20,7 @@ config atm-bridge
     option payload  bridged
 }}}
 
-== Setting up PPPoE ===
+== Setting up PPPoE ==
 Once you set up the bridge, or once you plug in a DSL ''or'' cable modem, set up the "dial-up" PPPoE connection.  If using a built-in DSL modem, the interface name will be nas0.  If the router is plugged into a DSL or cable modem in '''bridged mode''', set the interface name to the vlan device, typically something like eth0.1.  This configuration is uncommon.  Most people set their cable and DSL modems to do PPP, not have an external device handle it.
 
 {{{/etc/config/network}}}
@@ -43,4 +43,3 @@ config interface wan
     option username "username"
     option password "password"
 }}}
-
