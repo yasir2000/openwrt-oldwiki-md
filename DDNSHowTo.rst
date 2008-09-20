@@ -23,7 +23,7 @@ Install the ddns-scripts package.
 opkg install ddns-scripts
 }}}
 
-If you like to configure {{{ddns-script}}} using the LuCI WebUI also this package:
+If you like to configure {{{ddns-scripts}}} using the LuCI WebUI also install this package:
 {{{
 opkg install luci-app-ddns
 }}}
