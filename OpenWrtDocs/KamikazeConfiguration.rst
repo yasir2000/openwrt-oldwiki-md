@@ -105,17 +105,10 @@ Check dmesg or syslog for the change.  If the mac address does not change, clean
 http://wiki.openwrt.org/Faq#head-71cacf8460752af3f5771d2fae54923ded5beb9c
 }}}
 === PPPoE and PPPoA ===
-Normally, these are used for DSL.
-
-{{{
-config interface wan
-        option ifname   "eth0.1"
-        option proto    pppoe
-        option username "xxxxxx"
-        option password "xxxxxx"
-}}}
-==== IPv6 ====
-===== Using Go6.net =====
+PPPoE and PPPoA used for "dial-up" Cable and DSL connections, but not bridged.
+[:OpenWrtDocs/Kamikaze/PPPoX:PPP over *]
+=== IPv6 ===
+==== Using Go6.net ====
 This section describe how to setup IPv6 using the [[http://go6.net/ | Go6.net]] service.
 
  1. Sign up for a free account with Go6.
