@@ -192,3 +192,5 @@ Gateway.Motorola login:
 The device firmware can be found on Motorola's website under the format of Java serialized objects, which should be loaded as packages using Canopy Network Updater Tool.
 
 The bootloader looks like a modified ADMBoot loader, and includes a configurable tftp client to load images. It accepts gzip'd images, similarly to what ADMBoot accepts.
+
+CategoryModel ["CategoryADM5120Device"]
