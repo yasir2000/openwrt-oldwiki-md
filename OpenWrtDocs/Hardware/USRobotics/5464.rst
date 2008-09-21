@@ -3,7 +3,11 @@ US robotics USR 5464.
 === Photos ===
 [[ImageLink(http://www.usr.com/images/products/5464/5464.jpg)]]
 
+DO NOT prepend the USR0 header as mentioned in a forum post (the only one found while searching google for usr5464 and openwrt).
+
 boots ok with Kamikaze 7.09 openwrt-brcm-2.4-squashfs.trx
+
+boots ok with Kamikaze 7.09 openwrt-*2.6*.trx but the wan interface does not accept packets (Tx is something > 0 but Rx is stuck to zero).
 
 needs kmod-brcm-wl-mimo for the wireless interface
 
