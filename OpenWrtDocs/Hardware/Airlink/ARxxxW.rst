@@ -173,5 +173,48 @@ DD-WRT>reset
 
 If you did everything correctly then you should be able to telnet your router after it reboots.
 
+= Using wireless =
+Many users have had the wireless driver hang the AR430w with Kamikaze 7.09.
+
+However, if you build entirely from trunk, with one small modification to the configuration, the wireless should work:
+
+I have successfully gotten this router to work with almost stock openwrt trunk (I have used rev 12634).  The only necessary change in order to prevent a hung router upon boot is to modify the kernel config and turn off all the GPIO options.  From there it's just a "make" and then flashing it like above, but with the rootfs.squashfs and the kernel copied out of the "bin" directory once you are done:
+{{{
+Index: target/linux/atheros/config-2.6.26
+===================================================================
+--- target/linux/atheros/config-2.6.26  (revision 12634)
++++ target/linux/atheros/config-2.6.26  (working copy)
+@@ -63,9 +63,9 @@
+ CONFIG_GENERIC_CMOS_UPDATE=y
+ # CONFIG_GENERIC_FIND_FIRST_BIT is not set
+ CONFIG_GENERIC_FIND_NEXT_BIT=y
+-CONFIG_GENERIC_GPIO=y
++# CONFIG_GENERIC_GPIO is not set
+ # CONFIG_GENERIC_HARDIRQS_NO__DO_IRQ is not set
+-CONFIG_GPIO_DEVICE=y
++# CONFIG_GPIO_DEVICE is not set
+ CONFIG_HAS_DMA=y
+ CONFIG_HAS_IOMEM=y
+ CONFIG_HAS_IOPORT=y
+@@ -92,7 +92,7 @@
+ CONFIG_IRQ_CPU=y
+ # CONFIG_IWLWIFI_LEDS is not set
+ # CONFIG_LEDS_ALIX is not set
+-CONFIG_LEDS_GPIO=y
++# CONFIG_LEDS_GPIO is not set
+ # CONFIG_LEMOTE_FULONG is not set
+ CONFIG_LZO_COMPRESS=m
+ CONFIG_LZO_DECOMPRESS=m
+}}}
+
+The wireless does not seem to start configured upon boot.
+To enable the wireless for testing from the command line, run:
+{{{
+wlanconfig ath0 create wlandev wifi0 wlanmode ap
+ifconfig ath0 up
+iwconfig ath0 essid "myaccesspoint"
+}}}
+and check that another computer can see the access point.
+
  . Category80211gDevices
  . CategorySupportedInKamikaze7_07
