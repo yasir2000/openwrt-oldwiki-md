@@ -1,6 +1,6 @@
 = Motorola PowerLine MU Gateway =
 
-The Powerline MU gateway is a 5-LAN ports, Coax, 3-phase PLC gateway.
+The [http://www.motorola.com/Business/US-EN/Product+Lines/MOTOwi4/Powerline+MU+Gateway_US-EN Powerline MU gateway] is a 5-LAN ports, Coax, 3-phase PLC gateway.
 
 {{{
 SoC: ADM5120 @175Mhz
