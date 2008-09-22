@@ -16,6 +16,8 @@ serial console 9600,n,8,1,hw jp1:
 Flash chip: 4MBytes MX MX29LV320ABTC-90G MX29LV320ABTC 29LV320
 
 SDRAM: 16MBytes Samsung K4S281632F-UC75
+8M x 16 166MHz (CL=3) LVTTL 54pin TSOP(II)
+http://www.neko.ne.jp/~freewing/cpu/arm_oki/k4s281632f.pdf
 
 CPU: Texas Instruments AR7 MIPS based TI TNETD7300AGDW TNETD7300
 
