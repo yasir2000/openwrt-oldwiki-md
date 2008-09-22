@@ -1,7 +1,7 @@
 [[TableOfContents]]
 
 == Specifications ==
-ADSL modem with ADSL2/2+ support to 24Mbit/s+, it has port 4 LAN port.
+ADSL modem with ADSL2/2+ support to 24Mbit/s+, it has port 4 LAN port and Wi-FI.
 
 STAR-NET ADSL2110EHR S4W+
 
@@ -25,6 +25,7 @@ http://focus.ti.com/general/docs/bcg/bcgprodcontent.tsp?templateId=6116&navigati
 
 http://focus.ti.com/pdfs/bcg/ar7_prod_bulletin.pdf
 
+Wi-Fi chip: TNEW1130GVF
 ----
 
 CategoryModel ["CategoryAR7Device"]
