@@ -7,7 +7,7 @@ STAR-NET ADSL2110EHR S4W+
 
 PCB: ADSL2110-EH V1.0-S4W 2004.11.1
 
-PCB Photo: 
+PCB Photo: attachment:ADSL2110-EH_V1.0-S4W_2004.11.1.JPG
 
 serial console 9600,n,8,1,hw jp1:
 
