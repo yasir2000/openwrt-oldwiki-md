@@ -25,26 +25,6 @@ Changes in menuconfig:
  * Target Images
   * jffs2: '''N'''
   * ext2: '''N'''
- * Base System
-  * busybox
-   * Configuration
-    * Busybox Settings
-     * General Configuration
-      * Runtime SUID/SGID configuration via /etc/busybox.conf: '''Y'''
-       * Suppress warning message if /etc/busybox.conf is not readable: '''Y'''
-     * Login/Password Management Utilities
-      * addgroup: '''Y'''
-       * Support for adding users to groups: '''Y'''
-      * delgroup: '''Y'''
-       * Support for removing users from groups.: '''Y'''
-      * Enable sanity check on user/group names in adduser and addgroup: '''Y'''
-      * adduser: '''Y'''
-       * Enable long options: '''Y'''
-      * deluser: '''Y'''
-      * su: '''Y'''
-       * Enable su to write to syslog: '''Y'''
-       * Enable su to check user's shell to be listed in /etc/shells: '''Y'''
-      * sulogin: '''Y'''
  * Network
   * hostapd: '''M'''
   * wpa-supplicant: '''M'''
