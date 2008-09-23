@@ -47,6 +47,12 @@ Changes in menuconfig:
  * Kernel modules
   * Filesystems
    * kmod-fs-ext3: '''M'''
+  * USB Support
+   * kmod-usb-core: '''M'''
+    * kmod-usb-ohci: '''M'''
+    * kmod-usb-storage: '''M'''
+    * kmod-usb-uhci: '''M'''
+    * kmod-usb2: '''M'''
   * Wireless Drivers
    * kmod-madwifi: '''M'''
  * Administration
