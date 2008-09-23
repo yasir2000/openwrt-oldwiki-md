@@ -150,5 +150,6 @@ R59 connected between pin17 flash and GND
 attachment:enable_watchdog.jpg
 
 ----
-CategoryModel ["CategoryAR7Device"]
+
+ . CategoryModel ["CategoryAR7Device"]
  . CategoryDslModems
