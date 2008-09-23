@@ -28,4 +28,6 @@ http://focus.ti.com/pdfs/bcg/ar7_prod_bulletin.pdf
 Wi-Fi chip: TNEW1130GVF
 ----
 
-CategoryModel ["CategoryAR7Device"]
+ . CategoryModel ["CategoryAR7Device"]
+ . CategoryDslModems
+ . Category80211gDevices
