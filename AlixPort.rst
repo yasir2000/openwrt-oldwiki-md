@@ -1,33 +1,23 @@
 == Building firmware for the ALIX.2C2 ==
 {{{
 $ cd ~/
-$ rm -rf ~/x86-trunk/
-$ git clone git://nbd.ds10.mine.nu/openwrt.git ~/x86-trunk/
-$ cd ~/x86-trunk/
-$ cp -fpR ~/patches/feeds.conf ~/x86-trunk/
-$ mkdir -p files/etc/uci-defaults; cp -fpR ~/patches/defaults files/etc/uci-defaults/
-$ ./scripts/feeds update
+$ rm -rf ~/alix.2c2/
+$ svn checkout https://svn.openwrt.org/openwrt/trunk/ ~/alix.2c2
+$ cd ~/alix.2c2/
+$ mkdir -p files/etc/uci-defaults; cp -fpR ~/patches/defaults files/etc/uci-defaults/; chmod a+x files/etc/uci-defaults/defaults
+$ ./scripts/feeds update packages luci
 $ ./scripts/feeds install -a -p luci
-$ ./scripts/feeds install wget nano
-$ cd ~/x86-trunk/; rm -rf .config*; make menuconfig
-$ cd ~/x86-trunk/; make menuconfig}}}
+$ make menuconfig}}}
 ~/patches/defaults:
 
 {{{
-#!/bin/sh (-)
+#!/bin/sh
 uci batch <<-EOF
         set network.wan=interface
         set network.wan.proto=dhcp
         set network.wan.ifname=eth1
         commit network
-        set luci.main.mediaurlbase=/luci-static/openwrt-light
-        commit luci
 EOF}}}
-~/patches/feeds.conf
-
-{{{
-src-git packages git://nbd.ds10.mine.nu/packages.git
-src-git luci git://nbd.ds10.mine.nu/luci.git}}}
 Changes in menuconfig:
 
  * Target System: '''x86 [2.6]'''
@@ -35,39 +25,52 @@ Changes in menuconfig:
  * Target Images
   * jffs2: '''N'''
   * ext2: '''N'''
-  * Extra kernel boot options: '''irqpoll'''
-  * Filesystem part size (in MB): '''128'''
+ * Base System
+  * busybox
+   * Configuration
+    * Busybox Settings
+     * General Configuration
+      * Runtime SUID/SGID configuration via /etc/busybox.conf: '''Y'''
+       * Suppress warning message if /etc/busybox.conf is not readable: '''Y'''
+     * Login/Password Management Utilities
+      * addgroup: '''Y'''
+       * Support for adding users to groups: '''Y'''
+      * delgroup: '''Y'''
+       * Support for removing users from groups.: '''Y'''
+      * Enable sanity check on user/group names in adduser and addgroup: '''Y'''
+      * adduser: '''Y'''
+       * Enable long options: '''Y'''
+      * deluser: '''Y'''
+      * su: '''Y'''
+       * Enable su to write to syslog: '''Y'''
+       * Enable su to check user's shell to be listed in /etc/shells: '''Y'''
+      * sulogin: '''Y'''
  * Network
-  * hostapd: '''Y'''
-  * ppp: '''N''' (if you don't need PPP)
-  * wget: '''Y'''
+  * hostapd: '''M'''
+  * wpa-supplicant: '''M'''
  * Kernel modules
-  * Cryptographic API modules
-   * kmod-crypto-ocf: '''Y '''
   * Filesystems
-   * kmod-fs-ext3: '''Y'''
-   * kmod-nls-utf8: '''Y'''
+   * kmod-fs-ext3: '''M'''
   * Wireless Drivers
-   * kmod-madwifi: '''Y'''
-    * Madwifi version: '''Use the upstream release version 0.9.4'''
+   * kmod-madwifi: '''M'''
  * Administration
   * LuCI Components
-   * luci-admin-full: '''Y'''
-   * luci-admin-mini: '''Y'''
-   * luci-app-ddns: '''Y'''
-   * luci-app-firewall: '''Y'''
-   * luci-app-ntpc: '''Y'''
-   * luci-app-qos: '''Y'''
+   * luci-admin-full: '''M'''
+   * luci-app-ddns: '''M'''
+   * luci-app-firewall: '''M'''
+   * luci-app-ntpc: '''M'''
+   * luci-app-qos: '''M'''
+   * luci-app-samba: '''M'''
   * LuCI Themes
-   * luci-theme-openwrtlight: '''Y'''
+   * luci-theme-openwrtlight: '''M'''
  * Utilities
-  * Editors
-   * nano: '''Y'''
   * disc
-   * cfdisk: '''Y'''
-   * swap-utils: '''Y'''
-  * e2fsprogs: '''Y'''
-{{{$ make world}}}
+   * cfdisk: '''M'''
+   * swap-utils: '''M'''
+  * e2fsprogs: '''M'''
+{{{
+$ make world
+}}}
 
 http://www.netgate.com/product_info.php?cPath=60&products_id=509
 
