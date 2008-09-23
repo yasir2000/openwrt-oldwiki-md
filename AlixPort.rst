@@ -47,6 +47,9 @@ Changes in menuconfig:
  * Kernel modules
   * Filesystems
    * kmod-fs-ext3: '''M'''
+   * Network Devices
+    * kmod-natsemi: '''N'''
+    * kmod-ne2k-pci: '''N'''
   * USB Support
    * kmod-usb-core: '''M'''
     * kmod-usb-ohci: '''M'''
