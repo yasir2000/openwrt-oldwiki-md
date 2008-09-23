@@ -18,5 +18,6 @@ PCB Photo:
 [[ImageLink(Jtag_Serial.JPG,Jtag_Serial.JPG,width=400)]]
 
 ----
- . ["CategoryAR7Device"]
+
+ . CategoryModel ["CategoryAR7Device"]
  . CategoryDslModems
