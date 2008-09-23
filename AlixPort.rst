@@ -1,9 +1,9 @@
-== Building firmware for the ALIX.2C2 ==
+== Building firmware for ALIX ==
 {{{
 $ cd ~/
-$ rm -rf ~/alix.2c2/
-$ svn checkout https://svn.openwrt.org/openwrt/trunk/ ~/alix.2c2
-$ cd ~/alix.2c2/
+$ rm -rf ~/alix/
+$ svn checkout https://svn.openwrt.org/openwrt/trunk/ ~/alix
+$ cd ~/alix/
 $ mkdir -p files/etc/uci-defaults; cp -fpR ~/patches/defaults files/etc/uci-defaults/; chmod a+x files/etc/uci-defaults/defaults
 $ ./scripts/feeds update packages luci
 $ ./scripts/feeds install -a -p luci
@@ -13,6 +13,7 @@ $ make menuconfig}}}
 {{{
 #!/bin/sh
 uci batch <<-EOF
+        # Configure the eth1 NIC from the ALIX.2C2 to act as a WAN port and get the IP address via DHCP
         set network.wan=interface
         set network.wan.proto=dhcp
         set network.wan.ifname=eth1
@@ -51,7 +52,6 @@ Changes in menuconfig:
 {{{
 $ make world
 }}}
-
 http://www.netgate.com/product_info.php?cPath=60&products_id=509
 
 === Hardware Encryption ===
