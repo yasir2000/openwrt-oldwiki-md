@@ -28,7 +28,9 @@ Some infos can be found here http://www.smallnetbuilder.com/content/view/24757/7
 Because the 12V input of the SC101 is directly fed to the IDE/ATA drives, this device is pretty strict in the quality of power (unlike many other OpenWRT devices that have a nominal input, but in fact because of switched regulator usually run on whatever you give them) The MP1583 I suspect is a switched regulator that creates the 5V from the 12V line. Used Cap is 16V, but as stated, because of the drives I would not experiment with the input voltage. The AIC 1084 is a linear regulator that would then create the 3.3V from the 5V Actual drawn power, with no drives attached is 160 mA
 
 == CPU ==
-As stated a Texas Instruments TI TNETV2005ZGW processor at 125Mhz. I suspect it must have an onboard IDE bus, as I cannot find any other chip that would do this. A TQ25.000 crystal is located near the CPU
+As stated a Texas Instruments TI TNETV2005ZGW processor at 125Mhz. I suspect it must have an onboard IDE bus, as I cannot find any other chip that would do this. A TQ25.000 crystal is located near the CPU.
+
+Inside the firmware various IO ports are mapped to some addresses in range 0xA8610000-0xA8612800, and HDD-specific ports are mapped to some addresses in 0xBC380000-0xBC780000.
 
 == IDE bus ==
 
@@ -70,7 +72,7 @@ My 3.3V phone USB serial cable had its Tx floating pulled up to 3.3V, and if I c
 
 == Bootwait, dhcp and tftp ==
 
-There is a 3 second bootwait, and the tftp command exists in the bootloader. Dhcp is disabled by default due to BOOTCFG=m:f:"vxWorks" environment variable. Manually changing BOOTCFG=a:nf:"vxWorks" forces dhcp starts right after minimal boot completed and auto-setup IPA and IPA_GATEWAY variables according to network settings.
+There is a 3 second bootwait, and the tftp command exists in the bootloader. Dhcp is disabled by default due to BOOTCFG=m:f:"vxWorks" environment variable. Manually changing BOOTCFG=a:nf:"vxWorks" forces dhcp starts right after minimal boot completed and auto-setup IPA and IPA_GATEWAY variables according to network settings. By using tftp it is possible to store files on flash or load ELF(?)executable directly to RAM and run it.
 
 Boot with default settings:
 {{{
