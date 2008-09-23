@@ -1,3 +1,18 @@
+http://www.netgate.com/product_info.php?cPath=60&products_id=509
+
+=== Hardware Encryption ===
+http://www.docunext.com/wiki/My_Notes_on_Patching_2.6.22_with_OCF
+
+I was able to patch the kernel and openssl with cryptodev support.  I also created a package makefile for cryptotest.  cryptotest reports the geode AES engine to be very fast, nearly exactly as fast as in the link above.
+
+Using openVPN, I am seeing a thoughput increase from 1.3MB/s without the hardware crypto, to 2.0MB/s with the hardware crypto.
+
+I was hoping the hardware crypto would make openvpn much faster, but it appears there is a lot of overhead, mainly authentication.  Perhaps if the geode supported both encryption and authentication it would help more?
+
+Anyway, here are the patches: http://www.psyc.vt.edu/openwrt/110-geode_aes_support-package.patch http://www.psyc.vt.edu/openwrt/110-geode_aes_support-target.patch
+
+Run 'make distclean' before running menuconfig, this will re-load the alix profile.
+
 == Building firmware for ALIX ==
 {{{
 $ cd ~/
@@ -52,33 +67,6 @@ Changes in menuconfig:
 {{{
 $ make world
 }}}
-http://www.netgate.com/product_info.php?cPath=60&products_id=509
-
-=== Hardware Encryption ===
-http://www.docunext.com/wiki/My_Notes_on_Patching_2.6.22_with_OCF
-
-I was able to patch the kernel and openssl with cryptodev support.  I also created a package makefile for cryptotest.  cryptotest reports the geode AES engine to be very fast, nearly exactly as fast as in the link above.
-
-Using openVPN, I am seeing a thoughput increase from 1.3MB/s without the hardware crypto, to 2.0MB/s with the hardware crypto.
-
-I was hoping the hardware crypto would make openvpn much faster, but it appears there is a lot of overhead, mainly authentication.  Perhaps if the geode supported both encryption and authentication it would help more?
-
-Anyway, here are the patches: http://www.psyc.vt.edu/openwrt/110-geode_aes_support-package.patch http://www.psyc.vt.edu/openwrt/110-geode_aes_support-target.patch
-
-Run 'make distclean' before running menuconfig, this will re-load the alix profile.
-
-=== OpenWRT menuconfig ===
- * config buildroot with the following options:
-  * Target System: x86
-  * Subtarget: Generic
-  * Target Profile: PCEngines Alix
-  * Target Options:
-   * jffs2, squashfs, ext2
-   * serial baud rate: 38400
-   * Kernel partition size: 12 (my preference)
-   * root partition: /dev/hda2
-   * Filsystem part size: 96MB (my preference)
-   * Maximum number of inodes: 1500
 === Flashing the image to the CF card ===
 On a linux box with a cf reader:
 
