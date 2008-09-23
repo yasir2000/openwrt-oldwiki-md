@@ -43,11 +43,12 @@ Because a 40 pin cable is used, the drives cannot operator above UDMA 33MB. But 
  *J2  IDE header (1 port, 2 channels) 
  *J3  Fan 2-pin header (missed on some design)
  *J4  Possibly 20 pin JTAG, though I cannot map even the ground connections to any known JTAG. Or 14 pin JTAG *and* Serial in a custom format ? 
- *J5: Fan 2-pin header (missed on some design). The original SC101 prototype design did have an external fan mounted on the back end of the unit, which was removed on some devices went into production.
+ *J5: Fan 2-pin header (missed on some design).
+The original SC101 prototype design did have an external fan mounted on the back end of the unit, which was removed on some devices went into production.
 
 == GPIO ==
 
-One to the SW1 obviously. Further, there are 4 data lines lines going to the power/led subprint. 2 of them seem to come directly from the IDE bus, I suspect drive activity is one of them, so two would be general IO. And there are only 3 LEDs on the sub print, and one unused solder pad. There may be a free I/O
+One to the SW1 obviously, and one to D2 LED on PCB (lights on after vxVorks startded). Further, there are 4 data lines going to the power/led subprint. 2 of them seem to come directly from the IDE bus, I suspect drive activity is one of them, so two would be general IO. And there are only 3 LEDs on the sub print, and one unused solder pad. There may be a free I/O
 
 == Serial ==
 
@@ -67,9 +68,11 @@ Settings 3.3v with 9600 8N1
 }}}
 My 3.3V phone USB serial cable had its Tx floating pulled up to 3.3V, and if I connected before powerup to pin 10 Rx, the device '''would not power up'''. I had to apply power first, then quickly connect pin 10, just in time to press Esc in the 3 second boot wait. If I was too slow, I had to wait a minute for the full VxWorks boot, and type reboot. Upon reboot, the already connected Rx did not matter.
 
-== Bootwait and tftp ==
+== Bootwait, dhcp and tftp ==
 
-There is a 3 second bootwait, and the tftp command exists in the bootloader. I did not (yet) check if the tftp was active during the 3 seconds. But the 'printenv' command shows an IP address of 192.168.1.1 and a server IP address of 192.168.1.100, so there is a change either the device is reachable during bootwait, or it reaches out to a server.
+There is a 3 second bootwait, and the tftp command exists in the bootloader. Dhcp is disabled by default due to BOOTCFG=m:f:"vxWorks" environment variable. Manually changing BOOTCFG=a:nf:"vxWorks" forces dhcp starts right after minimal boot completed and auto-setup IPA and IPA_GATEWAY variables according to network settings.
+
+Boot with default settings:
 {{{
 Minimal POST completed...     Success.
 PSPBoot1.0 rev: 0.10.4
@@ -141,16 +144,26 @@ no unallocated space left on flash
 
 (psbl)boot
 }}}
-The attachments below show a interupted boot with the bootloader, and an uninterupted boot into VxWorks (with no drives or network attached)
+The attachments below show an interrupted boot with the bootloader, an uninterrupted boot into VxWorks (with no drives or network attached), and test of tftp with dhcp enabled.
 
 attachment:bootloader.txt
-
 attachment:vxworks.txt
+attachment:dhcp_tftp.txt
 
 == Board ==
+Version 1 (without fans support):
+
 attachment:sc101%20print%20top.jpg
 
 attachment:sc101%20print%20bottom.jpg
+
+
+
+Version 2 (with fans support):
+
+attachment:sc101_v2_top.jpg
+
+attachment:sc101_v2_bottom.jpg
 
 == Sub-board ==
 
