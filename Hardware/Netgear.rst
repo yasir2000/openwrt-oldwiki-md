@@ -16,7 +16,8 @@
 ||[http://www.netgear.com/products/details/WG602.php WG602] ||3 ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM4712 Broadcom 4712] @ 200MHz ||2MB ||8MB ||Broadcom (integrated) ||None ||on ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Netgear/WG602v3:WiP] ||
 ||[http://www.netgear.com/products/details/WGR614.php WGR614] ||3 ||[http://www.atheros.com/pt/AR5002AP-XBulletin.htm Atheros 2312] @ 180MHz ||4MB ||16MB ||integrated Atheros || ||N/A || || ||No ||[:AtherosPort:WiP] ||
 ||[http://www.netgear.com/products/details/WGR614.php WGR614] ||7 ||[http://www.atheros.com/pt/AR5002AP-XBulletin.htm Atheros 2317] ||4MB ||16MB ||Atheros (integrated) ||ADM6996FC ||N/A || || ||No ||[:AtherosPort:WiP]? ||
-||[http://www.netgear.com/products/details/WGR614.php WGR614] ||8 || ?? ||??MB ||??MB ||?? ||?? ||N/A || || ||No ||[:OpenWrtDocs/Hardware/Netgear/WGR614v8:WiP] ||
+||[http://www.netgear.com/products/details/WGR614.php WGR614] ||8 ||@ 240 MHz ||4MB ||16MB ||?? ||?? ||N/A || || ||No ||[:OpenWrtDocs/Hardware/Netgear/WGR614v8:WiP] ||
+||WGR614 ||9 || ||2MB ||8MB || || || || || || || ||
 ||[http://www.netgear.com/Products/RoutersandGateways/WirelessGRouters/WGR614L.aspx WGR614L] || ||@240 MHz ||4MB ||16MB || || || || || || || ||
 ||[http://www.netgear.com/products/details/WGT624.php WGT624] ||1 ||[http://www.atheros.com/pt/AR5002AP-XBulletin.htm Atheros 2312] @ 180MHz ||4MB ||16MB ||integrated Atheros ||Marvell ||N/A ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Netgear/WGT624:WiP] ||
 ||[http://www.netgear.com/products/details/WGT624.php WGT624] ||3 ||Atheros 2316A? @ ???MHz ||2MB ||8MB (16MB?) || Integrated Atheros 5315 ||Marvell 88E6060 ||N/A || ? || ? ||No ||[:OpenWrtDocs/Hardware/Netgear/WGT624v3:WiP] ||
