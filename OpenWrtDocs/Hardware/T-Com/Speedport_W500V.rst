@@ -66,9 +66,7 @@ Uses a 16V DC, 900mA PSU
   * GPIO 28 - "Festnetz" LED
   * GPIO 32 - "Internet" - VoIP LED
   * GPIO 33 - Reset Switch
-
-'''5) Serial '''
-A serial connection is avaiable in at the PCB (see below).
+'''5) Serial ''' A serial connection is avaiable in at the PCB (see below).
 
 '''6) JTAG'''
 
@@ -515,38 +513,39 @@ Firmware: http://www.telekom.de/dtag/downloads/f/fw_speedport_w500v_v1.30.zip
 
 Sources: http://www.telekom.de/dtag/downloads/b/bcm963xx_SpeedportW500V.01.2.01L.300L01.V27_cons_rel.tar.gz
 
-'''Custom Firmware:'''
-There are some alternate Firmwares for the SpeedPort W500V:
+'''Custom Firmware:''' There are some alternate Firmwares for the SpeedPort W500V:
+
  1. !BitSwitcher - http://bitswitcher.sourceforge.net/
  1. Wrt500V - http://vvv.borkum.net/files/w500v/
  1. mod500 - http://sourceforge.net/projects/mod500/
+!BitSwitcher and Wrt500V are the more advanced firmware mods for the W500V. mod500 is just a couple of patches to enable telnet access to the Speedport.
 
-!BitSwitcher and Wrt500V are the more advanced firmware mods for the W500V.
-mod500 is just a couple of patches to enable telnet access to the Speedport.
+!BitSwitcher in BitSwitcher there are some additional features enabled:
 
-!BitSwitcher in BitSwitcher there are some additional features enabled: 
- * it has now true nvram
+ * really new designed advanced WEB-interface
+ * own NVRAM-tool with compression option
  * telnet
  * ssh
- * dnsmasq 
+ * dnsmasq
  * Wake-on-LAN
- * stproxy etc. and offers a new Web-Interface. (Obviously a redesigned copy of the T-Com Interface).
+ * stproxy
+ * RADIUS-Server
+ * OpenVPN
+ * writable jffs2-partition (max. 1MB)
+ * detailed control of telephone (ATA),dsl and WLAN hardware
 It has one Disadvantage no writeable rootfs like OpenWRT kamikaze.
 
-Wrt500V is a set of patches for the original Speedport buildkit by T-Com to build a 2.6.8.1 kernel an run an 
-OpenWrt Kamikaze svn-r8025.
-Added kernel patches/bugfixes are:
+Wrt500V is a set of patches for the original Speedport buildkit by T-Com to build a 2.6.8.1 kernel an run an  OpenWrt Kamikaze svn-r8025. Added kernel patches/bugfixes are:
+
  * ip-dst-cache-fix; A show stopper that let the the speedport freeze after a few ours/days, when the tcp connection table is full. By now (08-04-07) all official firmwares (T-Com/Targa) have this bug.
  * mini_fo and openwrt mtd flash layout for a writeable rootfs.
  * iptables layer7, ipp2p
+This firmware has no VoIP support because of lack of space in the flash, but you can do what ever you want with on of the most robust DSL-Modem-Parts for Annex B and Kamikaze. By default: The prepacked firmware has dropbear, dnsmasq, openvpn, curl in the squashfs part.
 
-This firmware has no VoIP support because of lack of space in the flash, but you can do what ever you want with on of the most robust DSL-Modem-Parts for Annex B and Kamikaze.
-By default: The prepacked firmware has dropbear, dnsmasq, openvpn, curl in the squashfs part.
-
-At the download site there is also a .c-file for testing the puposes of the gpio pins to enabled a future mmc-mod.
-The fonera mmc driver might be interesting for that.
+At the download site there is also a .c-file for testing the puposes of the gpio pins to enabled a future mmc-mod. The fonera mmc driver might be interesting for that.
 
 Mod500 enables telnet on the SpeedPort W500V.
+
  . User: root
  Password: ''<webinterface password>'' (Factory Password = 0000)
 With the mod500 Firmware flashed you can now use the DMT Program to read out system and DSL information.
@@ -574,7 +573,6 @@ The router will now go into safe mode where the stock firmware can be reflashed.
  * Wrt500v http://vvv.borkum.net/files/w500v
  * mod500 Firmware split from T-Com Stock Rev. 1.3:[http://sourceforge.net/projects/mod500/DMT http://sourceforge.net/projects/mod500/]
  * DMT Program: http://dmt.mhilfe.de/
-
 = Misc =
 To contact me: stacato [at] gmail [DOT] com
 
