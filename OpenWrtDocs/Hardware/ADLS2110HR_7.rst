@@ -138,6 +138,7 @@ mtd5 0x901F0000,0x90200000
 }}}
 == WatchDog Enable ==
 {{{
+
 CPU revision is: 00018448 (MIPS 4KEc)
 bootcr 7300 is 0x2514281
 TI AR7 (TNETD7300), ID: 0x0005, Revision: 0x27
@@ -146,6 +147,7 @@ R59 connected between pin17 flash and Vcc(+3,3v)
 After change R59 place
 0x2514291 100101000101000010100-1-0001 enable!
 R59 connected between pin17 flash and GND
+
 }}}
 attachment:enable_watchdog.jpg
 
