@@ -1,5 +1,5 @@
 = Linksys WRTP54G =
-The Linksys WRTP54G and Linksys RTP300 linux-powered units are Voice-over-IP enabled routers based on the TI AR7 chipsets.
+The Linksys WRTP54G and Linksys RTP300 Linux-powered routers with two Voice-over-IP telephone ports.  They are based on the TI AR7 chipsets.
 || ||'''WRTP54G''' http://www1.linksys.com/products/image180/WRTP54G.jpg ||'''RTP300''' http://www1.linksys.com/products/image180/RTP300.jpg ||
 ||Base Hardware ||1 Ethernet uplink port, 4x 10/100MBps switch ports, 2 phone jacks ||1 Ethernet uplink port, 4x 10/100MBps switch ports, 2 phone jacks ||
 ||Wifi Support: ||54MBps 802.11b/g ||None ||
@@ -26,7 +26,6 @@ The Linksys WRTP54G and Linksys RTP300 linux-powered units are Voice-over-IP ena
 ||3.1.27.ETSI: ||[http://cfg.ipfon.pl/firmware/wrt-11.1.1-r070720-3.1.27.ETSI-r070720.img Firmware Image] No Source ||[http://cfg.ipfon.pl/firmware/rt-11.1.1-r070720-3.1.27.ETSI-r070720.img Firmware Image] No Source ||
 ||5.01.04: ||[http://httpconfig.vonage.net/wrt-11.4.1-r021-5.01.04-r070215.img Firmware Image] No Source ||[http://httpconfig.vonage.net/rt-11.4.1-r021-5.01.04-r070215.img Firmware Image] No Source ||
 
-
 == Firmware Dumps for Study ==
  * The nearly complete contents of a RTP300 router's mounted file system (version 1.00.55) were dumped, zipped and uploaded to [http://www.northern.ca/projects/openwrt/RTP300-1.0.55-fs-dump.zip here]
  * The nearly complete contents of a WRTP54G router's mounted file system present on firmware version 1.00.60 has been dumped, zipped and uploaded to [http://www.m-a-g.net/wrt-11.1.0-r021-1.00.60-r060123.tar.bz2 here]
@@ -42,8 +41,10 @@ The Linksys WRTP54G and Linksys RTP300 linux-powered units are Voice-over-IP ena
  * There is information about Linux on AR7 at http://www.linux-mips.org/wiki/AR7
 See also: ["AR7Port"]
 
-== Flash Layout ==
-= Flash Memory layout of RTP300 =
+= Flash Layout =
+
+== Flash Memory layout of RTP300 ==
+
 The initial flash layout is as follows:
 ||PSPBoot Name ||Start ||End ||Size ||
 ||BOOTLOADER ||0xB0000000 ||0xB0010000 ||0x010000 (64K) ||
@@ -54,7 +55,6 @@ The initial flash layout is as follows:
 ||CONFIG_B ||0xB07d0000 ||0xB07e0000 ||0x010000 (64K) ||
 || ||0xB07e0000 ||0xB00f0000 ||0x010000 (64K) ||
 ||cyt_private ||0xb07f0000 ||0xb0800000 ||0x010000 (64K) ||
-
 
 This layout is reflected in /dev/mtd as follows:
 
@@ -80,25 +80,30 @@ mtd8: 00010000 00010000 "cyt_private"                    (64K - 65,536 bytes)}}}
 ||fpar ||0xB07c0000 ||0xB07f0000 ||0x010000 (192K) ||
 ||cyt_private ||0xb07f0000 ||0xb0800000 ||0x010000 (64K) ||
 
-
-A comment in the script says that ''fpar' is for "storing sipura-sip voice parameters". ''
+A comment in the script says that ''fpar'' is for "storing sipura-sip voice parameters".
 
 == Additional Notes About Firmware Blocks ==
- * The 8MB flash contains two firmware areas. This is presumably so that the system can boot from a backup firmware if firmware flashing fails.  After boot the two firmwares are visible as mtd3 and mtd4 with mtd3 being the active firmware.  Which firmware is active seems to be determined by the setting of the boot loader environment variable BOOTCFG.  Unfortunately, changes to BOOTCFG do not stick.  See the description of this variable in the section on the boot environment.
+
+ * The 8MB flash contains partitions for two firmwares and two firmware configuration areas. This is presumably so that the system can boot from a backup firmware if firmware flashing fails.  After boot the two firmwares are visible as mtd3 and mtd4 with mtd3 being the active firmware.  Which firmware is active seems to be determined by the setting of the boot loader environment variable BOOTCFG.  Unfortunately, changes to BOOTCFG do not stick.  See the description of this variable in the section on the boot environment.
  * Unused space at the end of memory blocks is filled with the value 0xFF.
- * mtd0 root'' is mounted as /. It is a 1.x squashfs image with LZMA compression instead of Zlib. A new squash file system can be built using the mksquashfs from the src/squashfs directory of the source tarball. This mksquashfs has been patched to use LZMA compression instead of Zlib. ''
+ * mtd0 ''root'' is mounted as /. It is a 1.x squashfs image with LZMA compression instead of Zlib. A new squash file system can be built using the mksquashfs from the src/squashfs directory of the source tarball. This mksquashfs has been patched to use LZMA compression instead of Zlib.
  * mtd5 and mtd6 each begin with a 20 byte header beginning with a "LMMC" (hex 4C 4D 4D 43 00 03 00 00), followed by a Zlib compressed copy of the XML configuration file. There is one configuration partition for each firmware. The format of the compressed configuration file is described elsewhere in this document.
- * mtd7 RESERVED_BOOTLOADER'' contains a ["PSPBoot"] bootloader code and environment variables. ''
+ * mtd7 ''RESERVED_BOOTLOADER'' contains a ["PSPBoot"] bootloader code and environment variables.
  * These partitions are accessible after boot as /dev/mtdblock/0-9 (block device mode, suitable for mounting) or /dev/mtd/0-9 (character mode, suitable for reading or writing with dd). A partition must be erased before it can be written to.  Flashing firmware is fully described elsewhere in this document.
  * The directory /dev/ti_partitions/ contains symbolic links to several of the flash partitions. The intent seems to be to give them meaningful names.
  * The partition table seems to be constructed from various PSPBoot environment variables.  The kernel code to do this is in drivers/mtd/maps/avalance-flash.c.  Code in this file also creates the links in /dev/ti_partitions/.
-== Boot Loader ==
-The boot loader is PSPBoot.  
-The source code of psp_boot is under WAG54GV2_V1.00.19.tgz along with psp_boot user guide
 
+= Boot Loader =
+
+The boot loader is PSPBoot.  
 The PSPBoot loader is stored in the first partition of the flash memory.  This partition is 64K long.
 
-= Boot Loader Environment =
+== Boot Loader Source Code ==
+
+The source code of psp_boot is under WAG54GV2_V1.00.19.tgz along with psp_boot user guide
+
+== Boot Loader Environment ==
+
 The PSPBOOT boot loader contains a set of environment variables, some of which are used by the boot loader itself, while others are used by the firmware after boot.
 
 At the serial console (see Serial Console below to learn how to connect to the serial console) the printenv command displays the whole environment while the setenv, unsetenv, and setpermenv commands modify it.
@@ -154,13 +159,14 @@ BOOTCFG m:f:"IMAGE_A"}}}
 
 If the environment flash partition (the second one) is erased, a default environment will be created using data in the PSPBoot partition as a basis.  The default environment seems adequate to boot Linksys firmwares.  The only difference noted is that IPA is set to 169.254.87.1.
 
-== CONSOLE_STATE ==
+=== CONSOLE_STATE ===
+
 Setting this variable to "locked" causes PSPBoot to load the firmware without giving the user an oportunity to go to the PSPBoot prompt by pressing escape. Setting it to "unlocked" restores friendly behavior. See the Serial Console section for a way to unlock the console.
 
-== IPA, IPA_GATEWAY, SUBNET_MASK ==
+=== IPA, IPA_GATEWAY, SUBNET_MASK ===
 These variables define the IP settings used by the tftp command. It makes sense to change IPA to "192.168.15.1" since this is the IP address which the standard firmwares assign to the router.
 
-== ProductID ==
+=== ProductID ===
 This is a four character code which identifies the hardware.  This variable is read-only which means that one must reflash the boot loader in order to change it.  Bytes 0x14-0x17 of the firmware file must match this code or you will not be able to install it using the web interface. If you write it to flash by some other means, PSPboot will refuse to load it.
 
 Known ProductID values:
@@ -171,14 +177,14 @@ Known ProductID values:
  * WRTP54G from Vonage: CYWL
 One can trick a device into loading a firmware which was not intended for it by changing the ProductID in the firmware and updating the CRC at the end of it. (Refer to the description of the firmware update file format above.) Loading an incompatible firmware may brick your device, so be careful. In particular, loading an WRTP54G firmware on an RTP300 will brick it, but only when you do a factory reset. The reason for this is that /etc/config.xml in the WRTP54G firmware is incompatible with the RTP300. It seems that a system daemon crashes when it attempts to configure the wireless hardware. As long as the configuration created by the RTP300 firmware remains in place, all is well, but a factory reset copies config.xml into the configuration area. If you do this, you will have to use a serial console to regain access.
 
-== IMAGE_A, CONFIG_A, IMAGE_B, CONFIG_B ==
+=== IMAGE_A, CONFIG_A, IMAGE_B, CONFIG_B ===
 The router has room for two firmwares and a configuration area for each. Factory defaults can be restored by formatting the configuration area of the currently active firmware. (There are other ways to do this including a screen in the web interface and holding down the reset button for a few seconds once the device has booted.) The command to clear the conifguration area of the first firmware is:
 
 {{{fmt CONFIG_A}}}
 
 Possible ways to write a new firmware to IMAGE_A or IMAGE_B are described elsewhere in this document.
 
-== BOOTCFG_A, BOOTCFG_B, BOOTCFG ==
+=== BOOTCFG_A, BOOTCFG_B, BOOTCFG ===
 The firmware to be booted is defined by BOOTCFG. The variables BOOTCFG_A and BOOTCFG_B are appearently models for setting BOOTCFG.  Unfortunately, no way has been found to directly set BOOTCFG.
 
 BOOTCFG format: 
@@ -195,9 +201,8 @@ BOOTCFG format:
 
 ‘a’ stands for auto boot-file configuration ie. Let the DHCP server provide the filename to boot. This option is invalid if ‘m’ is selected. The boot-file provided by DHCP server can be over-ridden by providing an alternate filename in double-quotes. In case of manual configuration, provision of bootimage name is must.
 
-
-
 = Firmware Source Code Supplied by Linksys =
+
  * The source code supplied by Linksys is incomplete, it's missing the source for some of the utilities (cm_*, lib_cm, webcm) which are used in changing config settings and flashing new firmware updates.
  * There appear to be pieces missing which make the code as a whole unbuildable. At any rate, though several people in various forums have asked how to build the source code, nobody has posted instructions.
  * The source code supplied for some similiar Linksys routers, such as the WAG354GV2, has a more complete build system.
@@ -215,7 +220,9 @@ All of the known firmwares have the following characteristics in common:
  * Linux 2.4.17 kernel with Montavista patches
  * uClibc
  * Busybox
+
 == Characteristics of Firmware Version 1.00.XX ==
+
 As of September 2006, Vonage loads firmware version 1.00.62. This firmware has the following distinguishing characteristics:
 
  * Busybox is built without the more command
@@ -234,7 +241,9 @@ If your phone lines will not register with the SIP server or will not stay regis
  * Make sure there are no DNS servers entered in the provisioning tab (may be labeled "Vonage DNS Servers")
  * Use server names, not IP addresses.
  * If you can, log in using SSH or the serial console and make sure /etc/resolv.conf lists only good DNS servers.
+
 == Characteristics of Firmware Version 3.1.XX ==
+
 In July and August 2006 Linksys released firmware 3.1.17 for the WRTP54G-NA and RTP300-NA respectively. Previous versions in the 3.1.XX series, such as 3.1.10 which is floating around the Internet have problems registering with some SIP server or connecting to PPPOE servers.
 
 Firmware 3.1.17 has the following distinguishing characteristics:
@@ -248,9 +257,12 @@ Firmware 3.1.17 has the following distinguishing characteristics:
  * There are visible settings for NAT traversal features including NAT keepalive, an outgoing SIP proxy, and an STUN server.
  * The default SIP register interval is one hour.
  * Dropbear binary removed and ssh setting disabled.
+
 == Characteristics of Firmware Version 3.1.22 ==
  * Ping hack works (enter '''0.0.0.0 &&'''''''command'''' as address to ping)
+
 == Characteristics of Firmware Version 3.1.24-NA ==
+
 After some experiments with a few WRTP54G-ER units bought in April 2007, further information was gathered about the newer firmware, now at 3.1.24-NA (haven't seen an ETSI version yet).  Note that these units were fortunately shipped with the console (serial port) unlocked.  So much progress was made without having to resort to JTAG.  The SIP processing (ggsip) is dramatically different from the 1.0.xx versions.  Here's a brief rundown.
 
  * The SIP parameters are no longer stored in the main configuration, but kept in a formerly unused flash block at 0xb07c0000 - 0xb07effff (mtd9).
@@ -259,32 +271,44 @@ After some experiments with a few WRTP54G-ER units bought in April 2007, further
  * ggsip rewrites /etc/passwd and /etc/shadow (sym-linked into /var/tmp) with its own password when it starts up.  That means if you've set an Admin password (capital 'A') in your normal xml configuration file, you have about 30 seconds before ggsip starts up and changes the password to what it has stored in its config area.  This means that even if your firmware has "No Admin password" you need to be quick with your login or you'll still be locked out.
  * There are settings within this new config area that can prevent the ping & traceroute tools from working, thereby preventing exploits using those tools.
  * If you have somehow gained access, but not the voice pages, you can erase or format the flash block mentioned above which will wipe the voice configurations (including the Admin password) and gain full access.  No password will be required, and you can change it once you're in.  Note that this also changes the Admin password used to log in from ssh (dropbear).
+
 == Characteristics of Firmware Version 5.02.04 ==
+
 In late summer of 2007, Vonage began upgrading RTP300's to firmware version 5.02.04.  This firmware is currently being studied.  Details will be posted shortly.
 
  * Ping hack works (enter '''0.0.0.0 &&command''''''''' as address to ping) '' ''
-= Customized Firmwares =
+
+== Customized Firmwares ==
+
  * 3.1.17 firmware with dropbear/ssh enabled for Vonage units attachment:wrtp54g_fw_3.1.17_US.zip  (NOTE: This firmware has a sticky SSH remote administration setting, available to WAN, with Admin enabled and no password. Blocking port 22 doesn't seem to help.)
  * 3.1.27-ETSI firmware with dropbear/ssh enabled for -NA and -ER units attachment:wrt-11.1.1-r070720-3.1.27.ETSI-r070720-aguirre-r080119.img
+
 = User Accounts in the Official Firmwares =
+
 In the default configuration, the RTP and WRTP54G have three usernames, one with each of the defined access levels.
 
 == admin ==
+
 This user has an access level of "ROUTER". This appears to be the level of access required to log into the top page of the router and to change settings related to the router functions. The default password is "admin".
 
 == user ==
+
 This user has an access level of "USER". Oddly, this access level permits flashing the firmware whereas level "ROUTER" does not. Accounts with access level "USER" cannot be used to log into the router independently. One must first log in as a user with "ROUTER" level access and then present  the username and password of an account with "USER" level access when the prompt "Enter username and password supplied by your service provider" appears.
 
 == Admin ==
+
 This is the only user represented in /etc/passwd which means that this is the only user that can be used to log in using SSH and on the serial console (the latter when /etc/inittab specifies that /bin/login is to be run on the console rather than /bin/sh). This user has the access level "ADMIN" which also permits flashing the firmware but does not allow independent login.
 
 = Web Access =
+
 The primary way to configure these devices is through a web interface. In the initial configuration the LAN IP address is 192.168.15.1. There is a web server with a management interface running on port 80. The default username is "admin" with a password of "admin". If you find that the web server is not running or the password "admin" is not accepted, you can reset the router to factory defaults by using a paper clip to hold down the reset button while powering the router up. Continue to hold down the reset button for about 50 seconds.
 
 = SSH Access =
+
 Version 1.00.XX firmwares for both the WRTP54G and RTP300 both can run the Dropbear SSH server. This feature must be enable using the web interface. The only username in /etc/passwd is "Admin" (note the upper case A). Reliably setting the password for this account is problematic.
 
 = Noteworthy Programs and Files in the 3.1.XX Firmware =
+
  * /etc/inittab
   . Starts /etc/init.d/rcS and starts /bin/login or /bin/sh on the serial console.
  * /etc/init.d/rcS
@@ -333,7 +357,9 @@ Version 1.00.XX firmwares for both the WRTP54G and RTP300 both can run the Dropb
  * /usr/bin/nmm
   . This is some sort of diagnostic tool for the VOIP functions.  It may control ggsip.  When started '' ''
   . it presents a command-line interface.
+
 = Firmware Update File Format =
+
 Here is a partial description of the format of the firmware update file format which is accepted by the web interface and the slightly different format which can be written into flash from the boot loader console (accessible through the serial interface).
 
  * Bytes 0x00 through 0x03 are "CDTM". This is presumably a magic number identifying the file as a firmware.
