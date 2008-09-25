@@ -7,8 +7,6 @@ STAR-NET ADSL2110EHR S4W+
 
 PCB: ADSL2110-EH V1.0-S4W 2004.11.1
 
-PCB Photo: [[ImageLink(ADSL2110-EH_V1.0-S4W_2004.11.1.JPG,width=800)]]
-
 serial console 9600,n,8,1,hw jp1:
 
 1 VCC 2 TX 3 RX 4 -- 5-- 6 GND 7 GND
@@ -35,3 +33,6 @@ http://www.icplus.com.tw/Data/Datasheet/IP175Cx-DS-R15-20080529.pdf
  . CategoryModel ["CategoryAR7Device"]
  . CategoryDslModems
  . Category80211gDevices
+----
+== PCB Photo ==
+attachment:ADSL2110-EH_V1.0-S4W_2004.11.1.JPG
