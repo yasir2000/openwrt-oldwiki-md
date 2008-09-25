@@ -7,7 +7,8 @@ STAR-NET ADSL2110EHR S4W+
 
 PCB: ADSL2110-EH V1.0-S4W 2004.11.1
 
-PCB Photo: attachment:ADSL2110-EH_V1.0-S4W_2004.11.1.JPG
+PCB Photo:
+[[ImageLink(ADSL2110-EH_V1.0-S4W_2004.11.1.JPG,ADSL2110-EH_V1.0-S4W_2004.11.1.JPG,width=800)]]
 
 serial console 9600,n,8,1,hw jp1:
 
@@ -26,6 +27,12 @@ http://focus.ti.com/general/docs/bcg/bcgprodcontent.tsp?templateId=6116&navigati
 http://focus.ti.com/pdfs/bcg/ar7_prod_bulletin.pdf
 
 Wi-Fi chip: TNEW1130GVF
+
+Switch: IP175C 5Port 10/100 Ethernet Integrated Switch
+
+http://www.icplus.com.tw/pp-IP175C.html
+http://www.icplus.com.tw/Data/Datasheet/IP175Cx-DS-R15-20080529.pdf
+
 ----
 
  . CategoryModel ["CategoryAR7Device"]
