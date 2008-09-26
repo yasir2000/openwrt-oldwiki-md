@@ -460,10 +460,11 @@ Do not connect the router's serial port directly to your computer's RS232 port. 
 
 The default settings for the serial port are 115200 BPS, 8 bit words, no parity, hardware flow control. These settings may be changable by setting the boot environment variable MODETTY.
 
-The serial port is the boot loader console. If the boot-loader environment variable CONSOLE_STATE is set to "unlocked" (rather than "locked") then you will have three seconds to stop the boot (by pressing ESC) and receive a boot loader prompt.  If you manage to get shell, you could try the following to unlock the PSPBoot console with this command:
+The serial port is the boot loader console. If the boot-loader environment variable CONSOLE_STATE is set to "unlocked" (rather than "locked") then you will have three seconds to stop the boot (by pressing ESC) and receive a boot loader prompt.  If you manage to do a shell login to a booted firmware, you could try the following to unlock the PSPBoot console with this command:
 
 {{{
 # echo "CONSOLE_STATE unlocked" >/proc/ticfg/env}}}
+
 You should try to do this as soon as you can since you may need to use the serial console to recover after flashing a bad firmware.  If it is not unlocked, your ownly remaining option is to use a JTAG cable to read the environment block, use a hex editor to change "locked" to "unlocked" (followed by a 0 byte) and write the environment block back to flash.
 
 Most if not all firmwares allow login on the serial port once they are booted. Some run /bin/login whereas others simply run /bin/sh. The 3.1.10 firmware which is floating around the internet, though said to be unstable, does have the advantage that it accepts "Admin" as a username with a blank password. Once you have logged into a running firmware you can change CONSOLE_STATE with the command:
@@ -513,6 +514,7 @@ It is presumably possible to write a firmware using JTAG, but it would be very s
 The PSPBoot page suggests that there is a one second window during PSPBoot startup during which a TFTP server is ready to accept a new firmware named upgrade_code.bin, but this feature does not seem to be included in the build of PSPBoot installed on the RTP300.
 
 == Using the Web Interface ==
+
 This method ranges from very easy to somewhat tricky depending on what firmware is currently installed. The basic procedure is as follows:
 
  1. Connect a computer to one of the yellow ports of the router
@@ -534,6 +536,7 @@ This method ranges from very easy to somewhat tricky depending on what firmware 
 If the web server does not respond in step three, or the default password does not work in step four, make sure the router has been powered up for at least 50 seconds and then hold down the reset button for at least five seconds. The router will restore its factory defaults and reboot. Return to step three.
 
 == Seting a Firmware Update URL on the Provisioning Page ==
+
 VOIP providers can configure these routers to periodically download a VOIP configuration file. This file contains VOIP settings and login credentials for the provider's SIP server. This process is called "provisioning". The "provisioning" file can also instruct the router to download and install a new firmware. The Provisioning page in the web interface can also be used to initiate this process. This may be helpful if you loose access the firmware upgrade page but still have access to the Provisioning page. Here is the procedure for the 3.1.XX series firmware:
 
  * Connect to the web interface and log in as admin
@@ -610,6 +613,7 @@ Flashing the firmware in this way is much slower than flashing it through the we
 If your TFTP server is not in the same subnet or the subnet mask is not 255.255.255.0 you will have to set additional environment variables as described under Boot Loader Environment.
 
 == Locked Out ==
+
 It is fairly easy to lock yourself out of the router by setting a bad password or installing a bad firmware.  Please add tips for regaining access to this section.
 
 === Unlocking Tools ===
