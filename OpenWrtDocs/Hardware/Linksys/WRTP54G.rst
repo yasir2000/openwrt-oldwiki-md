@@ -100,7 +100,7 @@ The PSPBoot loader is stored in the first partition of the flash memory.  This p
 
 == Boot Loader Source Code ==
 
-The source code of psp_boot is under WAG54GV2_V1.00.19.tgz along with psp_boot user guide
+The source code of PSPBoot 1.2 and the PSPBoot user guide can be found inside WAG54GV2_V1.00.19.tgz (ftp://ftp.linksys.com/opensourcecode/wrt54gv2/1.00.19/WAG54GV2_V1.00.19_GPL.tgz).  Note that the RTP300 uses PSPBoot 1.3.3.11 which includes additional features such as dual images.
 
 == Boot Loader Environment ==
 
@@ -177,9 +177,11 @@ Known ProductID values:
  * RTP300 from Vonage: CYLL
  * WRTP54G-NA: CYWM
  * WRTP54G from Vonage: CYWL
+
 One can trick a device into loading a firmware which was not intended for it by changing the ProductID in the firmware and updating the CRC at the end of it. (Refer to the description of the firmware update file format above.) Loading an incompatible firmware may brick your device, so be careful. In particular, loading an WRTP54G firmware on an RTP300 will brick it, but only when you do a factory reset. The reason for this is that /etc/config.xml in the WRTP54G firmware is incompatible with the RTP300. It seems that a system daemon crashes when it attempts to configure the wireless hardware. As long as the configuration created by the RTP300 firmware remains in place, all is well, but a factory reset copies config.xml into the configuration area. If you do this, you will have to use a serial console to regain access.
 
 === IMAGE_A, CONFIG_A, IMAGE_B, CONFIG_B ===
+
 The router has room for two firmwares and a configuration area for each. Factory defaults can be restored by formatting the configuration area of the currently active firmware. (There are other ways to do this including a screen in the web interface and holding down the reset button for a few seconds once the device has booted.) The command to clear the conifguration area of the first firmware is:
 
 {{{fmt CONFIG_A}}}
@@ -187,7 +189,8 @@ The router has room for two firmwares and a configuration area for each. Factory
 Possible ways to write a new firmware to IMAGE_A or IMAGE_B are described elsewhere in this document.
 
 === BOOTCFG_A, BOOTCFG_B, BOOTCFG ===
-The firmware to be booted is defined by BOOTCFG. The variables BOOTCFG_A and BOOTCFG_B are appearently models for setting BOOTCFG.  Unfortunately, no way has been found to directly set BOOTCFG.
+
+The firmware to be booted is defined by BOOTCFG. The variables BOOTCFG_A and BOOTCFG_B are apparently models for setting BOOTCFG.  Unfortunately, no way has been found to directly set BOOTCFG.
 
 BOOTCFG format: 
 
@@ -201,7 +204,7 @@ BOOTCFG format:
 
 ‘n’ stands for boot from network using TFTP 
 
-‘a’ stands for auto boot-file configuration ie. Let the DHCP server provide the filename to boot. This option is invalid if ‘m’ is selected. The boot-file provided by DHCP server can be over-ridden by providing an alternate filename in double-quotes. In case of manual configuration, provision of bootimage name is must.
+‘a’ stands for auto boot-file configuration ie. Let the DHCP server provide the filename to boot. This option is invalid if ‘m’ is selected. The boot-file provided by DHCP server can be over-ridden by providing an alternate filename in double-quotes. In case of manual configuration, one must provide bootfile.
 
 = Firmware Source Code Supplied by Linksys =
 
