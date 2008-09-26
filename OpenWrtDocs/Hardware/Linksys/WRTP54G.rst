@@ -161,12 +161,14 @@ If the environment flash partition (the second one) is erased, a default environ
 
 === CONSOLE_STATE ===
 
-Setting this variable to "locked" causes PSPBoot to load the firmware without giving the user an oportunity to go to the PSPBoot prompt by pressing escape. Setting it to "unlocked" restores friendly behavior. See the Serial Console section for a way to unlock the console.
+Setting this variable to "locked" causes PSPBoot to load the firmware without giving the user (assuming he has connected a terminal to the serial console) an opportunity to go to the PSPBoot prompt by pressing escape. Setting it to "unlocked" restores friendly behavior. See the Serial Console section for a way to unlock the console.
 
 === IPA, IPA_GATEWAY, SUBNET_MASK ===
+
 These variables define the IP settings used by the tftp command. It makes sense to change IPA to "192.168.15.1" since this is the IP address which the standard firmwares assign to the router.
 
 === ProductID ===
+
 This is a four character code which identifies the hardware.  This variable is read-only which means that one must reflash the boot loader in order to change it.  Bytes 0x14-0x17 of the firmware file must match this code or you will not be able to install it using the web interface. If you write it to flash by some other means, PSPboot will refuse to load it.
 
 Known ProductID values:
@@ -311,6 +313,8 @@ The primary way to configure these devices is through a web interface. In the in
 
 Version 1.00.XX firmwares for both the WRTP54G and RTP300 both can run the Dropbear SSH server. This feature must be enable using the web interface. The only username in /etc/passwd is "Admin" (note the upper case A). Reliably setting the password for this account is problematic.
 
+SSH access is absent in the official 3.1.XX firmwares (though the controls for it in the web interface remain in 3.1.10).
+
 == Serial Console Access ==
 
 The router has a serial port connector inside the case.  The pinout:
@@ -337,6 +341,13 @@ ________________________________________
 Do not connect the router's serial port directly to your computer's RS232 port. The signal voltage levels are not the same and you may damage the router's serial port. This is because your computer's serial port has a line driver which converts the computer's signal voltage levels to RS232 levels while the line driver was left out of the router to save money. So, you will have to attach a line driver to your router and plug your computer into the line driver. If you are handy with a soldering iron you can order a AD233AK 233A kit and assemble it to make a line driver.
 
 The default settings for the serial port are 115200 BPS, 8 bit words, no parity, hardware flow control. These settings may be changable by setting the boot environment variable MODETTY.
+
+If you have Kermit on Unix or Linux, and the router is connected to /dev/ttyS0 on your computer, the Kermit commands to connect to it are:
+
+ C-Kermit>set port /dev/ttyS0
+ C-Kermit>set speed 115200
+ C-Kermit>set carrier-watch off
+ C-Kermit>connect
 
 The serial port is the boot loader console. If the boot-loader environment variable CONSOLE_STATE is set to "unlocked" (rather than "locked") then you will have three seconds to stop the boot (by pressing ESC) and receive a boot loader prompt.  If you manage to do a shell login to a booted firmware, you could try the following to unlock the PSPBoot console with this command:
 
