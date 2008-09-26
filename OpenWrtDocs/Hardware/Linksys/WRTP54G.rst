@@ -299,13 +299,53 @@ This user has an access level of "USER". Oddly, this access level permits flashi
 
 This is the only user represented in /etc/passwd which means that this is the only user that can be used to log in using SSH and on the serial console (the latter when /etc/inittab specifies that /bin/login is to be run on the console rather than /bin/sh). This user has the access level "ADMIN" which also permits flashing the firmware but does not allow independent login.
 
-= Web Access =
+= Access Methods =
+
+There are several ways to connect to the router in order to configure it.
+
+== Web Access ==
 
 The primary way to configure these devices is through a web interface. In the initial configuration the LAN IP address is 192.168.15.1. There is a web server with a management interface running on port 80. The default username is "admin" with a password of "admin". If you find that the web server is not running or the password "admin" is not accepted, you can reset the router to factory defaults by using a paper clip to hold down the reset button while powering the router up. Continue to hold down the reset button for about 50 seconds.
 
-= SSH Access =
+== SSH Access ==
 
 Version 1.00.XX firmwares for both the WRTP54G and RTP300 both can run the Dropbear SSH server. This feature must be enable using the web interface. The only username in /etc/passwd is "Admin" (note the upper case A). Reliably setting the password for this account is problematic.
+
+== Serial Console Access ==
+
+The router has a serial port connector inside the case.  The pinout:
+
+{{{
+________________________________________
+|                                         |
+|                                         led
+|                   Pin 1: GND   ---> @   |
+|                                         led
+|         Pin 2: Not Connected   ---> @   |
+|                                         led
+|                   Pin 3: RX   ----> @   |                 Front of RTP300 or WRTP54G
+|                                         led
+|                   Pin 4: TX   ----> @   |
+|                                         |
+|                   Pin 5: VCC  ----> @   led
+|                                         |
+|                                         |
+|                                         |
+ \________________________________________|
+}}}
+
+Do not connect the router's serial port directly to your computer's RS232 port. The signal voltage levels are not the same and you may damage the router's serial port. This is because your computer's serial port has a line driver which converts the computer's signal voltage levels to RS232 levels while the line driver was left out of the router to save money. So, you will have to attach a line driver to your router and plug your computer into the line driver. If you are handy with a soldering iron you can order a AD233AK 233A kit and assemble it to make a line driver.
+
+The default settings for the serial port are 115200 BPS, 8 bit words, no parity, hardware flow control. These settings may be changable by setting the boot environment variable MODETTY.
+
+The serial port is the boot loader console. If the boot-loader environment variable CONSOLE_STATE is set to "unlocked" (rather than "locked") then you will have three seconds to stop the boot (by pressing ESC) and receive a boot loader prompt.  If you manage to do a shell login to a booted firmware, you could try the following to unlock the PSPBoot console with this command:
+
+{{{
+# echo "CONSOLE_STATE unlocked" >/proc/ticfg/env}}}
+
+You should try to do this as soon as you can since you may need to use the serial console to recover after flashing a bad firmware.  If it is not unlocked, your ownly remaining option is to use a JTAG cable to read the environment block, use a hex editor to change "locked" to "unlocked" (followed by a 0 byte) and write the environment block back to flash.
+
+Most if not all firmwares allow login on the serial port once they are booted. Some run /bin/login whereas others simply run /bin/sh. The 3.1.10 firmware which is floating around the internet, though said to be unstable, does have the advantage that it accepts "Admin" as a username with a blank password. Once you have logged into a running firmware you can change CONSOLE_STATE with the command:
 
 = Noteworthy Programs and Files in the 3.1.XX Firmware =
 
@@ -437,38 +477,6 @@ The configuration can be extracted using the web interface (Administration/Manag
  * Bytes 0x000C through 0x000F contain a CRC of the compressed configuration file
  * Bytes 0x0010 through 0x0013 contain the length of the uncompressed configuration file
  * Bytes from 0x0014 on contain the configuration file in Zlib's deflate format
-= Serial Console =
-{{{
-________________________________________
-|                                         |
-|                                         led
-|                   Pin 1: GND   ---> @   |
-|                                         led
-|         Pin 2: Not Connected   ---> @   |
-|                                         led
-|                   Pin 3: RX   ----> @   |                 Front of RTP300 or WRTP54G
-|                                         led
-|                   Pin 4: TX   ----> @   |
-|                                         |
-|                   Pin 5: VCC  ----> @   led
-|                                         |
-|                                         |
-|                                         |
- \________________________________________|
-}}}
-Do not connect the router's serial port directly to your computer's RS232 port. The signal voltage levels are not the same and you may damage the router's serial port. This is because your computer's serial port has a line driver which converts the computer's signal voltage levels to RS232 levels while the line driver was left out of the router to save money. So, you will have to attach a line driver to your router and plug your computer into the line driver. If you are handy with a soldering iron you can order a AD233AK 233A kit and assemble it to make a line driver.
-
-The default settings for the serial port are 115200 BPS, 8 bit words, no parity, hardware flow control. These settings may be changable by setting the boot environment variable MODETTY.
-
-The serial port is the boot loader console. If the boot-loader environment variable CONSOLE_STATE is set to "unlocked" (rather than "locked") then you will have three seconds to stop the boot (by pressing ESC) and receive a boot loader prompt.  If you manage to do a shell login to a booted firmware, you could try the following to unlock the PSPBoot console with this command:
-
-{{{
-# echo "CONSOLE_STATE unlocked" >/proc/ticfg/env}}}
-
-You should try to do this as soon as you can since you may need to use the serial console to recover after flashing a bad firmware.  If it is not unlocked, your ownly remaining option is to use a JTAG cable to read the environment block, use a hex editor to change "locked" to "unlocked" (followed by a 0 byte) and write the environment block back to flash.
-
-Most if not all firmwares allow login on the serial port once they are booted. Some run /bin/login whereas others simply run /bin/sh. The 3.1.10 firmware which is floating around the internet, though said to be unstable, does have the advantage that it accepts "Admin" as a username with a blank password. Once you have logged into a running firmware you can change CONSOLE_STATE with the command:
-
 = JTAG =
 JTAG is a standard way to gain access to the system bus of an embedded device. It can be used to reprogram the flash even if the boot loader has been damaged.  The AR7 implements ejtag version 2.6.
 
