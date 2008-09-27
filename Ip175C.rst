@@ -16,3 +16,7 @@ In addition the following config options need to be added to the default configu
 CONFIG_PHYLIB=y
 CONFIG_ICPLUS_PHY=y
 }}}
+
+The kernel driver has to be modified so that the SIOCSMIIREG ioctl will allow setting PHYs other than 0.  Then it includes a userspace program based on the one in DD-WRT's DIR-300 port that will set the correct MII registers.
+
+See here for some preliminary patches to enable vlans on the IP715C: http://inst.eecs.berkeley.edu/~pathorn/ip175c/  The vlans should be set in a new switch-ip175c driver.
