@@ -7,6 +7,8 @@ Certainly there are several systems without 4+1 ethernet ports, no wifi hardware
 === Overview ===
 || '''brand''' || '''model''' || '''hardware specials''' || '''default settings''' || '''checked version(s)''' ||
 || Linksys  || [:OpenWrtDocs/Hardware/Linksys/WRT54GL:WRT54GL] || reversed port numbering scheme 1), see model page for details || working good || kamikaze v7.09 ||
+|| Airlink  || [:OpenWrtDocs/Hardware/Airlink/ARxxxW:AR430w and AR335w] || Uses [:Ip175C:Ip175C switch] which has WAN on port 4 || currently needs patches. || kamikaze trunk ||
+|| D-Link  || [:OpenWrtDocs/Hardware/D-Link/DIR-300:DIR-300] and possibly others || Also uses the [:Ip175C:Ip175C switch] || currently needs patches. || kamikaze trunk ||
  1) compared to previous version of same model as well as other Linksys models
 
 ----
