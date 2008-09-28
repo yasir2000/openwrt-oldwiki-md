@@ -7,7 +7,7 @@ Flash size: 4MB
 RAM: 16MB
 Wireless: Broadcom Corporation BCM4306 802.11b/g Wireless LAN Controller / Broadcom BCM4320 802.11 Wireless Controller 4.80.53.0
 Antennas: 1 (WL-320gE) / 2 (WL-320gP)
-Ethernet: 1 Ethernet port (but with integrated Broadcom switch, "ETHERNET" port is connected to port number 3)
+Ethernet: 1 Ethernet port (but with integrated Broadcom switch, Ethernet port is connected to port number 3)
 USB: yes, but no external connector. Header can be soldered onto the PCB.
 Serial: yes, header already present (at least on r1.50 boards)
 JTAG: ?
@@ -93,4 +93,4 @@ Don't be stupid and try to "optimize" NVRAM - '''you can brick your router'''!
  * Kamikaze r12712 as of 2008-09-26
 
 == WL320gP ==
-This is an identical model with Power over Ethernet.
+This is an identical model with Power over Ethernet and a second antenna.
