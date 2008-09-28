@@ -40,8 +40,18 @@ VCED exceptions         : not available
 VCEI exceptions         : not available
 }}}
 
+=== Switch configuration ===
+The WL-320gE and WL-320gP have one LAN port only, however it seems to be connected internally as "switch port 3". So your switch configuration should look something like this:
+
+{{{
+config 'switch' 'eth0'
+        option 'vlan0' '3 5*'
+}}}
+
+Note that unlike e.g. the WL-500g, you will have to leave the bridge setting at "eth0.0"! Using "eth0" instead will not work.
+
 === nvram show ===
-[http://sokrates.mimuw.edu.pl/~sebek/openwrt/wl320gE-nvram.txt]
+Default: [http://sokrates.mimuw.edu.pl/~sebek/openwrt/wl320gE-nvram.txt]
 
 The bare minimum of nvram variables required should be this (taken from a WL-320gE, HWRev 1.5):
 
@@ -80,9 +90,7 @@ Don't be stupid and try to "optimize" NVRAM - '''you can brick your router'''!
 
 === Versions Tested ===
  *  7.09, brcm-2.4-squashfs
+ * Kamikaze r12712 as of 2008-09-26
 
 == WL320gP ==
-This is an identical model with Power over Ethernet
-
-'''need more info?'''
-contact me at s.zagrodzki@net.icm.edu.pl
+This is an identical model with Power over Ethernet.
