@@ -23,7 +23,7 @@ GPIO: yes, header already present (at least on r1.50 boards)
 00:03.0 USB Controller: Broadcom Corporation BCM47xx Sentry5 USB Host Controller
 00:04.0 RAM memory: Broadcom Corporation Sentry5 DDR/SDR RAM Controller
 00:05.0 Network controller: Broadcom Corporation BCM4306 802.11b/g Wireless LAN Controller
-00:06.0 Network controller: Broadcom Corporation Unknown device 4719
+00:06.0 Network controller: Broadcom Corporation BCM47xx/53xx RoboSwitch Core
 }}}
 
 === /proc/cpuinfo ===
