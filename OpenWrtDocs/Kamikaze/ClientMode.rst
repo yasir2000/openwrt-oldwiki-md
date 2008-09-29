@@ -123,6 +123,7 @@ sync
 
 }}}
 == Bridged and routed client modes ==
+=== Bridged ===
 There are no bridged and routed modes on Kamikaze, per se.  Instead, multiple interfaces are bridged with an entry in /etc/config/network like this:
 
 {{{
@@ -146,6 +147,7 @@ Alternatively, but a little less flexibly, you can use this line in /etc/config/
       # athx for Atheros, Or wl0 for Broadcom
       option ifname    "eth0.0 ath0"
 }}}
+=== Routed ===
 For routed mode, the wireless device needs to be used in a normal network configuration in /etc/config/network.  Then, iptables rules are used to forward packets between the networks.  The default gateway on each network (this is routing; you're connecting two networks together) needs to forward packets destined for the other network to the  wifi router, or each host on each network needs to know that the wifi router is the router for packets to the respective network.
 
 == Finding networks ==
@@ -158,6 +160,18 @@ iwlist scanning
  * ifconfig
  * iwconfig
  * wpa_cli
+
+== Tips ==
+=== wpa_supplicant with hidden APs and virtual APs (VAP) ===
+If you're having trouble connecting to either a hidden AP or a virtual AP (usually because wpa_supplicant doesn't list it in a scan), make sure these options are set correctly in the wpa_supplicant config file:
+  * ap_scan (See the example [http://hostap.epitest.fi/gitweb/gitweb.cgi?p=hostap.git;a=blob_plain;f=wpa_supplicant/wpa_supplicant.conf wpa_supplicant.conf] for more details)
+    * 1: wpa_supplicant initiates scanning and AP selection
+    * 0: driver takes care of scanning, AP selection, and IEEE 802.11 association parameters
+    * 2: like 0, but associate with APs using security policy and SSID (but not BSSID).
+  * scan_ssid
+    * 0: do not scan this SSID with specific Probe Request frames (default)
+    * 1: scan with SSID-specific Probe Request frames (this can be used to find APs that do not accept broadcast SSID or use multiple SSIDs; this will add latency to scanning, so enable this only when needed)
+
 == Automated Script for Fonera and Meraki ==
 /!\ '''These scripts are third party content. They are not released or supported by the !OpenWrt developers.'''
 
