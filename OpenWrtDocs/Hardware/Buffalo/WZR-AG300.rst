@@ -138,3 +138,6 @@ Freeing init memory: 76K
 ap0: Marvell AP-8x 802.11n adapter: mem=0xe8000000, irq=38
 ap1: Marvell AP-8x 802.11n adapter: mem=0xe8020000, irq=36
 }}}
+
+----
+Category80211nDevice CategoryGigabitDevices
