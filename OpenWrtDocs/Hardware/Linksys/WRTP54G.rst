@@ -492,8 +492,6 @@ Other instructions for building the Squashfs version 1.3r3 tools with LZMA suppo
 
 What appears to be the official site for the LZMA patches is at: http://www.squashfs-lzma.org.  So far, no one has reported success manipulating the firmware with these tools.
 
-If you are unable to build unsquashfs, you can try this Linux binary: attachment:unsquashfs
-
 ==== Using the Squashfs Tools ====
 
 '''unsquashfs-lzma''' can be used to extract the files from a root partition image (previously extracted from a firmware image file) into a directory
