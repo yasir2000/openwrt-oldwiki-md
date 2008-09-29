@@ -476,54 +476,30 @@ Here are programs which you can use for packing and unpacking firmware image fil
 
 === Squashfs Tools ===
 
+Standard Linux kernels cannot mount the squashfs file system and the standard mksquashfs can not generate it because the compression method is LZMA instead of Zlib.  To pack and unpack these files, you need a patched copy of Squashfs Tools 1.3r3.  
 
----- /!\ '''Edit conflict - other version:''' ----
 ==== Obtaining the Squashfs Tools ====
 
-Standard Linux kernels cannot mount the squashfs file system and the standard mksquashfs can not generate it because the compression method is LZMA instead of Zlib.  To pack and unpack these files, you need a patched copy of Squashfs Tools 1.3r3.  It can be built from these files.
+A version of the Squashfs tools which can pack and unpack the firmware can be built from these files:
 
  * LZMA library: attachment:lzma427.tar.bz2
  * Patch for the LZMA library: attachment:lzma427_zlib.patch
  * Patched Squashfs Tools 1.3r3: attachment:squashfs-tools.tar.bz2
 
+Unfortunately, building the Squashfs tools from the above sources requires some tweaking.  So, you probably will want to use the single archive attachment:squashfs_wrtp.tar.gz which contains all of the above unpacked, properly patched, and correctly linked together, and fixed so that it is buildable with GCC 4.0.  Simply download it, extract it, edit BINDIR in squashfs_wrtp/Makefile, then run '''make''' and '''make install'''.
+
 Other instructions for building the Squashfs version 1.3r3 tools with LZMA support can be found at http://www.beyondlogic.org/nb5/squashfs_lzma.htm.  However, the version produced does not appear to include unsquashfs.
 
-What appears to be the official site for the LZMA patches is at: http://www.squashfs-lzma.org
+What appears to be the official site for the LZMA patches is at: http://www.squashfs-lzma.org.  So far, no one has reported success manipulating the firmware with these tools.
 
 If you are unable to build unsquashfs, you can try this Linux binary: attachment:unsquashfs
 
 ==== Using the Squashfs Tools ====
 
-
----- /!\ '''Edit conflict - your version:''' ----
-==== Obtaining the Squashfs Tools ====
-
-Standard Linux kernels cannot mount the squashfs file system and the standard mksquashfs can not generate it because the compression method is LZMA instead of Zlib.  To pack and unpack these files, you need a patched copy of Squashfs Tools 1.3r3.  It can be built from these files.
-
- * LZMA library: attachment:lzma427.tar.bz2
- * Patch for the LZMA library: attachment:lzma427_zlib.patch
- * Patched Squashfs Tools 1.3r3: attachment:squashfs-tools.tar.bz2
-
-Other instructions for building the Squashfs version 1.3r3 tools with LZMA support can be found at http://www.beyondlogic.org/nb5/squashfs_lzma.htm.  However, the version produced does not appear to include unsquashfs.
-
-What appears to be the official site for the LZMA patches is at: http://www.squashfs-lzma.org
-
-If you are unable to build unsquashfs, you can try this Linux binary: attachment:unsquashfs
-
-==== Using the Squashfs Tools ====
-
-
----- /!\ '''End of edit conflict''' ----
 '''unsquashfs-lzma''' can be used to extract the files from a root partition image (previously extracted from a firmware image file) into a directory
 
 '''mksquashfs-lzma''' packs the contexts of a directory into a root partition image which can subsequently be packed into a firmware image file
 
-
----- /!\ '''Edit conflict - other version:''' ----
-
----- /!\ '''Edit conflict - your version:''' ----
-
----- /!\ '''End of edit conflict''' ----
 === David Chappell's Scripts ===
 
 set_ProductID sets flags in the firmware image header.  The first argument is the name of the firmware image file, the second is the product ID code to set.  If the --tftp switch is used, then the byte at offset 0x14 will be set to the proper value for the firmware to be flashed from the boot loader console.
