@@ -1,7 +1,7 @@
 = What I'm doing here =
 I've been a little frustrated with the both sparse and unorganized documentation here, for a while, so I'm going to try to slowly clean it up.
 = My devices =
-  * [OpenWrtDocs/Hardware/Linksys/WRT54GL:Linksys WRT54GL]
+  * [:OpenWrtDocs/Hardware/Linksys/WRT54GL:Linksys WRT54GL]
   * [:OpenWrtDocs/Hardware/Netgear/DG834G: Netgear DG834]
   * [:OpenWrtDocs/Hardware/Netgear/WGT634UNetgear: WGT634U]
   * Some PCEngines board.  I can't remember which one.
