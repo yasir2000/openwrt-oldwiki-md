@@ -451,12 +451,17 @@ Here is a partial description of the format of the firmware update file format w
 Most firmware files intended to be written directly into flash are 3,866,624 (0x03B0000) bytes long. A firmware uploaded through the web interface will be eight bytes longer.
 
 == Working with Firmware Files ==
+
 Here are programs which you can use for packing and unpacking firmware image files:
 
- * Firmware modification Kit attachment:wrtp-mod-kit.tar.bz2
- * David Chappell's scripts:
- * * Perl script to set CRC: attachment:set_ti_checksum
- * * Perl script to set ProductID and flag at byte 0x0B: attachment:set_ProductID
+ * Firmware modification Kit attachment:wrtp-mod-kit.tar.bz2  This kit contains programs to pack and unpack firmware images.
+ * Squashfs tools with patches for LZMA compression
+ * David Chappell's mini scripts:
+  * Perl script to set ProductID and flag at byte 0x0B: attachment:set_ProductID
+  * Perl script to set CRC: attachment:set_ti_checksum
+
+=== Firmware Modification Kit ===
+
 '''extractwrtp''' extracts the firmware into the following files:  '' ''
 
  * '''''wrtp.img.root''''''''' root file system partition (lzma compressed, use unsquashfs-lzma to extract) ''
@@ -468,7 +473,9 @@ Here are programs which you can use for packing and unpacking firmware image fil
 '''buildwrtp''' builds the firmware by combining kernel partition and root partition
 
  . -k <kernel file> -r <root file> -f <output file> -i <device identity> -p <product id> -K <minimum hex blocks (64K) for kernel patition> -R <minimum hex blocks (64K) for root partition>
-== Working with the Squashfs ==
+
+=== Squashfs Tools ===
+
 Standard Linux kernels cannot mount the squashfs file system and the standard mksquashfs can not generate it because the compression method is LZMA instead of Zlib.  To pack and unpack these squash file systems, you can use the patched copy of Squashfs Tools 1.3r3 linked to below:
 
  * Patched Squashfs Tools 1.3r3: attachment:squashfs-tools.tar.bz2
@@ -479,7 +486,14 @@ Standard Linux kernels cannot mount the squashfs file system and the standard mk
 
 Better instructions for building the Squashfs tools with LZMA support can be found at http://www.beyondlogic.org/nb5/squashfs_lzma.htm.
 
+=== David Chappell's Scripts ===
+
+set_ProductID sets flags in the firmware image header.  The first argument is the name of the firmware image file, the second is the product ID code to set.  If the --tftp switch is used, then the byte at offset 0x14 will be set to the proper value for the firmware to be flashed from the boot loader console.
+
+set_ti_checksum calculates a checksum for a firmware file and appends it to the file.  This checksum is required if the file will be installed using the web interface (as opposed to installation from the console).
+
 = Configuration File Format =
+
 The configuration of the router is stored in a single XML file. This file is stored compressed in a raw flash partition. If when the router boots the flash partition is found to be empty, the configuration is initialized by loading /etc/config.xml from the root partition.
 
 The configuration can be extracted using the web interface (Administration/Management/Backup and Restore). The configuration file produced by the backup function is incomplete. Particularly, it omits the voice configuration.  The backup configuration file format is as follows:
