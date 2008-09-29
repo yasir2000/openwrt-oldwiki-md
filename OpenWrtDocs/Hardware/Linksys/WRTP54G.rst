@@ -386,6 +386,8 @@ Most if not all firmwares allow login on the serial port once they are booted. S
  * /usr/bin/cm_config
   . Saves and restores the current configuration to flash.
   . Usage: cm_config {BACKUP|RESTORE} {ADMIN|USER|ROUTER}
+ * /usr/bin/cm_reset {FULL|ROUTER|USER}
+  . Unknown function
  * /usr/lib/updatedd
   . dynamic DNS client
  * /usr/www/cgi-bin/webcm
@@ -396,7 +398,7 @@ Most if not all firmwares allow login on the serial port once they are booted. S
   . This file is unpacked during boot.  It creates the /var directory.
  * /var/upgrader (from var.tar)
   . The purpose of this file is unknown.  One would think that it is somehow involved in upgrading
-  . the firmware, but this does not appear to be the case.
+  . the firmware, but this does not appear to be the case.  Running it reboots the router.
  * /sbin/reboot
   . Restart the router
  * /var/tmp/fw_ip
