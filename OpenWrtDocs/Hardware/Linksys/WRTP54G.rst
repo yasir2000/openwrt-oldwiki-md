@@ -366,7 +366,12 @@ Most if not all firmwares allow login on the serial port once they are booted. S
  * /etc/inittab
   . Starts /etc/init.d/rcS and starts /bin/login or /bin/sh on the serial console.
  * /etc/init.d/rcS
-  . System startup script. Not much to see since most of the work is done by the mysterious "lightbox".
+  . System startup script. It starts thttpd, lightbox, loadmon, and cm_pc (in that order).
+ * /usr/sbin/thttpd
+  . The tiny HTTP server
+ * /usr/bin/loadmon
+  . Appears to monitor the load average and the activity of some of the cm_* processes.  It takes note of the
+  . file /var/tmp/fupg_progress, presumably so as not to cause a reboot during a firmware upgrade.
  * /usr/bin/foxy
   . an HTTP proxy server which implements the "filter JavaScript" and other "security" functions
  * /usr/bin/wget
@@ -374,6 +379,7 @@ Most if not all firmwares allow login on the serial port once they are booted. S
  * /usr/sbin/lightbox
   . Mystery program run from /etc/init.d/rcS. 
  * /usr/bin/cm_pc
+  . This daemon is launched from /etc/init.d/rcS.  It launches cm_logic.
   . This daemon participates in firmware flashing.  It reads the new firmware from /var/tmp/fw.bin and
   . writes it to the inactive flash partition.  It then copies the active configuration partition to the
   . inactive configuration partition, arranges in some unspecified way for the next boot to load from the
@@ -395,6 +401,8 @@ Most if not all firmwares allow login on the serial port once they are booted. S
  * /usr/bin/cm_reset {FULL|ROUTER|USER}
   . It appears likely that this program copies the default configuration from /etc/config.xml to flash.  The systems resets 
   . when it is done.  The lightbox binary appears to run this command with an argument of FULLH
+ * /usr/bin/cm_monitor
+  . This program appears to launch dproxy (a cacheing DNS proxy).
  * /usr/lib/updatedd
   . dynamic DNS client
  * /usr/www/cgi-bin/webcm
