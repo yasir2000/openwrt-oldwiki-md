@@ -371,8 +371,8 @@ Most if not all firmwares allow login on the serial port once they are booted. S
   . an HTTP proxy server which implements the "filter JavaScript" and other "security" functions
  * /usr/bin/wget
   . GNU Wget (why not Busybox wget?). This is appearently used to download new firmwares.
- * /usr/bin/lightbox
-  . Mystery program run from /etc/init.d/rcS. It seems that it must start most of the daemons.
+ * /usr/sbin/lightbox
+  . Mystery program run from /etc/init.d/rcS. 
  * /usr/bin/cm_pc
   . This daemon participates in firmware flashing.  It reads the new firmware from /var/tmp/fw.bin and
   . writes it to the inactive flash partition.  It then copies the active configuration partition to the
@@ -382,12 +382,19 @@ Most if not all firmwares allow login on the serial port once they are booted. S
   . Converts old voice configuration to the 3.1.XX format. Run once per boot.
  * /usr/bin/cm_logic
   . Seems to load the configuration either from a specified flash block or, if there is no
-  . configuration there, from an XML file.
+  . configuration there, from an XML file.  The configuration may be loaded into memory.  It can take parameters 
+  . indicating the device node of the configuration flash block and the path to config.xml (which stores
+  . the default configuration).  Running strings on this binary reveals many interesting file names, some of which
+  . are not actually present in the firmware.  It seems that 
+  . cm_convert is run by this program.  It also refers to /etc/version and some SSL certificates in /var/tmp.  Other messages
+  . suggest that this is the program which overwrites /etc/shadow.  Messages about login suggest a role in authentication.  There
+  . are also many templates for commands to start networking.  This program requires more study.
  * /usr/bin/cm_config
-  . Saves and restores the current configuration to flash.
+  . Saves and restores the current configuration to and from flash.
   . Usage: cm_config {BACKUP|RESTORE} {ADMIN|USER|ROUTER}
  * /usr/bin/cm_reset {FULL|ROUTER|USER}
-  . Unknown function
+  . It appears likely that this program copies the default configuration from /etc/config.xml to flash.  The systems resets 
+  . when it is done.  The lightbox binary appears to run this command with an argument of FULLH
  * /usr/lib/updatedd
   . dynamic DNS client
  * /usr/www/cgi-bin/webcm
@@ -411,7 +418,7 @@ Most if not all firmwares allow login on the serial port once they are booted. S
   . The VOIP functions run inside this process.  This process has many threads which show up in the
   . ps output as separate processes. '' ''
  * /usr/bin/nmm
-  . This is some sort of diagnostic tool for the VOIP functions.  It may control ggsip.  When started '' ''
+  . This is some sort of diagnostic tool for the VOIP functions.  It may control ggsip.  When started
   . it presents a command-line interface.
 
 = Firmware Update File Format =
