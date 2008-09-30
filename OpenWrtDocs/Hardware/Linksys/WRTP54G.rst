@@ -395,12 +395,12 @@ Most if not all firmwares allow login on the serial port once they are booted. S
   . cm_convert is run by this program.  It also refers to /etc/version and some SSL certificates in /var/tmp.  Other messages
   . suggest that this is the program which overwrites /etc/shadow.  Messages about login suggest a role in authentication.  There
   . are also many templates for commands to start networking.  This program requires more study.
- * /usr/bin/cm_config
+ * /usr/bin/cm_config be related to dproxy (a cacheing DNS proxy).
   . Saves and restores the current configuration to and from flash.
   . Usage: cm_config {BACKUP|RESTORE} {ADMIN|USER|ROUTER}
  * /usr/bin/cm_reset {FULL|ROUTER|USER}
   . It appears likely that this program copies the default configuration from /etc/config.xml to flash.  The systems resets 
-  . when it is done.  The lightbox binary appears to run this command with an argument of FULLH
+  . when it is done (unless the option NO_RESET is included).  The lightbox binary appears to run this command with an argument of FULLH.  There is an option CLEAN too.  What it does is unknown.
  * /usr/bin/cm_monitor
   . This program appears to launch dproxy (a cacheing DNS proxy).
  * /usr/lib/updatedd
