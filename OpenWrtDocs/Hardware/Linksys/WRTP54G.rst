@@ -379,7 +379,8 @@ Most if not all firmwares allow login on the serial port once they are booted. S
  * /usr/sbin/lightbox
   . Mystery program run from /etc/init.d/rcS. 
  * /usr/bin/cm_pc
-  . This daemon is launched from /etc/init.d/rcS.  It launches cm_logic. This daemon participates in firmware flashing.  It reads the new firmware from /var/tmp/fw.bin and writes it to the inactive flash partition.  It then copies the active configuration partition to the inactive configuration partition, arranges in some unspecified way for the next boot to load from the currently inactive partition, and reboots the router, likely by running cm_reboot.  If the file /var/tmp/_skip_reboot is present, ??????????
+  . This daemon is launched from /etc/init.d/rcS.  It launches cm_logic.
+  . This daemon participates in firmware flashing.  It reads any new firmware that may be written to /var/tmp/fw.bin and writes it to the inactive flash partition.  It then copies the active configuration partition to the inactive configuration partition, arranges in some unknown manner for the next boot to load from the currently inactive partition, and reboots the router, likely by running cm_reboot.  If the file /var/tmp/_skip_reboot is present, then the reboot is not performed (though the file is removed).  Once the firmware has been flashed, the file /var/tmp/_upgrade_successful is created.
  * /usr/bin/cm_convert
   . Converts old voice configuration to the 3.1.XX format. Run once per boot.
  * /usr/bin/cm_logic
