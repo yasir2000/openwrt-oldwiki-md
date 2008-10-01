@@ -1,6 +1,6 @@
 #pragma section-numbers off
 = WBD-500 =
-The WILIGEAR WBD-500 is a powerful, 500mW (27dBm) 2.4 GHz integrated radio board. 
+The [http://www.wiligear.com/?q=products/cpu-boards/wbd-500 WILIGEAR WBD-500] is a powerful, 500mW (27dBm) 2.4 GHz integrated radio board. 
 
 = Hardware =
 == Info ==
