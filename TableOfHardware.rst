@@ -102,6 +102,7 @@ Quicklinks to manufacturers:
  * [:Hardware/Viewsonic:]
  * [:Hardware/WELL:]
  * [:Hardware/WesternDigital:]
+ * [:Hardware/WILIGEAR:]
  * [:Hardware/Wistron:]
  * [:Hardware/Wippies:]
  * [:Hardware/Yakumo:]
