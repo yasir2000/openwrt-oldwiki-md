@@ -379,12 +379,21 @@ Most if not all firmwares allow login on the serial port once they are booted. S
  * /usr/sbin/lightbox
   . Mystery program run from /etc/init.d/rcS. 
  * /usr/bin/cm_pc
-  . This daemon is launched from /etc/init.d/rcS.  It launches cm_logic.
-  . This daemon participates in firmware flashing.  It reads any new firmware that may be written to /var/tmp/fw.bin and writes it to the inactive flash partition.  It then copies the active configuration partition to the inactive configuration partition, arranges in some unknown manner for the next boot to load from the currently inactive partition, and reboots the router, likely by running cm_reboot.  If the file /var/tmp/_skip_reboot is present, then the reboot is not performed (though the file is removed).  Once the firmware has been flashed, the file /var/tmp/_upgrade_successful is created.
+  * This daemon is launched from /etc/init.d/rcS.
+  * It launches cm_logic.
+  * This daemon participates in firmware flashing.  It reads any new firmware that may be written to /var/tmp/fw.bin and writes it to the inactive flash partition.  It then copies the active configuration partition to the inactive configuration partition, arranges in some unknown manner for the next boot to load from the currently inactive partition, and reboots the router, likely by running cm_reboot.  If the file /var/tmp/_skip_reboot is present, then the reboot is not performed (though the file is removed).  Once the firmware has been flashed, the file /var/tmp/_upgrade_successful is created.
  * /usr/bin/cm_convert
   . Converts old voice configuration to the 3.1.XX format. Run once per boot.
  * /usr/bin/cm_logic
-  . Seems to load the configuration either from a specified flash block or, if there is no configuration there, from an XML file.  The configuration may be loaded into memory.  It can take parameters indicating the device node of the configuration flash block and the path to config.xml (which stores the default configuration).  Running strings on this binary reveals many interesting file names, some of which are not actually present in the firmware.  It seems that cm_convert is run by this program.  It also refers to /etc/version and some SSL certificates in /var/tmp.  Other messages suggest that this is the program which overwrites /etc/shadow.  Messages about login suggest a role in authentication.  There are also many templates for commands to start networking.  This program requires more study.
+  * This daemon seems to load the configuration either from a specified flash block or, if there is no configuration there, from an XML file.
+  * Where the loaded configuration is held is unclear.  Perhaps this daemon serves as keeper of the configuration or perhaps it is loaded into shared memory.
+  * This daemon can take parameters indicating the device node of the configuration flash block and the path to config.xml (which stores the default configuration).
+  * Running strings on this binary reveals many interesting file names, some of which are not actually present in the firmware.
+    * It seems that cm_convert is run by this program.
+    * It also refers to /etc/version and some SSL certificates in /var/tmp.
+    * Other messages suggest that this is the program which overwrites /etc/shadow.
+    * Messages about login suggest a role in authentication.
+    * There are also many templates for commands to start networking.  This program requires more study.
  * /usr/bin/cm_config be related to dproxy (a cacheing DNS proxy).
   . Saves and restores the current configuration to and from flash.
   . Usage: cm_config {BACKUP|RESTORE} {ADMIN|USER|ROUTER}
@@ -396,22 +405,26 @@ Most if not all firmwares allow login on the serial port once they are booted. S
  * /usr/lib/updatedd
   . dynamic DNS client
  * /usr/www/cgi-bin/webcm
-  . Program through which most web pages are loaded.  Implements a sort of server-side-includes.  Accepts POST requests to change the configuration.
+  * Program through which most web pages are loaded.
+  * Implements a sort of server-side-includes.
+  * Accepts POST requests to change the configuration.
  * /usr/www/cgi-bin/firmwarecfg
-  . Target of POST request which uploads a new firmware
+  * Target of POST request which uploads a new firmware
+  * Copies uploaded firmware to /var/tmp/fw.bin
+  * Will accept firmware only from IP named in /var/tmp/fw_ip
+ * /var/tmp/fw_ip
+  . during a firmware upgrade, stores the IP address, a comma, and the access level (such as "ADMIN") of the
+  . web browser which is updating the firmware.
+ * /var/tmp/fw.bin
+  . A named pipe to which /usr/www/cgi-bin/firmwarecfg writes the uploaded firmware.
+  . The firmware is read by cm_pc and written to flash.
  * /var.tar
   . This file is unpacked during boot.  It creates the /var directory.
  * /var/upgrader (from var.tar)
   . The purpose of this file is unknown.  One would think that it is somehow involved in upgrading
   . the firmware, but this does not appear to be the case.  Running it reboots the router.
  * /sbin/reboot
-  . Restart the router
- * /var/tmp/fw_ip
-  . during a firmware upgrade, stores the IP address, a comma, and the access level (such as "ADMIN") of the
-  . web browser which is updating the firmware.
- * /var/tmp/fw.bin
-  . A named pipe to which /usr/www/cgi-bin/firmwarecfg writes the uploaded firmware.
-  . The firmware is read by cm_pc and written to flash. '' ''
+  . Restarts the router
  * /usr/sbin/ggsip
   . The VOIP functions run inside this process.  This process has many threads which show up in the
   . ps output as separate processes. '' ''
