@@ -379,22 +379,11 @@ Most if not all firmwares allow login on the serial port once they are booted. S
  * /usr/sbin/lightbox
   . Mystery program run from /etc/init.d/rcS. 
  * /usr/bin/cm_pc
-  . This daemon is launched from /etc/init.d/rcS.  It launches cm_logic.
-  . This daemon participates in firmware flashing.  It reads the new firmware from /var/tmp/fw.bin and
-  . writes it to the inactive flash partition.  It then copies the active configuration partition to the
-  . inactive configuration partition, arranges in some unspecified way for the next boot to load from the
-  . currently inactive partition, and reboots the router.
+  . This daemon is launched from /etc/init.d/rcS.  It launches cm_logic. This daemon participates in firmware flashing.  It reads the new firmware from /var/tmp/fw.bin and writes it to the inactive flash partition.  It then copies the active configuration partition to the inactive configuration partition, arranges in some unspecified way for the next boot to load from the currently inactive partition, and reboots the router, likely by running cm_reboot.  If the file /var/tmp/_skip_reboot is present, ??????????
  * /usr/bin/cm_convert
   . Converts old voice configuration to the 3.1.XX format. Run once per boot.
  * /usr/bin/cm_logic
-  . Seems to load the configuration either from a specified flash block or, if there is no
-  . configuration there, from an XML file.  The configuration may be loaded into memory.  It can take parameters 
-  . indicating the device node of the configuration flash block and the path to config.xml (which stores
-  . the default configuration).  Running strings on this binary reveals many interesting file names, some of which
-  . are not actually present in the firmware.  It seems that 
-  . cm_convert is run by this program.  It also refers to /etc/version and some SSL certificates in /var/tmp.  Other messages
-  . suggest that this is the program which overwrites /etc/shadow.  Messages about login suggest a role in authentication.  There
-  . are also many templates for commands to start networking.  This program requires more study.
+  . Seems to load the configuration either from a specified flash block or, if there is no configuration there, from an XML file.  The configuration may be loaded into memory.  It can take parameters indicating the device node of the configuration flash block and the path to config.xml (which stores the default configuration).  Running strings on this binary reveals many interesting file names, some of which are not actually present in the firmware.  It seems that cm_convert is run by this program.  It also refers to /etc/version and some SSL certificates in /var/tmp.  Other messages suggest that this is the program which overwrites /etc/shadow.  Messages about login suggest a role in authentication.  There are also many templates for commands to start networking.  This program requires more study.
  * /usr/bin/cm_config be related to dproxy (a cacheing DNS proxy).
   . Saves and restores the current configuration to and from flash.
   . Usage: cm_config {BACKUP|RESTORE} {ADMIN|USER|ROUTER}
