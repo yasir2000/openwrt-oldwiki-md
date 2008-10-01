@@ -40,13 +40,30 @@ Some things to consider:
 
 These days, computer manufacturers are dropping RS232 serial ports, while USB ports are increasingly ubiquitous.  Particularly if you need to TTL logic levels, USB is probably the way to go since you can get the right logic levels integrated in the USB-serial converter.
 
-=== USB TTL Serial ===
-You could buy something like [http://www.sparkfun.com/commerce/product_info.php?products_id=718 this] or [http://www.sparkfun.com/commerce/product_info.php?products_id=199 this].
-[http://www.ftdichip.com/Products/EvaluationKits/TTL-232R-3V3-AJ.htm This] is even simpler. (Scroll down on that page.)
+=== USB ===
+
+==== Prebuilt Cables ====
+
+Standard RS232 levels, for example:
+ * [http://www.zonetusa.com/DispProduct.asp?ProductID=119 Zonet ZUC3100] uses pl2303 chip, well-supported in Linux
+
+TTL 5V, for example:
+ * [http://www.mouser.com/Search/ProductDetail.aspx?qs=OMDV80DKjRorBEBwmlJ4Pg%3d%3d FTDI TTL-232R-5V]
+
+TTL 3.3V, for example:
+ * [http://www.mouser.com/Search/ProductDetail.aspx?R=TTL-232R-3V3virtualkey62130000virtualkey895-TTL-232R-3V3 FTDI TTL-232R-3V3]
+
+You may need to rewire the terminals of the TTL cables to match your device pinout.
+
+==== USB-serial parts ====
+
+If you want to solder:
+ * [http://www.sparkfun.com/commerce/product_info.php?products_id=718 Breakout Board for FT232RL USB to Serial]
+ * [http://www.sparkfun.com/commerce/product_info.php?products_id=199 Breakout Board for CP2103 USB to Serial w/ GPIOs].
+
+==== Cellphone Data Cables ====
 
 A USB based data cable for a mobile cell phone is another possibility.
-
-note: For the serial console on a WRT54G with a USB cell phone cable, the following pins are used: 4(tx), 6(rx), 10(gnd)
 
 Compatible Radio Shack (Future Dial) "Mobile Phone Data Cables" using the Prolific 2303 USB-3.3vSerial converter chip:
 
@@ -61,8 +78,9 @@ Ebay clone cables:
 
 reference: http://www.nslu2-linux.org/wiki/HowTo/AddASerialPort
 
-=== Home-made RS-232 kit ===
-TTL-RS-232 level conversion is a fairly common problem, so there are a number of ICs on the market that convert between these voltage levels.   has made a few handy little ICs for us to use. The best (IMHO) is the , or more specifically, the MAX233a, which has a higher speed capacity and uses less power. This guide will tell you how to solder everything together to get a pc-compatible serial port on your OpenWrt router.
+=== Level conversion ===
+
+TTL-RS-232 level conversion is a fairly common problem, so there are a number of ICs on the market that convert between these voltage levels.  [http://www.maxim-ic.com Maxim IC] has made a few handy little ICs for us to use. The best (IMHO) is the , or more specifically, the MAX233a, which has a higher speed capacity and uses less power. This guide will tell you how to solder everything together to get a pc-compatible serial port on your OpenWrt router.
 
 ==== From scratch ====
 First, you need an "RS232-TTL level converter chip."  RS232 refers to the standard defining what plugs into your computer, and TTL is a family of chips that use 0V and 0.8V as low and 2.2V and 5V as high.  They can be purchased new (the [http://www.maxim-ic.com Maxim IC] MAX233x line is popular).  Most vendors have large minimums, but some (e.g. [http://mouser.com/ Mouser Electronics]) sell components in small quantities.
