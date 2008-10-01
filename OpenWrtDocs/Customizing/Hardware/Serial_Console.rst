@@ -1,10 +1,44 @@
 = Serial Console =
-Serial ports allow you to do a myriad of things, including connect to your computer, connect to other devices such as LCDs and GPSes, etc... With a little programming, you could even connect a bunch of routers together. This mod doesn't '''add''' serial ports; those are already there. This just makes them much easier to use with just about any hardware you want.
 
-For the developer, a serial port will also allow you to recover a bricked router when all other methods have failed (tftp, failsafe mode, shorting pins, etc.) This is something which typically cannot be done with just a USB-capable router and USB-serial adapter, as USB support is only available once the firmware has successfully loaded.
+Many people get along without a serial console for their device because they are able to flash working firmware the first time or are able to apply various recovery methods and do all their communicating with the device over a network.  However, due to characteristics of their bootloaders or because they are not yet fully supported, for some devices it can be quite handy to have a compatible serial console available.
 
-== TTL vs. RS-232 levels ==
-Most OpenWrt compatible devices have one or two* serial ports on the router's PCB (printed circuit board). The problem is they operate on 3.3V, which means '''they will get fried if you connect them to your computer's serial port''', which operates at 12V.
+Most devices that are supported by OpenWrt include a serial port.  These serial ports typically provide a console to the bootloader and, when the firmware has booted, a console to the running system.  Typically, a console to the bootloader will allow you to configure a network, fetch and flash a new firmware, which can be a life-saver when the firmware is broken.  A console to the running system will let you correct a misconfigured network.
+
+== Connectors ==
+
+Sometimes, the device's serial port is available at a 9-pin D connector accessible from the exterior of the case, sometimes they are found on pin headers on the printed circuit board (PCB), and sometimes they exist as unpopulated holes in the PCB.  
+
+If the serial port is not readily accesssible from the exterior of the device enclosure, you have some choices:
+
+ * modify the enclosure, either to allow passage of a cable or to attach a convenient connector, e.g.:
+  * a 9-pin D connector (this is a good choice if you are going to build a level-shifter into the interior of the enclosure, so as to provide a standard +/- 12V interface externally);
+  * a 1/8-inch stereo headphone jack (this is a good choice if you are simply bringing the lines to the exterior)
+ * open the case to attach to header pins or holes, as needed, this is a good choice if:
+  * opening the enclosure is easy; 
+  * access to the serial port is needed only very occasionally; and/or
+  * you have many devices you would rather not modify.
+
+== Logic Levels ==
+
+Some devices have standard [http://en.wikipedia.org/wiki/RS-232 RS232] +/- 12V serial ports, but in many OpenWrt-supported devices the serial ports operate at TTL voltage (sometimes 5V, but more often 3.3V) levels.  In order for the serial console to work, the logic levels on the wires should match those expected by your device.  The first step therefore is to determine which voltage levels are required.  Often, you can find this documented on the OpenWrt wiki or elsewhere.
+
+== Talking and Listening ==
+
+In order to interact with your device over its serial port, you need a minimum of three wires connected: a ground (GND); transmit (TX); and receive (RX).  It is possible to get useful information about what is happening with only GND and RX, but in order to fix a problem you will usually also need TX.  Your computer's TX should be connected to the device's RX, and your computer's RX should be connected to the device's TX.  The computer's GND should connect the the device's GND.  That way, what you say will get heard by the device and what the device says will get heard by your computer.  This is often called a "null-modem" configuration.
+
+You will also need a terminal emulation program on your computer, such as minicom, hyperterminal, etc.  The terminal emulation program needs to be configured to be compatible with your device, in particular, with regard to baud rate and flow control.  If you are using only three wires (GND, TX, and RX) then hardware flow control should be turned off; you aren't using the pins (RTS and CTS) necessary for it to work.  Rarely, the baud rate that the device expects ''might'' be different in the bootloader and the running firmware; if so, you'll need to modify the baud rate settings in your terminal emulator after the firmware boots up.
+
+== Considerations ==
+
+Some things to consider:
+
+ * If your computer has a serial port, you can use a level-shifter (as necessary) and a "null-modem cable".
+ * If your computer has a USB port, then:
+  * if your device uses standard RS232 logic levels, you can use a standard USB-serial converter along with a standard "null-modem cable"
+  * if your device uses TTL logic levels, you can use a USB-serial device that uses the right serial voltage TTL and a connector suitably wired to connect to your device.
+ * If your computer has neither a serial port or a USB port, you are in trouble!
+
+These days, computer manufacturers are dropping RS232 serial ports, while USB ports are increasingly ubiquitous.  Particularly if you need to TTL logic levels, USB is probably the way to go since you can get the right logic levels integrated in the USB-serial converter.
 
 === USB TTL Serial ===
 You could buy something like [http://www.sparkfun.com/commerce/product_info.php?products_id=718 this] or [http://www.sparkfun.com/commerce/product_info.php?products_id=199 this].
