@@ -36,7 +36,7 @@ telnet 192.168.2.66 9000
 }}}
 Power on the WBD-500 board and press Enter at the moment Ethernet LED lights up (after about 10 sec.).
 Because timeslot for this is short, you might need several tries. As soon as you see the !RedBoot prompt, press Ctrl-C.
-If you are using Linux, Ctrl-C might not work at first, this is because telnet requires LINEMODE option to be enabled.
+If you are using Linux, Ctrl-C might not work at first. This is because telnet requires LINEMODE option to be enabled.
 You can enable this option by creating a file ~/.telnetrc with the following contents:
 {{{
 192.168.2.66 9000
