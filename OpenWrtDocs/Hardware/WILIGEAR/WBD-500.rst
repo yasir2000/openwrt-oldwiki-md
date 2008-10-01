@@ -7,9 +7,9 @@ The WILIGEAR WBD-500 is a powerful, 500mW (27dBm) 2.4 GHz integrated radio board
 ||'''Architecture''' ||MIPS !R4Kc ||
 ||'''Bootloader''' ||!RedBoot ||
 ||'''System-On-Chip''' ||Atheros AR2315 ||
-||'''CPU Speed''' ||183 MHz ||
-||'''Flash size''' ||8 MiB ||
-||'''RAM''' ||32 MiB ||
+||'''CPU Speed''' ||180 MHz ||
+||'''Flash size''' ||8 MB ||
+||'''RAM''' ||32 MB ||
 ||'''Wireless''' ||Integrated 500mW Atheros 802.11b/g [[BR]] MMCX antenna connectors ||
 ||'''Ethernet''' ||1x RJ45, 10/100 Base-TX, PoE, surge protection ||
 ||'''USB''' ||No ||
