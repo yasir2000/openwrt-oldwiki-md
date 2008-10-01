@@ -40,6 +40,14 @@ VCED exceptions         : not available
 VCEI exceptions         : not available
 }}}
 
+=== WL320gP ===
+This is an identical model with Power over Ethernet and a second antenna.
+
+== Software ==
+
+=== TFTP flashing ===
+Unlike the older Asus models such as the WL-500g, this model does not require the "GET ASUSSPACELINK" sequence. Instead, you can directly PUT the firmware. Note however that the "lan_ipaddr" and "lan_netmask" settings '''must''' be present in the NVRAM, otherwise the device will '''not''' enter rescue mode upon holding the Reset button at power-up!
+
 === Switch configuration ===
 The WL-320gE and WL-320gP have one LAN port only, however it seems to be connected internally as "switch port 3". So your switch configuration should look something like this:
 
@@ -91,6 +99,3 @@ Don't be stupid and try to "optimize" NVRAM - '''you can brick your router'''!
 === Versions Tested ===
  *  7.09, brcm-2.4-squashfs
  * Kamikaze r12712 as of 2008-09-26
-
-== WL320gP ==
-This is an identical model with Power over Ethernet and a second antenna.
