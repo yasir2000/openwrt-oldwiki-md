@@ -76,6 +76,7 @@ et0macaddr=xx:xx:xx:xx:xx:xx
 et0mdcport=0
 et0phyaddr=30
 hardware_version=WL320G-01-02-01-00
+il0macaddr=xx:xx:xx:xx:xx:xx
 lan_ipaddr=192.168.1.1
 lan_netmask=255.255.255.0
 opo=0x0
