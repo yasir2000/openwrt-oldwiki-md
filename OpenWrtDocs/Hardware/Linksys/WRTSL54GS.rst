@@ -140,6 +140,11 @@ HairyDairyMaid's debricker is working, but currently requires /skipdetect and in
 
 The board has functional position for a stacked dual-USB port, although it is only fitted for a single port. As an alternative to adding an external USB hub, remove the existing unit, and substitute with a dual.  Stacked dual-USB port can be scavenged from an old/dead motherboard.
 
+== Further USB1.1 ports ==
+There is a theoretical method (no attempts actually made) to add 3 more USB ports, but they are limited to being USB1.1, as the relevant pads for USB2.0 are not routed out from under the USB hub chip. In the image below, the blue dots are the existing USB2.0 traces to the socket, the yellow arrows are the untracked pads necessary for USB2.0, and the red dots are the necessary connections for the extra 3 potential USB1.1 ports. Obviously, the 0V and +5V connections will need to be made somewhere for each port as well, and some care will need to be taken to ensure the source can supply enough current.
+
+inline:wrtsl54gs-usb.jpg
+
 == LED10 ==
 The LED10 location at front of board contains no LED. Perhaps it is usable for something. But it does not appear to be connected directly to a GPIO pin as a voltmeter shows nothing when cycling all GPIO lines.
 
