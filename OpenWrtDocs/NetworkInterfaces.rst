@@ -117,3 +117,60 @@ dmz_netmask=255.255.255.0
 This configuration firstly changes the vlan0 to exclude port 1 which will be our DMZ port. Then the DMZ vlan is created, with ports 1 and 5 (remember 5 is the internal tagged port). Then the logical interface 'dmz' is configured and attached to vlan2. To bring up the new interface, just run "ifup dmz". And of course do your firewall configuration.
 
 You could even add more DMZ interfaces - you've got a total of six interfaces to play with (including the wireless port) so what we see is that this device is capable of some very impressive routing features - the limit is your imagination.
+
+=== VLan Trunking on one NIC ===
+Provided by ''Trent W. Buck'' aka ''twb on #openwrt''
+
+Problem: server has room for only one physical NIC, but it needs
+access to the internet (i.e. an upstream network) as well as absolute
+dominion over two ''downstream'' networks: ''admin'' and ''prisoner''.
+
+To achieve this, we will create three vlans on both the OpenWRT k7.09
+and the Ubuntu 8.04 server.  Further, all (or all but one) of the
+vlans need to be ''tagged'' across the physical line between the OpenWRT
+and the Ubuntu server.
+
+Use `robocfg show` to display vlan status.  It's probably better (more
+portable) to cat something in `/proc/switch/`, but I don't know what.
+{{{
+    OpenWRT# uci show network.eth0
+    network.eth0=switch
+    network.eth0.vlan0=1 5*
+    network.eth0.vlan1=0 5
+    network.eth0.vlan2=1t 2 5
+    network.eth0.vlan3=1t 3 4 5
+}}}
+
+In the above, the `5*` indicates that untagged packets on port 5 will
+be treated (tagged?) as vlan0.  The `1t` tells the kernel to tag vlans
+2 and 3 on port 1 - note that vlan1 is '''not''' tagged on port 1, which
+is why we eth0 instead of eth0.1 on the Ubuntu server.
+
+Note that we do not set up interfaces eth0.2 or eth0.3, because the
+OpenWRT MUST NOT be accessible (at the IP layer) from the admin and
+prisoner networks.
+{{{
+    Ubuntu# cat /etc/network/interfaces
+    auto lo eth0 eth0.2 eth0.3
+
+    iface lo inet loopback
+    iface eth0 inet dhcp
+    iface eth0.2 inet static
+      address 192.168.67.1
+      network 192.168.67.0
+      netmask 255.255.255.0
+      broadcast 192.168.67.255
+    iface eth0.3 inet static
+      address 192.168.68.1
+      network 192.168.68.0
+      netmask 255.255.255.0
+      broadcast 192.168.68.255
+}}}
+Note that the Ubuntu ''vlan'' package says not to use vlan1, because
+it's generally reserved for... stuff.  It seems to work for me here,
+probably because vlan1 is non-tagged.
+
+==== References ====
+
+ * http://wiki.openwrt.org/OpenWrtDocs/NetworkInterfaces
+ * http://forum.openwrt.org/viewtopic.php?id=5087
