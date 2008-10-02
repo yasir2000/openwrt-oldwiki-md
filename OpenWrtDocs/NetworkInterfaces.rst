@@ -170,7 +170,4 @@ Note that the Ubuntu ''vlan'' package says not to use vlan1, because
 it's generally reserved for... stuff.  It seems to work for me here,
 probably because vlan1 is non-tagged.
 
-==== References ====
-
- * http://wiki.openwrt.org/OpenWrtDocs/NetworkInterfaces
- * http://forum.openwrt.org/viewtopic.php?id=5087
+See also: http://forum.openwrt.org/viewtopic.php?id=5087
