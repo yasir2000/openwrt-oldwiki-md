@@ -253,4 +253,6 @@ usb_man N/A
 usb_prod        N/A}}}
 
 ----
-["CategoryAR7Device"]
+ . CategoryModel ["CategoryAR7Device"]
+ . CategoryDslModems
+ . Category80211gDevices
