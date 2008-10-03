@@ -70,11 +70,8 @@ RedBoot config    0xA87EF000  0xA87EF000  0x00001000  0x00000000
 = Resources =
  * [https://shop.fon.com/FonShop/shop/US/ShopController?view=product&product=PRD-018 FON Shop Link]
 
-== Oficial Wiki ==
- * [http://wiki.fon.com/wiki/La_Fonera%2B La Fonera+]
+ * [http://wiki.fon.com/wiki/La_Fonera%2B Oficial Wiki]
 
-== Oficial Firmware ==
- * [http://download.fon.com/firmware/foneraplus/latest/foneraplus.tar.bz2 foneraplus.tar.bz2]
+ * [http://download.fon.com/firmware/foneraplus/latest/foneraplus.tar.bz2 Oficial Firmware]
 
-== Firmware Changelog ==
- * [https://www.fon.com/en/support/changelogLafoneraplus/ Latest developments of La Fonera+'s firmware]
+ * [https://www.fon.com/en/support/changelogLafoneraplus/ Firmware Changelog]
