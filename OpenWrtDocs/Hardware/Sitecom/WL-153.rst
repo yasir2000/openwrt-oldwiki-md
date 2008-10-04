@@ -19,6 +19,10 @@ attachment:WL153TOP.JPG
 ||1 ||RTL8305SC ||
 
 
+= Power Supply =
+
+The external power adapter supplies 12V, 1000 mA DC.
+
 = Serial =
 Connector T1, close to the LED.
 
