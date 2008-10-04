@@ -1,10 +1,10 @@
 [[TableOfContents]]
 
-
+ /!\ Also read '''[[OpenWrtDocs/Hardware/Linksys/WRT54GL]]''', which seems to be more uptodate then this page 
 
 !OpenWrt is free software, provided AS-IS under the terms of the GNU General Public License. Please understand that you are expected to have knowledge about GNU/Linux and basic networking concepts before you install !OpenWrt on your router, however, for all intended purposes of this document it is not required. :) Support may be provided on a voluntary basis by developers and fellow users, but support is not guaranteed. 
 
-The latest version of !OpenWrt is also know as White Russian, however, !OpenWrt will be used instead of White Russian for simplicity.
+
 
 /!\ '''WARNING  LOADING AN UNOFFICIAL FIRMWARE WILL VOID YOUR WARRANTY''' /!\
 
@@ -19,7 +19,7 @@ The WRT54GL !LinkSys router was used for this particular installation.  The spec
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 || [http://www.linksys.com/servlet/Satellite?c=L_Product_C2&childpagename=US/Layout&cid=1133202177241&pagename=Linksys/Common/VisitorWrapper WRT54GL] || ||[http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM5352E Broadcom 5352] @ 200MHz ||4MB ||16MB ||Broadcom (integrated) ||in CPU ||off ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Linksys/WRT54GL:Supported] ||
 
-The Firmware version as of the latest WRT54GL models as of April 2006 is v4.30.0.  Do not be concerned with the which version you have.  You may want to take note of which version you have in case you would like to re-install it (although, even that doesn't matter as you can just go to the !LinkSys website to download the latest and greatest), however, unlike what some people say about rolling back versions to take advantage of the infamous "ping exploit"... well, that's just not needed.  Any version should work fine.
+Do not be concerned with the which version you have.  You may want to take note of which version you have in case you would like to re-install it (although, even that doesn't matter as you can just go to the !LinkSys website to download the latest and greatest), however, unlike what some people say about rolling back versions to take advantage of the infamous "ping exploit"... well, that's just not needed.  Any version should work fine.
 
 For any of those people interested in connecting serial ports to the WRT54GL.  Single and dual serial boards are available.  Two serial connections can be created using a dual serial board.
 
@@ -30,44 +30,18 @@ We are installing !OpenWrt on the !LinkSys WRT54GL router.
 The first thing you want to do is make sure that your router hardware is supported, since we are using the WRT54GL linkSys router we are fine, otherwise confirm your hardware on the TableOfHardware page.
 
 == Select your Firmware ==
-The next step is to locate the variation of !OpenWrt you want to install.  It comes in three variations located in three differen directories.  The only difference between them is that each has a slightly different set of packages installed.
-
- 1. micro/ - contains the least amount of packages required for a functional system.  This one is only recommended for those experience with !OpenWrt and Linux as it does not contain a web interface to the !OpenWrt firmware.
- 2. bin/ - contains a decent amount of packages (referred to as a Standard image) needed for a functional system plus it contains a web interface and pppoe.  This one is recommended and is considered the default.
- 3. pptp/ - contains almost the exact set of packages as the previous Standard image except it includes pptp and not pppoe.  It also has the web interface.
-
-If you are new to !OpenWrt then simply choose the !OpenWrt found in the bin directory.   The latest !OpenWrt files can be found at http://downloads.openwrt.org/whiterussian/newest/
+The next step is to locate the variation of !OpenWrt you want to install. The latest !OpenWrt files can be found at http://downloads.openwrt.org/kamikaze/7.09/brcm47xx-2.6/
 
 Before you download the files, continue to read the next two sections as it explains which file to select.
 
 == Select your .bin/.trx file ==
 In that directory you will notice two different types of files. "trx" and "bin" files, the bin files simply repackage the trx in the vendor's default firmware format and are only used when the trx files can't be used directly.  That may be a little confusing for some people however, since we are using the WRT54GL you should use:
 
-openwrt-wrt54g-<type>.bin  (<type> is explained below)
+openwrt-wrt54g-<version>-squashfs.bin  
 
-For those people who aren't using a WRT54GL !LinkSys router refer to section 2.1. TRX vs. BIN on the !OpenWrt Installing page http://wiki.openwrt.org/InstallingWrt54gl#preview, to select the image file you need to download.
+You have to check what flavor fits best to your WRT54GL.
 
-== Select SquashFS or JFFS2 ==
-You will notice that in that same directory, where we have <type> you will find "SquashFS" and "JFFS2"
 
- * SquashFS - SquashFS files include a small compressed filesystem within the firmware itself. The disadvantage is that Squashfs is a readonly filesystem, to save changes and make the filesystem appear writable a separate JFFS2 partition has to be used; the advantage is that Squashfs takes up slightly more space than JFFS2, and you'll always have the original files on the readonly filesystem which can be used as a boot device for recovery.
- * JFFS2 - JFFS2 make the entire filesystem JFFS2. The disadvantage is that this takes slightly more space; the advantage is that changes to included files nolonger leaves behind an old copy on the readonly filesystem.
-
-If you are new to Linux and OpenWrt simply choose SquashFS.
-
-Two warnings:
-/!\ '''The JFFS2 firmware uses an extra setup step which requires an ADDITIONAL REBOOT before the filesystem can be used.''' /!\
-
-/!\ '''WARNING !OpenWrt White Russian prior rc5 has no failsafe mode for JFFS2 firmware images.''' /!\
-
-== Download !OpenWrt Firmware Image ==
-At this point you have read the sections above, and since we are using the !LinkSys WRT54GL you now know to choose the openwrt-wrt54g-squashfs.bin , although you can also choose openwrt-wrt54g-jffs2.bin if you don't mind rebooting after the install and the fact that is uses a little more space.
-
-You can choose to download the !OpenWrt firmware image onto a Windows machine or Linux.  It doesn't matter.
-
-Now, download the latest !OpenWrt file found at http://downloads.openwrt.org/whiterussian/newest/
-
-After downloading the !OpenWrt firmware image it is good practice to make sure that the file is not corrupt. This can be verified by comparing the md5sum from your downloaded image with the md5sum listed in the [http://downloads.openwrt.org/whiterussian/newest/bin/md5sums md5sums] file found in the download directory. For win32 platforms use [http://www.pc-tools.net/win32/ md5sums.exe] for GNU/Linux systems use the {{{md5sum}}} command.  After running the command with the !OpenWrt firmware image you just downloaded, compare the results to the corresponding file found on this page [http://downloads.openwrt.org/whiterussian/newest/bin/md5sums md5sums]
 
 == WRT54GL Connect ==
 Be sure to have your WRT54GL router powered up.  Plug the power adaptor into a standard outlet and plug the other end into your router.  You should see lights on the front of the router.  Now you need to your computer to your router.  Your connection may vary based on your network configuration.  To connect your computer directly to the router run one end of an ethernet cable into your computer's network card and the other end directly into one of the four numbered ports on the back of your router (not the internet/LAN port).  If you are on a network and are plugged into a hub you can plug one end of the ethernet cable into a numbered port on the hub and the other end into a numbered port on the router (you must unplug the hub's uplink button, which will disconnect it from the internet).  In either case, if you have a dedicated IP you need to change your IP address so that you can access the router on the same subnet.  For example, if your IP address is 192.168.170.55 change it to 192.168.1.55 and you should be able to access your router.
