@@ -31,7 +31,7 @@ http://wiki.openwrt.org/OpenWrtDocs/HardwareTables/switchPorts
 
 http://www.icplus.com.tw/pp-IP175C.html
 
-http://www.icplus.com.tw/Data/Datasheet/IP175Cx-DS-R15-20080529.pdf
+http://www.icplus.com.tw/Data/Datasheet/IP175Cx-DS-R16-20080924.pdf
 
 ----
  . CategoryModel ["CategoryAR7Device"]
