@@ -1,4 +1,5 @@
-= Airlink AR335W/AR430W WIP =
+= Airlink AR335W/AR430W =
+This device is identical with the [http://wiki.openwrt.org/OpenWrtDocs/Hardware/D-Link/DIR-300 Dlink Dir-300]
 
 Those two routers have almost identical hardware. Both are based on an Atheros System on Chip (SoC) and both have limited Redboot. 
 
