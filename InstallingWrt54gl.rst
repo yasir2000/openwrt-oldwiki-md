@@ -1,6 +1,6 @@
 [[TableOfContents]]
 
- /!\ Also read '''[[OpenWrtDocs/Hardware/Linksys/WRT54GL]]''', which seems to be more uptodate then this page 
+ /!\ Also read '''["OpenWrtDocs/Hardware/Linksys/WRT54GL"]''', which seems to be more uptodate then this page 
 
 !OpenWrt is free software, provided AS-IS under the terms of the GNU General Public License. Please understand that you are expected to have knowledge about GNU/Linux and basic networking concepts before you install !OpenWrt on your router, however, for all intended purposes of this document it is not required. :) Support may be provided on a voluntary basis by developers and fellow users, but support is not guaranteed. 
 
