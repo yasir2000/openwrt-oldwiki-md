@@ -18,7 +18,7 @@ Those two routers have almost identical hardware. Both are based on an Atheros S
 ||'''Wireless''' ||Integrated Atheros 802.11b/g (*also Atheros™ Super G™: 108 Mbps on AR430W) ||
 ||'''Ethernet''' ||5x RJ45 (1x Wan , 4x Lan)||
 ||'''USB''' ||No ||
-||'''Serial''' ||No ||
+||'''Serial''' ||Yes ||
 ||'''JTAG''' ||Yes ||
  * 5V power supply
  * Antenna
