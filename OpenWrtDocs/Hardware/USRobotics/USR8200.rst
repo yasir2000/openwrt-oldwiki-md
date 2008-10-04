@@ -17,6 +17,8 @@ The USR8200 is a non-wireless router, advertised as a Firewall/VPN. This single 
 TBC
 == Hardware Hacking ==
 Although this router has no wireless support, there is tracking and pads on the circuit board for a mini-PCI card, which may allow a wireless card to be added. Work is in progress to determine if this is feasible.
+== More Info / Pictures ==
+There are extensive pictures of this device at [http://home.comcast.net/~johnrw/], along with a [http://home.comcast.net/~johnrw/image/USR8200_notes.txt set of notes] on some of the investigations that the photographer did.
 ----
  . CategoryModel ["CategoryIXP4xxDevice"]
 ----
