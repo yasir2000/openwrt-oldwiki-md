@@ -5,7 +5,7 @@
 
 UCI is a very flexible and modular interface to store configurations in plain text files. UCI is the successor/replacement for depricated NVRAM. The text files are stored by default in /etc/config/<config> and they all have the structure like <config>.<section>.<option>=<value>. UCI was specially written for embedded systems where it makes no sense or where you have limited ressources to run a database to store the configuration. UCI is written in C and and a command-line interface is available to modify the configuration files via the shell without the need of using a text editor. The LuCI WebUI makes heavy use of UCI as well.
 
-UCI is maintained by nbd at [http://nbd.name/gitweb.cgi?p=uci.git;a=summary UCI Library and utility for the Unified Configuration Interface for OpenWrt]
+UCI is maintained by nbd at [http://nbd.name/gitweb.cgi?p=uci.git;a=summary Library and utility for the Unified Configuration Interface for OpenWrt]
 
 = The UCI CLI =
 {{{
