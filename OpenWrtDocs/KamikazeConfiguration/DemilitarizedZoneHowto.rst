@@ -59,6 +59,16 @@ root@OpenWrt:~# uci set network.dmz.ipaddr=192.168.2.1
 root@OpenWrt:~# uci set network.dmz.netmask=255.255.255.0
 root@OpenWrt:~# uci set network.dmz.ifname=eth0.2
 root@OpenWrt:~# uci commit network}}}
+
+== Routing (optional) ==
+
+root@OpenWrt:~# uci add network route
+root@OpenWrt:~# uci set network.@route[-1].interface=dmz
+root@OpenWrt:~# uci set network.@route[-1].target=192.168.2.0
+root@OpenWrt:~# uci set network.@route[-1].netmask=255.255.255.0
+root@OpenWrt:~# uci set network.@route[-1].gateway=192.168.2.1
+root@OpenWrt:~# uci commit network
+
 == Configure DHCP for our DMZ (optional) ==
 Set the following:
 
