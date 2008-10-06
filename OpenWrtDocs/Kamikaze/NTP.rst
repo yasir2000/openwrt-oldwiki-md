@@ -24,7 +24,7 @@ Of course there are even more alternatives, e.g. feel free to substitute your lo
 Run
 
 {{{
-root@OpenWrt:~# root@OpenWrt:~# ACTION=ifup INTERFACE=wan /sbin/hotplug-call iface
+root@OpenWrt:~# ACTION=ifup INTERFACE=wan /sbin/hotplug-call iface
 }}}
 or restart the network to update the time.
 
