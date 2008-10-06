@@ -49,9 +49,15 @@ Standard RS232 levels, for example:
 
 TTL 5V, for example:
  * [http://www.mouser.com/Search/ProductDetail.aspx?qs=OMDV80DKjRorBEBwmlJ4Pg%3d%3d FTDI TTL-232R-5V]
+ * [http://apple.clickandbuild.com/cnb/shop/ftdichip?productID=49&op=catalogue-product_info-null&prodCategoryID=47 FTDI TTL-232R-5V (£)]
+ * [http://apple.clickandbuild.com/cnb/shop/ftdichip?productID=69&op=catalogue-product_info-null&prodCategoryID=47 FTDI TTL-232R-AJ (£)]
+ * [http://apple.clickandbuild.com/cnb/shop/ftdichip?productID=67&op=catalogue-product_info-null&prodCategoryID=47 FTDI TTL-232R-WE (£)]
 
 TTL 3.3V, for example:
  * [http://www.mouser.com/Search/ProductDetail.aspx?R=TTL-232R-3V3virtualkey62130000virtualkey895-TTL-232R-3V3 FTDI TTL-232R-3V3]
+ * [http://apple.clickandbuild.com/cnb/shop/ftdichip?productID=53&op=catalogue-product_info-null&prodCategoryID=47 FTDI TTL-232R-3V3 (£)]
+ * [http://apple.clickandbuild.com/cnb/shop/ftdichip?productID=70&op=catalogue-product_info-null&prodCategoryID=47 FTDI TTL-232R-3V3-AJ (£)]
+ * [http://apple.clickandbuild.com/cnb/shop/ftdichip?productID=68&op=catalogue-product_info-null&prodCategoryID=47 FTDI TTL-232R-3V3-WE (£)]
 
 You may need to rewire the terminals of the TTL cables to match your device pinout.
 
@@ -60,6 +66,8 @@ You may need to rewire the terminals of the TTL cables to match your device pino
 If you want to solder:
  * [http://www.sparkfun.com/commerce/product_info.php?products_id=718 Breakout Board for FT232RL USB to Serial]
  * [http://www.sparkfun.com/commerce/product_info.php?products_id=199 Breakout Board for CP2103 USB to Serial w/ GPIOs].
+ * [http://apple.clickandbuild.com/cnb/shop/ftdichip?productID=71&op=catalogue-product_info-null&prodCategoryID=47 FTDI TTL-232R-PCB (£)]
+ * [http://apple.clickandbuild.com/cnb/shop/ftdichip?productID=72&op=catalogue-product_info-null&prodCategoryID=47 FTDI TTL-232R-3V3-PCB (£)]
 
 ==== Cellphone Data Cables ====
 
