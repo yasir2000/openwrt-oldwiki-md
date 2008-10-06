@@ -73,14 +73,6 @@ If you want to solder:
 
 A USB based data cable for a mobile cell phone is another possibility.
 
-Compatible Radio Shack (Future Dial) "Mobile Phone Data Cables" using the Prolific 2303 USB-3.3vSerial converter chip:
-
- *LG Models 1200, VI5225, VX4500, VX4600, VX600
- *Audiovox Models 8200, 8500 and 8600
- *Nokia Models 3285 and 5185
- *Cable 22 (For Nokia 3100, 3200, 3585i, 3588 and others with Nokia 14-pin pop-port)
- *Cable 32 (For Motorola T720*, T722i, P280, 270c, V60*, V66, V70, V120*)
-
 Ebay clone cables:
  *Datacable for Nokia 6210, 6250, 6310, 6310i, 7110
 
