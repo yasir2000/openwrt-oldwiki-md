@@ -1,7 +1,7 @@
 #pragma section-numbers off
 ||<tablebgcolor="#f1f1ed" tablewidth="40%" tablestyle="margin: 0pt 0pt 1em 1em; float: right; font-size: 0.9em;"style="padding: 0.5em;">[[TableOfContents]]||
 = Configure WiFi encryption =
-Howto setup wireless encryption with !OpenWrt Kamikaze.
+Howto setup wireless encryption with !OpenWrt Kamikaze. You can do the same from within the [http://luci.freifunk-halle.net/ LuCI WebUI] (Network > Wifi) if you prefer a GUI.
 
 == Key generation ==
 To generate a random password for your key you can use the {{{pwgen}}} program. pwgen is available for most Linux distributions and is also packaged for !OpenWrt Kamikaze. Run it with e.g. {{{pwgen --secret 13 1}}} (meaning: generate 1 password with a length of 13 letters/numbers).  On Debian Etch, use {{{pwgen --secure 13 1}}}.
