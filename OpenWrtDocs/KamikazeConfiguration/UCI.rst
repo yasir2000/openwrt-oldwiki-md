@@ -3,13 +3,12 @@
 = What is UCI =
 '''U'''nified '''C'''onfiguration '''I'''nterface.
 
-UCI is a very flexible and modular interface to store configurations in plain text files. The text files are stored by default in /etc/config/<application> and they all have the structure like <section> <option> <name> = <value>. UCI was specially written for embedded systems where it makes no sense or where you have not the ressources to run a database to store the configuration. UCI is written in C and and a command-line interface is available to modify the configuration files via the shell without the need of using a text editor. The LuCI WebUI makes heavy use of UCI as well.
+UCI is a very flexible and modular interface to store configurations in plain text files. The text files are stored by default in /etc/config/<application> and they all have the structure like<config>.<section>.<option>=<value>. UCI was specially written for embedded systems where it makes no sense or where you have not the ressources to run a database to store the configuration. UCI is written in C and and a command-line interface is available to modify the configuration files via the shell without the need of using a text editor. The LuCI WebUI makes heavy use of UCI as well.
 
 = The UCI CLI =
 {{{
 root@OpenWrt:~# uci
 Usage: uci [<options>] <command> [<arguments>]
-
 Commands:
         batch
         export     [<config>]
@@ -24,7 +23,6 @@ Commands:
         delete     <config>[.<section[.<option>]]
         rename     <config>.<section>[.<option>]=<name>
         revert     <config>[.<section>[.<option>]]
-
 Options:
         -c <path>  set the search path for config files (default: /etc/config)
         -d <str>   set the delimiter for list values in uci show
