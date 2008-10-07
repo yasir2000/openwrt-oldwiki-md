@@ -476,7 +476,7 @@ expect "RedBoot>"
 send -- "reset\r"
 }}}
 
-== Upgrading OpenWrt from within a running OpenWrt installation ==
+= Upgrading OpenWrt from within a running OpenWrt installation =
 
 {{{
 cd /tmp
