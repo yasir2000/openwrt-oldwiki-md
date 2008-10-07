@@ -475,6 +475,18 @@ send -- "fis create -l 0x006F0000 rootfs\r"
 expect "RedBoot>"
 send -- "reset\r"
 }}}
+
+== Upgrading OpenWrt from within a running OpenWrt installation ==
+
+{{{
+cd /tmp
+scp host:/path/to/openwrt-atheros-vmlinux.lzma .
+scp host:/path/to/openwrt-atheros-root.jffs2-64k .
+mtd -e vmlinux.bin.l7 write openwrt-atheros-vmlinux.lzma vmlinux.bin.l7
+mtd -e rootfs write openwrt-atheros-root.jffs2-64k rootfs
+reboot
+}}}
+
 = Telnet into RedBoot =
 You can change the !RedBoot configuration, so you can later telnet into this bootloader in order to reflash this device from there, without having serial access.
 
