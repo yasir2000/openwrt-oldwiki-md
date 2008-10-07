@@ -27,6 +27,7 @@ See the files:
 There are five 63xx variants: bcm6345,bcm6338,bcm6348,bcm6358,bcm6368
 ||<tablewidth="532px" tableheight="155px">Chip ||CPU Mhz ||USB Device ||USB Host ||WiFi ||ADSL2 ||ADSL2+ ||VDSL ||
 ||bcm6345 ||  75 ||1.1 ||- ||- ||Yes ||No ||No ||
+||bcm6335 ||  ??? ||?.? ||- ||- ||? ||? ||? ||
 ||bcm6338 ||  240 ||1.1 ||- ||- ||Yes ||Yes ||No ||
 ||bcm6348 ||  240 ||1.1 ||1.1 ||Yes ||Yes ||Yes ||No ||
 ||bcm6358 ||  300 ||2.0 ||2.0 ||Yes ||Yes ||Yes ||Yes ||
