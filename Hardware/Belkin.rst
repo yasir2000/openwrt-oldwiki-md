@@ -16,4 +16,4 @@
 ||[http://catalog.belkin.com/IWCatProductPage.process?Merchant_Id=&Section_Id=202570&pcount=&Product_Id=184316 F5D8230-4] ||2 ||[http://w3serv.realtek.com.tw/products/products1-2.aspx?modelid=2003102 Realtek 8651B] @ 200MHz ||4MB ||16MB ||Airgo (mini-PCI) || ||N/A ||Yes ||No ||No ||WiP ||
 ||[http://www.belkin.com/support/product/?lid=en&pid=F5D8231-4 F5D8231-4] ||1 ||Intel IXP425 @ 400MHz ||4MB ||32MB ||Atheros (mini-PCI, madwifi) || || ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Belkin/F5D8231-4:Untested] ||
 ||[http://catalog.belkin.com/IWCatProductPage.process?Product_Id=372043 F5D8233-4 ] ||1 ||? ||?||? ||? || || || ? || ?  || ?  ||[:OpenWrtDocs/Hardware/Belkin/F5D8233-4:Untested] ||
-||[http://catalog.belkin.com/IWCatProductPage.process?Product_Id=459640 F5D8235-4 ] ||1000 ||Realtek RT2??? ||8MB ||32MB ||Ralink RT2820L ||Realtek RTL8366SR || ||? ||?  ||1x v2.0  ||[:OpenWrtDocs/Hardware/Belkin/F5D8235-4:Untested] ||
+||[http://catalog.belkin.com/IWCatProductPage.process?Product_Id=459640 F5D8235-4 ] ||1000 ||Ralink RT2??? ||8MB ||32MB ||Ralink RT2820L ||Realtek RTL8366SR || ||? ||?  ||1x v2.0  ||[:OpenWrtDocs/Hardware/Belkin/F5D8235-4:Untested] ||
