@@ -38,3 +38,12 @@ Options:
         -s         force strict mode (stop on parser errors, default)
         -S         disable strict mode
 }}}
+= A UCI example config file =
+/etc/config/test
+{{{
+config 'foobar'
+        option 'name' 'value'
+
+config 'barfoo' 'sectionname'
+        option 'name1' 'value1'
+}}}
