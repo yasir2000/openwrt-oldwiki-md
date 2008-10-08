@@ -58,7 +58,7 @@ The console is JP603 and is oriented with pin1 closest to the edge of the board 
 '''Update please'''
 || CPU || TI AR7 TNETD7200ZDW ||
 || Flash || Macronix 29LV320 ||
-|| SDRAM || ??? ||
+|| SDRAM || 16 MByte (EtronTech EM639165, [http://www.datasheetcatalog.org/datasheets/700/238821_DS.pdf datasheet]) ||
 || LAN MAC/PHY Switch || Marvell 88E6060 ||
 || WLAN || TI TNETW1350A ||
 
