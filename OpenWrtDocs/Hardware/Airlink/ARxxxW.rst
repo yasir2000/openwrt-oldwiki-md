@@ -1,5 +1,5 @@
 = Airlink AR335W/AR430W =
-This device is identical with the [http://wiki.openwrt.org/OpenWrtDocs/Hardware/D-Link/DIR-300 Dlink Dir-300]
+This device is identical with the ["OpenWrtDocs/Hardware/D-Link/DIR-300"]
 
 Those two routers have almost identical hardware. Both are based on an Atheros System on Chip (SoC) and both have limited Redboot. 
 
@@ -177,45 +177,22 @@ If you did everything correctly then you should be able to telnet your router af
 = Using wireless =
 Many users have had the wireless driver hang the AR430w with Kamikaze 7.09.
 
-However, if you build entirely from trunk, with one small modification to the configuration, the wireless should work:
+However, if you build entirely from trunk, the wireless should work.  Revision 12882 or later is required to prevent a hang due to GPIO.
 
-I have successfully gotten this router to work with almost stock openwrt trunk (I have used rev 12634).  The only necessary change in order to prevent a hung router upon boot is to modify the kernel config and turn off all the GPIO options.  From there it's just a "make" and then flashing it like above, but with the rootfs.squashfs and the kernel copied out of the "bin" directory once you are done:
-{{{
-Index: target/linux/atheros/config-2.6.26
-===================================================================
---- target/linux/atheros/config-2.6.26  (revision 12634)
-+++ target/linux/atheros/config-2.6.26  (working copy)
-@@ -63,9 +63,9 @@
- CONFIG_GENERIC_CMOS_UPDATE=y
- # CONFIG_GENERIC_FIND_FIRST_BIT is not set
- CONFIG_GENERIC_FIND_NEXT_BIT=y
--CONFIG_GENERIC_GPIO=y
-+# CONFIG_GENERIC_GPIO is not set
- # CONFIG_GENERIC_HARDIRQS_NO__DO_IRQ is not set
--CONFIG_GPIO_DEVICE=y
-+# CONFIG_GPIO_DEVICE is not set
- CONFIG_HAS_DMA=y
- CONFIG_HAS_IOMEM=y
- CONFIG_HAS_IOPORT=y
-@@ -92,7 +92,7 @@
- CONFIG_IRQ_CPU=y
- # CONFIG_IWLWIFI_LEDS is not set
- # CONFIG_LEDS_ALIX is not set
--CONFIG_LEDS_GPIO=y
-+# CONFIG_LEDS_GPIO is not set
- # CONFIG_LEMOTE_FULONG is not set
- CONFIG_LZO_COMPRESS=m
- CONFIG_LZO_DECOMPRESS=m
-}}}
+= Port-based VLANs =
+This router uses the ["Ip175C"] switch and requires a kernel patch in order to enable.
 
-The wireless does not seem to start configured upon boot.
-To enable the wireless for testing from the command line, run:
+See https://dev.openwrt.org/ticket/4050
+
+= LEDs =
+turn them off or on with "echo 0" or "echo 1 > /sys/class/leds/gpio1/brightness" or use the trigger field to make them useful.
 {{{
-wlanconfig ath0 create wlandev wifi0 wlanmode ap
-ifconfig ath0 up
-iwconfig ath0 essid "myaccesspoint"
+wlan: seems to do nothing.
+gpio1: Blue LED on circuit board
+gpio2: The actual WLAN LED
+gpio3: Red LED on circuit board, replaces blue when on
+gpio4: unknown
 }}}
-and check that another computer can see the access point.
 
  . Category80211gDevices
  . CategorySupportedInKamikaze7_07
