@@ -2,7 +2,7 @@
 
 Link to Product info page at airlink101.com -> http://www.airlink101.com/products/anas350.html
 
-Also known as the MGB111 from AMIT and others.
+Also known as the MGB111 from AMIT and others. PATA controller is IT8211F. SATA controller is SPIF213A.
 
 The sources released appear to be the toolchain only. (July 9, 2008)
 
