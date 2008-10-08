@@ -11,9 +11,13 @@ GPL tarball : http://www.airlink101.com/gpl/anas350/
 === JTAG Port ===
 
 Accessed through serial connector:
+
 DSR = TCK
+
 RTS = TDO
+
 DCD = TDI
+
 CTS = TMS
 
 === Serial Port ===
