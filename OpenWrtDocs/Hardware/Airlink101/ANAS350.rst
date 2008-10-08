@@ -2,15 +2,29 @@
 
 Link to Product info page at airlink101.com -> http://www.airlink101.com/products/anas350.html
 
+Also known as the MGB111 from AMIT and others.
+
 The sources released appear to be the toolchain only. (July 9, 2008)
 
 GPL tarball : http://www.airlink101.com/gpl/anas350/
 
 === JTAG Port ===
 
-Not yet documented.
+Accessed through serial connector:
+DSR = TCK
+RTS = TDO
+DCD = TDI
+CTS = TMS
 
-=== Serial Ports ===
+=== Serial Port ===
+
+||RI ||Vcc ||
+||CTS ||RTS ||
+||Rx ||DTR ||
+||DSR ||Tx ||
+||DCD ||GND ||
+
+=== 16-pin MII Connector ===
 
 Not yet documented.
 
@@ -147,5 +161,4 @@ Not yet documented.
 
 Note: The 320GB SATA hard drive and 2GB usb flash drive are not installed by default.
 
- . CategoryNotSupported
  . CategoryNasDevices
