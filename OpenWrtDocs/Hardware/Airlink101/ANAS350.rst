@@ -22,11 +22,11 @@ CTS = TMS
 
 === Serial Port ===
 
-||RI ||Vcc ||
-||CTS ||RTS ||
-||Rx ||DTR ||
-||DSR ||Tx ||
-||DCD ||GND ||
+||1) RI ||2) Vcc ||
+||3) CTS ||4) RTS ||
+||5) Rx ||6) DTR ||
+||7) DSR ||8) Tx ||
+||9) DCD ||10) GND ||
 
 === 16-pin MII Connector ===
 
