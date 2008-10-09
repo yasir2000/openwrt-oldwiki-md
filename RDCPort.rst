@@ -16,6 +16,8 @@ PDF downloads from RDC:
 [http://www.sima.com.tw/download/R8610_D06_20051003.pdf Draft of old R8610 datasheet]
 [attachment:R8610-G_D01_20051207.pdf Draft of old R8610-G datasheet]
 
+[ftp://ftp.prochip.ru/Support/RDC/R8610/BSP/R8610_BSP_v1_05/JTAGDownloadTool%20for%20Windows/ RDC JTAG DownloadTool (RDC Loader)]
+
 Guy working on RDC : 
 
 http://www.ivankuten.com/system-on-chip-soc/rdc-r8610/
