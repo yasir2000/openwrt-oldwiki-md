@@ -6,6 +6,9 @@
  * [http://www.cpx.cz/dls/NP25G/NP25G%20Board%27s%20Product%20Manual_Rev1.0.pdf Board's Product Manual] (PDF)
  * [http://www.cpx.cz/dls/NP25G/NP25G_v1.2c_userguide.pdf User's guide] (PDF)
 
+''Patches'':
+ * [http://www.lammerts.org/software/openwrt/ NP25G support]
+
 ''Original firmware console log'':
 {{{
 MyLoader version 2.43.0706
