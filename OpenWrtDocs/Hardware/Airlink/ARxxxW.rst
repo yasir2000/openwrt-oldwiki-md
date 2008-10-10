@@ -24,6 +24,22 @@ Those two routers have almost identical hardware. Both are based on an Atheros S
  * 5V power supply
  * Antenna
 
+
+Serial Port:
+{{{
+ARxxxW/DIR-300: 
++-----+ +---+ +-----------------+ +---+
+|Power| |Wan| |Ethernet x4 ports| |Ant|
++-------------------------------------+
+                                  |TXD|
+                                  |GND|
+                                  |VCC|
+                                  | . |
+                                  |RXD|
++-------------------------------------+
+}}}
+
+
 = Installing Modified Redboot =
 This is a copy-paste from DD-WRT website. You can download files you need from this page. http://www.dd-wrt.com/dd-wrtv2/down.php?path=downloads%2Fv24%2FAtheros+WiSoc%2FAirlink+101+AR430W/
 
