@@ -91,3 +91,8 @@ OpenWrt is aimed at advanced users.  Basic end users should start here: BasicEnd
 [:OpenWrtDocs/OpenWrtDocs/KamikazeBootHowTo:Kamikaze Boot Sequence Notes]
 
 [:OpenWrtDocs/OpnenWrtDocs/KamikazeBootScriptsHowTo:Kamikaze Boot Scripts and UCI Notes]
+
+== Howto ==
+[:OpenWrtDocs/KamikazeHowto:Kamikaze]
+
+[:OpenWrtDocs/WhiterussianHowto:Whiterussian]
