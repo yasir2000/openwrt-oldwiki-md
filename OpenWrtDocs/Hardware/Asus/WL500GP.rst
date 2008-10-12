@@ -83,6 +83,9 @@ dd if=/dev/mtdblock/1 > $1/first_config.trx}}}
  {{{
 /dev/discs/disc0/part1 on /tmp/harddisk/part0 type ext2 (rw,sync)}}}
  * Create the backup with 'sh /tmp/harddisk/part0/asus.sh /tmp/harddisk/part0'. Enter the command in the System Command text field and hit the Refresh button. This may take up to 10-15 seconds.
+''Note - some versions of this router limit the lenght of command input field to 42 characters. To backup the firmware, use either a trick like 'cd /t*/h*/*0;./asus.sh /tmp/harddisk/part0', or for even longer commands pass those directly in url (using variable '''SystemCmd'''), like
+http://192.168.1.1/apply.cgi?current_page=Main_AdmStatus_Content.asp&next_page=Main_AdmStatus_Content.asp&next_host=192.168.1.1&sid_list=FirewallConfig%3B&group_id=&modified=0&action_mode=+Refresh+&first_time=&action_script=&preferred_lang=EN&SystemCmd=ls&action=Refresh''
+
  * You can enter in the System Command text field 'ls -l ''''''/tmp/harddisk/part0' and see your first_config.trx file.
  * Remove the USB pen drive and check on your PC if the first_config.trx file is there
 === Restore ===
