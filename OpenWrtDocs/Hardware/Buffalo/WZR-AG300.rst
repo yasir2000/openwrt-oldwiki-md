@@ -16,6 +16,8 @@ At this time, Buffalo do not provide a download of the sources for this router -
 
 Having said that, the kernel for the [:OpenWrtDocs/Hardware/Netgear/WNR854:Netgear WNR854] will boot on this board with trivial changes to the flash layout, and using that, an OpenWRT port should be straight forward.
 
+Source?: [http://opensource.buffalo.jp/gpl_wireless.html]
+
 === Linux ===
 
 This runs the ubiquitous Linux 2.4.27-vrs1 version, using Uboot as a bootloader. 
