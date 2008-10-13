@@ -46,7 +46,7 @@ Because a 40 pin cable is used, the drives cannot operator above UDMA 33MB. But 
  *J3  Fan 2-pin header (missed on some design)
  *J4  Possibly 20 pin JTAG, though I cannot map even the ground connections to any known JTAG. Or 14 pin JTAG *and* Serial in a custom format ? 
  *J5: Fan 2-pin header (missed on some design).
-The original SC101 prototype design did have an external fan mounted on the back end of the unit, which was removed on some devices went into production.
+The original SC101 prototype design did have an external fan mounted on the back end of the unit, which was removed after the SC101 went into production.
 
 == GPIO ==
 
