@@ -11,18 +11,18 @@ To generate a random password for your key you can use the {{{pwgen}}} program. 
 For Broadcom wireless chips you have to install the nas package.
 
 {{{
-root@OpenWrt:~# ipkg install nas}}}
+root@OpenWrt:~# opkg install nas}}}
 === Atheros WiFi ===
 For Atheros wireless chips install the hostapd package if your run in AP mode.
 
 {{{
-root@OpenWrt:~# ipkg install hostapd}}}
+root@OpenWrt:~# opkg install hostapd}}}
 '''TIP:''' If you only need WPA (PSK) encryption you can install the hostapd-mini package which does not depend on the zlib and libopenssl packages.
 
 If you have a Atheros wireless and run it in client-mode you have to install the wpa-supplicant package instead of hostapd.
 
 {{{
-root@OpenWrt:~# ipkg install wpa-supplicant}}}
+root@OpenWrt:~# opkg install wpa-supplicant}}}
 === Configure WPA (PSK) ===
 Configure WPA (PSK) encryption using UCI.
 
