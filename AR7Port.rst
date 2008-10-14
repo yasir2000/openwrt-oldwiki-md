@@ -127,7 +127,7 @@ Since DMA Routines do NOT exist for this ejtag version (compared to ejtag v2.0 s
 
 http://openwince.sourceforge.net/jtag/iPAQ-3600/images/interface.png
 
-As of 2008-01 there is a new, actively developed fork of openwince JTAG tools with EJTAG driver included, named "UrJTAG": http://urjtag.org - it should be working with AR7 based boards as well (try latest version from Subversion repository)
+As of 2008-01 there is a new, actively developed fork of openwince JTAG tools with EJTAG driver included, named "UrJTAG": http://urjtag.org - it should be working with AR7 based boards as well (try latest version from Subversion repository). This is usable on Speedport(AVM)routers with more as one chip on the chain. Some bsd definition files must be created first to discribe the chain in use. Still up to now i just could dsplay the chips and do some register setting but could not read or write the flash memory attatched to the TNETV7200 CPU.
 
 it is possible to use derivative of jtag-tools (GPL) with EJTAG driver included to work with flash on AR7 based boards http://star.oai.pp.ru/jtag/jtag-brecis-ok.zip It works with Xilinx-cable (5 resistors).
 
