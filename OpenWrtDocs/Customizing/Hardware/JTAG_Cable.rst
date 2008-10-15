@@ -151,6 +151,7 @@ I was trying to revive a bricked Linksys WRT54GS one day and couldn't get Hairyd
 Personally, as an engineer, I prefer the buffered cable and would not use an unbuffered cable even though hundreds of other people have used them without any problems. A Wiggler-style cable can also be used for other devices that adhere to the JTAG specification. I'm not sure about the unbuffered type of cable. I hope this writeup will help anyone who has had trouble using a buffered JTAG cable and the Hairydairymaid software together, or who might want a cable that will almost certainly work with devices besides just Linksys routers.
 
 == Links ==
+ * [http://wiki.openwrt.org/AR7Port AR7 Port , some more on this subject]
  * [:OpenWrtDocs/Troubleshooting#head-2905e5d0dd7320ac475dd4aa53c0c4ea93ffbadd:Troubleshooting OpenWrt (JTAG Section)]
  * [http://www.linux-mips.org/wiki/JTAG EJTAG] at the Linux-MIPS wiki
  * [http://www.mips.com/content/Documentation/MIPSDocumentation/EJTAG/doclibrary EJTAG Specification] from MIPS Technologies, Inc. (free registration required)
