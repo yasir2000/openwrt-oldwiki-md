@@ -90,7 +90,7 @@ The Hairydairymaid de-brick utility is mainly with Linksys WRT54G and WRT54GS ro
 --------------------
 '''''Edit by Johann Pascher - Timing on HairyDairyMaid's utility is not correct, he sets or reads  all signal including the clock at the same time, this works in most cases but is not conform to the data sheets of ejtab bus.
 Some minor change on the very low level routines can solve this problem, so the result is that it is not critical how the cable is wired. 
-I made some changes for my own use and some more to display the sates of the steatemachine for debugging. I Hope he reeds this and makes some chomges on his tool in the future! 
+I made some changes for my own use and some more to display the sates of the steatemachine for debugging. I Hope he reeds this and makes some corections on his tool in the future! 
 [http://www.ip-phone-forum.de/showpost.php?p=1190720&postcount=20| link IP-Forum]'''''
 --------------------
 Another popular JTAG utility is a [http://openwince.sourceforge.net/jtag/ Openwince JTAG]. Unfortunately, the development is stalled, but you can use a CVS snapshot fork with EJTAG driver implemented by Marek Michalkiewicz : [http://www.amelek.gda.pl/rtl8181/jtag/ jtag-0.6-cvs-20051228]. One more snapshot with corrected Flash block mapping may be found there: http://star.oai.pp.ru/jtag/jtag-brecis-ok.zip. To access a Flash chip in 8-, 16- or 32-bit mode via EJTAG, use 0x1fc00000, 0x3fc00000 and 0x5fc00000 addresses respectively.
