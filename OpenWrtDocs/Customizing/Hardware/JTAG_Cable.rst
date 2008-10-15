@@ -88,7 +88,7 @@ The Hairydairymaid de-brick utility is mainly with Linksys WRT54G and WRT54GS ro
 
 '''''[Edit by hairydairymaid - the v4.5 debrick utility WILL and CAN operate on most any MIPS based cpu supporting EJTAG by using PrAcc routines (non-dma mode) - use the /nodma switch. It is not limited to WRT54G/GS units.] '''''
 --------------------
-'''''Edit by Johann Pascher - Timing on HairyDairyMaid sutility is not correct, he sets or reads  all signal including the clock at the same time, this works in most cases but is not conform to the data sheets of ejtab bus.
+'''''Edit by Johann Pascher - Timing on HairyDairyMaid's utility is not correct, he sets or reads  all signal including the clock at the same time, this works in most cases but is not conform to the data sheets of ejtab bus.
 Some minor change on the very low level routines can solve this problem, so the result is that it is not critical how the cable is wired. 
 I made some changes for my own use and some more to display the sates of the steatemachine for debugging. I Hope he reeds this and makes some chomges on his tool in the future! 
 [http://www.ip-phone-forum.de/showpost.php?p=1190720&postcount=20| link IP-Forum]'''''
