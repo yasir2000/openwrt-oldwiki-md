@@ -1,11 +1,12 @@
 CPU is MIPS BCM5354v2 @ 240Mhz, 16 MB of RAM. Looking at the bootlog. The WGR615L identifies itself as WGR614v8.
 
-Serial console pins I used are: 
+You can attach the serial console using an USB FTDI to UART cable (3.3v).
+Serial console pins I used:
+{{{
 2 RX
-
 5 TX
-
 6 GND
+}}}
 
 
 
