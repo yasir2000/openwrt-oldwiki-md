@@ -2,7 +2,9 @@ CPU is MIPS BCM5354v2 @ 240Mhz, 16 MB of RAM. Looking at the bootlog. The WGR615
 
 Serial console pins I used are: 
 2 RX
+
 5 TX
+
 6 GND
 
 
