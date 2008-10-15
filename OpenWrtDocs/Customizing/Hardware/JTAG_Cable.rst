@@ -87,7 +87,12 @@ The most famous software for JTAG is probably the Linksys De-Brick Utility by Ha
 The Hairydairymaid de-brick utility is mainly with Linksys WRT54G and WRT54GS routers. It will ''not'' help you de-brick other routers that are not based on Broadcom CPUs (e.g. Edimax and its clones).
 
 '''''[Edit by hairydairymaid - the v4.5 debrick utility WILL and CAN operate on most any MIPS based cpu supporting EJTAG by using PrAcc routines (non-dma mode) - use the /nodma switch. It is not limited to WRT54G/GS units.] '''''
-
+--------------------
+'''''Edit by Johann Pascher - Timing on HairyDairyMaid sutility is not correct, he sets or reads  all signal including the clock at the same time, this works in most cases but is not conform to the data sheets of ejtab bus.
+Some minor change on the very low level routines can solve this problem, so the result is that it is not critical how the cable is wired. 
+I made some changes for my own use and some more to display the sates of the steatemachine for debugging. I Hope he reeds this and makes some chomges on his tool in the future! 
+[http://www.ip-phone-forum.de/showpost.php?p=1190720&postcount=20| link IP-Forum]'''''
+--------------------
 Another popular JTAG utility is a [http://openwince.sourceforge.net/jtag/ Openwince JTAG]. Unfortunately, the development is stalled, but you can use a CVS snapshot fork with EJTAG driver implemented by Marek Michalkiewicz : [http://www.amelek.gda.pl/rtl8181/jtag/ jtag-0.6-cvs-20051228]. One more snapshot with corrected Flash block mapping may be found there: http://star.oai.pp.ru/jtag/jtag-brecis-ok.zip. To access a Flash chip in 8-, 16- or 32-bit mode via EJTAG, use 0x1fc00000, 0x3fc00000 and 0x5fc00000 addresses respectively.
 
 In late 2007, development of the openwince JTAG tools has been resumed in a new project named [http://urjtag.sourceforge.net UrJTAG], including the patches mentioned above and added support for USB cables.
