@@ -19,6 +19,8 @@ The USR8200 is a non-wireless router, advertised as a Firewall/VPN. This single 
 The installed bootloader is "OpenRG", written by Jungo.
 === RedBoot ===
 A custom version of !RedBoot has been built and can be loaded with the instructions on the [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Actiontec/MI424-WR MI424-WR] page. The custom version for the USR8200 is attachment:redboot.bin. Once !RedBoot is installed as the bootloader, and configured, you can then install the linux kernel and rootfs image from !OpenWrt.
+
+This version detects PHYs on both Ethernet ports, but !RedBoot only uses one, eth0, which maps onto the WAN port of the USR8200.
 === Installing OpenWRT ===
 TBC
 == Hardware Hacking ==
