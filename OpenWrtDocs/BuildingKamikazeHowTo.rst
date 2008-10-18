@@ -10,11 +10,11 @@ Note for Mac OS X Users: To build your images on a Mac OS X Machine all you need
 
 == Actual commands ==
 {{{
-$ cd ~
-$ svn checkout https://svn.openwrt.org/openwrt/trunk/ ~/kamikaze/
-$ cd ~/kamikaze/
+$ cd ~/
+$ svn checkout https://svn.openwrt.org/openwrt/trunk/ ~/kamikaze-trunk
+$ cd ~/kamikaze-trunk/
 $ ./scripts/feeds update packages luci      # Checkout the extra packages
-$ ./scripts/feeds install -a -p luci        # Install the LuCI WebUI
+$ ./scripts/feeds install -a -p luci        # Install the LuCI WebUI (selected and included in the final image by default)
 $ ./scripts/feeds install <name_1> <name_2> # Creates the symlinks for the packages you like to install
 $ make menuconfig                           # Select your target, packages and other options. Only select the packages you need.
 $ make world
