@@ -143,7 +143,7 @@ or from openwrt
 
 {{{
 mtd -e vmlinux.bin.l7 write openwrt-atheros-vmlinux.lzma vmlinux.bin.l7
-mtd -r write openwrt-atheros-2.6-root.squashfs rootfs
+mtd -r write openwrt-atheros-root.squashfs rootfs
 }}}
 == Setting up the switch ==
 This part is not finished yet, but here you can read about it: https://dev.openwrt.org/ticket/4050
