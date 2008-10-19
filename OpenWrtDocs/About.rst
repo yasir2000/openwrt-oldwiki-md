@@ -55,3 +55,5 @@ more embedded boards. Its codename is Kamikaze.
 || 2007.01.30-11:42+0000 || White Russian 0.9 ||
 || 2007-06-01 15:48:27 CEST || Kamikaze 7.06 ||
 || 2007-07-23 07:12:28 CEST || Kamikaze 7.07 ||
+|| ????-??-?? ??:??:?? CEST || Kamikaze 7.08 ||
+|| 2007-09-29 07:21:40 CEST || Kamikaze 7.09 ||
