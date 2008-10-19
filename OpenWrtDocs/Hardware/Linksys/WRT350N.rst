@@ -46,6 +46,9 @@ OpenWRT support for the WRT350N V2 is coming along well, for the latest informat
 serial is on  JP5  with 115200 8N1
 
  . | ground | TX | RX | 3.3V |
+
+JTAG: it uses a std ARM JTAG 20p connection, with the TDI and TMS pins swapped.
+
 {{{
 ~ # cat /proc/version
 Linux version 2.6.12-arm1 (root@davidnb-gentoo) (gcc version 3.4.4 (release) (CodeSourcery ARM 2005q3-2)) #1 Fri Jan 25 21:35:35 CET 2008
