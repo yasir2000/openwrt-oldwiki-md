@@ -16,5 +16,6 @@ Because Mini PCI and PCI are cousins, you can use '''regular PCI cards''' with y
 
  * [http://www.interfacemasters.com/products/pci_tools/mini_pci_to_pci/ IM300 Mini PCI Type III to PCI Adapter Card]
  * [http://www.interfacemasters.com/products/pci_tools/im380/index.html IM380 Mini PCI Type III to PCI Adapter Card ]with '''two''' PCI slots, one 3.3V and one 5V --- check out juicy pictures! :)
+ * [http://www.globalamericaninc.com/p1800010/1800010_-_Mini-PCI_Type-III_Module_to_PCI_Adapter_Card/product_info.html Another thing like the above]
  * [http://www.costronic.com/ Costronic's] Mini PCI-to-PCI [http://www.costronic.com/Eindexp.htm#Mini%20PCI CV09MP-P] series.
  * Catalyst [http://www.getcatalyst.com/adapter_moreInfo_pci2mini3-3.html PCI2MINI3-3], [http://www.getcatalyst.com/adapter_moreInfo_pci2mini3-5.html PCI2MINI3-5]
