@@ -99,6 +99,7 @@ Quicklinks to manufacturers:
  * [:Hardware/Toshiba:]
  * [:Hardware/Trendnet:]
  * [:Hardware/US Robotics:]
+ * [:Hardware/Ubiquiti:]
  * [:Hardware/Viewsonic:]
  * [:Hardware/WELL:]
  * [:Hardware/WesternDigital:]
