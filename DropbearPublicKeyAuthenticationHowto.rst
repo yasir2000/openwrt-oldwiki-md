@@ -144,16 +144,25 @@ In this example, the first instance is your failsafe, which runs on port 22 and 
 The downside of this second instance strategy is that it takes up slightly more memory. In the future, it would be nice if {{{webif}}} could allow you to enable and disable password logins. For now, this second instance strategy works.
 
 == Disable password login (Kamikaze Method) ==
-Follow the same guidelines as above but adjust the settings with uci
+Follow the same guidelines as above but adjust the settings with UCI
 
 {{{
-uci set dropbear.cfg1.PasswordAuth=off
-uci set dropbear.cfg1.Port=50022
-uci commit dropbear
+root@OpenWrt:~# uci set dropbear.@dropbear[0].PasswordAuth=off
+root@OpenWrt:~# uci commit dropbear
 }}}
-
-
 == Accessing your router via SSH from WAN (Internet) by changing firewall rules ==
+For the new UCI firewall run this to open port 22:
+
+{{{
+root@OpenWrt:~# uci add firewall rule
+root@OpenWrt:~# uci set firewall.@rule[-1]._name=SSH
+root@OpenWrt:~# uci set firewall.@rule[-1].src=wan
+root@OpenWrt:~# uci set firewall.@rule[-1].target=ACCEPT
+root@OpenWrt:~# uci set firewall.@rule[-1].proto=tcp
+root@OpenWrt:~# uci set firewall.@rule[-1].dest_port=22
+root@OpenWrt:~# uci commit firewall
+root@OpenWrt:~# /etc/init.d/firewall restart
+}}}
 '''Attention!!!''' First you need to be sure that Dropbear is configured for maximum security and only then start exposing it to the WAN. If you use passwords you are vulnerable to brute force attacks, so it is recommended to disable password logins and use public key authentication instead (see above).
 
 To make it available you have to activate some rules in the file "/etc/firewall.user". There are already some simple predefined rules in it for SSH (WR 0.9), which you can just uncomment:
