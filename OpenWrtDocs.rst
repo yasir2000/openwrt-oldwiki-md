@@ -3,8 +3,6 @@
 ## Note: these pages document the firmware itself, not packages
 ##       questions/comments should be posted to the forum
 ##
-##免费视频聊天 QQ视频聊天 成人视频聊天 激情视频聊天 视频聊天
-http://www.motiva.cn/1.htm
 ##
 ##
 ## PLEASE POST ALL QUESTIONS ABOUT THE DOCUMENTATION ON THE FORUM.
