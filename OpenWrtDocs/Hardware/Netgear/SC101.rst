@@ -30,7 +30,6 @@ Because the 12V input of the SC101 is directly fed to the IDE/ATA drives, this d
 == CPU ==
 As stated a Texas Instruments TI TNETV2005ZGW processor at 125Mhz. I suspect it must have an onboard IDE bus, as I cannot find any other chip that would do this. A TQ25.000 crystal is located near the CPU.
 
-Inside the firmware various IO ports are mapped to some addresses in range 0xA8610000-0xA8612800, and HDD-specific ports are mapped to some addresses in 0xBC380000-0xBC780000.
 
 == IDE bus ==
 
