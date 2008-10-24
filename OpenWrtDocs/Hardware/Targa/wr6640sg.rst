@@ -1,7 +1,7 @@
-
 XXXX Work-In-Progress - page copied from fonera ... XXXX
-
 ||<tablebgcolor="#f1f1ed" tablewidth="40%" tablestyle="margin: 0pt 0pt 1em 1em; float: right; font-size: 0.9em;"style="padding: 0.5em;">[[TableOfContents]]||
+
+
 = WR6640Sg =
 The Silvercrest Super G Wireless Router is based on an Atheros System on Chip (SoC). So it's a candidate for the OpenWrt AtherosPort.
 
@@ -23,23 +23,18 @@ The Silvercrest Super G Wireless Router is based on an Atheros System on Chip (S
  * 12V power supply
  * Antenna
  * SPI-Bus ???
+Power:
 
-Power: 
-
-12V power supply, internally this is regulated to 3.3V by a switched regulator. Device starts up at >=7.5v, to get wireless working it needs >=10V. This device 
-needs only ~3.5W of power, so it's well suited for solarpowered/batterypowered applications (like the 4Km wireless link i've built).
-
-
+12V power supply, internally this is regulated to 3.3V by a switched regulator. Device starts up at >=7.5v, to get wireless working it needs >=10V. This device  needs only ~3.5W of power, so it's well suited for solarpowered/batterypowered applications (like the 4Km wireless link i've built).
 
 XXXX Work-In-Progress - rest of page copied from fonera ... XXXX
 
-
-
+== Photo ==
 == Serial Port ==
 If the ethernet jack is in front of you, it looks like (RXD and TXD directions are from the computer side, i.e. swapped with respect to Fonera board side) RXD (fonera->host) and TXD (host->fonera) are lowlevel (3.3V) signals. NOT RS232 levels.
 
 {{{
-FON2100: 
+FON2100:
 +-------------------+
 |GND| . |RXD|TXD| . |
 |VCC| . | . | . | . |
@@ -47,9 +42,8 @@ FON2100:
 +-----+ +--------+    +---+
 |Power| |Ethernet|    |Ant|
 }}}
-
 {{{
-FON2200: 
+FON2200:
 Looking inside, with the connectors at your left hand:
 ---+  +----------------+
  P |  |GND RXD TXD 3.3V|
@@ -58,7 +52,6 @@ Looking inside, with the connectors at your left hand:
  E | |RAM                  |
  R | |                     |
 }}}
-
 {{{
 VCC (3.3V) -> red
 GND        -> blue
@@ -71,13 +64,10 @@ r . . . .
 
 Serial settings are 9600-8-N-1
 
-You should plug in the serialadapter after turning the fonera on, otherwise it won't boot. (Comment by HaraldGeyer: My Fonera boots just fine with the serial
-adapter plugged in.)  (MilesNordin: my FON2100 does not.  Leave the TX pin disconnected for 3sec after applying power.  RX pin can stay connected always.  Once Fonera outputs the '+', safe to connect TX.  is safe slightly earlier, actually.)
+You should plug in the serialadapter after turning the fonera on, otherwise it won't boot. (Comment by HaraldGeyer: My Fonera boots just fine with the serial adapter plugged in.)  (MilesNordin: my FON2100 does not.  Leave the TX pin disconnected for 3sec after applying power.  RX pin can stay connected always.  Once Fonera outputs the '+', safe to connect TX.  is safe slightly earlier, actually.)
 
-== Case ==
-To open the case, remove the two rubber feet on the opposite site to the antenna jack, they will reveal two crosspoint screws.
 
-== Photos ==
+
 == JTAG ==
 There seems to be a 14 pin unpopulated JTAG, but it is not that important as the !RedBoot boatloader does not seem to be crippled.
 
@@ -97,8 +87,8 @@ FLASH: 0xa8000000 - 0xa87f0000, 128 blocks of 0x00010000 bytes each.
 ^C
 RedBoot>
 }}}
-
 Timing:
+
 {{{
 power                t=0
 safe to connect TX   t+~3sec
@@ -107,7 +97,6 @@ PHY ID               t+9sec
 redboot banner       t+13sec
 WLAN light blinks    t+86sec
 }}}
-
 Maybe you think your fonera serial port is not working due to bogus serial pinouts posted on Hungarian blog pages.  Maybe you started cursing greedy mouth-breathing corporations and ranting about the need for GPLv3.  If so, the timing above may help you restore your calmness.  You should see the '+' within 7 seconds of poweron.  The problem "my fonera doesn't boot with serial port plugged in" stops the '+' from appearing, so if you see '+' you haven't got that problem.
 
 Note: FON2200 seems to have more full-featured redboot, as well as address 192.168.1.1 set with a 2 second timeout. So theoratically, you could telnet directly into the Redboot, without serial or modification.
@@ -298,7 +287,6 @@ An image named 'rootfs' exists - continue (y/n)? y
 ... Program from 0x80ff0000-0x81000000 at 0xa87e0000: .
 RedBoot> reset
 }}}
-
 If everything is okay, then it will now look like this:
 
 {{{
