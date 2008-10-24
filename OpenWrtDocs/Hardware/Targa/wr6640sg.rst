@@ -10,11 +10,11 @@ The Silvercrest Super G Wireless Router is based on an Atheros System on Chip (S
 ||<tablewidth="460px" tableheight="345px">'''Architecture''' ||MIPS 4KEc ||
 ||'''Vendor''' || Targa (Silvercrest, sold by Lidl) ||
 ||'''Bootloader''' || PMon ? ||
-||'''System-On-Chip''' ||Atheros AR2313 ||
+||'''System-On-Chip''' ||Atheros AR2313A ||
 ||'''CPU Speed''' ||184 MHz ||
-||'''Flash size''' || 2 Mb ||
+||'''Flash''' || 2 Mb, MX29LV160||
 ||'''RAM''' || 16 Mb ||
-||'''Wireless''' ||Integrated Atheros 802.11b/g, AR2112 ||
+||'''Wireless''' ||Integrated Atheros 802.11b/g, AR2112A ||
 ||'''Ethernet''' ||5 x RJ45 (4 Lan, 1 Wan) ||
 ||'''Ethernet Switch''' || Marvell 88E6060 ||
 ||'''USB''' ||No ||
@@ -65,8 +65,6 @@ r . . . .
 Serial settings are 9600-8-N-1
 
 You should plug in the serialadapter after turning the fonera on, otherwise it won't boot. (Comment by HaraldGeyer: My Fonera boots just fine with the serial adapter plugged in.)  (MilesNordin: my FON2100 does not.  Leave the TX pin disconnected for 3sec after applying power.  RX pin can stay connected always.  Once Fonera outputs the '+', safe to connect TX.  is safe slightly earlier, actually.)
-
-
 
 == JTAG ==
 There seems to be a 14 pin unpopulated JTAG, but it is not that important as the !RedBoot boatloader does not seem to be crippled.
