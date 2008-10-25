@@ -12,7 +12,7 @@ The Silvercrest Super G Wireless Router is based on an Atheros System on Chip (S
 ||'''Bootloader''' || PMon ? ||
 ||'''System-On-Chip''' ||Atheros AR2313A ||
 ||'''CPU Speed''' ||184 MHz ||
-||'''Flash''' || 2 Mb, MX29LV160||
+||'''Flash''' || 2 Mb, MX29LV160 ||
 ||'''RAM''' || 16 Mb ||
 ||'''Wireless''' ||Integrated Atheros 802.11b/g, AR2112A ||
 ||'''Ethernet''' ||5 x RJ45 (4 Lan, 1 Wan) ||
@@ -27,48 +27,36 @@ Power:
 
 12V power supply, internally this is regulated to 3.3V by a switched regulator. Device starts up at >=7.5v, to get wireless working it needs >=10V. This device  needs only ~3.5W of power, so it's well suited for solarpowered/batterypowered applications (like the 4Km wireless link i've built).
 
-XXXX Work-In-Progress - rest of page copied from fonera ... XXXX
-
 == Photo ==
+Here's a photo of the PCB:
+
+ http://www.ibrieger.de/images/silvercrest.jpg
+
 == Serial Port ==
-If the ethernet jack is in front of you, it looks like (RXD and TXD directions are from the computer side, i.e. swapped with respect to Fonera board side) RXD (fonera->host) and TXD (host->fonera) are lowlevel (3.3V) signals. NOT RS232 levels.
+The RS232 port is using 3.3V TTL signals, we have to use a level shifter like the Maxim Max232. In addition i'm using a RS232<->USB converter to connect it to my PC (linux+minicom).
+
+Serial settings are 56700-8-N-1.
 
 {{{
-FON2100:
-+-------------------+
-|GND| . |RXD|TXD| . |
-|VCC| . | . | . | . |
-+-------------------+
-+-----+ +--------+    +---+
-|Power| |Ethernet|    |Ant|
+PINS:
++---+
+|TXD|
++---+
+|RXD|
++---+
+|GND|
++---+
+|   |
++---+
+|VCC| 3.3V
++---+
 }}}
-{{{
-FON2200:
-Looking inside, with the connectors at your left hand:
----+  +----------------+
- P |  |GND RXD TXD 3.3V|
- O |  +----------------+
- W | +---------------------+
- E | |RAM                  |
- R | |                     |
-}}}
-{{{
-VCC (3.3V) -> red
-GND        -> blue
-RX         -> orange
-TX         -> white
-b . o w .
-r . . . .
-}}}
-[http://jauzsi.hu/img/others/fonera_serial.jpg Here] the picture of FON2100.
-
-Serial settings are 9600-8-N-1
-
-You should plug in the serialadapter after turning the fonera on, otherwise it won't boot. (Comment by HaraldGeyer: My Fonera boots just fine with the serial adapter plugged in.)  (MilesNordin: my FON2100 does not.  Leave the TX pin disconnected for 3sec after applying power.  RX pin can stay connected always.  Once Fonera outputs the '+', safe to connect TX.  is safe slightly earlier, actually.)
-
 == JTAG ==
-There seems to be a 14 pin unpopulated JTAG, but it is not that important as the !RedBoot boatloader does not seem to be crippled.
+There is a 14 pin unpopulated JTAG header, pin assignment:
 
+XXX todo
+
+== XXXX Work-In-Progress - rest of page copied from fonera ... XXXX ==
 = Original software =
 {{{
 +PHY ID is 0022:5521
