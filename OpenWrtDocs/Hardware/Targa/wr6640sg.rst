@@ -30,7 +30,7 @@ Power:
 == Photo ==
 Here's a photo of the PCB:
 
- http://www.ibrieger.de/images/silvercrest.jpg
+http://www.ibrieger.de/images/silvercrest.jpg
 
 == Serial Port ==
 The RS232 port is using 3.3V TTL signals, we have to use a level shifter like the Maxim Max232. In addition i'm using a RS232<->USB converter to connect it to my PC (linux+minicom).
