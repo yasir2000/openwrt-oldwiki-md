@@ -1,9 +1,6 @@
-
 XXXX Work-In-Progress - page copied from fonera ... XXXX
 
-||<tablebgcolor="#f1f1ed" tablewidth="40%" tablestyle="margin: 0pt 0pt 1em
-1em; float: right; font-size: 0.9em;"style="padding:
-0.5em;">[[TableOfContents]]||
+||<tablebgcolor="#f1f1ed" tablewidth="40%" tablestyle="margin: 0pt 0pt 1em 1em; float: right; font-size: 0.9em;"style="padding: 0.5em;">[[TableOfContents]]||
 
 
 = WR6640Sg =
@@ -12,6 +9,7 @@ The Silvercrest Super G Wireless Router is based on an Atheros System on Chip
 
 = Hardware =
 == Info ==
+
 ||<tablewidth="460px" tableheight="345px">'''Architecture''' ||MIPS 4KEc, BigEndian ||
 ||'''Vendor''' || Targa (Silvercrest, sold by Lidl) ||
 ||'''Bootloader''' || PMon ? ||
@@ -25,9 +23,11 @@ The Silvercrest Super G Wireless Router is based on an Atheros System on Chip
 ||'''USB''' ||No ||
 ||'''Serial''' ||Yes ||
 ||'''JTAG''' || Yes ||
+
  * 12V power supply
  * Antenna
  * SPI-Bus ???
+
 Power:
 
 12V power supply, internally this is regulated to 3.3V by a switched
@@ -129,9 +129,9 @@ Flash size is 2Mb, we have 32 blocks of 64k size:
 ----------------------------------------------------------------------------------------
 | 0x020000 | 0xBFC20000 | 1792 kb |     28 | Linux with embedded rootfs (initramdisk)  |
 ----------------------------------------------------------------------------------------
-| 0x1E0000 | 0xBFDE0000 |   64 kb |      1 | Radio Config, NVRam                       |
+| 0x1E0000 | 0xBFDE0000 |   64 kb |      1 | NVRam                                     |
 ----------------------------------------------------------------------------------------
-| 0x1F0000 | 0xBFDF0000 |   64 kb |      1 | Radio Config, NVRam                       |
+| 0x1F0000 | 0xBFDF0000 |   64 kb |      1 | Radio Config                              |
 ----------------------------------------------------------------------------------------
 
 }}}
@@ -221,8 +221,8 @@ reboot.
 
 == Bootlog Original Linux ==
 
-Note: we can do a reboot in PMon by issuing a "go" command, address is the location
-of the bootloader in flash:
+Note: we can do a reboot in PMon by issuing a "go" command, address is the
+location of the bootloader in flash:
 
 {{{
 XGATE> g 0xbfc00000
