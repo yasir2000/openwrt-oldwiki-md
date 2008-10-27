@@ -19,6 +19,8 @@ RT2880 [x] GND
        [x] VCC
 }}}
 
+Serials console baudrate is a bit unusual : 57600,8n1.
+
 == Bootlog ==
 
 {{{
