@@ -75,3 +75,9 @@ RedBoot config    0xA87EF000  0xA87EF000  0x00001000  0x00000000
  * [http://download.fon.com/firmware/foneraplus/latest/foneraplus.tar.bz2 Oficial Firmware]
 
  * [https://www.fon.com/en/support/changelogLafoneraplus/ Firmware Changelog]
+
+= Installation =
+
+This will help to complete this section:
+
+http://www.lefinnois.net/wpen/index.php/2008/10/26/oh-lord-openwrt-just-work-on-fonera/
