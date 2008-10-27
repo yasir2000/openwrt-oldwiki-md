@@ -1,10 +1,11 @@
 = Asus RT-N15 =
 
 {{{
-CPU: Realtek RTL8366SR
+CPU: Ralink RT2880
 RAM: 32MB
 Flash: 8MB
-Wi-Fi: Ralink RT28800
+Wi-Fi: Ralink RT2860 (built-in)
+Switch: Realtek RTL8366SR
 }}}
 
 == Serial console ==
