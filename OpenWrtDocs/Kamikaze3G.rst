@@ -26,3 +26,16 @@ As soon as you know in what category your device belongs, all it takes is on or 
 == Where can I get these packages? ==
 
 Try the attachments on this Wiki page ... at your own risk of course.
+
+In case the binary packages don't work for you, you need to compile yourself. That means:
+
+ 1. Check out the OpenWRT trunk to $BUILDROOT - see https://dev.openwrt.org/
+ 2. Check out the libusb package and copy to $BUILDROOT/package - see https://dev.openwrt.org/ as well; packages are separate from the trunk!
+ 3. Download kmod-hso.tar.gz and usb_modeswitch.tar.gz and extract to $BUILDROOT/package
+ 4. Manually download hso-1.6.tar.gz from http://www.pharscape.org/ and place in $BUILDROOT/dl
+ 5. make menuconfig and make sure you choose:
+  * Kernel 2.6
+  * Enable libusb (Libraries)
+  * Enable usb_modeswitch (Utilities)
+  * Enable kmod-hso (Other modules)
+ 6. make
