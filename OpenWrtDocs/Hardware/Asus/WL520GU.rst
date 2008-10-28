@@ -1,17 +1,22 @@
+The {{{boot_wait}}} nvram variable is set by default, but a special procedure is required for uploading a new flash via tftp at boot.  Beginning with the router powered off, press and hold the reset button while powering the router on.  Release the reset button when the power led begins to slowly blink on and off.  The router will now be in Firmware Restoration Mode, and it can be flashed with a new firmware at your leisure.  This is a good router to experiment with OpenWrt, since it is very easy to recover from a bad flash; if the bootloader doesn't like the firmware, the router automatically enters Firmware Restoration Mode.  See [http://www.dd-wrt.com/wiki/index.php/Asus_WL-520GU] for more information.
+
+-----
+
+The router's firmware upgrade page wouldn't accept my OpenWrt firmwares, but I was able to flash it via tftp by first putting it into Firmware Restoration Mode via the above procedure, and then [http://wiki.openwrt.org/OpenWrtDocs/Installing/TFTP flashing via tftp].  Note that the router will apparently not reboot automatically when flashed while in Firmware Restoration Mode; I had to power cycle the router to activate OpenWrt.
+
+-----
+
 This router runs the Kamikaze from source (r12259 -- See the Kamikaze building howto wiki page). I was able to compile on Ubuntu 8.04 (hardy) and tftp the brcm 2.4 trx image to the router. Just telnet in and set a password for SSH access.
 
 My steps were to do a {{{make menuconfig}}} to set the target to 'wl500g' and make sure kmod-usb-ohci was enabled for usb support. I would stay away from the USB 2.0 drivers. Many people have been having stability problems with the 2.0 drivers despite the blue text mentioning USB 2.0 support. Even ASUS keeps USB 2.0 disabled in their kernel .config.
 
 I was also able to mount a USB flash drive after recompiling with USB storage support (kmod-usb-storage) and vfat filesystem support.
 
-
-
 If you want a web interface (x-wrt), try updating the packages and enabling "webif" during a {{{make menuconfig}}}. It worked for me.
 
  .
 -----
- I've tried micro-openwrt-brcm-2.4-squashfs.trx, default-openwrt-brcm-2.4-squashfs.trx and openwrt-brcm-2.4-squashfs.trx, and no luck :( Router became unavailable. I was able to install asus firmware back using tftp.
-
+ . I've tried micro-openwrt-brcm-2.4-squashfs.trx, default-openwrt-brcm-2.4-squashfs.trx and openwrt-brcm-2.4-squashfs.trx, and no luck :( Router became unavailable. I was able to install asus firmware back using tftp.
 - - - - -
 
 Verified, it is true that you can swap back to stock ASUS firmware after flashing with this and that.
@@ -45,6 +50,6 @@ Still testing, now with the USB 1.1 Mass storage...
 ...still a WIP
 
 -----
-I just noticed on the dd-wrt forum a comment referring to a USB fix.  I have not investigated (I don't have one of these routers). http://www.dd-wrt.com/phpBB2/viewtopic.php?t=38777&postdays=0&postorder=asc&highlight=wl520gu&start=18
+ . I just noticed on the dd-wrt forum a comment referring to a USB fix.  I have not investigated (I don't have one of these routers). http://www.dd-wrt.com/phpBB2/viewtopic.php?t=38777&postdays=0&postorder=asc&highlight=wl520gu&start=18
 ----
  . CategoryModel
