@@ -1,4 +1,4 @@
-The {{{boot_wait}}} nvram variable is set by default, but a special procedure is required for uploading a new flash via tftp at boot.  Beginning with the router powered off, press and hold the reset button while powering the router on.  Release the reset button when the power led begins to slowly blink on and off.  The router will now be in Firmware Restoration Mode, and it can be flashed with a new firmware at your leisure.  This is a good router to experiment with OpenWrt, since it is very easy to recover from a bad flash; if the bootloader doesn't like the firmware, the router automatically enters Firmware Restoration Mode.  See [http://www.dd-wrt.com/wiki/index.php/Asus_WL-520GU] for more information.
+The {{{boot_wait}}} nvram variable is set by default, but a special procedure is required for uploading a new flash via tftp at boot.  Beginning with the router powered off, press and hold the reset button while powering the router on.  Release the reset button when the power led begins to slowly blink on and off.  The router will now be in Firmware Restoration Mode, and it can be flashed with a new firmware at your leisure.  This is a good router to experiment with OpenWrt, since it is very easy to recover from a bad flash; if the bootloader doesn't like the firmware, the router may automatically enters Firmware Restoration Mode, and it can apparently always be forced into Firmware Recovery Mode via the reset button.  See [http://www.dd-wrt.com/wiki/index.php/Asus_WL-520GU] for more information.
 
 -----
 
@@ -6,7 +6,11 @@ The router's firmware upgrade page wouldn't accept my OpenWrt firmwares, but I w
 
 -----
 
-This router runs the Kamikaze from source (r12259 -- See the Kamikaze building howto wiki page). I was able to compile on Ubuntu 8.04 (hardy) and tftp the brcm 2.4 trx image to the router. Just telnet in and set a password for SSH access.
+I have only been able to get images with 2.4 kernels to boot; see the forum [http://forum.openwrt.org/viewtopic.php?pid=75486 here] and [http://forum.openwrt.org/viewtopic.php?id=17117 here], but there are some reports of success, see [http://forum.openwrt.org/viewtopic.php?pid=67164#p67164 here].
+
+-----
+
+This router runs the Kamikaze from source (r12259 and r13053). I was able to compile on Ubuntu 8.04 (hardy) and tftp the brcm 2.4 trx image to the router. Just telnet in and set a password for SSH access.
 
 My steps were to do a {{{make menuconfig}}} to set the target to 'wl500g' and make sure kmod-usb-ohci was enabled for usb support. I would stay away from the USB 2.0 drivers. Many people have been having stability problems with the 2.0 drivers despite the blue text mentioning USB 2.0 support. Even ASUS keeps USB 2.0 disabled in their kernel .config.
 
