@@ -165,4 +165,8 @@ Not yet documented.
 
 Note: The 320GB SATA hard drive and 2GB usb flash drive are not installed by default.
 
+=== OpenWRT ===
+
+[http://www.macsat.com/macsat/component/option,com_smf/Itemid,50/topic,773.0/ Details]
+
  . CategoryNasDevices
