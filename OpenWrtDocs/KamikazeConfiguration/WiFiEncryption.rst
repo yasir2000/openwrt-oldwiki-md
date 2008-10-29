@@ -43,6 +43,17 @@ root@OpenWrt:~# uci commit wireless
 root@OpenWrt:~# wifi}}}
 '''Note: '''For the key only letters (upper and lower case) and numbers are allowed. The length must be between 8 and 63 characters.
 
+-----
+
+Configuration is also possible via direct editing of {{{/etc/config/wireless}}}:
+
+{{{
+	option encryption   psk
+	option key	    "your_password"
+}}}
+
+-----
+
 == WEP encryption (not recommended) ==
 Some notes for the WEP key format:
 
