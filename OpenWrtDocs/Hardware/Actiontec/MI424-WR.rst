@@ -53,7 +53,7 @@ and have access to the console for both redboot and linux.
 === Redboot ===
 A custom version of redboot has been built and can be found [http://mysite.verizon.net/jvasco/mi424wr/redboot.bin here]. The redboot prompt is accessible via {{{telnet 192.168.1.1 9000}}} on the Wan port. The Wan port is configured to obtain an address via DHCP; if this fails it defaults to 192.168.1.1. Note that there's a feature that allows skipping the redboot boot script by pressing the "Reset" button after power on for about 10 seconds. When redboot is ready to accept commands, it sets the Internet LED red.
 
-Installation of redboot can be accomplished with the [http://mysite.verizon.net/jvasco/mi424wr/jungo-image.py jungo-image.py] script. It requires that a tftp server that can serve the {{{redboot.bin}}}. The script uses the telnet interface into the router to accomplish it's task. Depending on the version of the firmware, it may have to be manually enabled in the advanced tab under local adminstration. The script will first make a backup of the current flash image; this procedure takes about 4 minutes.
+Installation of redboot can be accomplished with the attachment:jungo-image.py script. It requires that a tftp server that can serve the {{{redboot.bin}}}. The script uses the telnet interface into the router to accomplish it's task. Depending on the version of the firmware, it may have to be manually enabled in the advanced tab under local adminstration. The script will first make a backup of the current flash image; this procedure takes about 4 minutes.
 The actual writing of redboot requires the {{{-w}}} flag. Use {{{-h}}} to get help on all the options.
 If there's some failure, the only recourse is to install a JTAG header and restore the firmware via JTAG.
 
