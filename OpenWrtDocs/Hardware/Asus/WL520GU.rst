@@ -6,7 +6,7 @@ The router's firmware upgrade page wouldn't accept my OpenWrt firmwares, but I w
 
 -----
 
-I have only been able to get images with 2.4 kernels to boot; see the forum [http://forum.openwrt.org/viewtopic.php?pid=75486 here] and [http://forum.openwrt.org/viewtopic.php?id=17117 here], but there are some reports of success, see [http://forum.openwrt.org/viewtopic.php?pid=67164#p67164 here].
+I have only been able to successfully boot images with 2.4 kernels, not 2.6; see the forum [http://forum.openwrt.org/viewtopic.php?pid=75486 here] and [http://forum.openwrt.org/viewtopic.php?id=17117 here], but there are some reports of success with 2.6, see [http://forum.openwrt.org/viewtopic.php?pid=67164#p67164 here].
 
 -----
 
