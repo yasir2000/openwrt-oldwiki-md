@@ -8,7 +8,7 @@ The Linksys WRT160N is the Linksys Ultra Range Plus Wireless-N Broadband Router.
 
 OpenWRT will run on WRT160N v1.1.  It is not directly supported by any pre-built firmware images on the download page yet, You need to [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT160N#head-6bc46006cdfb30edaf9f048ef09ad1250a2aee2d compile it yourself] or try an image from [http://snipes420.googlepages.com/ Here].
 
-'''NOTE:''' The wireless part is only supported on the 2.4 Kernel version of Kamikaze. The 2.6 Kernel runs fine on the box, but (because the wl.o driver from Broadcom is only available for 2.4 Kernels and the opensource b43 driver is not ready yet) the wireless does not work if you flash a image with a 2.6 Kernel. 802.11N is not supported until the upstream provider can support it.
+'''NOTE:''' The device only supports the 2.4 Kernel version of Kamikaze. We need to figure out the correct kernel configuration to support the flash chip on the 2.6 Kernel. At this point in time the wl.o binary driver from Broadcom is only available for 2.4 Kernels and the opensource b43 driver is not ready yet. As such the wireless does not work if you flash a image with a 2.6 Kernel. 802.11N is not supported until the upstream provider can support it.
 
 Please update this wiki page if this information is proven false or further support is added.
 
