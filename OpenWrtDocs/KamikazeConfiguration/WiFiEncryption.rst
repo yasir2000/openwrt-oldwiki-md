@@ -52,6 +52,8 @@ Configuration is also possible via direct editing of {{{/etc/config/wireless}}}:
 	option key	    "your_password"
 }}}
 
+See KamikazeConfiguration for information on configuration files in general, and a full outline of the wifi config file in particular.
+
 -----
 
 == WEP encryption (not recommended) ==
