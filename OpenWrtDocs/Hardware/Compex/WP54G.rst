@@ -188,7 +188,7 @@ Flashing the jffs2 or squashfs version :
 
 {{{
 flash -noheader 192.168.0.50:openwrt-adm5120-wp54g-wrt-squashfs.trx flash1.trx
-setenv STARTUP load -z -raw -max=0x400000 -addr=0x80001000 flash1.trx:0x1c;go
+nvram set STARTUP="load -z -raw -max=0x400000 -addr=0x80001000 flash1.trx:0x1c;go"; nvram commit; reset
 }}}
 
 CategoryModel ["CategoryADM5120Device"]
