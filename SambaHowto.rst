@@ -104,6 +104,8 @@ read access:
 smbd[4177]:   map_share_mode: Incorrect value 80000000 for desired_access to file \xxxxx}}}
 SOLUTION: Enable "SMBFS-Support" in linux kernel. Do not use Samba in a version higher than 3.0.26, the Samba people break compatibility to Samba 2.x in these versions intentionally because they want to support only CIFS in the future.
 
+If samba runs only a few seconds (check by 'ps') and quits within a few seconds, take a look at [http://forum.openwrt.org/viewtopic.php?id=8100 this] thread, and add OpenWRT to /etc/hosts. The problem seems to be that Samba looks for a server called OpenWRT, which does not exists if you named your device differently.
+
 = Links =
  * [http://www.samba.org/ Samba]
 
