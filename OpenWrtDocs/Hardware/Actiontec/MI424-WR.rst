@@ -50,16 +50,16 @@ There's an internal serial port available on the J20 pins. It's found on the sid
 
 == Software ==
 === Redboot ===
-A custom version of redboot has been built and can be found here: attachment:redboot.bin . The redboot prompt is accessible via {{{telnet 192.168.1.1 9000}}} on the Wan port. The Wan port is configured to obtain an address via DHCP; if this fails it defaults to 192.168.1.1. Note that there's a feature that allows skipping the redboot boot script by pressing the "Reset" button after power on for about 10 seconds. When redboot is ready to accept commands, it sets the Internet LED red.
+A custom version of [http://sourceware.org/redboot RedBoot] has been built and can be found here: attachment:redboot.bin . The !RedBoot prompt is accessible via {{{telnet 192.168.1.1 9000}}} on the Wan port. The Wan port is configured to obtain an address via DHCP; if this fails it defaults to 192.168.1.1. Note that there's a feature that allows skipping the !RedBoot boot script by pressing the "Reset" button after power on for about 10 seconds. When !RedBoot is ready to accept commands, it sets the Internet LED red.
 
-Installation of redboot can be accomplished with the attachment:jungo-image.py script. It requires that a tftp server that can serve the {{{redboot.bin}}}. The script uses the telnet interface into the router to accomplish it's task. Depending on the version of the firmware, it may have to be manually enabled in the advanced tab under local adminstration. The script will first make a backup of the current flash image; this procedure takes about 4 minutes. The actual writing of redboot requires the {{{-w}}} flag. Use {{{-h}}} to get help on all the options. If there's some failure, the only recourse is to install a JTAG header and restore the firmware via JTAG.
+Installation of !RedBoot can be accomplished with the attachment:jungo-image.py script. It requires that a tftp server that can serve the {{{redboot.bin}}}. The script uses the telnet interface into the router to accomplish it's task. Depending on the version of the firmware, it may have to be manually enabled in the advanced tab under local adminstration. The script will first make a backup of the current flash image; this procedure takes about 4 minutes. The actual writing of redboot requires the {{{-w}}} flag. Use {{{-h}}} to get help on all the options. If there's some failure, the only recourse is to install a JTAG header and restore the firmware via JTAG.
 
 After establishing a telnet session to redboot, the flash must be initialized and configured:
 
- 1. Initialize flash -- {{{fis init}}}
- 1. Configure MAC addresses -- {{{fconfig npe_eth0_esa 0x00:0x01:0x02:0x03:0x04:0x05}}}. Use MAC address at the bottom of the unit!
- 1. Write attachment:openwrt-mi424wr-zImage image to flash {{{load -r -b %{FREEMEMLO} -h <hostip> openwrt-mi424wr-zImage}}} followed by {{{fis create linux}}}
- 1. Write attachment:openwrt-mi424wr-squashfs.img to flash {{{load -r -b %{FREEMEMLO} -h <hostip> openwrt-mi424wr-squashfs.img}}} followed by {{{fis create rootfs}}}
+ 1. Initialize flash: {{{fis init}}}
+ 1. Configure MAC addresses: {{{fconfig npe_eth0_esa 0x00:0x01:0x02:0x03:0x04:0x05}}}. Use MAC address at the bottom of the unit!
+ 1. Write attachment:openwrt-mi424wr-zImage image to flash: {{{load -r -b %{FREEMEMLO} -h <hostip> openwrt-mi424wr-zImage}}} followed by: {{{fis create linux}}}
+ 1. Write attachment:openwrt-mi424wr-squashfs.img to flash: {{{load -r -b %{FREEMEMLO} -h <hostip> openwrt-mi424wr-squashfs.img}}} followed by: {{{fis create rootfs}}}
 The original image can be restored using the following procedure:
 
  1. Get a copy of attachment:redram.img .
@@ -71,11 +71,17 @@ The original image can be restored using the following procedure:
  1. {{{fis write -b %{FREEMEMLO} -l 0x800000 -f 0x50000000}}}
  1. Close telnet session and power cycle.
 ==== Building RedBoot ====
-Redboot can be built from the Intel Redboot sources found in the [http://www.intel.com/design/network/products/npfamily/download_ixp400.htm Intel IXP400 Software] site. You'll need the RedBoot source code as well as the RedBoot NPE microcode. This attachment:mi424wr.epk adds support for the MI424-WR. The procedure for building redboot is as follows:
+!RedBoot can be built from the Intel !RedBoot sources found in the [http://www.intel.com/design/network/products/npfamily/download_ixp400.htm Intel IXP400 Software] site. You'll need the !RedBoot source code as well as the !RedBoot NPE microcode. This attachment:mi424wr.epk adds support for the MI424-WR. The procedure for building !RedBoot is as follows:
 
-1. {{{export ECOS_REPOSTIORY=/path/to/ecos/packages}}} 2. {{{cd ${ECOS_REPOSITORY}; ./ecosadmin.tcl add mi424wr.epk}}} 3. {{{cd <build_dir>; ecosconfig new mi424wr_npe redboot}}} 4. {{{ecosconfig add memalloc io fileio error linux_compat kernel crc zlib}}} 5. {{{ecosconfig import ${ECOS_REPOSITORY}/hal/arm/xscale/mi424wr/current/misc/redboot_ROM.ecm}}} 6. {{{ecosconfig tree}}} 7. {{{make}}}
+ 1. {{{export ECOS_REPOSTIORY=/path/to/ecos/packages}}}
+ 1. {{{cd ${ECOS_REPOSITORY}; ./ecosadmin.tcl add mi424wr.epk}}}
+ 1. {{{cd <build_dir>; ecosconfig new mi424wr_npe redboot}}}
+ 1. {{{ecosconfig add memalloc io fileio error linux_compat kernel crc zlib}}}
+ 1. {{{ecosconfig import ${ECOS_REPOSITORY}/hal/arm/xscale/mi424wr/current/misc/redboot_ROM.ecm}}}
+ 1. {{{ecosconfig tree}}}
+ 1. {{{make}}}
 
-The {{{redboot.bin}}} image can be fond in the {{{install/bin}}} direcoctory.
+The resulting {{{redboot.bin}}} image can be found in the {{{install/bin}}} direcoctory.
 
 === Linux ===
 Board id 1778 has been registered for this device. The attached MI424-WR images have been built from the OpenWrt trunk with various patches and tweaks.Patches supporting the MI424-WR have been submitted to the OpenWrt development [http://lists.openwrt.org/cgi-bin/mailman/listinfo/openwrt-devel list]; hopefully, they will be merged into the trunk soon. It should be noted that the wifi rt2500pci drivers are built from the kernel sources and not the mac80211 (compat-wireless) package. The mac80211 is old and doesn't work at all with the rt2500pci device. The kernel version works well in client mode but master mode is buggy and causes duplicate packets to be sent.
