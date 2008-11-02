@@ -2,9 +2,16 @@
 #language en
 = Asus AAM6020VI ADSL modem 4Port eth and Wireless =
 == Major Chips ==
-*TNETW1130GVF           Single-Chip MAC and Baseband Processor for IEE 802.11 a/b/g.
+ * TNET730GDU             AR7WRD SoC
+ * 88E6060                Marvel 6 port ethernet swicth
+ * K4S281632F             Samsung 16Mb SDRAM
+ * TNETW1130GVF           Single-Chip MAC and Baseband Processor for IEE 802.11 a/b/g.
 
 On AAM6020VI-T4 the WLAN card is in a mini-pci slot. The -T? bit is still confusing, while on the box it's is -T4 on the pcb -T2 is written. That also says revision 1.0 .
+
+Device has 16Mb Ram and 4Mb Ram which should make it a reasonably flexible unit
+
+It uses PSPBoot with a default address of 192.168.1.1
 
 == Debug HW ==
 There is a 2x4 (male pins) EJTAG ["OpenWrtDocs/Customizing/Hardware/JTAG_Cable"] connector and another 2x3 female one without a specific label (only says J1).
@@ -275,7 +282,7 @@ mtd3: 00010000 00010000 "mtd3"
 
 mtd4: 003e0000 00010000 "mtd4"
 
-= ADAM2 log =
+= PSPBoot log =
 = PARTITION INFO =
 ----
  . CategoryModel ["CategoryAR7Device"]
