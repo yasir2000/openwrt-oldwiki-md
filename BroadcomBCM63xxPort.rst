@@ -3,12 +3,12 @@
 This page covers the BCM63xx SoC specificities, but the BCM33xx SoC (excluding BCM3302 which is a CPU) are the exact same chip, except that the DSL core is replaced with a DOCSIS/EuroDOCSIS one.
 
 = Status of the Broadcom 63xx port of OpenWrt =
- * The Broadcom BCM963xx currently only works with BCM96348 boards, but will soon with others as well
- * We have no GPL'd drivers for Ethernet, DSL so this makes the board pretty useless
+ * The Broadcom BCM963xx currently only works with BCM6348/BCM6358 boards, but will soon with others as well
+ * We have GPL drivers for USB (OHCI and EHCI), Ethernet, DSL is still binary though
    Belkin has released [http://www.belkin.com/uk/support/article/?lid=enu&pid=F5D7633uk4A&aid=9294&scid=314 "GPL code for the F5D7633"], but it only has binary Broadcom drivers.
 == What is this Broadcom 63xx stuff? ==
-[http://www.broadcom.com/products/DSL/xDSL-CPE-Solutions/BCM6348 Broadcom63xx SoC]integrates ADSL/ADSL2+ features, routing, and external Wireless NIC.
 
+[http://www.broadcom.com/products/DSL/xDSL-CPE-Solutions/BCM6348 Broadcom63xx SoC]integrates ADSL/ADSL2+ features, routing, and external Wireless NIC.
 
 The ethernet SOC is similar to that used in the BCM7318 which is also used in the Tivo.
 Tivo has release complete sources of their ethernet driver [http://dynamic.tivo.com/linux/linux.asp tivo source] which could be the basis of a working BCM63xx driver.
@@ -24,17 +24,21 @@ See the files:
 }}}
 
 == What are 63xx variants? ==
-There are five 63xx variants: bcm6345,bcm6338,bcm6348,bcm6358,bcm6368
-||<tablewidth="532px" tableheight="155px">Chip ||CPU Mhz ||USB Device ||USB Host ||WiFi ||ADSL2 ||ADSL2+ ||VDSL ||
-||bcm6345 ||  75 ||1.1 ||- ||- ||Yes ||No ||No ||
-||bcm6335 ||  ??? ||?.? ||- ||- ||? ||? ||? ||
-||bcm6338 ||  240 ||1.1 ||- ||- ||Yes ||Yes ||No ||
-||bcm6348 ||  240 ||1.1 ||1.1 ||Yes ||Yes ||Yes ||No ||
-||bcm6358 ||  300 ||2.0 ||2.0 ||Yes ||Yes ||Yes ||Yes ||
-||bcm6368 ||  300 ||2.0 ||2.0 ||Yes ||Yes ||Yes ||Yes ||
 
+There are six 63xx variants: bcm6345,bcm6338,bcm6348,bcm6358,bcm6368,bcm6816
+||<tablewidth="532px" tableheight="155px">Chip ||CPU Mhz ||USB Device ||USB Host ||WiFi ||ADSL2 ||ADSL2+ ||VDSL || Fiber ||
+||bcm6345 ||  75 ||1.1 ||- ||- ||Yes ||No ||No ||
+||bcm6335 ||  ??? ||?.? ||- ||- ||? ||? ||? ||No ||
+||bcm6338 ||  240 ||1.1 ||- ||- ||Yes ||Yes ||No ||No ||
+||bcm6348 ||  240 ||1.1 ||1.1 ||Yes ||Yes ||Yes ||No ||No ||
+||bcm6358 ||  300 ||2.0 ||2.0 ||Yes ||Yes ||Yes ||Yes ||No ||
+||bcm6368 ||  300 ||2.0 ||2.0 ||Yes ||Yes ||Yes ||Yes ||Yes ||
+||bcm6816 ||  300 ||2.0 ||2.0 ||Yes ||Yes ||Yes ||Yes ||Yes ||
+
+There are also some other variants like bcm6341, which is a DSP used in VoIP products.
 
 == Known 63xx platforms ==
+
 Known 6345 platforms*:
 ||[http://www.dynalink.com.au/modemsadsl_cur.htm?prod=RTA230 Dynalink RTA230] ||
 ||[:OpenWrtDocs/Hardware/Dynalink/RTA770W:Dynalink RTA770W] ||
@@ -54,7 +58,6 @@ Known 6338 platforms*:
 ||[:OpenWrtDocs/Hardware/Siemens/CL110:Siemens CL 110]||
 ||[http://zhone.com/products/6211/ Zhone 6211] ||
 ||[http://zhone.com/products/6212/ Zhone 6212-l2/-l3] ||
-
 
 
 Known 6348 platforms*:
@@ -104,21 +107,24 @@ Known 6358 platforms*:
 * If no dedicated Openwrt page is found an external link is supplied
 
 == Finished tasks ==
+
 The support for Broadcom 63xx is at this state :
 
- * Linux 2.6.x booting
+ * Full linux-2.6.27 support with GPL drivers for Ethernet and USB, only DSL is binary
+ 
 == TODO ==
- * Talk with Broadcom related vendors to make them release some sources
-    Pirelli Broadband Solutions relesed a GPL source code of its Alice Gate 2+ Wi-Fi at this [http://www.it.pirellibroadband.com/web/products-solutions/solutions/sme-net/gpl/default.page link] ans a group of people are adapting the USR9108 source code to better work on the same router at this [http://jackthevendicator.dlinkpedia.net/files/broadcom/pirelli_alice_gate_2_plus_wifi/src/ link]
-== Firmware/Bootloader ==
-Some devices use RedBoot such as Inventel Liveboxes. Other run CFE with a built-in LZMA decompressor such as Siemens SE515, Free Freebox ...
 
-== Paradyne 6211-A1 JTAG & RS232 ==
-Board image attachment:6211_A1_JTAG.jpg
+ * Talk with Broadcom related vendors to make them release some sources
+
+    Pirelli Broadband Solutions relesed a GPL source code of its Alice Gate 2+ Wi-Fi at this [http://www.it.pirellibroadband.com/web/products-solutions/solutions/sme-net/gpl/default.page link] ans a group of people are adapting the USR9108 source code to better work on the same router at this [http://jackthevendicator.dlinkpedia.net/files/broadcom/pirelli_alice_gate_2_plus_wifi/src/ link]
+
+== Firmware/Bootloader ==
+
+Some devices use RedBoot such as Inventel Liveboxes. Other run CFE with a built-in LZMA decompressor such as Siemens SE515, Free Freebox ... CFE is not using standard LZMA compression arguments, and most noticebly, changes the dictionnary size, so beware.
 
 = How to help =
- * Create valid firmware images.
+ * Port ATM/ADSL changes to kernel 2.6.27 and use the binary DSL for now
  * Test the currently merged kernel in order to see if it boots on CFE based boards.
- * It can now boot on RedBoot enabled devices, supply a valid MTD partition in the kernel command line, as well as boot_loader=RedBoot
+
 ----
  . CategoryOpenWrtPort
