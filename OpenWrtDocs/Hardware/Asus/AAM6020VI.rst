@@ -6,7 +6,6 @@
  * 88E6060                Marvel 6 port ethernet swicth
  * K4S281632F             Samsung 16Mb SDRAM
  * TNETW1130GVF           Single-Chip MAC and Baseband Processor for IEE 802.11 a/b/g.
-
 On AAM6020VI-T4 the WLAN card is in a mini-pci slot. The -T? bit is still confusing, while on the box it's is -T4 on the pcb -T2 is written. That also says revision 1.0 .
 
 Device has 16Mb Ram and 4Mb Ram which should make it a reasonably flexible unit
@@ -14,7 +13,7 @@ Device has 16Mb Ram and 4Mb Ram which should make it a reasonably flexible unit
 It uses PSPBoot with a default address of 192.168.1.1
 
 == Debug HW ==
-There is a 2x4 (male pins) EJTAG ["OpenWrtDocs/Customizing/Hardware/JTAG_Cable"] connector and another 2x3 female one without a specific label (only says J1).
+There is a 2x4 (male pins) EJTAG ["OpenWrtDocs/Customizing/Hardware/JTAG Cable"] connector and another 2x3 female one without a specific label (only says J1).
 
 == Similar Openwrt dev list devices ==
 Castlenet ["OpenWrtDocs/Hardware/Castlenet/ASW800"]
@@ -284,5 +283,8 @@ mtd4: 003e0000 00010000 "mtd4"
 
 = PSPBoot log =
 = PARTITION INFO =
+= Board Layout =
+I don't have an image of the underside and I can't find the flash chip on the top surface. The JTAG is obvious but I have no idea where the serial port is. attachment:AAM6020VI.jpg
+
 ----
  . CategoryModel ["CategoryAR7Device"]
