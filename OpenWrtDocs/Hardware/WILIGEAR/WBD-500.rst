@@ -14,19 +14,23 @@ The [http://www.wiligear.com/?q=products/cpu-boards/wbd-500 WILIGEAR WBD-500] is
 ||'''Ethernet''' ||1x RJ45, 10/100 Base-TX, PoE, surge protection ||
 ||'''USB''' ||No ||
 ||'''Serial''' ||Yes ||
-||'''JTAG''' ||No ||
+||'''JTAG''' ||Yes ||
 ||'''Power''' || 9V - 52V PoE and DC jack [[BR]] polarity independent with overvoltage protection ||
 
 = Installing OpenWrt =
 
 Get a TFTP server for your computer.
 
-WBD-500 can be loaded with the same OpenWrt firmware as [:OpenWrtDocs/Hardware/Fon/Fonera:Fonera] device. You have to download two files (right click and save as):
+WBD-500 can be loaded with the same OpenWrt firmware as [:OpenWrtDocs/Hardware/Fon/Fonera:Fonera] device.
 
- * [http://downloads.openwrt.org/kamikaze/7.09/atheros-2.6/openwrt-atheros-2.6-vmlinux.lzma openwrt-atheros-2.6-vmlinux.lzma]
- * [http://downloads.openwrt.org/kamikaze/7.09/atheros-2.6/openwrt-atheros-2.6-root.squashfs openwrt-atheros-2.6-root.squashfs]
+You have to build two files ''openwrt-atheros-vmlinux.lzma'' and ''openwrt-atheros-root.squashfs''.
 
-Copy openwrt-atheros-2.6-vmlinux.lzma and openwrt-atheros-2.6-root.squashfs to your TFTP server's root directory (usually called tftpboot).
+Alternatively or you can download prebuilt binaries here (right click and save as):
+
+ * [http://downloads.openwrt.org/snapshots/atheros/openwrt-atheros-vmlinux.lzma openwrt-atheros-vmlinux.lzma]
+ * [http://downloads.openwrt.org/snapshots/atheros/openwrt-atheros-root.squashfs openwrt-atheros-root.squashfs]
+
+Copy ''openwrt-atheros-vmlinux.lzma'' and ''openwrt-atheros-root.squashfs'' to your TFTP server's root directory (usually called tftpboot).
 
 Set your local computer's IP address to 192.168.2.254. 
 
@@ -43,48 +47,67 @@ You can enable this option by creating a file ~/.telnetrc with the following con
         mode line
 }}}
 
-Enter commands from the following telnet session log (ignore the error messages):
+Enter the following commands from the telnet session (ignore the error messages):
 {{{
 Connected to 192.168.2.66.
 Escape character is '^]'.
 == Executing boot script in 0.390 seconds - enter ^C to abort
 ^C
+RedBoot>
+}}}
+
+1. Reinit FIS directory
+{{{
 RedBoot> fis init
 About to initialize [format] FLASH image system - continue (y/n)? y
 *** Initialize FLASH Image System
 ... Erase from 0xa87e0000-0xa87f0000: .
 ... Program from 0x80ff0000-0x81000000 at 0xa87e0000: .
-RedBoot> load -r -b %{FREEMEMLO} openwrt-atheros-2.6-vmlinux.lzma
+RedBoot>
+}}}
+2. Create the kernel partition
+{{{
+RedBoot> load -r -b %{FREEMEMLO} openwrt-atheros-vmlinux.lzma
 Using default protocol (TFTP)
-Raw file loaded 0x8003cc00-0x800fcbff, assumed entry at 0x8003cc00
-RedBoot> fis create -e 0x80041000 -r 0x80041000 vmlinux.bin.l7
-/home/big/bootloaders/redboot_cobra/ecos/packages/devs/eth/mips/ar531x/current/src/ae531xecos.c#385:ae531x_send AHB ERROR: AR531X_DEBUG_ERROR = 00000001
-/home/big/bootloaders/redboot_cobra/ecos/packages/devs/eth/mips/ar531x/current/src/ae531xecos.c#388:ae531x_send AHB ERROR status_4 = 00000145
-... Erase from 0xa8030000-0xa80f0000: ............
-... Program from 0x8003cc00-0x800fcc00 at 0xa8030000: ............
+Raw file loaded 0x8003cc00-0x800ecbff, assumed entry at 0x8003cc00
+RedBoot> fis create -e 0x80041000 -r 0x80041000 -l 0xd0000 kernel
+... Erase from 0xa8030000-0xa8100000: .............
+... Program from 0x8003cc00-0x800ecc00 at 0xa8030000: ...........
 ... Erase from 0xa87e0000-0xa87f0000: .
 ... Program from 0x80ff0000-0x81000000 at 0xa87e0000: .
-RedBoot> load -r -b %{FREEMEMLO} openwrt-atheros-2.6-root.squashfs
+RedBoot>
+}}}
+3. Create the rootfs partition
+{{{
+RedBoot> load -r -b %{FREEMEMLO} openwrt-atheros-root.squashfs
 Using default protocol (TFTP)
-Raw file loaded 0x8003cc00-0x8015cbff, assumed entry at 0x8003cc00
-RedBoot> fis create -l 0x6F0000 rootfs
+Raw file loaded 0x8003cc00-0x8017cbff, assumed entry at 0x8003cc00
+RedBoot> fis create -l 0x6e0000 rootfs
 /home/big/bootloaders/redboot_cobra/ecos/packages/devs/eth/mips/ar531x/current/src/ae531xecos.c#385:ae531x_send AHB ERROR: AR531X_DEBUG_ERROR = 00000001
 /home/big/bootloaders/redboot_cobra/ecos/packages/devs/eth/mips/ar531x/current/src/ae531xecos.c#388:ae531x_send AHB ERROR status_4 = 00000145
-... Erase from 0xa80f0000-0xa87e0000: ...............................................................................................................
-... Program from 0x8003cc00-0x8015cc00 at 0xa80f0000: ..................
+... Erase from 0xa8100000-0xa87e0000: ..........................................
+....................................................................
+... Program from 0x8003cc00-0x8017cc00 at 0xa8100000: ....................
 ... Erase from 0xa87e0000-0xa87f0000: .
 ... Program from 0x80ff0000-0x81000000 at 0xa87e0000: .
+RedBoot>
+}}}
+4. Update boot script
+{{{
 RedBoot> fconfig
-/home/big/bootloaders/redboot_cobra/ecos/packages/devs/eth/mips/ar531x/current/src/ae531xecos.c#385:ae531x_send AHB ERROR: AR531X_DEBUG_ERROR = 00000001
+/home/big/bootloaders/redboot_cobra/ecos/packages/devs/eth/mips/ar531x/current/src/ae531xecos.c#385:ae531x_send AHB ERROR: AR531X_DEBUG_ERROR = 61383765
 /home/big/bootloaders/redboot_cobra/ecos/packages/devs/eth/mips/ar531x/current/src/ae531xecos.c#388:ae531x_send AHB ERROR status_4 = 00000145
 Run script at boot: true
-Boot script: 
+Boot script:
+.. ip -l 192.168.2.66 -h 192.168.2.254
+.. load wili_art
+.. exec
 .. fis load -l kernel
 .. exec
 Enter script, terminate with empty line
->> fis load -l vmlinux.bin.l7
+>> fis load -l kernel
 >> exec
->> 
+>>
 Boot script timeout (1000ms resolution): 1
 /home/big/bootloaders/redboot_cobra/ecos/packages/devs/eth/mips/ar531x/current/src/ae531xecos.c#385:ae531x_send AHB ERROR: AR531X_DEBUG_ERROR = 00000001
 /home/big/bootloaders/redboot_cobra/ecos/packages/devs/eth/mips/ar531x/current/src/ae531xecos.c#388:ae531x_send AHB ERROR status_4 = 00000145
@@ -118,21 +141,25 @@ Network debug at boot time: false
 Update RedBoot non-volatile configuration - continue (y/n)? y
 ... Erase from 0xa87e0000-0xa87f0000: .
 ... Program from 0x80ff0000-0x81000000 at 0xa87e0000: .
+RedBoot>
+}}}
+5. Verify the FIS and boot script
+{{{
 RedBoot> fis list
 /home/big/bootloaders/redboot_cobra/ecos/packages/devs/eth/mips/ar531x/current/src/ae531xecos.c#385:ae531x_send AHB ERROR: AR531X_DEBUG_ERROR = 00000145
 /home/big/bootloaders/redboot_cobra/ecos/packages/devs/eth/mips/ar531x/current/src/ae531xecos.c#388:ae531x_send AHB ERROR status_4 = 00000145
 Name              FLASH addr  Mem addr    Length      Entry point
 RedBoot           0xA8000000  0xA8000000  0x00030000  0x00000000
-vmlinux.bin.l7    0xA8030000  0x80041000  0x000C0000  0x80041000
-rootfs            0xA80F0000  0x8003CC00  0x006F0000  0x8003CC00
+kernel            0xA8030000  0x80041000  0x000D0000  0x80041000
+rootfs            0xA8100000  0x8003CC00  0x006E0000  0x8003CC00
 FIS directory     0xA87E0000  0xA87E0000  0x0000F000  0x00000000
 RedBoot config    0xA87EF000  0xA87EF000  0x00001000  0x00000000
 RedBoot> fconfig -l
 /home/big/bootloaders/redboot_cobra/ecos/packages/devs/eth/mips/ar531x/current/src/ae531xecos.c#385:ae531x_send AHB ERROR: AR531X_DEBUG_ERROR = 00000145
 /home/big/bootloaders/redboot_cobra/ecos/packages/devs/eth/mips/ar531x/current/src/ae531xecos.c#388:ae531x_send AHB ERROR status_4 = 00000145
 Run script at boot: true
-Boot script: 
-.. fis load -l vmlinux.bin.l7
+Boot script:
+.. fis load -l kernel
 .. exec
 
 Boot script timeout (1000ms resolution): 1
@@ -145,12 +172,11 @@ Console baud rate: 115200
 GDB connection port: 9000
 Force console for special debug messages: false
 Network debug at boot time: false
+RedBoot>
+}}}
+6. Reset the board
+{{{
 RedBoot> reset
-
-^]
-
-telnet> quit
-Connection closed.
 }}}
 
 Because after !OpenWrt boots, device's IP address becomes 192.168.1.1, set your local computer's IP address to one from 192.168.1.0/24 network, for example 192.168.1.254.
@@ -158,6 +184,7 @@ Because after !OpenWrt boots, device's IP address becomes 192.168.1.1, set your 
 Try to telnet to 192.168.1.1.
 
 {{{
+$ telnet 192.168.1.1
 Trying 192.168.1.1...
 Connected to 192.168.1.1.
 Escape character is '^]'.
@@ -167,7 +194,7 @@ Escape character is '^]'.
  ------------------------------------------
 
 
-BusyBox v1.4.2 (2007-09-29 07:21:40 CEST) Built-in shell (ash)
+BusyBox v1.11.2 (2008-11-03 09:38:58 CET) built-in shell (ash)
 Enter 'help' for a list of built-in commands.
 
   _______                     ________        __
@@ -175,12 +202,12 @@ Enter 'help' for a list of built-in commands.
  |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
  |_______||   __|_____|__|__||________||__|  |____|
           |__| W I R E L E S S   F R E E D O M
- KAMIKAZE (7.09) -----------------------------------
+ KAMIKAZE (bleeding edge, r13101) -------------------
   * 10 oz Vodka       Shake well with ice and strain
   * 10 oz Triple sec  mixture into 10 shot glasses.
   * 10 oz lime juice  Salute!
  ---------------------------------------------------
-root@OpenWrt:/# 
+root@OpenWrt:/#
 }}}
 
 Enjoy!
