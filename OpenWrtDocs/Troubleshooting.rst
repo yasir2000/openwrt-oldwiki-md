@@ -65,7 +65,7 @@ Once in failsafe mode, the router will ignore the configuration and use the ip a
 
 /!\ Tips:
 
- * Recover root, for example using FreyFunk WEB interface you can change the password becouse not need authentication.
+ * Recover root, for example using Freifunk WEB interface you can change the password becouse not need authentication.
  * Your router will listen on the LAN port(s) only.  You will not be able to connect via the WAN port in failsafe mode.
  * Failsafe has no DHCP, make sure you set a static IP address.
  * The act of switching between a normal boot and failsafe mode could change your MAC address! This will invalidate the ARP cache of the workstation you're using to access !OpenWrt with.  If you can't ping !OpenWrt at {{{192.168.1.1}}} flush your ARP cache:
