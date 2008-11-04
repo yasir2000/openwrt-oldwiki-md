@@ -2,7 +2,7 @@
 #language en
 = Asus AAM6020VI ADSL modem 4Port eth and Wireless =
 == Major Chips ==
- * TNET730GDU             AR7WRD SoC
+ * TNET7300GDU             AR7WRD SoC
  * 88E6060                Marvel 6 port ethernet swicth
  * K4S281632F             Samsung 16Mb SDRAM
  * TNETW1130GVF           Single-Chip MAC and Baseband Processor for IEE 802.11 a/b/g.
@@ -16,14 +16,13 @@ It uses PSPBoot with a default address of 192.168.1.1
 There is a 2x4 (male pins) EJTAG ["OpenWrtDocs/Customizing/Hardware/JTAG Cable"] connector and another 2x3 female one without a specific label (only says J1).
 
 == Similar Openwrt dev list devices ==
-Castlenet ["OpenWrtDocs/Hardware/Castlenet/ASW800"]
+These all have the same base processor and similar RAM size.
 
-Allnet ALL0277DSL     - only 2M Flash
+Netgear [:OpenWrtDocs/Hardware/Netgear/DG834G:DG834G]        -
 
-Netgear DG834G        -
+DLink [:OpenWrtDocs/Hardware/D-Link/DSL-502T:DSL-502T] - Uses Adam2
 
-Siemens SX541          - only 2M Flash maybe more memory
-
+Sphairon [:OpenWrtDocs/Hardware/Sphairon/TurbolinkJDR454WB:TurbolinkJDR454WB]
 == Manufacturer Product link ==
 http://www.asus.com.tw/products.aspx?l1=13&l2=96&l3=0&model=46&modelmenu=1
 
