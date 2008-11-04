@@ -283,7 +283,11 @@ mtd4: 003e0000 00010000 "mtd4"
 = PSPBoot log =
 = PARTITION INFO =
 = Board Layout =
-I don't have an image of the underside and I can't find the flash chip on the top surface. The JTAG is obvious but I have no idea where the serial port is. attachment:AAM6020VI.jpg
+I don't have an image of the underside and I can't find the flash chip on the top surface. The JTAG is obvious and this image [http://star.oai.pp.ru/dlinkt/AAM6020BI-EJTAG.jpg] appears to show the serial connection.
+
+The actual AAM6020VI board is shown below.
+
+attachment:AAM6020VI.jpg
 
 ----
  . CategoryModel ["CategoryAR7Device"]
