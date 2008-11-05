@@ -15,7 +15,7 @@ Most of the pages for customizing can be found in CategoryHowTo
  * ["OpenWrtDocs/Customizing/Hardware/UART"] if you know what UART is you may want to read this
  * ["OpenWrtDocs/Customizing/Hardware/MMC"] add a multimedia card or sd card to increase your storage volume
  * ["OpenWrtDocs/Customizing/Hardware/GPS"] attach an GPS device if using the wrt for wardriving
- * http://www.hacklab.nl/index.php?option=com_content&task=view&id=9&Itemid=7 Adding a WX200 / WM918 / WMR918 / WMR968 Weather Station
+ * http://www.hacklab.nl/blog/2008/10/18/wx200wl500g/ Adding a WX200 / WM918 / WMR918 / WMR968 Weather Station
  * [http://www.duff.dk/wrt54gs/pics/reuter_lcd.jpg picture] Adding an LCD
  * [http://www.duff.dk/wrt54gs/pics/Complete_VGA_Setup.jpg picture] and [http://www.duff.dk/wrt54gs/pics/HW_VGA_Setup.jpg picture] Adding VGA Output
  * [http://sonic.dnsalias.net/openwrt/slugterm_4d.html] Adding an OLED and a keyboard as a colour VT102 terminal
