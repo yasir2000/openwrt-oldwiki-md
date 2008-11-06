@@ -703,5 +703,7 @@ http://www.bargainshare.com/index.php?showtopic=87504
 
  * Go to psbl prompt with serial cable, fmt IMAGE_B and flash the openwrt image into it (maybe both IMAGE_A and B, still unsure)
  * boot...dead with [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRTP54G/OpenWrt/BootLog this log]
+
+ After the vlynq is disabled, the boot goes [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRTP54G/OpenWrt/BootLog2 further]. But it can only boot once, the second time it will stop at PSPBoot.
 ----
  . CategoryModel ["CategoryAR7Device"]
