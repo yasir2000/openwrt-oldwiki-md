@@ -226,3 +226,5 @@ To do:
 
 == related link ==
 [http://www.seattlewireless.net/index.cgi/LinksysWrv54g]
+
+["CategoryIXP4xxDevice"]
