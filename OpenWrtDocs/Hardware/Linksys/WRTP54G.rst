@@ -705,5 +705,19 @@ http://www.bargainshare.com/index.php?showtopic=87504
  * boot...dead with [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRTP54G/OpenWrt/BootLog this log]
 
  After the vlynq is disabled, the boot goes [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRTP54G/OpenWrt/BootLog2 further]. But it can only boot once, the second time it will stop at PSPBoot.
+
+== Interrupt ==
+
+  WRTP54g registers the following IRQs:
+
+||IRQ||acronym||source||function||
+||15||INT_7||UART interrupt||Console serial port||
+||27||INT_19||Ethernet MAC 0 interrupt||LAN||
+||33||INT_25||VLYNQ 5-pin interrupt||Expansion slot (vlynq0)||
+||40||INT_32||Telephony Interface, Internal Serial Port||Phone port||
+||41||INT_33||Ethernet MAC 1 interrupt||WAN||
+||80||||Low Vlynq Interrupts (Vlynq0)||WLAN on the expansion card (TNETW1130)||
+
+
 ----
  . CategoryModel ["CategoryAR7Device"]
