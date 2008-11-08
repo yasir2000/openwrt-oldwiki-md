@@ -23,12 +23,12 @@ A custom version of !RedBoot has been built and can be loaded with the instructi
 This version detects PHYs on both Ethernet ports, but !RedBoot only uses one, eth0, which maps onto the WAN port of the USR8200.
 === Installing OpenWRT ===
 USR8200> load -u tftp://192.168.10.2/redboot.bin -r 0
-"Once that finishes, you can type reboot or press reset."
+''Once that finishes, you can type reboot or press reset.''
 
-RedBoot> load -r -b %{FREEMEMLO} -h 192.168.10.2 /openwrt-ixp4xx-zImage
-RedBoot> fis create linux
-RedBoot> load -r -b %{FREEMEMLO} -h 192.168.10.2 /openwrt-ixp4xx-squashfs.img
-RedBoot> fis create rootfs
+RedBoot> load -r -b %{FREEMEMLO} -h 192.168.10.2 /openwrt-ixp4xx-zImage 
+RedBoot> fis create linux 
+RedBoot> load -r -b %{FREEMEMLO} -h 192.168.10.2 /openwrt-ixp4xx-squashfs.img 
+RedBoot> fis create rootfs 
 RedBoot> reset
 
 === Restoring Factory Firmware ===
@@ -52,18 +52,22 @@ That can be downloaded at { to be decided }. It is named redboot-RAM.img to dist
 
 ==== Load redboot-RAM.img ====
 load -h 192.168.10.2 /redboot-RAM.img
+
 go
-version "italics" Here you should check for RAM "italics"
-ping -h 192.168.10.2 "italics" Make sure this one also has network access "italics" 
+''Once it loads you should check for '''RAM''' in the version command.''
+version 
+
+''Make sure this instance also has network access with a ping command.''
+ping -h 192.168.10.2 
 
 ==== Restore Factory Firmware ====
-load -h 192.168.10.2 -r -b %{FREEMEMLO} /jungo-image.bin
-fis unlock -f 0x50000000 -l 0x1000000
-fis write -b %{FREEMEMLO} -l 0x1000000 -f 0x50000000
+load -h 192.168.10.2 -r -b %{FREEMEMLO} /jungo-image.bin 
+fis unlock -f 0x50000000 -l 0x1000000 
+fis write -b %{FREEMEMLO} -l 0x1000000 -f 0x50000000 
 
 Some output.
 * CAUTION * about to program FLASH
-            at 0x50000000..0x50ffffff from 0x00161400 - continue (y/n)? y
+            at 0x50000000..0x50ffffff from 0x00161400 - continue (y/n)? y 
 ... Erase from 0x50000000-0x51000000: 
 ... Program from 0x00161400-0x01161400 at 0x50000000: 
 
