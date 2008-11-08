@@ -35,7 +35,7 @@ RedBoot> fis create rootfs
  
 RedBoot> reset 
 
-Plug a pc into LAN port '''4''' otherwise the Marvel 88E6060 switch will not detect any machines connected on the lan side. This is a quirk of the switch at present.
+Plug a pc into LAN port '''4''' otherwise the Marvel 88E6060 switch will not detect any machines connected on the lan side. This is a quirk of the switch at present. There is full support for this switch coming. Should start making appearances in the 2.6.28.x kernels. See [http://forum.openwrt.org/viewtopic.php?pid=74209#74209 Lennert Buytenh's patch announcement] for details.
 
 === Restoring Factory Firmware ===
 Restoring factory firmware has been done with this unit.
