@@ -42,6 +42,7 @@ On my server, I plugged in a second network card. Makes accessing the internet a
 It comes in handy when testing Lan and Wan connections. 
 
 ip addr add 192.168.10.2/24 dev eth1 
+ 
 ip addr add 192.168.11.2/24 dev eth1 
 
 2. You will need to get a special redboot, one that has been built to run from RAM.
@@ -66,7 +67,9 @@ ping -h 192.168.10.2
 
 ==== Restore Factory Firmware ====
 load -h 192.168.10.2 -r -b %{FREEMEMLO} /jungo-image.bin 
+ 
 fis unlock -f 0x50000000 -l 0x1000000 
+ 
 fis write -b %{FREEMEMLO} -l 0x1000000 -f 0x50000000 
 
 Some output. 
