@@ -37,11 +37,8 @@ Plug a pc into LAN port '''4''' otherwise the Marvel 88E6060 switch will not det
 Restoring factory firmware has been done with this unit.
 
 1. You will need a either one of these types of server already setup - tftp, http, ftp.
-For this example, I have setup my tftp server on ip address 192.168.10.2
-If you wish to use http instead, add -m HTTP to the command. It must be capitalized. Same goes for FTP.
-Generally speaking, it helps to have a few ip addresses on the server machine, it will answer to requests for.
-On my server, I plugged in a second network card. Makes accessing the internet and serving files to a temporary subnet easier. This command makes the second card respond on either 192.168.10.x and 192.168.11.x subnets. 
-It comes in handy when testing Lan and Wan connections. 
+For this example, I have setup my tftp server on ip address 192.168.10.2 The tftp serverthat came with my distro,
+Knoppix 5.3.1, left a lot to be desired. I could not get it to work. [https://sourceforge.net/projects/tftp-server/ This one did.] If you wish to use http instead, add -m HTTP to the command. It must be capitalized. Same goes for FTP. Generally speaking, it helps to have a few ip addresses on the server machine, it will answer to requests for. On my server, I plugged in a second network card. Makes accessing the internet and serving files to a temporary subnet easier. This command makes the second card respond on either 192.168.10.x and 192.168.11.x subnets. It comes in handy when testing Lan and Wan connections. 
 
  1. ip addr add 192.168.10.2/24 dev eth1 
  1. ip addr add 192.168.11.2/24 dev eth1 
