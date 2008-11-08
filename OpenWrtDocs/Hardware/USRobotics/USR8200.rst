@@ -22,14 +22,14 @@ A custom version of !RedBoot has been built and can be loaded with the instructi
 
 This version detects PHYs on both Ethernet ports, but !RedBoot only uses one, eth0, which maps onto the WAN port of the USR8200.
 === Installing OpenWRT ===
-USR8200> load -u tftp://192.168.10.2/redboot.bin -r 0
+USR8200> load -u tftp://192.168.10.2/redboot.bin -r 0 
 ''Once that finishes, you can type reboot or press reset.''
 
 RedBoot> load -r -b %{FREEMEMLO} -h 192.168.10.2 /openwrt-ixp4xx-zImage 
 RedBoot> fis create linux 
 RedBoot> load -r -b %{FREEMEMLO} -h 192.168.10.2 /openwrt-ixp4xx-squashfs.img 
 RedBoot> fis create rootfs 
-RedBoot> reset
+RedBoot> reset 
 
 === Restoring Factory Firmware ===
 Restoring factory firmware has been done with this unit.
@@ -38,7 +38,10 @@ Restoring factory firmware has been done with this unit.
 For this example, I have setup my tftp server on ip address 192.168.10.2
 If you wish to use http instead, add -m HTTP to the command. It must be capitalized. Same goes for FTP.
 Generally speaking, it helps to have a few ip addresses on the server machine, it will answer to requests for.
-On my server, I plugged in a second network card, 
+On my server, I plugged in a second network card. Makes accessing the internet and serving files to a temporary subnet easier. This command makes the second card respond on either 192.168.10.x and 192.168.11.x subnets. 
+ip addr add 192.168.10.2/24 dev eth1 
+ip addr add 192.168.11.2/24 dev eth1 
+It comes in handy when testing. 
 
 2. You will need to get a special redboot, one that has been built to run from RAM.
 That can be downloaded at { to be decided }. It is named redboot-RAM.img to distinguish it from the ROM version.
