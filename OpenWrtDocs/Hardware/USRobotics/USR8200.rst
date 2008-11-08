@@ -22,20 +22,16 @@ A custom version of !RedBoot has been built and can be loaded with the instructi
 
 This version detects PHYs on both Ethernet ports, but !RedBoot only uses one, eth0, which maps onto the WAN port of the USR8200.
 === Installing OpenWRT ===
-USR8200> load -u tftp://192.168.10.2/redboot.bin -r 0 
-''Once that finishes, you can type reboot or press reset.'' 
+This is a skeleton of the procedure...
+ USR8200> load -u tftp://192.168.10.2/redboot.bin -r 0 
+ ''Once that finishes, you can type reboot or press reset.'' 
+ RedBoot> load -r -b %{FREEMEMLO} -h 192.168.10.2 /openwrt-ixp4xx-zImage 
+ RedBoot> fis create linux 
+ RedBoot> load -r -b %{FREEMEMLO} -h 192.168.10.2 /openwrt-ixp4xx-squashfs.img 
+ RedBoot> fis create rootfs 
+ RedBoot> reset 
 
-RedBoot> load -r -b %{FREEMEMLO} -h 192.168.10.2 /openwrt-ixp4xx-zImage 
- 
-RedBoot> fis create linux 
- 
-RedBoot> load -r -b %{FREEMEMLO} -h 192.168.10.2 /openwrt-ixp4xx-squashfs.img 
- 
-RedBoot> fis create rootfs 
- 
-RedBoot> reset 
-
-Plug a pc into LAN port '''4''' otherwise the Marvel 88E6060 switch will not detect any machines connected on the lan side. This is a quirk of the switch at present. There is full support for this switch coming. Should start making appearances in the 2.6.28.x kernels. See [http://forum.openwrt.org/viewtopic.php?pid=74209#74209 Lennert Buytenh's patch announcement] for details.
+Plug a pc into LAN port '''4''' otherwise the Marvel 88E6060 switch will not detect any machines connected on the lan side. This is a quirk of the switch at present. There is full support for this switch coming. Should start making appearances in the 2.6.28.x kernels. See [http://forum.openwrt.org/viewtopic.php?pid=74209#74209 Lennert Buytenh's patch announcement] for details. Open a browser to http://192.168.1.1 and enjoy.
 
 === Restoring Factory Firmware ===
 Restoring factory firmware has been done with this unit.
@@ -47,9 +43,8 @@ Generally speaking, it helps to have a few ip addresses on the server machine, i
 On my server, I plugged in a second network card. Makes accessing the internet and serving files to a temporary subnet easier. This command makes the second card respond on either 192.168.10.x and 192.168.11.x subnets. 
 It comes in handy when testing Lan and Wan connections. 
 
-ip addr add 192.168.10.2/24 dev eth1 
- 
-ip addr add 192.168.11.2/24 dev eth1 
+ ip addr add 192.168.10.2/24 dev eth1 
+ ip addr add 192.168.11.2/24 dev eth1 
 
 2. You will need to get a special redboot, one that has been built to run from RAM.
 That can be downloaded at { to be decided }. It is named redboot-RAM.img to distinguish it from the ROM version.
