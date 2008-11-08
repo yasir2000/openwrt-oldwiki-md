@@ -22,8 +22,6 @@ A custom version of !RedBoot has been built and can be loaded with the instructi
 
 This version detects PHYs on both Ethernet ports, but !RedBoot only uses one, eth0, which maps onto the WAN port of the USR8200.
 === Installing OpenWRT ===
-
----- /!\ '''Edit conflict - other version:''' ----
 USR8200> load -u tftp://192.168.10.2/redboot.bin -r 0
 "Once that finishes, you can type reboot or press reset."
 
@@ -81,71 +79,8 @@ GPIO[10] to VIA VT6202 USB Chip
 GPIO[11] to VIA VT6202 USB Chip
 GPIO[12] Reset button 
 
-
----- /!\ '''Edit conflict - your version:''' ----
-USR8200> load -u tftp://192.168.10.2/redboot.bin -r 0
-"Once that finishes, you can type reboot or press reset."
-
-RedBoot> load -r -b %{FREEMEMLO} -h 192.168.10.2 /openwrt-ixp4xx-zImage
-RedBoot> fis create linux
-RedBoot> load -r -b %{FREEMEMLO} -h 192.168.10.2 /openwrt-ixp4xx-squashfs.img
-RedBoot> fis create rootfs
-RedBoot> reset
-
-=== Restoring Factory Firmware ===
-Restoring factory firmware has been done with this unit.
-
-1. You will need a either one of these types of server already setup - tftp, http, ftp.
-For this example, I have setup my tftp server on ip address 192.168.10.2
-If you wish to use http instead, add -m HTTP to the command. It must be capitalized. Same goes for FTP.
-Generally speaking, it helps to have a few ip addresses on the server machine, it will answer to requests for.
-On my server, I plugged in a second network card, 
-
-2. You will need to get a special redboot, one that has been built to run from RAM.
-That can be downloaded at { to be decided }. It is named redboot-RAM.img to distinguish it from the ROM version.
-
-3. The backup image, here, will be named jungo-image.bin I used 
-[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Actiontec/MI424-WR MI424-WR]  Jose Vasconcellos' jungo-image.py to create my backup. It can do more than make the backup... but at the time, my tftp server was not responding to anything. It does have some literals in it you may need to change to match your network setup.
-
-4. There are 2 steps to restoring the factory firmware. 
-   a) First, install the redboot that runs from RAM.
-   b) Once running from ram, it becomes safe to program at any address on the flash chip.
-
-==== Load redboot-RAM.img ====
-load -h 192.168.10.2 /redboot-RAM.img
-go
-version "Here you should check for RAM"
-ping -h 192.168.10.2 "Make sure this one also has network access"
-
-==== Restore Factory Firmware ====
-load -h 192.168.10.2 -r -b %{FREEMEMLO} /jungo-image.bin
-fis unlock -f 0x50000000 -l 0x1000000
-fis write -b %{FREEMEMLO} -l 0x1000000 -f 0x50000000
-
-Some output.
-* CAUTION * about to program FLASH
-            at 0x50000000..0x50ffffff from 0x00161400 - continue (y/n)? y
-... Erase from 0x50000000-0x51000000: 
-... Program from 0x00161400-0x01161400 at 0x50000000: 
-
-
-
----- /!\ '''End of edit conflict''' ----
 == Hardware Hacking ==
 Although this router has no wireless support, there is tracking and pads on the circuit board for a mini-PCI card, which may allow a wireless card to be added. Work is in progress to determine if this is feasible.
-=== USR8200 GPIO assignments ===
-GPIO[0] USB-1 LED
-GPIO[1] USB-2 LED
-GPIO[2] IEEE1394 LED
-GPIO[3] LAN PORT 1 LED
-GPIO[7] Possibly the mini-pci
-GPIO[8] to VIA VT6307 IEEE1394 Chip
-GPIO[9] to VIA VT6202 USB Chip
-GPIO[10] to VIA VT6202 USB Chip
-GPIO[11] to VIA VT6202 USB Chip
-GPIO[12] Reset button 
-
-
 == More Info / Pictures ==
 There are extensive pictures of this device at [http://home.comcast.net/~johnrw/], along with a [http://home.comcast.net/~johnrw/image/USR8200_notes.txt set of notes] on some of the investigations that the photographer did.
 ----
