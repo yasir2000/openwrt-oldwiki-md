@@ -66,5 +66,8 @@ http://mightyohm.com/blog/2008/11/building-a-wifi-radio-part-4-installing-openwr
 
 The build is based on Kamikaze 7.09 trunk r12857 and the linux-2.4 kernel.  This build is very stable.  No issues have been reported with USB OHCI mode or the wireless support.  The same image can be used on the WL-500gP v2 without modification.
 
+There is also an article on installing a serial port on this router here:
+http://mightyohm.com/blog/2008/10/building-a-wifi-radio-part-3-hacking-the-asus-wl-520gu/
+
 ----
  . CategoryModel
