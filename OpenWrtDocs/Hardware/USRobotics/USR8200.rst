@@ -26,9 +26,13 @@ USR8200> load -u tftp://192.168.10.2/redboot.bin -r 0
 ''Once that finishes, you can type reboot or press reset.'' 
 
 RedBoot> load -r -b %{FREEMEMLO} -h 192.168.10.2 /openwrt-ixp4xx-zImage 
+ 
 RedBoot> fis create linux 
+ 
 RedBoot> load -r -b %{FREEMEMLO} -h 192.168.10.2 /openwrt-ixp4xx-squashfs.img 
+ 
 RedBoot> fis create rootfs 
+ 
 RedBoot> reset 
 
 === Restoring Factory Firmware ===
