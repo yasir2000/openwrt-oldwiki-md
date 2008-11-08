@@ -52,7 +52,9 @@ That can be downloaded at { to be decided }. It is named redboot-RAM.img to dist
 [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Actiontec/MI424-WR MI424-WR]  Jose Vasconcellos' jungo-image.py to create my backup. It can do more than make the backup... but at the time, my tftp server was not responding to anything. It does have some literals in it you may need to change to match your network setup.
 
 4. There are 2 steps to restoring the factory firmware. 
+
    a) First, install the redboot that runs from RAM. 
+
    b) Once running from ram, it becomes safe to program at any address on the flash chip. 
 
 ==== Load redboot-RAM.img ====
