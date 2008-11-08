@@ -55,5 +55,16 @@ Still testing, now with the USB 1.1 Mass storage...
 
 -----
  . I just noticed on the dd-wrt forum a comment referring to a USB fix.  I have not investigated (I don't have one of these routers). http://www.dd-wrt.com/phpBB2/viewtopic.php?t=38777&postdays=0&postorder=asc&highlight=wl520gu&start=18
+-----
+
+This router is being used to build a Wifi Radio at http://mightyohm.com
+
+
+An article on installing OpenWrt (including compiled image and package files) is here:
+http://mightyohm.com/blog/2008/11/building-a-wifi-radio-part-4-installing-openwrt/
+
+
+The build is based on Kamikaze 7.09 trunk r12857 and the linux-2.4 kernel.  This build is very stable.  No issues have been reported with USB OHCI mode or the wireless support.  The same image can be used on the WL-500gP v2 without modification.
+
 ----
  . CategoryModel
