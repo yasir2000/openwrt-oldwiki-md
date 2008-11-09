@@ -20,7 +20,7 @@ VCED exceptions         : not available
 VCEI exceptions         : not available
 }}}
 
-''' Flash partitions '''
+''' Flash Partitions '''
 
 {{{
 # cat /proc/mtd
