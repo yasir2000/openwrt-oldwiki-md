@@ -1,9 +1,7 @@
 = Netgear DG834N =
 As of today there are two versions of this router/modem known as DG834N and DG834Nv2. According to the [http://kbserver.netgear.com/kb_web_files/n101777.asp official information] the differences are:
-{{{
-* DG834Nv2 has added a pushbutton on the front panel for Wi-Fi Protected Setup, also referred to as “Push “N” Connect”.
-* DG834Nv2 LEDs have been redefined
-}}}
+ * DG834Nv2 has added a pushbutton on the front panel for Wi-Fi Protected Setup, also referred to as “Push “N” Connect”.
+ * DG834Nv2 LEDs have been redefined
 Both models use the same firmware.
 
 ||Platform||[http://www.broadcom.com/products/DSL/xDSL-CPE-Solutions/BCM6358 BCM6358] V1.0||
@@ -44,9 +42,10 @@ mtd3: 00010000 00010000 "nvram"
 mtd4: 00010000 00002000 "bootloader"
 }}}
 
-''' See also '''
+''' See Also '''
 
-[:OpenWrtDocs/BroadcomBCM63xxPort:BroadcomBCM63xxPort]
+ * [:OpenWrtDocs/BroadcomBCM63xxPort:BroadcomBCM63xxPort]
+ * [http://www.xbitlabs.com/articles/networking/print/netgear-dg834n.html Netgear DG834N - photos of PCB]
 
 ----
 CategoryModel ["CategoryBCM63xx"]
