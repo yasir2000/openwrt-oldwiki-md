@@ -1,5 +1,11 @@
 = Netgear DG834N =
-As of today there are two versions of this router known as DG834N and DG834Nv2. The information below is about DG834N model.
+As of today there are two versions of this router/modem known as DG834N and DG834Nv2. According to the [http://kbserver.netgear.com/kb_web_files/n101777.asp official information] the differences are:
+{{{
+* DG834Nv2 has added a pushbutton on the front panel for Wi-Fi Protected Setup, also referred to as “Push “N” Connect”.
+* DG834Nv2 LEDs have been redefined
+}}}
+Both models use the same firmware.
+
 Apparently it has much in common with [:OpenWrtDocs/Hardware/Netgear/DG834GT:DG834GT].
 
 ''' Cpu Info '''
