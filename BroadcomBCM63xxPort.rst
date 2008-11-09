@@ -84,7 +84,6 @@ Known 6348 platforms*:
 ||[http://www.netcomm.com.au/ADSL/NB9_new.php Netcomm NB9] (Re-branded Comtrend CT-638) ||
 ||[http://www.netcomm.com.au/ADSL/NB9W_new.php Netcomm NB9W] (Re-branded Comtrend CT-638) ||
 ||[:OpenWrtDocs/Hardware/Netgear/DG834GT:Netgear DG834GT] ||
-||[http://www.netgear.co.uk/rangemaxnext_wirelessbroadbandrouter_dg834n.php Netgear DG834N] ||
 ||[http://www.netgear.co.uk/wireless_modem_router_dg834pn.php Netgear DG834PN] ||
 ||Pirelli Alice Gate 2+ Wi-Fi ||
 ||[http://www.thomson-broadband.co.uk/codepages/content3.asp?c=7&ProductID=511 Thomson Speedtouch ST585v6] ||
@@ -99,6 +98,7 @@ Known 6358 platforms*:
 ||[http://www.dlink.com/products/?pid=567 D-Link DSL-2640B] ||
 ||[:OpenWrtDocs/Hardware/Freebox/FreeboxV5:Freebox v5] ||
 ||[:OpenWrtDocs/Hardware/Netcomm/NB9WMAXX:Netcomm NB9WMAXX] ||
+||[:OpenWrtDocs/Hardware/Netgear/DG834N:Netgear DG834N] ||
 ||[:OpenWrtDocs/Hardware/Neuf/NeufBox4:Neuf Box 4] ||
 ||[http://www.usr-emea.com/products/p-broadband-product.asp?prod=bb-9113&loc=unkg US Robotics USR9113] ||
 ||[http://zhone.com/products/6228/ Zhone 6228] ||
