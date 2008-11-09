@@ -6,6 +6,12 @@ As of today there are two versions of this router/modem known as DG834N and DG83
 }}}
 Both models use the same firmware.
 
+||Platform||[http://www.broadcom.com/products/DSL/xDSL-CPE-Solutions/BCM6358 BCM6358] V1.0||
+||Flash||4MB (MX29LV320CBTC-70G)||
+||SDRAM||16MB (EM6A9160TS-5G)||
+||Switch||BCM5325||
+||WLAN||[http://linuxwireless.org/en/users/Drivers/b43#unsupported BCM4321] (PCI ID 14e4:4329)||
+
 Apparently it has much in common with [:OpenWrtDocs/Hardware/Netgear/DG834GT:DG834GT].
 
 ''' Cpu Info '''
@@ -37,6 +43,10 @@ mtd2: 00010000 00002000 "bootloader"
 mtd3: 00010000 00010000 "nvram"
 mtd4: 00010000 00002000 "bootloader"
 }}}
+
+''' See also '''
+
+[:OpenWrtDocs/BroadcomBCM63xxPort:BroadcomBCM63xxPort]
 
 ----
 CategoryModel ["CategoryBCM63xx"]
