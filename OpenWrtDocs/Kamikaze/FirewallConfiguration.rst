@@ -23,7 +23,7 @@ To specify a range of ports for '''src_dport''' and '''dest_port''' separate the
 The default configuration accepts all LAN traffic, but blocks all incoming WAN traffic on ports not currently used for connections or NAT.  To open a port for a service, add a "rule" entry:
 {{{
 config rule
-        option dst              wan
+        option dest              wan
         option src_dport        22
         option target           ACCEPT
         option protocol         tcp
