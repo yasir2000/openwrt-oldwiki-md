@@ -1,6 +1,6 @@
 === Hardware ===
 
-RB433 and RB433AH are rather similar boards, except for the micoSD slot (RB433AH only), CPU frequency (300 vs. 680 MHz) and RAM size (64 vs. 128 MB).
+RB433 and RB433AH are rather similar boards, except for the microSD slot (RB433AH only), CPU frequency (300 vs. 680 MHz) and RAM size (64 vs. 128 MB).
 
 ==== RB433 ====
 http://routerboard.com/img/rb433s.jpg
