@@ -718,7 +718,7 @@ http://www.bargainshare.com/index.php?showtopic=87504
 ||41||INT_33||Ethernet MAC 1 interrupt||WAN||
 ||80||||Low Vlynq Interrupts (Vlynq0)||WLAN on the expansion card (TNETW1130)||
 
-[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRTP54G/OpenWrt, The latest progress]
+[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRTP54G/OpenWrt The latest progress]
 
 ----
  . CategoryModel ["CategoryAR7Device"]
