@@ -11,8 +11,6 @@ The ZyXEL P-334WT is a Firewall router with 4-port Switch with built-in 802.11g 
 ||'''Serial'''||yes||
 ||'''JTAG'''||yes||
 
-CategoryModel ["CategoryADM5120Device"]
-
 == Upgrade firmware feature ==
 === Upgrading from ZyNOS ===
 1. Compile or get firmware image "openwrt-adm5120-p-334wt-squashfs-webui.bin" 
@@ -21,3 +19,7 @@ CategoryModel ["CategoryADM5120Device"]
 === Upgrading from openWRT ===
  1. Use scp to copy adm5120xxxx.trx to router /tmp(located in RAM)
  2. Use mtd -r write /tmp/adm5120xxxx.trx trx (where trx is device labelof mtd) 
+
+----
+
+CategoryModel ["CategoryADM5120Device"]
