@@ -10,17 +10,6 @@ boot_wait=on
 NeedReboot=0
 }}}
 -----
-
----- /!\ '''Edit conflict - other version:''' ----
------
-/!\ '''The {{{nvram}}} utility is unavailable in OpenWrt builds based on the 2.6 kernel''' (at least with the BCM947xx/953xx target), as discussed in these forum threads:
- * http://forum.openwrt.org/viewtopic.php?pid=76160
- * http://forum.openwrt.org/viewtopic.php?id=6605
------
-
----- /!\ '''Edit conflict - your version:''' ----
-
----- /!\ '''End of edit conflict''' ----
 == IP Interface Settings ==
 In order to configure the IP interfaces on the system, a number of settings are grouped into "bundles" sharing the same prefix. The default bundles are called "lan", "wan" and "wifi", but those names have no special significance other than the fact that the startup script looks for bundles with these names. They might as well have been called "rod", "jane" and "freddy". In fact, let's demonstrate that:
 
