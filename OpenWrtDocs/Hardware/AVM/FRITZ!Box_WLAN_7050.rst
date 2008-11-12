@@ -25,6 +25,8 @@ EVA bootloader (based on ADAM2?)
 
 Once the image has been compiled, it is time to write it to the router's flash memory. This will be done through an FTP connection, during which the image will be transferred from the host to the router and then written into the flash. In order to do that, follow the steps below:
 
+ * Reboot your router and activate the bootloader
+
  * Connect from your computer to the router through ftp:
 {{{
   user@host:~$ ftp 192.168.178.1
