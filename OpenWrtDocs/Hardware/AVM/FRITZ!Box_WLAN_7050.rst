@@ -24,3 +24,5 @@ EVA bootloader (based on ADAM2?)
 == Getting the ADSL Working via PPPoA ==
 == Getting the ADSL Working via PPPoE (example for german Arcor) ==
 == Firmware images and configs ==
+
+CategoryModel CategoryAR7Device
