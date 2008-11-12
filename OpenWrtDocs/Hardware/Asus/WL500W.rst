@@ -213,5 +213,5 @@ Because the WL500W has a miniPCI port, it is possible to swap out the original B
 While holding in the black reset button apply the power. Then release the reset button. The Power Led should blink. Initiate tftp transfer from windows/linux and wait about 3-4 sek (100Mb/s). Do not disconnect power for at least 6 min (copied from WL500g page) after you get successful tftp copy status report. After bricking one router earlier I use to wait more than 30min. Then I HAVE TO pull out the power cable, wait 20 seconds and reapply the power. Router boots the kamikaze for the first time. Boot sequence begins with Power LED on for a couple of seconds, then off for the whole boot time (about 30s) and at the end it goes permanently on. You can log in with telnet as root without the password if it's the first reflash. Run "mtd -r erase ..." as described above. That reboots the router for the second time. Then set root password and you will be able to login as root over ssh from then on. If you later repeat reflashing with newer kamikaze release, your settings as password, net configuration,... are preserved (were for me this - my first time).  This is the approximate sequence as I remember it from the day before. It will get checked exactly and optionally corrected the next time through.
 
 ----
- . CategoryModel
-Category80211nDevice
+
+CategoryModel Category80211nDevice
