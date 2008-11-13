@@ -21,6 +21,28 @@ EVA bootloader (based on ADAM2?)
 
 == Building OpenWrt ==
 
+ *  Download the sources (e.g. trunk):
+
+{{{
+  svn co https://svn.openwrt.org/openwrt/trunk
+}}}
+
+ * Create a configuration to build
+
+{{{
+  make menuconfig
+}}}
+
+ * Choose {{{TI AR7 [2.6]}}} as the {{{Target system}}} and change any options you might need
+
+ * Build the toolchain and image
+
+{{{
+  make
+}}}
+
+ * Once successfully compiled, the resulting image(s) can be found under the {{{bin}}} folder of the source tree
+
 == Flashing your OpenWRT image ==
 
 Once the image has been compiled, it is time to write it to the router's flash memory. This will be done through an FTP connection, during which the image will be transferred from the host to the router and then written into the flash. In order to do that, follow the steps below:
@@ -40,8 +62,7 @@ Once the image has been compiled, it is time to write it to the router's flash m
   binary
   quote MEDIA FLSH
   passiv
-  put </openwrt-image/folder>
-  put </openwrt-image/folder>/openwrt-EVA-squashfs.bin mtd1
+  put </openwrt-image/folder>/openwrt-EVA-2.6-squashfs.bin mtd1
   quote REBOOT
   quit
 }}}
@@ -65,11 +86,8 @@ ftp> quote MEDIA FLSH
 200 Media set to MEDIA_FLASH
 ftp> passiv
 Passive mode on.
-ftp> put /home/dpm/op
-openwrt-EVA-jffs2-128k.bin  openwrt-EVA-squashfs.bin
-openwrt-EVA-jffs2-64k.bin   
-ftp> put /home/dpm/openwrt-EVA-squashfs.bin mtd1
-local: /home/dpm/openwrt-EVA-squashfs.bin remote: mtd1
+ftp> put /home/dpm/openwrt-EVA-2.6-squashfs.bin mtd1
+local: /home/dpm/openwrt-EVA-2.6-squashfs.bin remote: mtd1
 227 Entering Passive Mode (192,168,178,1,6,122)
 150 Opening BINARY data connection
 226 Transfer complete
