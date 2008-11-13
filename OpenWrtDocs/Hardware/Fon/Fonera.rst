@@ -5,11 +5,7 @@ The Fonera FON2100A is based on an Atheros System on Chip (SoC). It got a MIPS 4
 
 It's almost identical to the [http://meraki.net/mini.html Meraki Mini], who provide their own [http://www.meraki.net/linux/ OpenWrt fork].
 
-The FON2200 is a rebuild of the FON2100. The only outward
-changes (apart from the label) is that it runs on 7.5V rather then 5V.
-Inside, the entire board was reworked. It has a simpler serial connection
-and gives off much less heat. They even left off the heatsync. When relevant
-sections below mention when 2200 deviates.
+The FON2200 is a rebuild of the FON2100. The only outward changes (apart from the label) is that it runs on 7.5V rather then 5V. Inside, the entire board was reworked. It has a simpler serial connection and gives off much less heat. They even left off the heatsync. When relevant sections below mention when 2200 deviates.
 
 == Additional Comments ==
 Detailed Information may be found in the FCC database: Doing a search on Fonera's FCC-ID reveals, that this device is actually made by Accton/SMC (http://www.accton.com.tw/).
@@ -45,22 +41,17 @@ Another interessting issue is the possible frequency range, as specified by Athe
  * 5V power supply
  * Antenna
  * SPI-Bus
+Power:
 
-Power: 
+FON2100: 5V -  Internally this is regulated to 3.3V by a linear regulator, so it will probably work on anything from 4 to 6V. But higher voltage will add to the heat issues of the device.
 
-FON2100: 5V - 
-Internally this is regulated to 3.3V by a linear regulator, so it will probably work
-on anything from 4 to 6V. But higher voltage will add to the heat issues of the device.
-
-FON2200: 7.5V (small connector) - 
-Internally this is regulated to 3.3V by a switched regulator, so it will probably work
-on anything from 4 to 16V, without adding to heat. I tried 12V 
+FON2200: 7.5V (small connector) -  Internally this is regulated to 3.3V by a switched regulator, so it will probably work on anything from 4 to 16V, without adding to heat. I tried 12V
 
 == Serial Port ==
 If the ethernet jack is in front of you, it looks like (RXD and TXD directions are from the computer side, i.e. swapped with respect to Fonera board side) RXD (fonera->host) and TXD (host->fonera) are lowlevel (3.3V) signals. NOT RS232 levels.
 
 {{{
-FON2100: 
+FON2100:
 +-------------------+
 |GND| . |RXD|TXD| . |
 |VCC| . | . | . | . |
@@ -68,9 +59,8 @@ FON2100:
 +-----+ +--------+    +---+
 |Power| |Ethernet|    |Ant|
 }}}
-
 {{{
-FON2200: 
+FON2200:
 Looking inside, with the connectors at your left hand:
 ---+  +----------------+
  P |  |GND RXD TXD 3.3V|
@@ -79,7 +69,6 @@ Looking inside, with the connectors at your left hand:
  E | |RAM                  |
  R | |                     |
 }}}
-
 {{{
 VCC (3.3V) -> red
 GND        -> blue
@@ -92,8 +81,7 @@ r . . . .
 
 Serial settings are 9600-8-N-1
 
-You should plug in the serialadapter after turning the fonera on, otherwise it won't boot. (Comment by HaraldGeyer: My Fonera boots just fine with the serial
-adapter plugged in.)  (MilesNordin: my FON2100 does not.  Leave the TX pin disconnected for 3sec after applying power.  RX pin can stay connected always.  Once Fonera outputs the '+', safe to connect TX.  is safe slightly earlier, actually.)
+You should plug in the serialadapter after turning the fonera on, otherwise it won't boot. (Comment by HaraldGeyer: My Fonera boots just fine with the serial adapter plugged in.)  (MilesNordin: my FON2100 does not.  Leave the TX pin disconnected for 3sec after applying power.  RX pin can stay connected always.  Once Fonera outputs the '+', safe to connect TX.  is safe slightly earlier, actually.)
 
 == Case ==
 To open the case, remove the two rubber feet on the opposite site to the antenna jack, they will reveal two crosspoint screws.
@@ -118,8 +106,8 @@ FLASH: 0xa8000000 - 0xa87f0000, 128 blocks of 0x00010000 bytes each.
 ^C
 RedBoot>
 }}}
-
 Timing:
+
 {{{
 power                t=0
 safe to connect TX   t+~3sec
@@ -128,7 +116,6 @@ PHY ID               t+9sec
 redboot banner       t+13sec
 WLAN light blinks    t+86sec
 }}}
-
 Maybe you think your fonera serial port is not working due to bogus serial pinouts posted on Hungarian blog pages.  Maybe you started cursing greedy mouth-breathing corporations and ranting about the need for GPLv3.  If so, the timing above may help you restore your calmness.  You should see the '+' within 7 seconds of poweron.  The problem "my fonera doesn't boot with serial port plugged in" stops the '+' from appearing, so if you see '+' you haven't got that problem.
 
 Note: FON2200 seems to have more full-featured redboot, as well as address 192.168.1.1 set with a 2 second timeout. So theoratically, you could telnet directly into the Redboot, without serial or modification.
@@ -268,14 +255,14 @@ You have to download two files (right click and save as).
 
  * [http://downloads.openwrt.org/kamikaze/7.09/atheros-2.6/openwrt-atheros-2.6-vmlinux.lzma openwrt-atheros-2.6-vmlinux.lzma]
  * [http://downloads.openwrt.org/kamikaze/7.09/atheros-2.6/openwrt-atheros-2.6-root.squashfs openwrt-atheros-2.6-root.squashfs]
-Copy openwrt-atheros-2.6-vmlinux.lzma and openwrt-atheros-2.6-root.squashfs to /tftpboot/ and flash them like this:
+Copy openwrt-atheros-vmlinux.lzma and openwrt-atheros-root.squashfs to /tftpboot/ and flash them like this:
 
 {{{
 ^C
 RedBoot> ip_address -h 192.168.5.2 -l 192.168.5.75/24
 IP: 192.168.5.75/255.255.255.0, Gateway: 0.0.0.0
 Default server: 192.168.5.2
-RedBoot> load -r -b %{FREEMEMLO} openwrt-atheros-2.6-vmlinux.lzma
+RedBoot> load -r -b %{FREEMEMLO} openwrt-atheros-vmlinux.lzma
 Using default protocol (TFTP)
 Raw file loaded 0x80041000-0x800f0fff, assumed entry at 0x80041000
 RedBoot> fis init}}}
@@ -307,7 +294,7 @@ A87E0000 - A80F0000
 Replace ''0xLENGTH'' with the value above (0x006F0000 in my case) and flash the the rootfs:
 
 {{{
-RedBoot> load -r -b %{FREEMEMLO} openwrt-atheros-2.6-root.squashfs
+RedBoot> load -r -b %{FREEMEMLO} openwrt-atheros-root.squashfs
 Using default protocol (TFTP)
 |
 Raw file loaded 0x80041000-0x80200fff, assumed entry at 0x80041000
@@ -319,7 +306,6 @@ An image named 'rootfs' exists - continue (y/n)? y
 ... Program from 0x80ff0000-0x81000000 at 0xa87e0000: .
 RedBoot> reset
 }}}
-
 If everything is okay, then it will now look like this:
 
 {{{
@@ -475,9 +461,7 @@ send -- "fis create -l 0x006F0000 rootfs\r"
 expect "RedBoot>"
 send -- "reset\r"
 }}}
-
 = Upgrading OpenWrt from within a running OpenWrt installation =
-
 {{{
 cd /tmp
 scp host:/path/to/openwrt-atheros-vmlinux.lzma .
@@ -486,7 +470,6 @@ mtd -e vmlinux.bin.l7 write openwrt-atheros-vmlinux.lzma vmlinux.bin.l7
 mtd -e rootfs write openwrt-atheros-root.jffs2-64k rootfs
 reboot
 }}}
-
 = Telnet into RedBoot =
 You can change the !RedBoot configuration, so you can later telnet into this bootloader in order to reflash this device from there, without having serial access.
 
