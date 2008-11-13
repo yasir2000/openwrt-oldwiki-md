@@ -25,4 +25,10 @@ While you won't typically need to do this, if you need to modify the Linux kerne
 {{{
 $ make kernel_menuconfig
 }}}
+== Customizing the Target Filesystem ==
+Directions are available [http://downloads.openwrt.org/docs/buildroot-documentation.html#custom_targetfs here].
+== Additional Documentation ==
+ * BuildRoot
+ * http://downloads.openwrt.org/docs/buildroot-documentation.html
+
 CategoryHowTo
