@@ -1,14 +1,15 @@
 ##master-page:HomepageTemplate
 #format wiki
 == Chris Krusch ==
-Currently hacking with the WRT54GL Version 1.1
+Running OpenWRT Kamikaze 7.09 on:
 
- * Serial port mod with the MAX3222 RS-232 Tranceiver
- * SD Card Mod with header on circuit board
+ * Kamikaze 7.09 on WRT54GL Ver 1.1 with SD Card and Serial Port Mod
+ * Kamizaze 8.09_RC1 on WGT634U
 Email: [[MailTo( Chris.Krusch AT SPAMFREE shaw DOT ca)]]
 
 === Private Sub-Pages ===
-["ChrisKrusch/WRT54GLSerial"]
+["ChrisKrusch/WRT54GLSerial"] ["/WPA2 Enterprise on Netgear WGT634U"]
+
 ["ChrisKrusch/WPA2 Enterprise on Netgear WGT634U"]
 
 ----
