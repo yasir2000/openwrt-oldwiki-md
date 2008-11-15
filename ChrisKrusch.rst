@@ -9,6 +9,7 @@ Email: [[MailTo( Chris.Krusch AT SPAMFREE shaw DOT ca)]]
 
 === Private Sub-Pages ===
 ["ChrisKrusch/WRT54GLSerial"]
+["ChrisKrusch/WPA2 Enterprise on Netgear WGT634U"]
 
 ----
  . CategoryHomepage
