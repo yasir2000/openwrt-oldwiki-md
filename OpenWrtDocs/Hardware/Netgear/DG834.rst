@@ -29,3 +29,15 @@ In "flash memory order" so you can probably use mtd1+mtd0+mtd3, from 0x90020000 
 || mtd0 || 0x900d0000,0x903e0000 || RootFS ||
 || mtd3 || 0x903e0000,0x903f0000 || Netgear firmware config ||
 || mtd4 || 0x903f0000,0x90400000 || ADAM2 config ||
+
+== And as a last resort JTAG ==
+This has to be checked as i've not already tested it.
+The jtag interface is on JP102 and follow the MIPS - EJTAG 2.6 14 pin connector standard.
+
+|| TRST_N || GND ||
+|| TDI || GND ||
+|| TDO || GND ||
+|| TMS || GND ||
+|| TCK || GND ||
+|| SRST_N || KEY ||
+|| DINT || VREF ||
