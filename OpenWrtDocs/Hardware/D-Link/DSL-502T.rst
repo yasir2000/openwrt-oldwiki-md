@@ -296,6 +296,42 @@ Poor performance of the ADSL connection exists between the Netgear WPNT834 Range
 The only way to solve this at present is to force the DSL-502T ethernet connection to Autonegotiate 10Mbit/s by changing one line of source code: see the last two posts here:
 
  . http://forum.openwrt.org/viewtopic.php?id=8117
+
+'''Can't open data connection'''
+
+In the event of a data connection error the process of flashing can be done manually to investigate the error or complete the process in another operating system. 
+Once this error has been reached in the adam2flash-502t.pl script the ip of the boot loader will have been displayed and the mtd1 updated for the image you are trying to flash if you set the option -setmtd1.
+From this point flashing can be done manually from a command prompt in windows or a Linux terminal. Reboot the modem and log in to the boot loader ftp as in the following example (it should log in immediately:
+
+{{{
+$ ftp <Bootloader ip address>
+Connected to <Bootloader ip address>.
+220 ADAM2 FTP Server ready.
+Name: adam2
+331 Password required for adam2.
+Password: adam2
+230 User adam2 successfully logged in.
+Remote system type is UNIX.
+ftp> binary
+200 Type set to I.
+ftp> quote MEDIA FLSH
+200 Media set to FLSH.
+ftp> put "<image address>" "<image name> mtd4"
+(..short pause...)
+200 Port command successful.
+(..short pause..)
+150 Opening BINARY mode data connection for file transfer.
+(..short pause..)
+4059136 bytes sent in 83.15 secs (47.7 kB/s)
+ftp> quote REBOOT
+226 Transfer complete.
+ftp> exit
+221-Thank you for using the FTP service on ADAM2.
+221 Goodbye.
+}}}
+
+It should be noted that the above example does not update the mtld1 and so ca brick the modem.
+ 
 == How to Debrick ==
 You can generally use the methods on DLinks site or just change ur mtd0/1/4 variables back to defaults and upload the dlink firmware.
 
