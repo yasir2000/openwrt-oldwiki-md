@@ -78,6 +78,24 @@ Note that rootfs, rootfs_data and config are all inside "image", so you don't ne
 
 As long as you only modify the loader, image and image2 partitions, and take care to restore them back to their original settings, then you should be able to use RedBoot to reflash the saved partitions.  Be careful with the load address and entry point for image (0x80040400).
 
-To load openwrt, just "fis init" the flash, then "load -r -v -b 0x80041000 openwrt-atheros-vmlinux.lzma" and "fis create kernel", then create the rootfs partition in the rest of the empty space using the openwrt-atheros-root.squashfs file with "load -r -v -b 0x80041000 openwrt-atheros-root.squashfs" and "fis create -l 0x6f0000 rootfs" (make sure that 0x6f0000 corresponds to the amount of free space left in the flash).
+To load openwrt, just do the following on the redbood console:
+(You need to make sure that the two files in the "load" commands are retrivable via tftp or http)
+{{{
+fis init
+load -r -v -b 0x80041000 openwrt-atheros-vmlinux.lzma
+fis create kernel
+}}}
+Then create the rootfs partition in the rest of the empty space using:
+{{{
+load -r -v -b 0x80041000 openwrt-atheros-root.squashfs
+fis create -l 0x6f0000 rootfs
+}}}
+(make sure that 0x6f0000 corresponds to the amount of free space left in the flash)
 
-fis load -l kernel ; exec
+To start openwrt just issue:
+{{{
+fis load -l kernel
+exec
+}}}
+
+Note: You also need to change the redboot boot script to the above, otherwise openwrt won't boot after a reboot/power cycle by itself:
