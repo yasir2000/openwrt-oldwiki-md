@@ -329,3 +329,11 @@ PPP generic driver version 2.4.2
 PPP MPPE Compression module registered
 GRE over IPv4 tunneling driver
 }}}
+== Watchdog timer ==
+The Geode LX CPUs have a hardware watchdog.  It ''might'' be supported by the {{{scx200_wdt}}} kernel module that provides the same support for the GX series.
+
+These commands might enable the watchdog with the GX series CPUs.
+{{{
+mknod -m 600 /dev/wd c 10 130
+modprobe scx200_wdt margin=30
+}}}
