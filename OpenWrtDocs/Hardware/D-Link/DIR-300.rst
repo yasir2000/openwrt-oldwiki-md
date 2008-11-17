@@ -75,7 +75,7 @@ for vlan-support you have to apply this patch: http://jan.willies.info/990-phyfi
 
 A nice script called [http://x-alina.freifunk-potsdam.de/downloads/dir300-flash/ dir300-flash] wraps the manual steps for replacing the original bootloader and/or flashing firmware images into a single command line. The script requires a running tftpd service. See --help for further details.
 
-{{
+{{{
 $ sudo ./dir300-flash.sh eth0 openwrt-atheros-vmlinux.lzma openwrt-atheros-root.squashfs 
 Please connect now the WAN port of the DIR-300 wireless router directly to
 the interface "eth0" and then power the wireless router on.
@@ -97,7 +97,7 @@ Flashing the new root filesystem... done
 Resetting the wireless router... done
 
 Happy Hacking! ;)
-}}
+}}}
 
 == initial flash (manually) ==
 
