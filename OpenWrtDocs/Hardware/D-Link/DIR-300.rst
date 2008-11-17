@@ -7,6 +7,9 @@ http://img528.imageshack.us/img528/8263/seriedir300gc7.jpg
 My USB->Serial Adapter was only 3,3V whereas this device needs 5V!
 
 = replace Bootloader =
+
+'''Update''' Now a nice script called [http://x-alina.freifunk-potsdam.de/downloads/dir300-flash/ dir300-flash] wraps the manual steps below into a single command line: {{{ $sudo ./dir300-flash.sh --redboot}}}
+
 Get ap61.ram/ap61.rom from here: [http://www.dd-wrt.com/dd-wrtv2/down.php?path=downloads/v24/Atheros+WiSoc/Airlink+101+AR430W/ http://www.dd-wrt.com/dd-wrtv2/down.php?path=downloads%2Fv24%2FAtheros+WiSoc%2FAirlink+101+AR430W/] and put it in your tftp-dir
 
 I have done this via serial, but it's also possible with just telnet (see [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Airlink/ARxxxW ARxxxW])
@@ -67,7 +70,11 @@ DD-WRT> reset
 select 'atheros' in menuconfig and run 'make'
 
 for vlan-support you have to apply this patch: http://jan.willies.info/990-phyfix.patch (2.6.26.5) and read about it here: http://inst.eecs.berkeley.edu/~pathorn/ip175c/ and http://forum.openwrt.org/viewtopic.php?pid=74189#p74189
+
 == initial flash ==
+
+'''Update''' Now a nice script called [http://x-alina.freifunk-potsdam.de/downloads/dir300-flash/ dir300-flash] wraps the manual steps below into a single command line. See --help for further details.
+
 {{{
 DD-WRT> fis init
 About to initialize [format] FLASH image system - continue (y/n)? y
@@ -137,5 +144,4 @@ mtd -e vmlinux.bin.l7 write openwrt-atheros-vmlinux.lzma vmlinux.bin.l7
 mtd -r write openwrt-atheros-root.squashfs rootfs
 }}}
 == Setting up the switch ==
-This part is not finished yet, but here you can read about it: https://dev.openwrt.org/ticket/4050
-(see '2.1 compile image' also)
+This part is not finished yet, but here you can read about it: https://dev.openwrt.org/ticket/4050 (see '2.1 compile image' also)
