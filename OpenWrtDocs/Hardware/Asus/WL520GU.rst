@@ -1,5 +1,3 @@
-'''Contents'''
-
 [[TableOfContents]]
 
 == Hardware ==
@@ -23,15 +21,30 @@ Booting images with 2.4 kernels on this unit is straightforward, but booting 2.6
  * http://forum.openwrt.org/viewtopic.php?id=15443
 I did eventually manage to get a 2.6 image running (r13270), although without wireless.  Here is the procedure I used, based on the last of the above threads and the instructions at WL500GPV2:
  1. Configure:
-  1. select the Broadcom BCM947xx/953xx [2.6] target system
-  1. select the No Wifi target profile
+  1. Select the Broadcom BCM947xx/953xx [2.6] target system
+  1. Select the No Wifi target profile
+  1. Make sure that {{{kmod-b43}}} is ''not'' configured
  1. Make
  1. Edit {{{$BUILD_ROOT/build_dir/linux-brcm47xx/linux-2.6.xx.x/arch/mips/bcm47xx/prom.c}}}, and comment out the calls toward the end to {{{prom_init_cfe}}}, {{{prom_init_console_cfe}}} and {{{prom_init_cmdline_cfe}}} as per [http://forum.openwrt.org/viewtopic.php?pid=69645#p69645 sbrown's patch].
  1. Edit {{{$BUILD_ROOT/build_dir/linux-brcm47xx/linux-2.6.xx.x/arch/mips/kernel/setup.c}}} and comment out the calls toward the end to {{{setup_early_printk}}} as per the above patch.
+ 1. Make (again)
 
------
+The {{{.trx}}} image in {{{$BUILD_ROOT/bin}}} can now be flashed to the router.
 
-This router runs the Kamikaze from source (r12259 and r13053). I was able to compile on Ubuntu 8.04 (hardy) and tftp the brcm 2.4 trx image to the router. Just telnet in and set a password for SSH access.
+== USB Storage ==
+
+To attach a USB storage device, configure the following, under Kernel Modules:
+
+ * Under USB Support:
+  * kmod-usb-core
+  * kmod-usb-ohci
+  * kmod-usb-storage
+ * Under Filesystems
+  * Whatever filesystems you plan to use
+
+See UsbStorageHowto for more information.
+
+== Miscellaneous Reports ==
 
 My steps were to do a {{{make menuconfig}}} to set the target to 'wl500g' and make sure kmod-usb-ohci was enabled for usb support. I would stay away from the USB 2.0 drivers. Many people have been having stability problems with the 2.0 drivers despite the blue text mentioning USB 2.0 support. Even ASUS keeps USB 2.0 disabled in their kernel .config.
 
@@ -39,16 +52,11 @@ I was also able to mount a USB flash drive after recompiling with USB storage su
 
 If you want a web interface (x-wrt), try updating the packages and enabling "webif" during a {{{make menuconfig}}}. It worked for me.
 
- .
 -----
- . I've tried micro-openwrt-brcm-2.4-squashfs.trx, default-openwrt-brcm-2.4-squashfs.trx and openwrt-brcm-2.4-squashfs.trx, and no luck :( Router became unavailable. I was able to install asus firmware back using tftp.
-- - - - -
-
-Verified, it is true that you can swap back to stock ASUS firmware after flashing with this and that.
 
 Tomato 1.17 ND.trx works for this model. But there's no USB.
 
-- - - - -
+-----
 
 using the stock ASUS firmware, you can get a limited shell through the net interface of the router at http://192.168.1.1/Main_AdmStatus_Content.asp by copying the netcat mipsel binary to the root of a USB stick and then entering "/tmp/harddisk/part1/nc -l -p 31337 -e /bin/sh" and then returning to your usual computer already equipped with nc and entering "nc 192.168.1.1 31337" neat, but almost completely useless unless the only reason you are looking at openwrt is to support one or two additional programs that won't automatically run as services :(
 
