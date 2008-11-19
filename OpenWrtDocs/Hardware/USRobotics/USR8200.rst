@@ -101,10 +101,13 @@ write_image = 0
  1. Once running from ram, it becomes safe to program at any address on the flash chip. 
 
 ==== Load redboot-RAM.img ====
+ 1. Connect your server to the USR8200's WAN port
  1. load -h 192.168.10.2 /redboot-RAM.img 
- 1. go                          ''Once it loads you should check for '''RAM''' in the version command.'' 
- 1. version 
- 1. ping -h 192.168.10.2        ''Make sure this instance also has network access with a ping command.'' 
+ 1. go[[BR]]
+''Once it loads you should check for '''RAM''' in the version command.'' 
+ 1. version [[BR]]
+''Make sure this new RedBoot instance also has network access with a ping command.'' 
+ 1. ping -h 192.168.10.2
 
 ==== Restore Factory Firmware ====
 load -h 192.168.10.2 -r -b %{FREEMEMLO} /jungo-image.bin 
