@@ -43,4 +43,4 @@ The jtag interface is on JP102 and follow the MIPS - EJTAG 2.6 14 pin connector 
 ||11|| SRST_N || KEY ||12||
 ||13|| DINT || VREF ||14||
 
-I've used the buffered cable schema (wiggler) from the JTAG_Cable page but i had to add a 100pF capacitor between clk and ground just after the buffer (between the buffer and the jtag interface) to avoid problem with the clock that casued DeBrick to read a wrong address and hang.
+I've used the buffered cable schema (wiggler) from the [:OpenWrtDocs/Customizing/Hardware/JTAG_Cable:JTAG Cable] page but i had to add a 100pF capacitor between clk and ground just after the buffer (between the buffer and the jtag interface) to avoid problem with the clock that caused DeBrick to read a wrong address and hang.
