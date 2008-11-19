@@ -55,14 +55,14 @@ Knoppix 5.3.1, left a lot to be desired. I could not get it to work. [https://so
 That can be downloaded at { to be decided }. It is named redboot-RAM.img to distinguish it from the ROM version.
 
 3. The backup image, here, will be named jungo-image.bin I used 
-[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Actiontec/MI424-WR MI424-WR]  Jose Vasconcellos' jungo-image.py to create my backup. It can do quite a bit more than just make the backup... but at the time, my tftp server was not responding to anything. I have modified it to fit the properties of the USR8200, and named it jungo-usr8200-image.py. You can get that here attachment:jungo-usr8200-image.py
+[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Actiontec/MI424-WR MI424-WR]  Jose Vasconcellos' jungo-image.py to create my backup. It can do quite a bit more than just make the backup... but at the time, my tftp server was not responding to anything. I have modified it to fit the properties of the USR8200, and named it jungo-usr8200-image2.py. You can get that here attachment:jungo-usr8200-image2.py
 [[BR]]Here is the top portion of his code. It does have the tftp server's address hardcoded... which you'll likely need to change. I suggest doing this on a linux if you can. You can either edit the file directly, or use his cmdline parsing.
 
 This is what cmdline I used to make a backup of the firmware.[[BR]]
-./jungo-usr8200-image.py -f jungo-image.bin -u admin  -p admin -s 192.168.10.2
+./jungo-usr8200-image2.py -f jungo-image.bin -u admin  -p admin -s 192.168.10.2
 
 This would be how to use it to install the redboot.bin from your server's root directory to the USR8200.[[BR]]
-./jungo-usr8200-image.py -d -w -P tftp -u admin  -p admin -s 192.168.10.2[[BR]]
+./jungo-usr8200-image2.py -d -w -P tftp -u admin  -p admin -s 192.168.10.2[[BR]]
 You can leave off the -w to go through dry runs, as without -w it will not attempt to write anything.
 {{{
 """Usage: %s [options] <IP_address> [redboot.bin]
@@ -141,6 +141,8 @@ Although this router has no wireless support, there is tracking and pads on the 
 || GPIO[12] || Reset button  || Yet Unknown ||
 == More Info / Pictures ==
 There are extensive pictures of this device at [http://home.comcast.net/~johnrw/], along with a [http://home.comcast.net/~johnrw/image/USR8200_notes.txt set of notes] on some of the investigations that the photographer did.
+== Attachments ==
+Here is a list of all the files provided so far.[[AttachList]] 
 ----
  . CategoryModel ["CategoryIXP4xxDevice"]
 ----
