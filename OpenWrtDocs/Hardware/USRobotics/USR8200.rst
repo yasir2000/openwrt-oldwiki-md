@@ -55,7 +55,45 @@ Knoppix 5.3.1, left a lot to be desired. I could not get it to work. [https://so
 That can be downloaded at { to be decided }. It is named redboot-RAM.img to distinguish it from the ROM version.
 
 3. The backup image, here, will be named jungo-image.bin I used 
-[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Actiontec/MI424-WR MI424-WR]  Jose Vasconcellos' jungo-image.py to create my backup. It can do more than make the backup... but at the time, my tftp server was not responding to anything. It does have some literals in it you may need to change to match your network setup. The hardware in the MI424-WR has 8MB of flash, and 32MB of RAM... so it must be adjusted to match the properties of the USR8200.
+[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Actiontec/MI424-WR MI424-WR]  Jose Vasconcellos' jungo-image.py to create my backup. It can do quite a bit more than just make the backup... but at the time, my tftp server was not responding to anything. I have modified it to fit the properties of the USR8200, and named it jungo-usr8200-image.py. You can get that here attachment:jungo-usr8200-image.py
+[[BR]]Here is the top portion of his code. It does have the tftp server's address hardcoded... which you'll likely need to change. I suggest doing this on a linux if you can. You can either edit the file directly, or use his cmdline parsing.
+
+This is what cmdline I used to make a backup of the firmware.[[BR]]
+./jungo-usr8200-image.py -f jungo-image.bin -u admin  -p admin -s 192.168.10.2
+
+This would be how to use it to install the redboot.bin in your server's root directory.[[BR]]
+./jungo-usr8200-image.py -d -w -P tftp -u admin  -p admin -s 192.168.10.2
+{{{
+"""Usage: %s [options] <IP_address> [redboot.bin]
+Valid options:
+\t-h | --help: usage statement
+\t-d | --no-dump: don't create a flash dump
+\t-f | --file: use <filename> to store dump contents
+\t-u | --user: provide username (default admin)
+\t-p | --pass: provide password (default password1)
+\t-P | --proto: set transfer protocol (default tftp)
+\t-s | --server: IP address of tftp server
+\t-w | --write: initiate loading of redboot (default no modification to flash)
+\t-v | --verbose: display additional information
+\t-V | --version: display version information
+"""
+
+{...}
+
+server = ""
+HOST = "192.168.10.1"
+PORT = 8080
+user = "admin"
+#password = getpass.getpass()
+password = "admin"
+proto = "http"
+imagefile = "redboot.bin"
+dumpfile = ""
+verbose = 0
+no_dump = 0
+dumplen = 0x10000
+write_image = 0
+}}}
 
 4. There are 2 steps to restoring the factory firmware. 
  1. First, install the redboot that runs from RAM. 
@@ -84,16 +122,19 @@ Some output.
 == Hardware Hacking ==
 Although this router has no wireless support, there is tracking and pads on the circuit board for a mini-PCI card, which may allow a wireless card to be added. Work is in progress to determine if this is feasible.
 === USR8200 GPIO assignments ===
-|| GPIO[0] || USB-1 LED ||
-|| GPIO[1] || USB-2 LED  ||
-|| GPIO[2] || IEEE1394 LED ||
-|| GPIO[3] || LAN PORT 1 LED ||
-|| GPIO[7] || Possibly the mini-pci ||
-|| GPIO[8] || to VIA VT6307 IEEE1394 Chip ||
-|| GPIO[9] || to VIA VT6202 USB Chip ||
-|| GPIO[10] || to VIA VT6202 USB Chip ||
-|| GPIO[11] || to VIA VT6202 USB Chip ||
-|| GPIO[12] || Reset button  ||
+|| GPIO[0] || USB-1 LED || OUTPUT ||
+|| GPIO[1] || USB-2 LED  ||  OUTPUT ||
+|| GPIO[2] || IEEE1394 LED || OUTPUT ||
+|| GPIO[3] || LAN PORT 1 LED || OUTPUT ||
+|| GPIO[4] || Yet Unknown || Yet Unknown ||
+|| GPIO[5] || Yet Unknown || Yet Unknown ||
+|| GPIO[6] || Yet Unknown || Yet Unknown ||
+|| GPIO[7] || Possibly the mini-pci || Yet Unknown ||
+|| GPIO[8] || to VIA VT6307 IEEE1394 Chip || Yet Unknown ||
+|| GPIO[9] || to VIA VT6202 USB Chip || Yet Unknown ||
+|| GPIO[10] || to VIA VT6202 USB Chip || Yet Unknown ||
+|| GPIO[11] || to VIA VT6202 USB Chip || Yet Unknown ||
+|| GPIO[12] || Reset button  || Yet Unknown ||
 == More Info / Pictures ==
 There are extensive pictures of this device at [http://home.comcast.net/~johnrw/], along with a [http://home.comcast.net/~johnrw/image/USR8200_notes.txt set of notes] on some of the investigations that the photographer did.
 ----
