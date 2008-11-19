@@ -233,6 +233,8 @@ ftp> quote REBOOT
 }}}
 Wait for it to reboot and enjoy.
 
+Note by fw_crocodile : I've got a lot of difficulties to upload the firmware with the ftp command on debian testing, got it working easily using ftp on windows XP (hope someone found a solution :-))
+
 {{{
 BusyBox v1.7.2 (2007-10-05 16:40:15 EDT) built-in shell (ash)
 Enter 'help' for a list of built-in commands.
