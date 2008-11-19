@@ -53,6 +53,8 @@ Another consideration is that a buffered Wiggler-style cable '''requires''' a vo
 
 Do not change 74'''HC'''244 (High-speed CMOS) series with another 74 type i.e. LS, ALS or LV. This HC series works fine from 2.6 V to 6.0V Vcc range. The blocking capacitor may be any type, 0.1mF or 10mF, more is better.
 
+'''''[Edit by fw_crocodile:  I had to insert a 100pF capacitor between clk and ground just after the buffer to avoid problem with DeBrick on a DG834]'''''
+
 == Headers ==
 There are two major JTAG header arrangements used in SOHO routers based on MIPS CPUs. One uses 12 pins and the other uses 14 pins. While not radically different, you should be familiar with both. Other JTAG pinouts can be found at [http://www.jtagtest.com/pinouts/].
 
