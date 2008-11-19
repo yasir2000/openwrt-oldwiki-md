@@ -22,7 +22,9 @@ For more information on ADAM2 (bootloader) and how to perform an installation of
 || mtd3 || 0x903e0000,0x903f0000 || Netgear firmware config ||
 || mtd4 || 0x903f0000,0x90400000 || ADAM2 config ||
 
-In "flash memory order" so you can probably use mtd1+mtd0+mtd3, from 0x90020000 to  0x903f0000 to store openwrt. Remember when creating mtd5.
+In "flash memory order" so you can use mtd1+mtd0+mtd3, from 0x90020000 to  0x903f0000 to store openwrt. Remember when creating mtd5.
+
+Just remember to made backup if you want to came back to the original behaviour.
 
 || mtd2 || 0x90000000,0x90020000 || ADAM2 ||
 || mtd1 || 0x90020000,0x900d0000 || Kernel ||
@@ -31,8 +33,7 @@ In "flash memory order" so you can probably use mtd1+mtd0+mtd3, from 0x90020000 
 || mtd4 || 0x903f0000,0x90400000 || ADAM2 config ||
 
 == And as a last resort JTAG ==
-This has to be checked as i've not already tested it.
-The jtag interface is on JP102 and follow the MIPS - EJTAG 2.6 14 pin connector standard.
+The jtag interface is on JP102 and follow the MIPS - EJTAG 2.6 14 pin connector standard. (TESTED)
 
 ||1|| TRST_N || GND ||2||
 ||3|| TDI || GND ||4||
@@ -41,3 +42,5 @@ The jtag interface is on JP102 and follow the MIPS - EJTAG 2.6 14 pin connector 
 ||9|| TCK || GND ||10||
 ||11|| SRST_N || KEY ||12||
 ||13|| DINT || VREF ||14||
+
+I've used the buffered cable schema (wiggler) from the JTAG_Cable page but i had to add a 100pF capacitor between clk and ground just after the buffer (between the buffer and the jtag interface) to avoid problem with the clock that casued DeBrick to made a wrong address read and hang.
