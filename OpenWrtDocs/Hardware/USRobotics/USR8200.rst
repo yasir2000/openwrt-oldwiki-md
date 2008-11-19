@@ -61,8 +61,9 @@ That can be downloaded at { to be decided }. It is named redboot-RAM.img to dist
 This is what cmdline I used to make a backup of the firmware.[[BR]]
 ./jungo-usr8200-image.py -f jungo-image.bin -u admin  -p admin -s 192.168.10.2
 
-This would be how to use it to install the redboot.bin in your server's root directory.[[BR]]
-./jungo-usr8200-image.py -d -w -P tftp -u admin  -p admin -s 192.168.10.2
+This would be how to use it to install the redboot.bin from your server's root directory to the USR8200.[[BR]]
+./jungo-usr8200-image.py -d -w -P tftp -u admin  -p admin -s 192.168.10.2[[BR]]
+You can leave off the -w to go through dry runs, as without -w it will not attempt to write anything.
 {{{
 """Usage: %s [options] <IP_address> [redboot.bin]
 Valid options:
