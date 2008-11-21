@@ -6,14 +6,15 @@ There are two ways to backup your OpenWrt box. The [#image image] method involve
 Some of the commands in this document assume that DNS is configured such that {{{linuxbox}}} points to the backup target machine and {{{router}}} points to the router which is being backed up. In cases when DNS is not available (eg: new router installation), simply substitute the hostnames with appropriate IP numbers.
 
 [[Anchor(image)]]
+
 == Image method ==
 These methods use the [http://en.wikipedia.org/wiki/Dd_(Unix) dd] tool to copy disks byte by byte.
+
 === Backing up ===
-There are a number of ways to get disk image copies from an OpenWrt box.
+There are a number of ways to get disk image copies from an OpenWrt box. If you are using KAMIKAZE you can Ignore the NVRAM steps.
 
 ==== using Netcat (recommended) ====
-[http://en.wikipedia.org/wiki/Netcat Netcat] (nc) is a simple yet powerful way to transfer bits and bytes across a network.
-The following steps show how to use it to backup a full OpenWrt disk image as well as the NVRAM data.
+[http://en.wikipedia.org/wiki/Netcat Netcat] (nc) is a simple yet powerful way to transfer bits and bytes across a network. The following steps show how to use it to backup a full OpenWrt disk image as well as the NVRAM data.
 
  1. Start listening for data with netcat on the target machine.
  {{{
@@ -33,7 +34,6 @@ plouj@linuxbox $ nc -l -p 7777 | dd of=wrt-nvram.bin}}}
  1. Send the NVRAM data to the target machine
  {{{
 root@router $ dd if=/dev/mtdblock/3 | nc linuxbox 7777}}}
-
 ==== using /tmp as intermediate ====
 It's a good idea to put the jffs2 partition in read only mode before reading it as a device, or you could make a backup that's not up to date or corrupt. The default commit interval for jffs2 is 5 seconds. Log into your OpenWrt, then:
 
@@ -43,7 +43,6 @@ dd if=/dev/mtdblock/1 > /tmp/wrt-linux.trx
 mount -o remount,rw /dev/mtdblock/4 /jffs
 dd if=/dev/mtdblock/3 > /tmp/wrt-nvram.bin
 }}}
-
 Note: I had to write {{{/}}} instead of {{{/jffs}}}, otherwise it gave an error. -- Xerces8
 
 And scp the files out. This assumes you have enough ram free on the OpenWrt, which is usually the case.
@@ -80,8 +79,9 @@ mount -o remount,ro /dev/mtdblock/4 /jffs
 mtd -r write /tmp/wrt-linux.trx linux
 }}}
  The second command will take a minute or so to flash the rest and then reboot.
+*If you are using kamikaze replace the /dev/mtdblock/NUMBER to /dev/mtdblockNUMBER
+You can also restore your image using the [TFTP] method. If you are using Kamikaze just TFTP the backup you made of /dev/mtdblock1 and it will work fine. Remember that after TFTP'ing it , wait around 240 seconds for the router to commit the information into the flash.[[Anchor(file)]]
 
-[[Anchor(file)]]
 == File method ==
 Of course you can use a shell script and the well known {{{tar}}} to backup your files and some system informations too. In the example below I installed the package {{{wput}}}, to upload the backup to my main FTP server.
 
