@@ -1,7 +1,7 @@
 [[TableOfContents]]
 
 = Netgear WNR3500 =
-The WNR3500 is a Wireless-N Gigabit Router.  It uses a Marvell TopDog based design. 
+The [http://www.netgear.com/Products/RoutersandGateways/RangeMaxWirelessNRoutersandGateways/WNR3500.aspx Netgear WNR3500] is a Wireless-N Gigabit Router.  It uses a Marvell TopDog based design. 
 
  * 88F5180 processor
  * 88E6131 8 port gigabit Ethernet switch
@@ -18,7 +18,7 @@ All these parts are the same as in the [http://wiki.openwrt.org/OpenWrtDocs/Hard
  * 500 Mhz Arm9 CPU = same
 
 == OpenWrt support ==
-This device is not currently supported by OpenWrt, however some efforts are underway to support it.
+This device is not currently supported by OpenWrt.
 
 == Hidden page ==
 In the default firmware (which is based on Linux), there is a hidden wifi configuration page that can be accessed by visiting
