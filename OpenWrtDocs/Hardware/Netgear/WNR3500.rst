@@ -9,7 +9,7 @@ The [http://www.netgear.com/Products/RoutersandGateways/RangeMaxWirelessNRouters
  * 88E1112 gigabit Ethernet PHY
  * 88W8060 2T3R Transceiver.
 
-All these parts are the same as in the [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Netgear/WNR854 WNR854T], except the Baseband/MAC, which is an 88W8161 in the WNR854T.  It's just a cut down version of the WNR854T:
+All these parts are the same as in the [:OpenWrtDocs/Hardware/Netgear/WNR854:WNR854T], except the Baseband/MAC, which is an 88W8161 in the WNR854T.  It's just a cut down version of the WNR854T:
 
  * Wireless on pcb instead of mini pci card
  * No Heatsink On The CPU (854T Does)
@@ -27,7 +27,7 @@ http://www.routerlogin.net/WiFi_HiddenPage.htm
 For more details see [http://forum1.netgear.com/showthread.php?t=28037 netgear forum thread].
 
 == Telnet hack ==
-The [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Netgear/TelnetConsole Telnet access on WNR3500] can be used to gain access to a Linux terminal prompt in the default firmware.
+The [:OpenWrtDocs/Hardware/Netgear/TelnetConsole:Telnet Console trick] can be used to gain access to a Linux terminal prompt in the default firmware.
 
 == Hardware details ==
 Here's some info from the telnet hack, posted originally in a [http://forum1.netgear.com/showthread.php?t=27618 netgear forum thread].
