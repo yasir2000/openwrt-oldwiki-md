@@ -33,8 +33,8 @@ To start it manually without rebooting use
 # insmod ipt_recent.o
 }}}
 
-== Installing on Kamikaze 7.07 or later ==
-For Kamikaze 7.07 or later you need these packages instead:
+== Installing on Kamikaze 7.07 and versions before 8.09_RC1 ==
+For Kamikaze 7.07 and versions before 9.09_RC1 you need these packages instead:
 {{{
 # ipkg install kmod-ipt-conntrack
 # ipkg install iptables-mod-conntrack
@@ -42,6 +42,16 @@ For Kamikaze 7.07 or later you need these packages instead:
 
 ipt_recent will automatically be loaded so no further work is needed.
 
+== Installing on Kamikaze 8.09_RC1 or later ==
+For Kamikaze 8.09_RC1 or later you need these packages instead:
+{{{
+# opkg install kmod-ipt-conntrack
+# opkg install kmod-ipt-conntrack-extra
+# opkg install iptables-mod-conntrack
+# opkg install iptables-mod-conntrack-extra
+}}}
+
+ipt_recent will automatically be loaded so no further work is needed.
 
 == Configuration ==
 
