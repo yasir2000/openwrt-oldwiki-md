@@ -14,8 +14,6 @@ GND - o o
 
 [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Netgear/TelnetConsole Telnet access on WPN824]
 
-----
- . CategoryModel
 == 824v2 ==
 
 === Specs ===
@@ -43,3 +41,6 @@ wlan0 revisions: mac 11.0 phy 4.8 analog 7.0
  * Sub Vendor ID: 0x168c, Sub Device ID: 0x13
 chip is AR5315
 }}}
+
+----
+CategoryModel
