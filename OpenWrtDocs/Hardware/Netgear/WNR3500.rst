@@ -3,28 +3,31 @@
 = Netgear WNR3500 =
 The WNR3500 is a Wireless-N Gigabit Router.  It uses a Marvell TopDog based design. 
 
-* 88F5180 processor
-* 88E6131 8 port gigabit Ethernet switch
-* 88W8363 Baseband/MAC
-* 88E1112 gigabit Ethernet PHY
-* 88W8060 2T3R Transceiver.
+ * 88F5180 processor
+ * 88E6131 8 port gigabit Ethernet switch
+ * 88W8363 Baseband/MAC
+ * 88E1112 gigabit Ethernet PHY
+ * 88W8060 2T3R Transceiver.
 
 All these parts are the same as in the WNR854T, except the Baseband/MAC, which is an 88W8161 in the WNR854T.  It's just a cut down version of the WNR854T:
 
-*Wireless on pcb instead of mini pci card
-*No Heatsink On The CPU (854T Does)
-*16 Meg Ram instead of 32 Meg
-*4 Meg flash instead of 8 Meg
-*500 Mhz Arm9 CPU = same
+ * Wireless on pcb instead of mini pci card
+ * No Heatsink On The CPU (854T Does)
+ * 16 Meg Ram instead of 32 Meg
+ * 4 Meg flash instead of 8 Meg
+ * 500 Mhz Arm9 CPU = same
+
+== OpenWrt support ==
+This device is not currently supported by OpenWrt, however some efforts are underway to support it.
 
 == Hidden page ==
-In the default firmware, there is a hidden wifi configuration page that can be accessed by visiting
+In the default firmware (which is based on Linux), there is a hidden wifi configuration page that can be accessed by visiting
 http://www.routerlogin.net/WiFi_HiddenPage.htm
 
 For more details see [http://forum1.netgear.com/showthread.php?t=28037 netgear forum thread].
 
 == Telnet hack ==
-The [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Netgear/TelnetConsole Telnet access on WNR3500] can be used to gain access to a terminal prompt in the default firmware.
+The [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Netgear/TelnetConsole Telnet access on WNR3500] can be used to gain access to a Linux terminal prompt in the default firmware.
 
 == Hardware details ==
 Here's some info from the telnet hack, posted originally in a [http://forum1.netgear.com/showthread.php?t=27618 netgear forum thread].
@@ -111,8 +114,6 @@ PID Uid VmSize Stat Command
 }}}
 
 ----
- . CategoryModel
- . CategoryGigabitDevices
- . Category80211nDevice
-----
+CategoryModel
+Category80211nDevice
 CategoryGigabitDevices
