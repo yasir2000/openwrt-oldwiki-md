@@ -9,7 +9,7 @@ The WNR3500 is a Wireless-N Gigabit Router.  It uses a Marvell TopDog based desi
  * 88E1112 gigabit Ethernet PHY
  * 88W8060 2T3R Transceiver.
 
-All these parts are the same as in the WNR854T, except the Baseband/MAC, which is an 88W8161 in the WNR854T.  It's just a cut down version of the WNR854T:
+All these parts are the same as in the [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Netgear/WNR854 WNR854T], except the Baseband/MAC, which is an 88W8161 in the WNR854T.  It's just a cut down version of the WNR854T:
 
  * Wireless on pcb instead of mini pci card
  * No Heatsink On The CPU (854T Does)
