@@ -107,6 +107,7 @@ Most devices listed here do not have enough flash memory, but there might be oth
 ||[http://global.msi.com.tw/index.php?func=proddesc&prod_no=1061&maincat_no=131 MSI RG60G] || ||AMRISC 10000 ||1MB ||2MB ||Ralink ? || || || || ||No ||Unsupported ||
 == Netgear ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
+||[http://www.netgear.com/products/details/WNR3500.php WNR3500] ||  || ARM926EJ ||4MB ||16MB || ?||? ||? ||? ||? ||No ||[:OpenWrtDocs/Hardware/Netgear/WNR3500:Unsupported] ||
 ||[http://www.netgear.com/products/details/WG602.php WG602] ||2 ||ARM9 (ISL3893) ||2MB ||8MB || ||None || ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Netgear/WG602v2:Unsupported] ||
 ||[http://www.netgear.com/Products/PrintServers/WirelessPrintServers/WGPS606.aspx WGPS606] ||1.1 (on PCB) ||Broadcom BCM5350KPB5G ||2MB ||8MB ||Broadcom (integrated) ||Integrated Broadcom || ||Yes ||Yes ||2x v1.1 ||[:OpenWrtDocs/Hardware/Netgear/WGPS606 v1.1:No] ||
 ||[http://www.netgear.com/products/details/WGR101.php WGR101] || ||[http://www.marvell.com/products/wireless/libertas/Libertas_88W8000G_88W8510.pdf Marvell 88W8510 - ARM9 core] @166MHz ||1MB ||4MB ||Marvell 88E6060 ||None ||N/A ||No ||No ||No ||No ||
