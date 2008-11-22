@@ -10,7 +10,7 @@ The WRT54GL is basically a v4.0 ["OpenWrtDocs/Hardware/Linksys/WRT54G"] that sti
 ||WRT54GL v1 ||CL7A || (./) ||
 ||WRT54GL v1.1 ||CL7B || (./) ||
 ||WRT54GL v1.1 ||CL7C || (./) ||
-'''NOTE:''' The wireless part is only supported on the 2.4 Kernel version of Kamikaze. The 2.6 Kernel runs fine on the box, but (because the wl.o driver from Broadcom is only available for 2.4 Kernels and the opensource b43 driver is not ready yet) the wireless does not work if you flash a image with a 2.6 Kernel.
+'''NOTE:''' In pre 8.09_RC1 the wireless part is only supported on the 2.4 Kernel version of Kamikaze. The 2.6 Kernel runs fine on the box, but (because the wl.o driver from Broadcom is only available for 2.4 Kernels and the opensource b43 driver is not ready yet) the wireless does not work if you flash a image with a 2.6 Kernel. (the 8.09_RC1 fixes this issue and wlan works on 2.6)
 
 = Hardware =
 == Info ==
