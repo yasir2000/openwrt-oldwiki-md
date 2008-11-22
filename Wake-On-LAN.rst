@@ -53,7 +53,7 @@ broadcast_ip4 () {	echo $IPADDRESS | sed s/\.[0-9]*$/.255/
 }
 
 IPADDRESS=`sucky_resolve  $1`
-    ETHER=`sucky_ether    $1`
+    ETHER=`sucky_ether    $IPADDRESS`
 BROADCAST=`broadcast_ip4  $IPADDRESS`
 wol -i $BROADCAST $ETHER
 }}}
