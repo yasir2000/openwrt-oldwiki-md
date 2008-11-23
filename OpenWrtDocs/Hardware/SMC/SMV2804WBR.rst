@@ -24,6 +24,18 @@ Press any key to enter command mode ...
 
 }}}
 
+A  Header of a HTTP-Page:
+{{{
+HTTP/1.0 200 OK
+Server: Apache/0.6.5
+Pragma: no-cache
+Date: Sun, 01 Jan 2001 00:00:00 GMT
+Expires: Sun, 01 Jan 2001 00:00:00 GMT
+Cache-Control: max-age=0, must-revalidate
+Content-type: text/html
+}}}
+
+
 Menu at Command mode: 
 {{{
 ======================
