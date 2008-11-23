@@ -1453,7 +1453,7 @@ Revision r12244 is the latest known versions to work due to this bug: https://de
 
 `scripts/feeds install -a`
 
-apply the patch from http://article.gmane.org/gmane.comp.embedded.openwrt.devel/1688
+apply the patch from http://article.gmane.org/gmane.comp.embedded.openwrt.devel/1688 (it's in trunk since r13018)
 
 `make menuconfig`
 
