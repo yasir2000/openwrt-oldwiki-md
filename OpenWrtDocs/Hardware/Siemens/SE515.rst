@@ -7,6 +7,10 @@ But now the complete sources can be downloaded at the Siemens Homepage:<br>
  * Sources (about 44 MB): [http://shc-download.siemens.com/repository/1627/162742/SE515_v2.14_src.tar.gz]
  * Tools (about 33 MB): [http://shc-download.siemens.com/repository/1627/162743/SE515_v2.14_tools.tar.gz]
 
+__From the README:
+{{{This release contains all of the files needed to build a SE515 DSL Router image.  To build an image, enter:
+# make PROFILE=<program_name>}}}
+
 Here can be found some [http://tobias.schroepf.de/doku/doku.php?id=hardware:siemens_se515_router_firmware hints] how to compile and use it (in german language)
 
 
