@@ -1,5 +1,13 @@
 '''Dynalink RTA770W - Siemens SE515'''
 
+
+'''There is no running OpenWrt up to now!'''
+
+The original sources can be requested on the homepage for this router.
+
+And the sources for the Siemens ["Hardware/Siemens/SE515"] are availible.
+
+
 They contains the same board, but siemens ships it with a different case and firmware.
 By default, Dynalink puts in an Annex A firmware, while Siemens uses Annex B.
 
