@@ -54,7 +54,6 @@ Changes in menuconfig:
    * kmod-usb-core: '''M'''
     * kmod-usb-ohci: '''M'''
     * kmod-usb-storage: '''M'''
-    * kmod-usb-uhci: '''M'''
     * kmod-usb2: '''M'''
   * Wireless Drivers
    * kmod-madwifi: '''M'''
