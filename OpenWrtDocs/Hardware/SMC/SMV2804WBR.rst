@@ -39,6 +39,77 @@ Menu at Command mode:
 ======================
 }}}
 
+hidden tools:
+c
+{{{
+print the following infos:
+
+===============================================================
+    [SYSTEM CONFIGURATION SPECIAL]                   
+===============================================================
+  * System Configuration Register     [SYSCFG] : [0x00000100] 
+  * Product Code and Rev No.          [PDCODE] : [0x251000A0] 
+  * Peri Cloclk Disable  Register    [PCLKDIS] : [0x00000000] 
+  * Clock Status  Register             [CLKST] : [0xC0133166] 
+  * AHB Bus Master Fixed Priority  Reg [HPRIF] : [0x76543210] 
+  * AHB Bus Master Round-Robin Pri.Reg [HPRIR] : [0x00000000] 
+  * Core PLL Configuration   Register   [CPLL] : [0x0001015C] 
+  * System PLL Configuration Register   [SPLL] : [0x00010148] 
+  * USB PLL Configuration    Register   [UPLL] : [0x000203B8] 
+  * PHY PLL Configuration    Register   [PPLL] : [0x00030248] 
+===============================================================
+    [CP15 Register Map ]                   
+===============================================================
+  * CP15 : C0 ID Code                          : [0x41029402] 
+  * CP15 : C0 Cache Type                       : [0x0F0F10F1] 
+  * CP15 : C1 Control Register                 : [0xC0000079] 
+  * CP15 : C2 Data Cacheable Register          : [0x00000022] 
+  * CP15 : C2 Inst Cacheable Register          : [0x00000022] 
+  * CP15 : C3 Data Bufferable  Register        : [0x000000FE] 
+  * CP15 : C5 Data Access Permission  Register : [0x00000FFF] 
+  * CP15 : C5 Inst Access Permission  Register : [0x00000FFF] 
+===============================================================
+  * CP15 : C6 Data Region0 Base/Size  Register : [0x0000003F] 
+  * CP15 : C6 Data Region1 Base/Size  Register : [0x00000031] 
+  * CP15 : C6 Data Region2 Base/Size  Register : [0x0040002B] 
+  * CP15 : C6 Data Region3 Base/Size  Register : [0x80000025] 
+  * CP15 : C6 Data Region4 Base/Size  Register : [0x81000029] 
+  * CP15 : C6 Data Region5 Base/Size  Register : [0x84000027] 
+  * CP15 : C6 Data Region6 Base/Size  Register : [0x00000008] 
+  * CP15 : C6 Data Region7 Base/Size  Register : [0x00000008] 
+===============================================================
+  * CP15 : C6 Inst Region0 Base/Size  Register : [0x0000003F] 
+  * CP15 : C6 Inst Region1 Base/Size  Register : [0x00000031] 
+  * CP15 : C6 Inst Region2 Base/Size  Register : [0x0040002B] 
+  * CP15 : C6 Inst Region3 Base/Size  Register : [0x80000025] 
+  * CP15 : C6 Inst Region4 Base/Size  Register : [0x81000029] 
+  * CP15 : C6 Inst Region5 Base/Size  Register : [0x84000027] 
+  * CP15 : C6 Inst Region6 Base/Size  Register : [0x00000008] 
+  * CP15 : C6 Inst Region7 Base/Size  Register : [0x00000008] 
+===============================================================
+}}}
+z
+Unzapping 
+{{{
+Unzipping program from bank 2...done
+Unzipping program from bank 3...done
+
+
+}}}
+
+{{{  
+Flash
+--------------------------------------
+      Area         Address     Length 
+--------------------------------------
+[0] Boot          0x00000000     128K
+[1] Configuration 0x00020000      64K
+[2] Web Image     0x00030000     192K
+[3] Code Image    0x00060000     576K
+[4] Params Area   0x000F0000      64K
+--------------------------------------
+}}}
+
 Bootlog Original Firmware
 {{{ 
 Copying boot params.....DONE
