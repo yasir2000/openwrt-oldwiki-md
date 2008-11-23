@@ -337,3 +337,5 @@ These commands might enable the watchdog with the GX series CPUs.
 mknod -m 600 /dev/wd c 10 130
 modprobe scx200_wdt margin=30
 }}}
+== USB ==
+USB on the Alix boards uses the ohci module provided by the {{{kmod-usb-ohci}}} package.
