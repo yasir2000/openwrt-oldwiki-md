@@ -109,6 +109,8 @@ Flash
 [4] Params Area   0x000F0000      64K
 --------------------------------------
 }}}
+Starting Debug console: Pressing ")"  [SHIFT + 0]
+-> You see debugging infos via Serial Port
 
 Bootlog Original Firmware
 {{{ 
