@@ -6,7 +6,6 @@ With Kamikaze 7.09 and target system Broadcom BCM947xx/953xx [2.4 kernel] the AS
 With a 2.6 kernel, wireless support is problematic.  The supplied Broadcom wireless miniPCI card requires the open source b43 driver.  As of 2008 July 5, that driver is not yet completely functional.  It appears to work in STA mode (client mode).
 
 If you replace the Broadcom wirelss miniPCI card with an Atheros card, you can run a 2.6 kernel, as long has it has [https://dev.openwrt.org/changeset/9285 SVN 9285].
-
 ||||<style="text-align: center;">'''Target System''' ||||<style="text-align: center;">'''!WiFi Support''' ||<style="text-align: center;">'''Comments''' ||
 ||||<style="text-align: center;"> ||'''Broadcom''' ||'''Atheros''' || ||
 ||||<style="text-align: center;">Broadcom BCM947xx/953xx [2.'''4'''] ||<style="text-align: center;"> (./) ||<style="text-align: center;"> (./) || ||
@@ -36,18 +35,18 @@ The standard wireless LAN controller is the BCM4318 on a MiniPCI card.  Some peo
 
 In order to replace the Broadcom controller with an Atheros one, open the case (instructions below), carefully disconnect the antenna cable from the card, press out the two latches on the sides, and pull the card out of the socket. In some cases the card is glued to a supporting sponge on the main board, so you might have to apply a certain measure of force to get it out. Re-assemble the case, and install packages kmod-madwifi and hostapd-mini to get the new wireless controller to work. Change your /etc/config/wireless to include the following:
 
-{{{config wifi-device  wifi0
+{{{
+config wifi-device  wifi0
         option type atheros
-
 config wifi-iface
         option device   wifi0}}}
-
 Go [http://sr.uz/index.php?p=223&more=1&c=1&tb=1&pb=1 here] for more info and an example configuration.
 
 After installation of kmod-madwifi package you can automatically generate a standard /etc/config/wireless file for Atheros:
-{{{rm -rf /etc/config/wireless
-wifi detect > /etc/config/wireless}}}
 
+{{{
+rm -rf /etc/config/wireless
+wifi detect > /etc/config/wireless}}}
 === Serial Port ===
 Serial is located on pin soldering points (ready for soldering of 8-pin connector for use with detachable cable) on the centre of the right upper side (viewing from front panel) under ventilation holes. At right from these points, you can see printed pin descriptions:
 ||RESET || ||
@@ -64,6 +63,8 @@ These serial ports use TTL levels. You need an additional voltage convertor to g
 
 === Photos ===
 [[ImageLink(IMG_0007_thumbnail.JPG, ./OpenWrtDocs/Hardware/Asus/WL500GP/IMG_0007 )]][[BR]] With a Atheros Wistron CM9[[BR]] MiniPCI !WiFi card
+
+[[ImageLink(IMG_3505_thumbnail.JPG, ./OpenWrtDocs/Hardware/Asus/WL500GP/IMG_3505 )]][[BR]] With a Gigabyte GN-WIAG02 (168c:0013)[[BR]]802.11abg MiniPCI !WiFi card (Atheros AR5212) and 2nd antenna
 
 === Opening the case ===
 Remove the 4 nubs under the case, now you can see some screws. Unscrew them. You're done. When you're finished you can put the rubbers back into the gadgets. They'll stick alone.
@@ -83,8 +84,7 @@ dd if=/dev/mtdblock/1 > $1/first_config.trx}}}
  {{{
 /dev/discs/disc0/part1 on /tmp/harddisk/part0 type ext2 (rw,sync)}}}
  * Create the backup with 'sh /tmp/harddisk/part0/asus.sh /tmp/harddisk/part0'. Enter the command in the System Command text field and hit the Refresh button. This may take up to 10-15 seconds.
-''Note - some versions of this router limit the lenght of command input field to 42 characters. To backup the firmware, use either a trick like 'cd /t*/h*/*0;./asus.sh /tmp/harddisk/part0', or for even longer commands pass those directly in url (using variable '''SystemCmd'''), like
-http://192.168.1.1/apply.cgi?current_page=Main_AdmStatus_Content.asp&next_page=Main_AdmStatus_Content.asp&next_host=192.168.1.1&sid_list=FirewallConfig%3B&group_id=&modified=0&action_mode=+Refresh+&first_time=&action_script=&preferred_lang=EN&SystemCmd=ls&action=Refresh''
+''Note - some versions of this router limit the lenght of command input field to 42 characters. To backup the firmware, use either a trick like 'cd /t*/h*/*0;./asus.sh /tmp/harddisk/part0', or for even longer commands pass those directly in url (using variable '''SystemCmd'''), like [http://192.168.1.1/apply.cgi?current_page=Main_AdmStatus_Content.asp&next_page=Main_AdmStatus_Content.asp&next_host=192.168.1.1&sid_list=FirewallConfig;&group_id=&modified=0&action_mode=+Refresh+&first_time=&action_script=&preferred_lang=EN&SystemCmd=ls&action=Refresh http://192.168.1.1/apply.cgi?current_page=Main_AdmStatus_Content.asp&next_page=Main_AdmStatus_Content.asp&next_host=192.168.1.1&sid_list=FirewallConfig%3B&group_id=&modified=0&action_mode=+Refresh+&first_time=&action_script=&preferred_lang=EN&SystemCmd=ls&action=Refresh]''
 
  * You can enter in the System Command text field 'ls -l ''''''/tmp/harddisk/part0' and see your first_config.trx file.
  * Remove the USB pen drive and check on your PC if the first_config.trx file is there
@@ -267,8 +267,7 @@ uci commit wireless && wifi}}}
 {{{
 uci set wireless.wifi0.disabled=0
 uci commit wireless && wifi}}}
-[[Anchor(wpa)]] [[Anchor(WPA)]]
-Set TX Antenna and RX Antenna to 2 to get better signal quality with 1 original antenna.
+[[Anchor(wpa)]] [[Anchor(WPA)]] Set TX Antenna and RX Antenna to 2 to get better signal quality with 1 original antenna.
 
 ==== WiFi encryption ====
 Plese see OpenWrtDocs/KamikazeConfiguration/WiFiEncryption.
@@ -365,17 +364,20 @@ chmod a+x /etc/init.d/uvc-streamer}}}
 Make changes to the config file if needed.
 
 Start uvc-streamer
+
 {{{
 /etc/init.d/uvc-streamer start}}}
 To activate uvc-streamer on next boot
+
 {{{
 /etc/init.d/uvc-streamer enable}}}
-Now open the URL [http://192.168.1.1:8080/] in the Firefox browser or VLC and watch the MJPEG stream.
-Also see["webcam"]page in the wiki if your webcam needs other drivers.
+Now open the URL http://192.168.1.1:8080/ in the Firefox browser or VLC and watch the MJPEG stream. Also see["webcam"]page in the wiki if your webcam needs other drivers.
+
 === Turn your router into a networked music player ===
 Work in progress. Please see the UsbAudioHowto.
 
 [[Anchor(2.6)]]
+
 == Trunk with Kernel 2.6 ==
 '''P:''' The line ''b44: eth1: BUG! Timeout waiting for bit 80000000 of register 428 to clear.'' may appear in log. ''' '''
 
@@ -389,21 +391,18 @@ Work in progress. Please see the UsbAudioHowto.
 
 '''S1:''' You can transplant an Atheros miniPCI card and use the Atheros driver.
 
-'''S2:''' You can use the open source b43 Broadcom driver but it isn't yet completely functional.  STA mode is thought to work.  See [https://dev.openwrt.org/ticket/2677]
-
+'''S2:''' You can use the open source b43 Broadcom driver but it isn't yet completely functional.  STA mode is thought to work.  See https://dev.openwrt.org/ticket/2677
 
 == ASUS WL-500g Premium info ==
  * FCC ID: MSQWL500GP [https://gullfoss2.fcc.gov/prod/oet/forms/blobs/retrieve.cgi?attachment_id=640814&native_or_pdf=pdf FCC pictures]
  * [http://www.xbitlabs.com/articles/other/display/asus-wl500g-premium.html Review of the 500gP (pictures starting on page 3)]
  * HardwareAcceleratedCrypto
-
 ----
-
-[[Anchor(links)]] [[Anchor(Links)]]
-
+ . [[Anchor(links)]]
+  [[Anchor(Links)]]
 == External Links ==
 === Tutorials ===
- * [http://wl500g.info/showthread.php?t=12962 RAM Upgrade] 
+ * [http://wl500g.info/showthread.php?t=12962 RAM Upgrade]
  * [http://www.marcusbrutus.soho.on.net/blog/?p=67 Adding a Bluetooth PAN] by Marcus Brown
  * [http://sr.uz/index.php?p=223&more=1&c=1&tb=1&pb=1 Example configuration for the Atheros MiniPCI card on wl-500gP (translated from Russian)]  and [http://sr.uz/index.php?p=220&more=1&c=1&tb=1&pb=1 The original Russian text]
  * [http://josefsson.org/grisslan/wlan.html Setting up WDS/PSK2 on two Asus WL-500gP] by Simon Josefsson
