@@ -1,3 +1,4 @@
+## page was renamed from OpenWrtDocs/Hardware/Netgear/WNR854
 '''Netgear WNR854'''
 
 The hardware in this router is very similar to the [:OpenWrtDocs/Hardware/Buffalo/WZR-AG300:Buffalo WZR-AG300], although that has two N cards and the user space differs.  However, the Airlink 101 AR625W is a carbon of this router, and is identical in almost every detail.
