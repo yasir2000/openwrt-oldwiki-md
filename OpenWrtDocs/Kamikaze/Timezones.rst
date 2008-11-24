@@ -9,4 +9,6 @@ root@OpenWrt:~# uci commit system
 root@OpenWrt:~# timezone=$(uci get system.@system[-1].timezone); [ -z "$timezone" ] && timezone=UTC; echo "$timezone" > /tmp/TZ
 }}}
 
+Timezones: http://luci.freifunk-halle.net/UserDocs/TimeZones
+
 CategoryHowTo
