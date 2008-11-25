@@ -6,13 +6,7 @@ The Fonera FON2100A is based on an Atheros System on Chip (SoC). It got a MIPS 4
 It's almost identical to the [http://meraki.net/mini.html Meraki Mini], who provide their own [http://www.meraki.net/linux/ OpenWrt fork].
 
 
----- /!\ '''Edit conflict - other version:''' ----
 The FON2200 is a rebuild of the FON2100. The only outward changes (apart from the label) is that it runs on 7.5V rather then 5V. Inside, the entire board was reworked. It has a simpler serial connection and gives off much less heat. They even left off the heatsync. When relevant sections below mention when 2200 deviates.
-
----- /!\ '''Edit conflict - your version:''' ----
-The FON2200 is a rebuild of the FON2100. The only outward changes (apart from the label) is that it runs on 7.5V rather then 5V. Inside, the entire board was reworked. It has a simpler serial connection and gives off much less heat. They even left off the heatsync. When relevant sections below mention when 2200 deviates.
-
----- /!\ '''End of edit conflict''' ----
 
 == Additional Comments ==
 Detailed Information may be found in the FCC database: Doing a search on Fonera's FCC-ID reveals, that this device is actually made by Accton/SMC (http://www.accton.com.tw/).
@@ -49,34 +43,19 @@ Another interessting issue is the possible frequency range, as specified by Athe
  * Antenna
  * SPI-Bus
 
----- /!\ '''Edit conflict - other version:''' ----
 Power:
 
 FON2100: 5V -  Internally this is regulated to 3.3V by a linear regulator, so it will probably work on anything from 4 to 6V. But higher voltage will add to the heat issues of the device.
 
 FON2200: 7.5V (small connector) -  Internally this is regulated to 3.3V by a switched regulator, so it will probably work on anything from 4 to 16V, without adding to heat. I tried 12V
-
----- /!\ '''Edit conflict - your version:''' ----
-Power:
-
-FON2100: 5V -  Internally this is regulated to 3.3V by a linear regulator, so it will probably work on anything from 4 to 6V. But higher voltage will add to the heat issues of the device.
-
-FON2200: 7.5V (small connector) -  Internally this is regulated to 3.3V by a switched regulator, so it will probably work on anything from 4 to 16V, without adding to heat. I tried 12V
-
----- /!\ '''End of edit conflict''' ----
 
 == Serial Port ==
 If the ethernet jack is in front of you, it looks like (RXD and TXD directions are from the computer side, i.e. swapped with respect to Fonera board side) RXD (fonera->host) and TXD (host->fonera) are lowlevel (3.3V) signals. NOT RS232 levels.
 
 {{{
 
----- /!\ '''Edit conflict - other version:''' ----
 FON2100:
 
----- /!\ '''Edit conflict - your version:''' ----
-FON2100:
-
----- /!\ '''End of edit conflict''' ----
 +-------------------+
 |GND| . |RXD|TXD| . |
 |VCC| . | . | . | . |
@@ -85,15 +64,9 @@ FON2100:
 |Power| |Ethernet|    |Ant|
 }}}
 
----- /!\ '''Edit conflict - other version:''' ----
 {{{
 FON2200:
 
----- /!\ '''Edit conflict - your version:''' ----
-{{{
-FON2200:
-
----- /!\ '''End of edit conflict''' ----
 Looking inside, with the connectors at your left hand:
 ---+  +----------------+
  P |  |GND RXD TXD 3.3V|
@@ -103,11 +76,6 @@ Looking inside, with the connectors at your left hand:
  R | |                     |
 }}}
 
----- /!\ '''Edit conflict - other version:''' ----
-
----- /!\ '''Edit conflict - your version:''' ----
-
----- /!\ '''End of edit conflict''' ----
 {{{
 VCC (3.3V) -> red
 GND        -> blue
@@ -120,14 +88,18 @@ r . . . .
 
 Serial settings are 9600-8-N-1
 
-
----- /!\ '''Edit conflict - other version:''' ----
 You should plug in the serialadapter after turning the fonera on, otherwise it won't boot. (Comment by HaraldGeyer: My Fonera boots just fine with the serial adapter plugged in.)  (MilesNordin: my FON2100 does not.  Leave the TX pin disconnected for 3sec after applying power.  RX pin can stay connected always.  Once Fonera outputs the '+', safe to connect TX.  is safe slightly earlier, actually.)
 
----- /!\ '''Edit conflict - your version:''' ----
-You should plug in the serialadapter after turning the fonera on, otherwise it won't boot. (Comment by HaraldGeyer: My Fonera boots just fine with the serial adapter plugged in.)  (MilesNordin: my FON2100 does not.  Leave the TX pin disconnected for 3sec after applying power.  RX pin can stay connected always.  Once Fonera outputs the '+', safe to connect TX.  is safe slightly earlier, actually.)
-
----- /!\ '''End of edit conflict''' ----
+== GPIO ==
+||GPIO ||Description ||
+||0 ||TP3 ||
+||1 ||5 of SW1 ||
+||2 ||WLAN LED ||
+||3 ||pin 1 of SW1 ||
+||4 ||pin 2 of SW1 ||
+||5 ||RESET (!) ||
+||6 ||RESET button ||
+||7 ||pin 6 of SW1 ||
 
 == Case ==
 To open the case, remove the two rubber feet on the opposite site to the antenna jack, they will reveal two crosspoint screws.
