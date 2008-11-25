@@ -195,6 +195,8 @@ Many users have had the wireless driver hang the AR430w with Kamikaze 7.09.
 
 However, if you build entirely from trunk, the wireless should work.  Revision 12882 or later is required to prevent a hang due to GPIO.
 
+Also, if you don't want to build from SVN you can just flash any version after 8.09_RC1 including 8.09_RC1. 
+
 = Port-based VLANs =
 This router uses the ["Ip175C"] switch and requires a kernel patch in order to enable.
 
