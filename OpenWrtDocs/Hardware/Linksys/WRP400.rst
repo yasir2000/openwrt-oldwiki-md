@@ -1,3 +1,5 @@
+More info at http://www.nslu2-linux.org/wiki/WRP400/HomePage
+
 Interesting CGI commands:
 
 http://192.168.15.1/SysInfo.htm
