@@ -14,7 +14,7 @@
   * '''dest_ip''': destination IP address; the IP address a packet is being sent to.  Packets destined for the system will be delivered to the process bound to a specified port on this IP address.  Packets destined for another system, if either routing or NAT is set up, will be forwarded.  See [:OpenWrtDocs/Kamikaze/NetworkConfiguration: Network Configuration] for how to set routes.
   * '''src_ip''': source IP address; the IP address of the computer that originally send the packet.  This can be a remote computer on the internet, a computer on the local network, or even the local system.
   * '''target''': which chain to send the packet in a rule to.  Valid values are "DROP" and "ACCEPT."
-  * '''protocol''': the protocol of the packet.  It isn't strictly an [http://en.wikipedia.org/wiki/Transport_Layer transport layer] or [http://en.wikipedia.org/wiki/Internet_Layer internet layer] protocol.  Valid values are "tcp," "udp," and "ICMP."
+  * '''proto''': the protocol of the packet.  It isn't strictly an [http://en.wikipedia.org/wiki/Transport_Layer transport layer] or [http://en.wikipedia.org/wiki/Internet_Layer internet layer] protocol.  Valid values are "tcp," "udp," and "ICMP."
 
 To specify a range of ports for '''src_dport''' and '''dest_port''' separate the values with a hypen, e.g. '''27000-27999'''
 
@@ -26,7 +26,7 @@ config rule
         option src              wan
         option dest_port        22
         option target           ACCEPT
-        option protocol         tcp
+        option proto            tcp
 }}}
 This example enables machines on the internet to use SSH to access your router.
 
