@@ -17,11 +17,11 @@ The USR8200 is a non-wireless router, advertised as a Firewall/VPN. This single 
  1. Dual Type A USB 2.0 Host Ports
 
 == Machine ID ==
-Machine ID 1762 has been registed for this board. 
+Machine ID 1762 has been registered for this board. 
 == Software ==
-The installed bootloader is "OpenRG", written by Jungo.
+The installed bootloader is "OpenRG", written by Jungo, but despite being covered by the GPL, complete sources are not easy to get hold of.
 === RedBoot ===
-A custom version of !RedBoot has been built and can be loaded with the instructions on the [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Actiontec/MI424-WR MI424-WR] page. The custom version for the USR8200 is attachment:redboot.bin. Once !RedBoot is installed as the bootloader, and configured, you can then install the linux kernel and rootfs image from !OpenWrt.
+A custom version of !RedBoot has been built and can be loaded with the instructions on the [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Actiontec/MI424-WR MI424-WR] page. The custom version for the USR8200 is attachment:redboot.bin. The source for this is the Intel !RedBoot sources plus this attachment:usr8200.epk package. Once !RedBoot is installed as the bootloader, and configured, you can then install the linux kernel and rootfs image from !OpenWrt.
 
 This version detects PHYs on both Ethernet ports, but !RedBoot only uses one, eth0, which maps onto the WAN port of the USR8200.
 === Installing OpenWRT ===
@@ -52,7 +52,7 @@ Knoppix 5.3.1, left a lot to be desired. I could not get it to work. [https://so
  1. ip addr add 192.168.11.2/24 dev eth1 
 
 2. You will need to get a special redboot, one that has been built to run from RAM.
-That can be downloaded at { to be decided }. It is named redboot-RAM.img to distinguish it from the ROM version.
+That can be downloaded at attachment:redboot-RAM.img. It is named redboot-RAM.img to distinguish it from the ROM version.
 
 3. The backup image, here, will be named jungo-image.bin I used 
 [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Actiontec/MI424-WR MI424-WR]  Jose Vasconcellos' jungo-image.py to create my backup. It can do quite a bit more than just make the backup... but at the time, my tftp server was not responding to anything. I have modified it to fit the properties of the USR8200, and named it jungo-usr8200-image2.py. You can get that here attachment:jungo-usr8200-image2.py
