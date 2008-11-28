@@ -10,4 +10,4 @@ Some Info: http://woytekm.googlepages.com/linksyswag200g-eu
 == Installing OpenWRT ==
 === MTD Layout ===
 = Link =
-Here you can find most of the hardware and software details of the WAG200G-EU:http://woytekm.googlepages.com/linksyswag200g-eu
+Here you can find most of the hardware and software details of the WAG200G-EU: http://woytekm.googlepages.com/linksyswag200g-eu
