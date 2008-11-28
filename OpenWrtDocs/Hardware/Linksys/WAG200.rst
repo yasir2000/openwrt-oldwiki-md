@@ -208,8 +208,16 @@ led 3880 0
 push_button 1544 1
 tiatm 122440 0
 
-
-== Installing OpenWRT ==
 === MTD Layout ===
-= Link =
+
+= Installing OpenWRT =
+
+
+= References =
 Here you can find most of the hardware and software details of the WAG200G-EU: http://woytekm.googlepages.com/linksyswag200g-eu
+
+http://www.linux-mips.org/wiki/AR7#AR7
+
+http://ar7.wikispaces.com/
+
+http://archive.seattlewireless.net/index.cgi/ADAM2
