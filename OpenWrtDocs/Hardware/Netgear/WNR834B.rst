@@ -2,7 +2,7 @@
 
 ||<tablebgcolor="#f1f1ed" tablewidth="40%" tablestyle="FONT-SIZE: 0.9em; FLOAT: right; MARGIN: 0pt 0pt 1em 1em"style="PADDING-RIGHT: 0.5em; PADDING-LEFT: 0.5em; PADDING-BOTTOM: 0.5em; PADDING-TOP: 0.5em"> [[TableOfContents]] ||
 = Netgear WNR834B =
-The Netgear WNR834B is Netgear's Rangemax Next single-band wireless-N broadband router based on Broadcom's Intensi-Fi MIMO platform.  It shares similar hardware and configuration with the Linksys WRT-150N and WRT-160n routers.  Netgear's 2_1_13_na firmware runs Linux 2.4.20 internally and DD-WRT v24 sp2 firmware runs Linux 2.4.36 internally.
+The WNR834B is Netgear's Rangemax Next single-band wireless-N broadband router based on Broadcom's Intensi-Fi MIMO platform.  It shares similar hardware and configuration with the Linksys WRT-150N and WRT-160n routers.  Netgear's 2_1_13_na firmware runs Linux 2.4.20 internally and DD-WRT v24 sp2 firmware runs Linux 2.4.36 internally.
 
 '''NOTE:''' This device supports only 2.4 kernel versions of Kamikaze. At this time the Broadcom wl.o binary driver is only available for 2.4 kernels and the open source b43 driver is not ready yet.  Wireless WILL NOT WORK if you flash an image with a 2.6 kernel. 
 
