@@ -56,11 +56,14 @@ Linux version 2.4.36 (bin@dd-wrt) (gcc version 3.4.6 (OpenWrt-2.0)) #2384 Wed No
  * Wireless - BCM2055 (under the shield) [http://www.broadcom.com/collateral/pb/4321_2055-PB02-R.pdf Product_Brief]
  * Flashchip - Macronix MX29LV320CBTC-90G [http://www.macronix.com/QuickPlace/hq/PageLibrary4825740B00298A3B.nsf/h_Index/7CE3021F57B8EA4848257412002E26CC/$File/MX29LV320CT-B-2.0.pdf Data Sheet]
 
-=== Pads on PCB ===
+=== Circuit board - v2 ===
+attachment:WNR834Bv2_Internals.JPG
+
+=== Pads on PCB - v2 ===
 There are 3 sets of pads on the PCB of the WRN834B v2:
-JP1 - Serial console, 3.3v, 115200/8/N
-J12 - JTAG
-Solder pads - JTAG - near radio shield, top edge of board.
+ * JP1 - Serial console, 3.3v, 115200/8/N
+ * J12 - JTAG
+ * Solder pads - JTAG - near radio shield, top edge of board.
 
 
 '''JP1'''
@@ -77,6 +80,7 @@ Solder pads - JTAG - near radio shield, top edge of board.
 '''J12'''
 
 10-pin JTAG, 2 rows of 5 pins
+
 R374 through R378 and R343 remain un-populated
 
 ||'''Pin 10''' || GND ||'''Pin 9''' || TCK ||
@@ -87,7 +91,9 @@ R374 through R378 and R343 remain un-populated
 
 
 '''Solder pads'''
-JTAG
+
+JTAG, 5 large pads
+
 R470 through R473 remain un-populated
 
 ||'''R470''' || TCK ||'''R471''' || TMS ||'''R472''' || TDO ||'''R473''' || TDI ||'''n/a''' || TRST ||
