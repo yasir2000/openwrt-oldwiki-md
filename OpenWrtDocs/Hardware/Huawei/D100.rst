@@ -13,7 +13,15 @@
 ||'''RAM''' ||32Mbyte (Hynix HY5DU561622ETP 16M x 16 DDR SDRAM) ||
 ||'''Wireless''' ||Integrated Broadcom 802.11b/g Wireless LAN Controller ||
 ||'''Ethernet''' ||Integrated Robo switch BCM5325 ||
-||'''USB''' ||2x USB 2.0 ||
+||'''USB''' ||1x USB 2.0 OnChip (USB connected to 3G Modem Host Port by flying leads. Probably only suited for speeds up to 12Mbps) ||
 ||'''Serial''' ||Unknown ||
 ||'''JTAG''' ||Unknown ||
-[[Anchor(serial)]] [[Anchor(Serial)]]
+
+=== Photos ===
+=== Top ===
+
+attachment:D100_top.jpg
+
+=== Bottom ===
+
+attachment:D100_bottom.jpg
