@@ -233,7 +233,7 @@ Booting device: Netgear WNR834B v2
 || '''pci/1/1/boardflags''' || 0x200 ||
 || '''pci/1/1/boardflags2''' || 0x0013 ||
 
-== Other Categories this device is in ==
+== Other Categories including this device ==
 
  . Category80211nDevice
 ----
