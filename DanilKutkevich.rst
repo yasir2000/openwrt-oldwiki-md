@@ -22,8 +22,11 @@
  * [http://forum.openwrt.org/viewtopic.php?id=3474 Forum]
  * [http://downloads.openwrt.org/kamikaze/docs/openwrt.html Documentation]
 
+==== Forum ====
+[http://forum.openwrt.org/viewtopic.php?pid=16505 Port forwarding with multiple WAN ips.]
+
 === Bugs ===
-[http://forum.openwrt.org/viewtopic.php?pid=59584 Port forwarding stops working after a while on Kamikaze 7.09]
+[http://forum.openwrt.org/viewtopic.php?pid=59584 Port forwarding stops working after a while on Kamikaze 7.09.]
 
 ----
 CategoryHomepage
