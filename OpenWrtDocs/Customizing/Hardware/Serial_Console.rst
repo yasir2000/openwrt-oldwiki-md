@@ -127,10 +127,17 @@ Pinouts for your model can often be found on your model's page in CategoryModel.
 First, check the OpenWRT wiki page describing your hardware and do a Google search. Most of the time, the serial port(s), if they exist, have already been documented by others.
 
 === Piezoelectric buzzer method ===
-1. Use a Piezoelectric buzzer and attach its ground (usually black) wire to a ground point on the router; the back of the power regulators are usually good candidates, but check this with a multimeter/voltmeter.
-2. Use the other wire to probe any of the header pins which may be pre-installed, or any of the component holes which look like they could have header pins installed into (typically in a row of 4 pins for a serial port).  Reset the router.  The bootloader/linux bootup messages will only happen for a few seconds, and after that, the serial console will be silent - so even if you have the right pin you will not hear anything.
+ 1. Use a Piezoelectric buzzer and attach its ground (usually black) wire to a ground point on the router; the back of the power regulators are usually good candidates, but check this with a multimeter/voltmeter.
+ 2. Use the other wire to probe any of the header pins which may be pre-installed, or any of the component holes which look like they could have header pins installed into (typically in a row of 4 pins for a serial port).  Reset the router.  The bootloader/linux bootup messages will only happen for a few seconds, and after that, the serial console will be silent - so even if you have the right pin you will not hear anything.
+ 3. Once you get the right pin, the Piezoelectric buzzer should make a screeching sound much like that of a 56kbps connection.
 
-3. Once you get the right pin, the Piezoelectric buzzer should make a screeching sound much like that of a 56kbps connection.
+=== Digital multimeter method ===
+Typically there are four pins to identify: GND - Ground, Vcc - 3.3VDC or 5VDC, TXD - Transmit data, and RXD - Receive data.  There may be additional/extra pins.  Every router is different.
+ 1. Locate the set of four/five/more pins that are most likely to be the serial console.
+ 2. Set the multimeter to measure resistance/continuity.  Place the black probe on a known ground point and use the red probe to check each of the pins.  Whenever you see zero or nearly zero ohms resistance, that pin should be the GND connection.
+ 3. Switch the multimeter to measure DC voltage on a scale greater than 10 but less than 100 volts.  Meters vary, but you should be able to select a range greater than five volts.  Place the black probe on the known ground point again, and with the router powered on, use the red probe to check the remaining pins of the port for steady 3.3V or 5V DC.  When you find it, that pin should be the Vcc connection.
+ 4. This leaves two pins to identify: RXD and TXD.  It's easiest to find the router's TXD pin first, because all the console output from the boot process appears there. Connect the RXD pin of your level shifter to one of the remaining console pins and re-start the router.  You should have a terminal window connected to the serial port at the correct bitrate and parity, and you've connected the proper pin, you should see output data the router's startup process.  If not, try another pin, restarting the router until you receive valid output.  Now you've located the serial port TXD connection.
+ 5. The only pin remaining is RXD, where the serial port receives data from your terminal session.  Connect the TXD pin of your level shifter to the remaining pin (or multiple pins) until you find the one that correctly echoes characters you type in your terminal session.
 
 === Logic analyzer/oscilloscope ===
 A more accurate method would be to use either a logic analyzer or an oscilloscope, but these are expensive and for the basic task of locating a serial pin a little overkill. ;-)
