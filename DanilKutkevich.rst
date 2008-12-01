@@ -13,7 +13,7 @@
  * ["OpenWrtDocs/KamikazeConfiguration/WiFiEncryption"]
  * ["OpenWrtDocs/NetworkInterfaces"]
  * ["Faq"]
- * ["MiniHowtos"]
+ * ["OpenWrtDocs/KamikazeHowto"]
  * ["CategoryHowTo"]
  * ["OpenWrtDocs/Using"]
  * ["RrdTrafficWatch"]
