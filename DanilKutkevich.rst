@@ -11,6 +11,7 @@
  * ["OpenWrtDocs/KamikazeConfiguration"]
  * ["OpenWrtDocs/KamikazeConfiguration/NonBridgedWiFi"]
  * ["OpenWrtDocs/KamikazeConfiguration/WiFiEncryption"]
+ * ["OpenWrtDocs/Kamikaze/FirewallConfiguration"]
  * ["OpenWrtDocs/NetworkInterfaces"]
  * ["Faq"]
  * ["OpenWrtDocs/KamikazeHowto"]
