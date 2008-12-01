@@ -6,6 +6,9 @@ The WNR834B is Netgear's Rangemax Next single-band wireless-N broadband router b
 
 '''NOTE:''' This device supports only 2.4 kernel versions of Kamikaze. At this time the Broadcom wl.o binary driver is only available for 2.4 kernels and the open source b43 driver is not ready yet.  Wireless WILL NOT WORK if you flash an image with a 2.6 kernel. 
 
+'''WARNING:''' This router maintains a hidden Flash RAM area between 0x1fc00000 and 0x1ffe0000 containing the router's serial number, MAC address, and board code.  DD-WRT builds earlier than SVN 9856 overwrite this area when JFFS2 storage is enabled.  This results in a bricked router.  DD-WRT build SVN 9856 and later correctly preserve this area, even when JFFS2 storage is enabled.
+
+
 == General ==
 
 === Hardware Versions ===
@@ -113,6 +116,7 @@ bootloader size: 131072
 0x00102800-0x003b0000 : "rootfs"
 0x003b0000-0x003e0000 : "ddwrt"
 0x003f0000-0x00400000 : "nvram"
+0x1fc00000-0x1ffe0000 : (hidden) serial number, MAC address, router code
 }}}
 
 === Serial Port ===
