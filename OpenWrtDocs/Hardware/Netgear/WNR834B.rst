@@ -94,7 +94,7 @@ R470 through R473 remain un-populated
 ||'''R470''' || TCK ||'''R471''' || TMS ||'''R472''' || TDO ||'''R473''' || TDI ||'''n/a''' || TRST ||
 
 === Circuit board - v1 ===
-(TODO) attachment : WNR834Bv1_Internals.JPG
+attachment:WNR834Bv1_Internals.JPG
 
 === Pads on PCB - v1 ===
 There is 1 set of holes on the PCB of the WRN834B v1:
@@ -378,8 +378,6 @@ Booting device: Netgear WNR834B
 || '''boardflags2''' || 0 ||
 || '''cardbus''' || 1 ||
 
-== TO DO ==
- * resize, annotate, and upload picture of v1 circuit board
 
 == Other Categories including this device ==
 
