@@ -167,7 +167,7 @@ config wifi-iface
 
 '''1) "option network <interface>": This setting is mandatory if you want your wifi interface bridged to your lan (Normal bridging: "option network lan").'''  If you don't want to do that, see [:OpenWrtDocs/KamikazeConfiguration/NonBridgedWiFi:Using Non-Bridged WiFi].
 
-'''2) "option encryption <key>": wpa and wpa2 are for radius config, use psk for WPA-PSK or psk2 for WPA-PSK2 (AES)'''
+'''2) "option encryption <key>": wpa and wpa2 are for radius config, use psk for WPA-PSK or psk2 for WPA-PSK2 (AES)''' You must install hostapd-mini for ap and wpa_supplicant for client.
 
 '''3) "option key <key>": You must use a key that is at least 8 characters long if you are using psk2.''' If your key is fewer than 8 characters long, you may get the following error under Kamikaze 7.09: "wl0: ignore i/f due to error(s)".
 
