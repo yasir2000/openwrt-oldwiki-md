@@ -357,7 +357,7 @@ Booting device: Netgear WNR834B
 
 == Configuration data ==
 
-=== NVRAM ===
+=== NVRAM - v2 ===
 
 || '''boardtype''' || 0x0472 ||
 || '''boardrev''' || 0x23 ||
@@ -368,6 +368,18 @@ Booting device: Netgear WNR834B
 || '''pci/1/1/boardnum''' || 01 ||
 || '''pci/1/1/boardflags''' || 0x200 ||
 || '''pci/1/1/boardflags2''' || 0x0013 ||
+
+=== NVRAM - v1 ===
+
+|| '''boardtype''' || 0x0472 ||
+|| '''boardrev''' || 0x10 ||
+|| '''boardnum''' || 8 ||
+|| '''boardflags''' || 0x0010 ||
+|| '''boardflags2''' || 0 ||
+|| '''cardbus''' || 1 ||
+
+== TO DO ==
+ * resize, annotate, and upload picture of v1 circuit board
 
 == Other Categories including this device ==
 
