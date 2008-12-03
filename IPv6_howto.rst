@@ -257,6 +257,8 @@ restart() {
 Note: I had to add "ttl 64" to the "ip tunnel add sixxs" line in order to be able to do traceroutes. Without it, traceroute6's did work, but slowly and with all intermediate hops missed ("* * *"). With this setting it works. -RZ
 
 == Dynamic (heartbeat) tunnel to SixXS.net ==
+
+Sixxs.net offers a [http://www.sixxs.net/wiki/Aiccu/Installing_on_OpenWRT clear Howto] on doing this with OpenWRT.
 {{{
 ipkg install aiccu
 }}}
