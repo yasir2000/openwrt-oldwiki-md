@@ -61,6 +61,7 @@ Quicklinks to manufacturers:
  * [:Hardware/Dovado:]
  * [:Hardware/Dynalink:]
  * [:Hardware/Edimax:]
+ * [:Hardware/E-Tech:]
  * [:Hardware/Fon:]
  * [:Hardware/Freecom:]
  * [:Hardware/Gateway:]
