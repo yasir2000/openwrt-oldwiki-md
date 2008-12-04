@@ -1,4 +1,4 @@
-This is a table of all supported devices as of 2008/07/21
+This is a table of all supported devices as of 2008/12/04
 
 == Legend ==
 
