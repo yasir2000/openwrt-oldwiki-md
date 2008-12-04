@@ -100,6 +100,7 @@ Quicklinks to manufacturers:
  * [:Hardware/Thomson:]
  * [:Hardware/Toshiba:]
  * [:Hardware/Trendnet:]
+ * [:Hardware/Tranzeo:]
  * [:Hardware/US Robotics:]
  * [:Hardware/Ubiquiti:]
  * [:Hardware/Viewsonic:]
@@ -116,3 +117,5 @@ Quicklinks to manufacturers:
  . CategoryOpenWrtPort
  . CategoryModel
  . CategoryOpenWrtPort
+----
+CategoryBrand
