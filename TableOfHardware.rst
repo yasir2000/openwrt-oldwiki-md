@@ -60,6 +60,7 @@ Quicklinks to manufacturers:
  * [:Hardware/DLink:]
  * [:Hardware/Dovado:]
  * [:Hardware/Dynalink:]
+ * [:Hardware/Edge-Core:]
  * [:Hardware/Edimax:]
  * [:Hardware/E-Tech:]
  * [:Hardware/Fon:]
