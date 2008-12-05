@@ -18,6 +18,49 @@ Switch 4-Port ADSL Router with Firewall/QoS Control (ADSL 2/2+ Compliant)
  * - Wireless NIC: '''NONE'''
  * - 4x-ethernet-port transformer: LHB, 20pt1024xlx
  * - Bootloader: ["PSPBoot"]
+
+=== Fast-track installation for UK ADSL users! ===
+
+This 
+
+http://downloads.openwrt.org/kamikaze/8.09_RC1/ar7/openwrt-AG241v2-squashfs-code.bin
+
+works fine with this:
+ http://www.dabs.com/productview.aspx?Quicklinx=3NNZ
+
+Configure a crossover cable to the thing. Set your local IP to
+192.168.1.2/255.255.255.0.
+
+Rename that .bin to upgrade_code.bin, and get ready to execute this:
+
+> tftp -i 192.168.1.1 PUT upgrade_code.bin
+
+Now, switch the AG241v2 on, and somewhere between 0.5 and 1.5 seconds,
+press RETURN. If you did it right, the Windows tftp client will tell you the transfer was
+successful after a few seconds. If not, switch the router off and try again.
+
+The POWER LED will start to flash red+green after a couple of minutes when you get the timing right. Else, it'll just load the normal Linksys web application - no harm done.
+
+Once you've got it, telnet to 192.168.1.1, set a root password, then login with ssh.
+
+Now fiddle with its networking setup so that it matches your LAN
+ * ifconfig br-lan aaa.bbb.ccc.ddd netmask 255.255.255.0
+ * route add default gateway aaa.bbb.ccc.ddd
+ * vi /etc/resolv.conf to add 'nameserver aaa.bbb.ccc.ddd'
+
+try and ping www.google.com. When you get a reply:
+
+opkg update
+opkg install kmod-pppoa ppp-mod-pppoa kmod-sangam-atm-annex-a
+
+It's now ready to connect to your ISP
+
+vi /etc/config/network - change 'option encaps' from llc to vc. set vpi/vci
+to 0/38.
+
+Finally, as mine didn't start the 'wan' interface automatically at
+start, I stuck a dirty "ifup wan" into /etc/init.d/sysklogd
+
 == Picture (AG241v2-EU) ==
 attachment:ag241-eu.jpg
 
