@@ -13,16 +13,17 @@ The precompiled image installs a base set of drivers (aec62xx, diag, ehci-hcd, e
  * Empty mini-pci header on PCB (not usable on stock enclosure and missing mini-pci connector itself)
  * Broadcom switch, 4 LAN, 1 WAN (BCM5325EKQMG)
  * Broadcom Single-Chip 802.11g Transceiver (BCM4318EKFBG)
- * RTC on I2C (Ricoh RV5C386A, CR1220 3V battery)
+ * RTC on I2C (Ricoh RV5C386A, CR1220 3V battery, requires a RtcRv5c386a driver)
  * TTL serial port hidden under powersupply (4-pin header)
 == GPIO ==
  * GPIO 0 = POWER-button (0 = released, 1 = pressed)
  * GPIO 1 = READY-led (0 = on, 1 = off)
+ * GPIO 2 = SDA signal for the I2C bus (to which the RTC is attached).
  * GPIO 3 = POWER-enable, turns on power to HDD and switch leds (0 = disable, 1 = enable)
  * GPIO 4 = EZSETUP-button (0 = released, 1 = pressed)
+ * GPIO 5 = SCL signal for the I2C bus.
  * GPIO 6 = COPY-button (0 = released, 1 = pressed)
  * GPIO 7 = RESET (0 = reset system, 1 = normal state)
-There's references in Asus GPL tarball that GPIO 5 might be I2C SCL and GPIO 2 be I2C SDL. Asus sources also contain Broadcom I2C driver and sources for Ricoh RTC.
 
 == Links ==
  * [Howto] Install OpenWrt Kamikaze 7.09 on the ASUS WL-700g Encore on OpenWrt forum http://forum.openwrt.org/viewtopic.php?id=12887
