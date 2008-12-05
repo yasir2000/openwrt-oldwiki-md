@@ -151,6 +151,8 @@ JamesCameron tested a device as follows:
 ||standby ||0.48A ||disk drive in host-directed standby mode, using ''hdparm -y'', further access by kernel spun the drive up ||
 ||sleep ||0.48A ||disk drive in host-directed sleep mode, using ''hdparm -Y'', no apparent effect on power, but prevented further access to drive by kernel ||
 === Internal RTC ===
+The internal RTC is not supported out of the box by OpenWRT, but there is a code floating about that provides support for the RtcRv5c386a chip.
+
 The internal RTC can be accessed with the following kernel module: attachment:kmod-rtc.o ([https://dev.openwrt.org/ticket/1749 source code])
 
 {{{
