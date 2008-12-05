@@ -28,9 +28,9 @@ Upgrade will take about 2 minutes. Do NOT interrupt it
 this is just a placeholder for using 'foo' firmware
 
 
-== TFTP with openwrt ==
+== From within OpenWrt ==
 
-I don't know yet, if it this actual exists
+Once OpenWrt is running with / mounted from the disk (rather than from the squashfs and/or jffs2 partition), the flash device is not used any more, so it is possible to install a newer image while running: it will be used at the next boot.  To do that, you first want to make sure that the flash is not used, e.g. with `umount /rom`.  Then you can simply run `mtd -e linux -r write <foo.trx> linux` where `<foo.trx>` is the firmware file you want to install.
 
 
 == forced TFTP ==
