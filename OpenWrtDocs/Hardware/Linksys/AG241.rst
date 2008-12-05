@@ -44,22 +44,23 @@ The POWER LED will start to flash red+green after a couple of minutes when you g
 Once you've got it, telnet to 192.168.1.1, set a root password, then login with ssh.
 
 Now fiddle with its networking setup so that it matches your LAN
- * ifconfig br-lan aaa.bbb.ccc.ddd netmask 255.255.255.0
+ * ifconfig br-lan:1 aaa.bbb.ccc.ddd netmask 255.255.255.0  (the :1 stops you losing the connectivity in the current session)
  * route add default gateway aaa.bbb.ccc.ddd
  * vi /etc/resolv.conf to add 'nameserver aaa.bbb.ccc.ddd'
 
 try and ping www.google.com. When you get a reply:
 
 opkg update
+
 opkg install kmod-pppoa ppp-mod-pppoa kmod-sangam-atm-annex-a
 
 It's now ready to connect to your ISP
 
-vi /etc/config/network - change 'option encaps' from llc to vc. set vpi/vci
+vi /etc/config/network - set the lan address, uncomment the 'wan' interface, and change 'option encaps' from llc to vc. set vpi/vci
 to 0/38.
 
 Finally, as mine didn't start the 'wan' interface automatically at
-start, I stuck a dirty "ifup wan" into /etc/init.d/sysklogd
+start, I stuck a dirty "ifup wan" into /etc/init.d/sysctl
 
 == Picture (AG241v2-EU) ==
 attachment:ag241-eu.jpg
