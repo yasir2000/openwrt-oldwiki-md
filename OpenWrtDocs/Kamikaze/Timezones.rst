@@ -1,5 +1,5 @@
 = Timezones =
-Kamikaze stores the Timezone in system.@system[-1].timezone. If you prefer the LuCI WebUI, use System > System and select your Timezone there.
+Kamikaze stores the Timezone in system.@system[0].timezone. If you prefer the LuCI WebUI, use System > System and select your Zonename and Timezone there.
 
 To change the Timezone from the shell using UCI CLI do:
 
