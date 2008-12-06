@@ -56,7 +56,12 @@ telnetEnable.exe 192.168.1.1 000FB5A2BE26 Gearguy Geardog
 U12H02900>
 }}}
  * For available commands, type {{{help}}} or {{{?}}}. To quit the console, type {{{exit}}}.
+
+
 === On Un*x ===
+Seattle Wireless dot org provides [http://www.seattlewireless.net/telnetenable.c this Un*x compatible source file].
+
+==== Older description ====
 Netgear uses free software to make their products, but has not provided information or free software tools to enable them to be used. One needs to either use the Windows binary-only program or reverse engineer its operation in order to discover what magic packets Netgear's tool sends to the router to enable the telnet interface.
 
 Unfortunately, there is no ready to go tool for Un*x, - yet. However, thanks to yoshac_at_member_dot_fsf_dot_org, the Windows telnetenable has been reverse engineered. The following could be determined on the data format and transforms performed by Netgear's telnetEnable.exe and a work is in progress to implement the entire tool as open source. The current implementation is attached to this document.
