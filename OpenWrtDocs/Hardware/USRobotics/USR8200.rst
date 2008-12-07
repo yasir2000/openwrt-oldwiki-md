@@ -189,6 +189,8 @@ This can be accomplished in Redboot with the following commands... in this order
 [[BR]]mfill -b 0xc8004000 -l 4 -p 0x600f -4
 
 == Serial Port pin assignments ==
+A standard 9-way ribbon cable for serial port can be used for serial port login.
+USR->Serial 1-1 2-6 3-2 4-7 5-3 6-8 7-4 8-9 9-5
 
 || 1 || NC || 2 || NC  ||
 || 3 || TX || 4 || NC  ||
@@ -204,7 +206,10 @@ For a couple bucks you can get some decent hardware to make one. Here are the li
 [http://www.altex.com/Search.aspx?k=IDC9S] Flat ribbon cable 9 pin serial port connector[[BR]]
 [http://www.altex.com/Search.aspx?k=IDS10] Ribbon Cable Connector[[BR]]
 [http://www.altex.com/Search.aspx?k=RC10] 10 wire Flat Ribbon cable.[[BR]]
-I paid more to ship them than they cost but less than the gas would have cost me... to go looking at Radio Shacks that just don't seem to care about these kinds of parts anymore. Just line up the pin 1's to the red trace and you should have a serial port connection in minutes.
+I paid more to ship them than they cost but less than the gas would have cost me... to go looking at Radio Shacks that just don't seem to care about these kinds of parts anymore. Just line up the pin 1's to the red trace on the ribbon cable, and you should have a serial port connection in minutes.
+
+NOTE: John did report having some trouble on one machine... with a direct hookup using the above cable.
+Since the Olimex ARM-USB-OCD comes with a serial port, he resolved that by plugging into that port and never had any problems after weeks of being on. With a direct connection from the USR8200 to the pc serial port, after a router reset via software reset or the reset button, would cause problems on the host machine. No further investigation was done on his part.
 
 == JTAG connector ==
 This device is equipted with a standard ARM 20 pin JTAG header.[[BR]]
