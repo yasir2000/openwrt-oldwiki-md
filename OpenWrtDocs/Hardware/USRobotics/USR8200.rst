@@ -188,6 +188,23 @@ This can be accomplished in Redboot with the following commands... in this order
 [[BR]]mfill -b 0xc8004004 -l 4 -p 0x1ff0 -4
 [[BR]]mfill -b 0xc8004000 -l 4 -p 0x600f -4
 
+== Serial Port pin assignments ==
+
+|| 1 || NC || 2 || NC  ||
+|| 3 || TX || 4 || NC  ||
+|| 5 || RX || 6 || NC  ||
+|| 7 || NC  || 8 || NC  ||
+|| 9 || Serial Port ground || 10 || NC  ||
+
+3 = tx ( to rx pin of PC serial port )[[BR]]
+5 = rx ( to tx pin of PC serial port )[[BR]]
+9 = Serial port ground is ground between the 2 ports... not to chassis ground.
+
+== JTAG connector ==
+This device is equipted with a standard ARM 20 pin JTAG header.[[BR]]
+The Olimex ARM-USB-OCD device has been confirmed to work with it.[[BR]]
+TODO: post OpenOCD config files to use with the Olimex and other JTAG devices.
+
 == More Info / Pictures ==
 There are extensive pictures of this device at [http://home.comcast.net/~johnrw/], along with a [http://home.comcast.net/~johnrw/image/USR8200_notes.txt set of notes] on some of the investigations that the photographer did.
 
