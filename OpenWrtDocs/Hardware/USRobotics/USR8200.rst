@@ -39,6 +39,65 @@ From the Jungo prompt:
  1. RedBoot> fis create rootfs 
  1. RedBoot> reset 
 
+RedBoot sign on screen.{{{
+Trying NPE-B...success. Using NPE-B with PHY 9.
+Trying NPE-C...success. Using NPE-C with PHY 16.
+Ethernet eth0: MAC address 00:c0:49:f4:3e:7f
+IP: 192.168.10.1/255.255.255.0, Gateway: 0.0.0.0
+Default server: 0.0.0.0
+
+RedBoot(tm) bootstrap and debug environment [ROM]
+Red Hat certified release, version 2.04 - built 20:21:10, Nov 10 2008
+
+Platform: USRobotics USR8200 (IXP42X 266MHz) BE
+Copyright (C) 2000, 2001, 2002, 2003, 2004, 2007 Free Software Foundation, Inc.
+
+RAM: 0x00000000-0x04000000, [0x00024ac8-0x01fc1000] available
+FLASH: 0x50000000 - 0x51000000, 128 blocks of 0x00020000 bytes each.
+}}}
+Most of the answers are already filled in for you with some defaults.[[BR]]
+Things you must provide:
+ 1. The text of the boot script, one line at a time. The >> are RedBoot prompts. You don't type them :)
+ 1. The IP address you want to use.
+ 1. Local IP address mask: Defaults to 0.0.0.0, which you'll need to change to 255.255.255.0
+ 1. Default network device: Defaults to npe_eth0. Hit Enter and continue.
+ 1. The Network hardware address [MAC]. Use the BACKSPACE key to remove the invalid part.
+ 1. Reboot and check the connectivity with ping -h <your host machine's IP address>
+
+Things you can leave blank, unless of course, you have an exotic setup.
+ 1. Gateway IP address
+ 1. Default server IP address:
+
+fconfig{{{
+RedBoot> fconfig
+Run script at boot: true
+Enter script, terminate with empty line
+>> mfill -b 0xc8004004 -l 4 -p 0x1ff0 -4
+>> mfill -b 0xc8004000 -l 4 -p 0x600f -4
+>> fis load linux
+>> exec
+>>
+Boot script timeout (1000ms resolution): 3
+Use BOOTP for network configuration: false
+Gateway IP address:
+Local IP address: 192.168.10.1
+Local IP address mask: 255.255.255.0
+Default server IP address:
+Console baud rate: 115200
+GDB connection port: 9000
+Force console for special debug messages: false
+Network debug at boot time: false
+Default network device: npe_eth0
+Network hardware address [MAC] for npe_eth0: 0x00:0xC0:0x49:0xF4:0x3E:0x7F
+Network hardware address [MAC] for npe_eth1: 0x00:0xC0:0x49:0xF4:0x3E:0x80
+Update RedBoot non-volatile configuration - continue (y/n)? y
+... Unlock from 0x50fe0000-0x51000000: .
+... Erase from 0x50fe0000-0x51000000: .
+... Program from 0x01fd0000-0x01ff0000 at 0x50fe0000: .
+... Lock from 0x50fe0000-0x51000000: .
+RedBoot>
+}}}
+
 Plug a pc into LAN port '''4''' otherwise the Marvel 88E6060 switch will not detect any machines connected on the lan side. This is a quirk of the switch at present. There is full support for this switch coming. Should start making appearances in the 2.6.28.x kernels. See [http://forum.openwrt.org/viewtopic.php?pid=74209#74209 Lennert Buytenh's patch announcement] for details. Open a browser to http://192.168.1.1 and enjoy.
 
 === Restoring Factory Firmware ===
