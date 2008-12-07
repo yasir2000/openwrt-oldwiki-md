@@ -188,7 +188,7 @@ This can be accomplished in Redboot with the following commands... in this order
 [[BR]]mfill -b 0xc8004004 -l 4 -p 0x1ff0 -4
 [[BR]]mfill -b 0xc8004000 -l 4 -p 0x600f -4
 
-== Serial Port pin assignments ==
+=== Serial Port pin assignments ===
 A standard 9-way ribbon cable for serial port can be used for serial port login.
 USR->Serial 1-1 2-6 3-2 4-7 5-3 6-8 7-4 8-9 9-5
 
@@ -211,12 +211,12 @@ I paid more to ship them than they cost but less than the gas would have cost me
 NOTE: John did report having some trouble on one machine... with a direct hookup using the above cable.
 Since the Olimex ARM-USB-OCD comes with a serial port, he resolved that by plugging into that port and never had any problems after weeks of being on. With a direct connection from the USR8200 to the pc serial port, after a router reset via software reset or the reset button, would cause problems on the host machine. No further investigation was done on his part.
 
-== JTAG connector ==
+=== JTAG connector ===
 This device is equipted with a standard ARM 20 pin JTAG header.[[BR]]
 The Olimex ARM-USB-OCD device has been confirmed to work with it.[[BR]]
 The USBprog device is being worked on.
 
-== More Info / Pictures ==
+=== More Info / Pictures ===
 There are extensive pictures of this device at [http://home.comcast.net/~johnrw/], along with a [http://home.comcast.net/~johnrw/image/USR8200_notes.txt set of notes] on some of the investigations that the photographer did.
 
  1. Uses a Altima 101L chip for the WAN PHY.
