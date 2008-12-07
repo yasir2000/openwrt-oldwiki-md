@@ -34,8 +34,8 @@ Linux version 2.4.20 (builder@dev2) (gcc version 3.2.3 with Broadcom modificatio
 ||'''CPU Speed''' ||264 Mhz ||
 ||'''Flash size''' ||4 MiB ||
 ||'''RAM size''' ||16 MiB ||
-||'''Wireless 0''' ||BCM4318 5 GHz ||
-||'''Wireless 1''' ||BCM4321 2.4 GHz ||
+||'''Wireless 0''' ||BCM4321 2.4/5.0 GHz ||
+||'''Wireless 1''' ||BCM4318 2.4 GHz ||
 ||'''Ethernet''' ||BCM5325 ||
 ||'''USB''' ||No ||
 ||'''Serial'''||Yes ||
@@ -43,9 +43,8 @@ Linux version 2.4.20 (builder@dev2) (gcc version 3.2.3 with Broadcom modificatio
 === Integrated circuits ===
  * CPU - BCM4704 [http://www.broadcom.com/collateral/pb/4703_4704-PB00-R.pdf Product_Brief] 
  * Switch - BCM5325 [http://www.broadcom.com/collateral/pb/5325M-PB05-R.pdf Product_Brief]
- * Wireless 0 - BCM4318 [http://www.broadcom.com/collateral/pb/4321_2055-PB02-R.pdf Product_Brief]
- * Wireless 1 - BCM4321 [http://www.broadcom.com/collateral/pb/4321_2055-PB02-R.pdf Product_Brief]
- * Wireless - BCM2055 (under shield) [http://www.broadcom.com/collateral/pb/4321_2055-PB02-R.pdf Product_Brief]
+ * Wireless 0 - BCM4321 [http://www.broadcom.com/collateral/pb/4321_2055-PB02-R.pdf Product_Brief]
+ * Wireless 1 - BCM4318 [http://www.broadcom.com/collateral/pb/94318-PB00-R.pdf Product_Brief]
  * Flashchip - Macronix MX29LV320CBTC-90G [http://www.macronix.com/QuickPlace/hq/PageLibrary4825740B00298A3B.nsf/h_Index/7CE3021F57B8EA4848257412002E26CC/$File/MX29LV320CT-B-2.0.pdf Data Sheet]
 
 === Circuit board ===
