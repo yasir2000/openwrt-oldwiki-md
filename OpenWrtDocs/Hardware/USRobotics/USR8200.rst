@@ -200,10 +200,21 @@ This can be accomplished in Redboot with the following commands... in this order
 5 = rx ( to tx pin of PC serial port )[[BR]]
 9 = Serial port ground is ground between the 2 ports... not to chassis ground.
 
+For a couple bucks you can get some decent hardware to make one. Here are the links from my purchase.[[BR]]
+[http://www.altex.com/Search.aspx?k=IDC9S] Flat ribbon cable 9 pin serial port connector[[BR]]
+[http://www.altex.com/Search.aspx?k=IDS10] Ribbon Cable Connector[[BR]]
+[http://www.altex.com/Search.aspx?k=RC10] 10 wire Flat Ribbon cable.[[BR]]
+I paid more to ship them than they cost but less than the gas would have cost me... to go looking at Radio Shacks that just don't seem to care about these kinds of parts anymore. Just line up the pin 1's to the red trace and you should have a serial port connection in minutes.
+
 == JTAG connector ==
 This device is equipted with a standard ARM 20 pin JTAG header.[[BR]]
 The Olimex ARM-USB-OCD device has been confirmed to work with it.[[BR]]
-TODO: post OpenOCD config files to use with the Olimex and other JTAG devices.
+The USBprog device is being worked on.
+
+== TODO == 
+ 1. Post OpenOCD config files to use with the Olimex and other JTAG devices.
+ 1. Document opening up the housing.
+ 1. Pictures, pictures and more pictures.
 
 == More Info / Pictures ==
 There are extensive pictures of this device at [http://home.comcast.net/~johnrw/], along with a [http://home.comcast.net/~johnrw/image/USR8200_notes.txt set of notes] on some of the investigations that the photographer did.
