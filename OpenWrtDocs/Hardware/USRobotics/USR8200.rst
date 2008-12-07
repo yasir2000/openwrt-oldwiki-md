@@ -55,45 +55,28 @@ Knoppix 5.3.1, left a lot to be desired. I could not get it to work. [https://so
 That can be downloaded at attachment:redboot-RAM.img. It is named redboot-RAM.img to distinguish it from the ROM version.
 
 3. The backup image, here, will be named jungo-image.bin I used 
-[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Actiontec/MI424-WR MI424-WR]  Jose Vasconcellos' jungo-image.py to create my backup. It can do quite a bit more than just make the backup... but at the time, my tftp server was not responding to anything. I have modified it to fit the properties of the USR8200, and named it jungo-usr8200-image2.py. You can get that here attachment:jungo-usr8200-image2.py
-[[BR]]Here is the top portion of his code. It does have the tftp server's address hardcoded... which you'll likely need to change. I suggest doing this on a linux if you can. You can either edit the file directly, or use his cmdline parsing.
-
-This is what cmdline I used to make a backup of the firmware.[[BR]]
-./jungo-usr8200-image2.py -f jungo-image.bin -u admin  -p admin -s 192.168.10.2
-
-This would be how to use it to install the redboot.bin from your server's root directory to the USR8200.[[BR]]
-./jungo-usr8200-image2.py -d -w -P tftp -u admin  -p admin -s 192.168.10.2[[BR]]
-You can leave off the -w to go through dry runs, as without -w it will not attempt to write anything.
+[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Actiontec/MI424-WR MI424-WR]  Jose Vasconcellos' jungo-image.py to create my backup. It can do quite a bit more than just make the backup... but at the time, my tftp server was not responding to anything. It is now in svn, and Jose has improved it alot. Now it will create a backup image that has the mac address in the name. Just make sure you have a working connection to and from the router, and then invoke it from the same directory as RedBoot is in.[[BR]]
+You can leave off the -w to go through dry runs, as without -w it will not attempt to write anything.[[BR]]
+You should be able to get the latest version here: [https://dev.openwrt.org/browser/trunk/scripts][[BR]]
+There are early version jungo-image.py attachments on this page... we'd prefer you don't use.
+Jose's latest can backup the firmware, and install RedBoot without needing a tftp server at all! Once Redboot is installed, you will still need to have some kind of server in place. Http, Ftp, Tftp, Xmodem, Zmodem, Ymodem :)
+Here is the jungo-image.py help screen. Although, the last time I tested it... it needed far less parameters.
+I could invoke it like so:[[BR]]
+./jungo-image.py -p admin 192.168.10.1 /var/www/redboot.bin[[BR]]
+where 192.168.10.1 was the address assigned to the USR8200's Lan port... ie what ip jungo-image.py should contact. -p was the default password that comes with it, admin. 
 {{{
-"""Usage: %s [options] <IP_address> [redboot.bin]
+Usage: %s [options] <IP_address> [redboot.bin]
 Valid options:
-\t-h | --help: usage statement
-\t-d | --no-dump: don't create a flash dump
-\t-f | --file: use <filename> to store dump contents
-\t-u | --user: provide username (default admin)
-\t-p | --pass: provide password (default password1)
-\t-P | --proto: set transfer protocol (default tftp)
-\t-s | --server: IP address of tftp server
-\t-w | --write: initiate loading of redboot (default no modification to flash)
-\t-v | --verbose: display additional information
-\t-V | --version: display version information
-"""
-
-{...}
-
-server = ""
-HOST = "192.168.10.1"
-PORT = 8080
-user = "admin"
-#password = getpass.getpass()
-password = "admin"
-proto = "http"
-imagefile = "redboot.bin"
-dumpfile = ""
-verbose = 0
-no_dump = 0
-dumplen = 0x10000
-write_image = 0
+-h | --help: usage statement
+-d | --no-dump: don't create a flash dump
+-f | --file: use <filename> to store dump contents
+-u | --user: provide username (default admin)
+-p | --pass: provide password (default password1)
+-P | --proto: set transfer protocol (default tftp)
+-s | --server: IP address of tftp server
+-w | --write: initiate loading of redboot (default no modification to flash)
+-v | --verbose: display additional information
+-V | --version: display version information
 }}}
 
 4. There are 2 steps to restoring the factory firmware. 
@@ -149,12 +132,45 @@ This can be accomplished in Redboot with the following commands... in this order
 == More Info / Pictures ==
 There are extensive pictures of this device at [http://home.comcast.net/~johnrw/], along with a [http://home.comcast.net/~johnrw/image/USR8200_notes.txt set of notes] on some of the investigations that the photographer did.
 
-1. Uses an Altima 101L chip for the WAN PHY
-1. Uses an Marvell 88E6060 switch
-1. Uses an Epson 7301 chip for Real Time clock
+ 1. Uses a Altima 101L chip for the WAN PHY.
+ 1. Uses a Marvell 88E6060 switch.
+ 1. Uses a Epson 7301 chip for Real Time clock.
+ 1. CS1 may in fact not be used.
+ 1. CS2 is wired to the Epson 7301 rtc.
 
+== Bugs to squash ==
+On my unit...{{{
+root@OpenWrt:/# lspci -v
+00:0f.0 FireWire (IEEE 1394): VIA Technologies, Inc. IEEE 1394 Host Controller (rev 80) (prog-if 10 [OHCI])
+        Flags: bus master, stepping, medium devsel, latency 0, IRQ 25
+        Memory at 48000000 (32-bit, non-prefetchable) [size=2K]
+        I/O ports at 1000 [size=128]
+        Capabilities: [50] Power Management version 1
+        Kernel driver in use: ohci1394
 
-== Kernel Output ==
+00:10.0 USB Controller: VIA Technologies, Inc. VT82xxxxx UHCI USB 1.1 Controller (rev 61) (prog-if 00 [UHCI])
+        Subsystem: VIA Technologies, Inc. VT82xxxxx UHCI USB 1.1 Controller
+        Flags: bus master, medium devsel, latency 22, IRQ 28
+        I/O ports at 1080 [size=32]
+        Capabilities: [80] Power Management version 2
+        Kernel driver in use: uhci_hcd
+
+00:10.1 USB Controller: VIA Technologies, Inc. VT82xxxxx UHCI USB 1.1 Controller (rev 61) (prog-if 00 [UHCI])
+        Subsystem: VIA Technologies, Inc. VT82xxxxx UHCI USB 1.1 Controller
+        Flags: bus master, medium devsel, latency 22, IRQ 27
+        I/O ports at 10a0 [size=32]
+        Capabilities: [80] Power Management version 2
+        Kernel driver in use: uhci_hcd
+
+00:10.2 USB Controller: VIA Technologies, Inc. USB 2.0 (rev 63) (prog-if 20 [EHCI])
+        Subsystem: VIA Technologies, Inc. USB 2.0
+        Flags: bus master, medium devsel, latency 22, IRQ 26
+        Memory at 48000800 (32-bit, non-prefetchable) [size=256]
+        Capabilities: [80] Power Management version 2
+        Kernel driver in use: ehci_hcd
+}}}
+latency 0, 22,22,22 is probably from something unitialized.
+== Kernel Output (preliminary) ==
 {{{
 RedBoot> fis load linux
 RedBoot> exec
