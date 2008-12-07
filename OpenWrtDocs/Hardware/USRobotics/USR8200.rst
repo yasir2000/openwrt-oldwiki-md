@@ -130,15 +130,17 @@ Although this router has no wireless support, there is tracking and pads on the 
 || GPIO[1] || USB-2 LED  ||  OUTPUT ||
 || GPIO[2] || IEEE1394 LED || OUTPUT ||
 || GPIO[3] || LAN PORT 1 LED || OUTPUT ||
-|| GPIO[4] || Yet Unknown || Yet Unknown ||
-|| GPIO[5] || Yet Unknown || Yet Unknown ||
-|| GPIO[6] || Yet Unknown || Yet Unknown ||
-|| GPIO[7] || Possibly the mini-pci || Yet Unknown ||
-|| GPIO[8] || to VIA VT6307 IEEE1394 Chip || Yet Unknown ||
-|| GPIO[9] || to VIA VT6202 USB Chip || Yet Unknown ||
-|| GPIO[10] || to VIA VT6202 USB Chip || Yet Unknown ||
-|| GPIO[11] || to VIA VT6202 USB Chip || Yet Unknown ||
-|| GPIO[12] || Reset button  || Yet Unknown ||
+|| GPIO[4] || Yet Unknown || Configured as INPUT ||
+|| GPIO[5] || Yet Unknown || Configured as INPUT ||
+|| GPIO[6] || Yet Unknown || Configured as INPUT ||
+|| GPIO[7] || Possibly the mini-pci || Configured as INPUT ||
+|| GPIO[8] || to VIA VT6307 IEEE1394 Chip || Configured as INPUT ||
+|| GPIO[9] || to VIA VT6202 USB Chip || Configured as INPUT ||
+|| GPIO[10] || to VIA VT6202 USB Chip || Configured as INPUT ||
+|| GPIO[11] || to VIA VT6202 USB Chip || Configured as INPUT ||
+|| GPIO[12] || Reset button  || INPUT ||
+|| GPIO[13] || PCI enable || OUTPUT ||
+jw... I think. :)
 == More Info / Pictures ==
 There are extensive pictures of this device at [http://home.comcast.net/~johnrw/], along with a [http://home.comcast.net/~johnrw/image/USR8200_notes.txt set of notes] on some of the investigations that the photographer did.
 == Attachments ==
