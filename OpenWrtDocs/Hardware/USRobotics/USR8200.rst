@@ -141,6 +141,11 @@ Although this router has no wireless support, there is tracking and pads on the 
 || GPIO[12] || Reset button  || INPUT ||
 || GPIO[13] || PCI enable || OUTPUT ||
 jw... I think. :)
+[[BR]]Based upon... the factory firmware bootloader initializes GPOER to 0x1FF0, and GPOUTR to 0x600F
+This can be accomplished in Redboot with the following commands... in this order.
+[[BR]]mfill -b 0xc8004004 -l 4 -p 0x1ff0 -4
+[[BR]]mfill -b 0xc8004000 -l 4 -p 0x600f -4
+
 == More Info / Pictures ==
 There are extensive pictures of this device at [http://home.comcast.net/~johnrw/], along with a [http://home.comcast.net/~johnrw/image/USR8200_notes.txt set of notes] on some of the investigations that the photographer did.
 == Attachments ==
