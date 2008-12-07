@@ -211,11 +211,6 @@ This device is equipted with a standard ARM 20 pin JTAG header.[[BR]]
 The Olimex ARM-USB-OCD device has been confirmed to work with it.[[BR]]
 The USBprog device is being worked on.
 
-== TODO == 
- 1. Post OpenOCD config files to use with the Olimex and other JTAG devices.
- 1. Document opening up the housing.
- 1. Pictures, pictures and more pictures.
-
 == More Info / Pictures ==
 There are extensive pictures of this device at [http://home.comcast.net/~johnrw/], along with a [http://home.comcast.net/~johnrw/image/USR8200_notes.txt set of notes] on some of the investigations that the photographer did.
 
@@ -432,6 +427,15 @@ Enter 'help' for a list of built-in commands.
  ---------------------------------------------------
 root@OpenWrt:/#
 }}}
+
+== To Do List ==
+Some additional things I can think of quickly.
+ 
+ 1. Post OpenOCD config files to use with the Olimex and other JTAG devices.
+ 1. Document opening up the housing.
+ 1. Pictures, pictures and more pictures.
+ 1. Improve device timings. More experimentation is needed to optimize the hardware setup.
+
 == Attachments ==
 Here is a list of all the files provided so far.[[AttachList]] 
 ----
