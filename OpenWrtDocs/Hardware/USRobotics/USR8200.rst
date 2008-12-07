@@ -24,8 +24,18 @@ The installed bootloader is "OpenRG", written by Jungo, but despite being covere
 A custom version of !RedBoot has been built and can be loaded with the instructions on the [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Actiontec/MI424-WR MI424-WR] page. The custom version for the USR8200 is attachment:redboot.bin. The source for this is the Intel !RedBoot sources plus this attachment:usr8200.epk package. Once !RedBoot is installed as the bootloader, and configured, you can then install the linux kernel and rootfs image from !OpenWrt.
 
 This version detects PHYs on both Ethernet ports, but !RedBoot only uses one, eth0, which maps onto the WAN port of the USR8200.
+
+==== RedBoot Command Line Navigation Keystrokes ====
+Cursor keys: Up, Down, Right and Left DO NOT WORK. Instead use[[BR]]
+To nondestructively move the cursor Left: Ctrl-B[[BR]]
+To nondestructively move the cursor Right: Ctrl-F[[BR]]
+
+To DELETE 1 char to the Left of cursor: Backspace[[BR]]
+To recall a Previous command from RedBoot's command history: Ctrl-P[[BR]]
+
 === Installing OpenWRT ===
-This is a skeleton of the procedure... where 192.168.10.2 is the address of the machine which has a tftp server, and the necessary files in the right location.
+This is a skeleton of the procedure... where 192.168.10.2 is the address of the machine which has a tftp server, and the necessary files in the right location. It should probably be notated as <HOST_IP_ADDR> or something close. It is the host machine.[[BR]]
+
 From the Jungo prompt:
  1. USR8200> load -u tftp://192.168.10.2/redboot.bin -r 0 
 [[BR]]''Once that finishes, you can type reboot or press reset.'' 
