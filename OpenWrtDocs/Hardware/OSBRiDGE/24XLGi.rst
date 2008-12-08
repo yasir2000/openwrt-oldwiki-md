@@ -20,7 +20,7 @@ There are 6 pins on boards, but nobody has figured out how to attach a serial on
 == Hacking ==
 That's a long story, if you are curious read this: http://teknoraver.net/software/osbridge_hacking/
 
-I managed to inject commands to the webif using this tool I wrote: [http://teknoraver.campuslife.it/software/inject.pl inject.pl]
+I managed to inject commands to the webif using this tool I wrote: [http://teknoraver.net/software/osbridge_hacking/inject.pl.txt inject.pl]
 
 {{{
 $ inject.pl cat /proc/cpuinfo
