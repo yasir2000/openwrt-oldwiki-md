@@ -31,6 +31,10 @@ I did eventually manage to get a 2.6 image running (r13270), although without wi
 
 The {{{.trx}}} image in {{{$BUILD_ROOT/bin}}} can now be flashed to the router.
 
+== B43 ==
+
+The open source b43 driver does not yet support the unit's wireless chipset, which contains an LP PHY.
+
 == USB Storage ==
 
 To attach a USB storage device, configure the following, under Kernel Modules:
