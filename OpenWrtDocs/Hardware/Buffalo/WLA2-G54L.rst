@@ -7,7 +7,7 @@ CFE version used on WLA2-G54L resets switch VLAN settings to default on boot. Pa
 
 /!\ '''This router sits on 192.168.11.100 (or 192.168.11.1) as default, but flashable always on the last IP You have set up, so You have to TFTP to that address.'''
 
-J5 is is the serial interface, pinout as follows:
+J5 is is the serial interface, pinout as follows, Baudrate is 115200:
 
 {{{
      CPU
