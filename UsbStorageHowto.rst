@@ -448,8 +448,8 @@ fi
 }}}
 now your System should Startup nicely either from USB or from internal Flash if the USB-disk is not available.
 
-== Installing and using IPKG packages in mount point other than root ==
-The ["Optware"] packages already make use of a similar concept, by which ipkg-opt uses a config file (/opt/etc/ipkg.conf) that points / to /opt in order to force the packages to install there. The settings to control where new packages are installed are defined by single-line entries in /etc/ipkg.conf with the original default being 'root / '. If you have external flash or hard drive, you may want to install packages there and add the corresponding directories to $PATH in /etc/profile.
+== Installing and using OPKG packages in mount point other than root ==
+The ["Optware"] packages already make use of a similar concept, by which ipkg-opt uses a config file (/opt/etc/opkg.conf) that points / to /opt in order to force the packages to install there. The settings to control where new packages are installed are defined by single-line entries in /etc/ipkg.conf with the original default being 'root / '. If you have external flash or hard drive, you may want to install packages there and add the corresponding directories to $PATH in /etc/profile.
 
 /!\ '''NOTE:''' This is not tested. Please report if it's working for you.
 
@@ -461,7 +461,7 @@ The ["Optware"] packages already make use of a similar concept, by which ipkg-op
 
 /!\ '''NOTE:''' Destination needs not to have trailing slash in order to make following script work (Nijel).
 
-/!\ '''NOTE: '''Following script has been adjusted to reflect kamikaze using {{{opkg}}} instead of {{{ipkg}}}
+/!\ '''NOTE: '''Following script has been adjusted to reflect kamikaze using {{{opkg}}} instead of {{{opkg}}}
 
 Configure {{{opkg}}} for a non-root destination
 
@@ -473,7 +473,7 @@ then install a package to a non-root destination
 {{{
 opkg -dest usb install kismet-server
 }}}
-Copy & paste this script into {{{/bin/ipkg-link}}} (or somewhere in your {{{$PATH}}}).
+Copy & paste this script into {{{/bin/opkg-link}}} (or somewhere in your {{{$PATH}}}).
 
 {{{
 #!/bin/sh
