@@ -6,6 +6,7 @@ This page covers the BCM63xx SoC specificities, but the BCM33xx SoC (excluding B
  * The Broadcom BCM963xx currently only works with BCM6348/BCM6358 boards, but will soon with others as well
  * We have GPL drivers for USB (OHCI and EHCI), Ethernet, DSL is still binary though
    Belkin has released [http://www.belkin.com/uk/support/article/?lid=enu&pid=F5D7633uk4A&aid=9294&scid=314 "GPL code for the F5D7633"], but it only has binary Broadcom drivers.
+*TP-link also has some code out for the platform --> see [http://www.tp-link.com/support/gpl.asp TP-link GPL code for many of their products (many are broadcom based) ]
 == What is this Broadcom 63xx stuff? ==
 
 [http://www.broadcom.com/products/DSL/xDSL-CPE-Solutions/BCM6348 Broadcom63xx SoC]integrates ADSL/ADSL2+ features, routing, and external Wireless NIC.
@@ -58,6 +59,9 @@ Known 6338 platforms*:
 ||[:OpenWrtDocs/Hardware/Siemens/CL110:Siemens CL 110]||
 ||[http://zhone.com/products/6211/ Zhone 6211] ||
 ||[http://zhone.com/products/6212/ Zhone 6212-l2/-l3] ||
+||[http://www.tp-link.com/products/product_des.asp?id=44 tp-link tp-8840]||
+
+
 
 
 Known 6348 platforms*:
