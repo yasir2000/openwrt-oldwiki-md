@@ -172,36 +172,32 @@ mount /dev/scsi/host0/bus0/target0/lun0/part1 /mnt
 }}}
 Be happy and use your USB device like on every other GNU/Linux system or create a file server using Samba.
 
-If you go with ext2 with journaling and install kmod-fs-ext2 , kmod-fs-ext3 and e2fsprogs you can use it like a normal unix type disk.
-Create the script /etc/init.d/usbdrive ( changing the mount point to match yours )
+If you go with ext2 with journaling and install kmod-fs-ext2 , kmod-fs-ext3 and e2fsprogs you can use it like a normal unix type disk. Create the script /etc/init.d/usbdrive ( changing the mount point to match yours )
+
 {{{
 #!/bin/sh /etc/rc.common
-
 START=99
 STOP=40
-
-
-
 start()
 {
         echo -n "Testing USB Partition:  "
         e2fsck -p /dev/scsi/host0/bus0/target0/lun0/part1 &
         sleep 5
-        echo -n "Mounting USB drive: "                                       
+        echo -n "Mounting USB drive: "
         mount -t ext3 -o noatime /dev/scsi/host0/bus0/target0/lun0/part1 /usb
         echo "Done."
-}     
+}
 stop()
-{                                          
-        echo -n "Umounting USB drive:  "   
+{
+        echo -n "Umounting USB drive:  "
         sync
-        sync                                          
+        sync
         umount /dev/scsi/host0/bus0/target0/lun0/part1
         echo "Done."
-}        
+}
 restart()
-{           
-        stop 
+{
+        stop
         start
 }
 }}}
@@ -250,8 +246,7 @@ fdisk /dev/scsi/host0/bus0/target0/lun0/disc
 {{{
 fdisk /dev/sda
 }}}
-/!\ '''IMPORTANT:''' Make sure you are modifying the right device. If you have any other USB drives, or a SCSI or SATA drive, your USB device might be at {{{/dev/sdb}}} or {{{/dev/sdc}}} (and so on) instead!
-Also, you do ''not'' want to use a partition such as {{{/dev/sda1}}} (note the number at the end); you ''do'' want the base device name.
+/!\ '''IMPORTANT:''' Make sure you are modifying the right device. If you have any other USB drives, or a SCSI or SATA drive, your USB device might be at {{{/dev/sdb}}} or {{{/dev/sdc}}} (and so on) instead! Also, you do ''not'' want to use a partition such as {{{/dev/sda1}}} (note the number at the end); you ''do'' want the base device name.
 
 For more information about using {{{fdisk}}}, see http://www.tldp.org/HOWTO/Partition/fdisk_partitioning.html.
 
@@ -269,7 +264,6 @@ Then "format" your partition with
 {{{
 mke2fs -j /dev/scsi/host0/bus0/target0/lun0/part1
 }}}
-
 mke2fs may fail on large disks (e.g. 300GB) if there is not enough memory, consider adding a swap partition, even if it is only used during mke2fs.
 
 If you keep getting errors like:
@@ -382,10 +376,9 @@ mount "$boot_dev" /mnt
                 mount -o move /mnt/sys /sys 2>&-
         }
 }
-
 }}}
-
 '''''Note:''''' for Kamikaze 2.4 kernel that may not have hotplug2 then try using this instead.  Tested with openwrt-brcm-2.4-squashfs.
+
 {{{
 #!/bin/sh
 # change this to your boot partition
@@ -410,14 +403,14 @@ mount "$boot_dev" /mnt
                 mount -o move /mnt/sys /sys 2>&-
         }
 }
-
 }}}
-
 '''''Note:''''' for Kazimate 2.6 kernel, add this before insmod loop.
+
 {{{
 /sbin/hotplug2 --override --persistent --max-children 1 --no-coldplug &
 }}}
 And kill it after the loop.
+
 {{{
 killall hotplug2
 }}}
@@ -435,9 +428,7 @@ Test to see if pivotroot works:
 {{{
 /etc/init.d/pivotroot
 df -h}}}
-You may safely ignore errors saying "{{{insmod: cannot insert ...}}}"
-If pivotroot worked, then df will show that your USB storage is mounted on "/" (root).
-Now reboot.
+You may safely ignore errors saying "{{{insmod: cannot insert ...}}}" If pivotroot worked, then df will show that your USB storage is mounted on "/" (root). Now reboot.
 
 {{{
 reboot}}}
@@ -456,6 +447,7 @@ fi
 } | logger -s -p 6 -t '' &
 }}}
 now your System should Startup nicely either from USB or from internal Flash if the USB-disk is not available.
+
 == Installing and using IPKG packages in mount point other than root ==
 The ["Optware"] packages already make use of a similar concept, by which ipkg-opt uses a config file (/opt/etc/ipkg.conf) that points / to /opt in order to force the packages to install there. The settings to control where new packages are installed are defined by single-line entries in /etc/ipkg.conf with the original default being 'root / '. If you have external flash or hard drive, you may want to install packages there and add the corresponding directories to $PATH in /etc/profile.
 
@@ -463,19 +455,23 @@ The ["Optware"] packages already make use of a similar concept, by which ipkg-op
 
 -Works for me (MikkoKorkalo)
 
+-Works for me (ElbenfreunD)
+
 /!\ '''NOTE:''' PackagesOnExternalMediaHowTo contains additional important infos.
 
 /!\ '''NOTE:''' Destination needs not to have trailing slash in order to make following script work (Nijel).
 
-Configure {{{ipkg}}} for a non-root destination
+/!\ '''NOTE: '''Following script has been adjusted to reflect kamikaze using {{{opkg}}} instead of {{{ipkg}}}
+
+Configure {{{opkg}}} for a non-root destination
 
 {{{
-echo dest usb /mnt/usb >> /etc/ipkg.conf
+echo dest usb /mnt/usb >> /etc/opkg.conf
 }}}
 then install a package to a non-root destination
 
 {{{
-ipkg -dest usb install kismet-server
+opkg -dest usb install kismet-server
 }}}
 Copy & paste this script into {{{/bin/ipkg-link}}} (or somewhere in your {{{$PATH}}}).
 
@@ -484,21 +480,21 @@ Copy & paste this script into {{{/bin/ipkg-link}}} (or somewhere in your {{{$PAT
 COMMAND=$1
 PACKAGE=$2
 setdest () {
-        for i in `grep dest /etc/ipkg.conf | cut -d ' ' -f 3`; do
-                if [ -f $i/usr/lib/ipkg/info/$PACKAGE.list ]; then
+        for i in `grep dest /etc/opkg.conf | cut -d ' ' -f 3`; do
+                if [ -f $i/usr/lib/opkg/info/$PACKAGE.list ]; then
                         DEST=$i
                 fi
         done
         if [ "x$DEST" = "x" ]; then
                 echo "Can not locate $PACKAGE."
-                echo "Check /etc/ipkg.conf for correct dest listings";
+                echo "Check /etc/opkg.conf for correct dest listings";
                 echo "Check name of requested package: $PACKAGE"
                 exit 1
         fi
 }
 addlinks () {
         setdest;
-        cat $DEST/usr/lib/ipkg/info/$PACKAGE.list | while read LINE; do
+        cat $DEST/usr/lib/opkg/info/$PACKAGE.list | while read LINE; do
                 SRC=$LINE
                 DST=`echo $SRC | sed "s|$DEST||"`
                 DSTNAME=`basename $DST`
@@ -530,7 +526,7 @@ addlinks () {
 }
 removelinks () {
         setdest;
-        cat $DEST/usr/lib/ipkg/info/$PACKAGE.list | while read LINE; do
+        cat $DEST/usr/lib/opkg/info/$PACKAGE.list | while read LINE; do
                 SRC=$LINE
                 DST=`echo $LINE | sed "s|$DEST||"`
                 DSTNAME=`basename $DST`
@@ -555,7 +551,7 @@ mountdest () {
                 echo "Mount point does not exist"
                 exit 1
         fi
-        for i in $PACKAGE/usr/lib/ipkg/info/*.list; do
+        for i in $PACKAGE/usr/lib/opkg/info/*.list; do
                 $0 add `basename $i .list`
         done
 }
@@ -565,7 +561,7 @@ umountdest () {
                 echo "Mount point does not exist"
                 exit 1
         fi
-        for i in $PACKAGE/usr/lib/ipkg/info/*.list; do
+        for i in $PACKAGE/usr/lib/opkg/info/*.list; do
                 $0 remove `basename $i .list`
         done
 }
@@ -598,29 +594,29 @@ exit 0
 Make sure the {{{/bin/ipkg-link}}} script is executable:
 
 {{{
-chmod a+x /bin/ipkg-link
+chmod a+x /bin/opkg-link
 }}}
 Examples howto use the script:
 
 Link a single package to root:
 
 {{{
-ipkg-link add kismet-server
+opkg-link add kismet-server
 }}}
 Link all packages on a mount point to root:
 
 {{{
-ipkg-link mount /mnt/usb
+opkg-link mount /mnt/usb
 }}}
 Remove symlinks:
 
 {{{
-ipkg-link remove kismet-server
+opkg-link remove kismet-server
 }}}
 Remove all symlinks for all packages:
 
 {{{
-ipkg-link umount /mnt/usb
+opkg-link umount /mnt/usb
 }}}
 = Links =
  * Linux USB [[BR]]- http://www.linux-usb.org/
