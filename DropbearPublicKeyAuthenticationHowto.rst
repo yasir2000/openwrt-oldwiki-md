@@ -108,7 +108,7 @@ The Only difference in OpenSSH/PuTTY and this client is, the key pair generated 
 
  * Generate New will create id_dsa and id_dsa.pub
  * Upload (will not work if sftp is not enabled on WRT) simply creates a new authorized_keys2 (in most cases there is none) with the {{{---Begin Key, Comment}}}, {{{public_key}}} and {{{---End Key}}} lines
- * Delete everything else other than the public_key line {{{make sure its one line}}} and prepend, 'ssh-rsa' or 'ssh-dsa' (without quotes based on your key type) then save & exit.
+ * Delete everything else other than the public_key line {{{make sure its one line}}} and prepend, 'ssh-rsa' or 'ssh-dss' (without quotes based on your key type) then save & exit. NOTE that it's 'ssh-dss' for a file name id_dsa, it's easy making it 'ssh-dsa' and really hard to find the typo!
  * {{{
 cat tmp/.ssh/authorized_keys2 >> /etc/dropbear/authorized_keys; rm -rf /tmp/.ssh}}}
 == Using WinSCP on Windows ==
@@ -188,6 +188,9 @@ If you see anything different than the above you can try these commands.
 {{{
 chmod 0700 /etc/dropbear
 chmod 0600 /etc/dropbear/authorized_keys}}}
+
+If you think everything is OK but it still does not accept your key, check that you didn't say 'ssh-dsa' when manually converting a multi line SSH2 key file.
+
 = Links =
 The free OpenSSH client and server [[BR]]- http://www.openssh.org/
 
