@@ -2,7 +2,7 @@
 
 = Kamikaze Configuration =
 == Foreword / Background ==
-In the early days of OpenWRT, the only target platforms were the WRT54G and similar Broadcom-based routers.  This platform has an NVRAM (much like high-end, commercial routers) to store configuration information.  Up until White Russian, OpenWRT used NVRAM for configuration.  As OpenWRT expanded to new platforms without NVRAM, NVRAM was abandoned in favor of configuration files in /etc/config.  This configuration method presents related information in the same area and is much like existing *nix configuration files.
+In the early days of OpenWRT, the only target platforms were the WRT54G and similar Broadcom-based routers.  This platform has an NVRAM (much like high-end, commercial routers) to store configuration information.  Up until White Russian, OpenWRT used NVRAM for configuration.  As OpenWRT expanded to new platforms without NVRAM, NVRAM was abandoned in favour of configuration files in /etc/config.  This configuration method presents related information in the same area and is much like existing *nix configuration files.
 
 Some older Kamikaze builds have configuration files which mimic the NVRAM configuration in that there are only key=value pairs in the configuration files.
 
@@ -33,7 +33,7 @@ config switch eth0
         option vlan0    "0 1 2 3 5*"
         option vlan1    "4 5"
 }}}
-The "*" mark is set for the default VLAN. Pakets transfered between interfaces on the default VLAN are the ones that will remain unchanged, while all other will be "tagged". See more in section "VLAN Trunking" under the [:OpenWrtDocs/NetworkInterfaces:VLAN and bridging concepts] page.
+The "*" mark is set for the default VLAN. Packets transferred between interfaces on the default VLAN are the ones that will remain unchanged, while all other will be "tagged". See more in section "VLAN Trunking" under the [:OpenWrtDocs/NetworkInterfaces:VLAN and bridging concepts] page.
 
 If you are using a VLAN 802.11q capable external switch, you can use it simply by configuring the VLAN interfaces as instructed in the next section.  For example: VLAN 1 on the switch would correspond to eth0.1 on OpenWRT.
 
