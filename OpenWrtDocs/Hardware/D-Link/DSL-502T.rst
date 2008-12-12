@@ -301,7 +301,7 @@ The only way to solve this at present is to force the DSL-502T ethernet connecti
 
 In the event of a data connection error the process of flashing can be done manually to investigate the error or complete the process in another operating system. 
 Once this error has been reached in the adam2flash-502t.pl script the ip of the boot loader will have been displayed and the mtd1 updated for the image you are trying to flash if you set the option -setmtd1.
-From this point flashing can be done manually from a command prompt in windows or a Linux terminal. Reboot the modem and log in to the boot loader ftp as in the following example (it should log in immediately:
+From this point flashing can be done manually from a command prompt in windows or a Linux terminal. Reboot the modem and log in to the boot loader ftp as in the following example (it should log in immediately):
 
 {{{
 $ ftp <Bootloader ip address>
@@ -330,7 +330,8 @@ ftp> exit
 221 Goodbye.
 }}}
 
-It should be noted that the above example does not update the mtld1 and so ca brick the modem.
+It should be noted that the above example does not update the mtld1 and so can brick the modem.
+For manually updating the mtld1 see this script https://dev.openwrt.org/browser/trunk/scripts/adam2flash-502T.pl
  
 == How to Debrick ==
 You can generally use the methods on DLinks site or just change ur mtd0/1/4 variables back to defaults and upload the dlink firmware.
