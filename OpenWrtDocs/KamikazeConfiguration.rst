@@ -56,6 +56,17 @@ config interface lan
         option dns      192.168.1.1
 }}}
 ==== Sub interfaces / IP Alias ====
+Kamikaze 8.09:
+{{{
+config alias
+        option interface lan
+        option proto    static
+        option ipaddr   192.168.1.2
+        option netmask  255.255.255.0
+	option gateway 192.168.1.1
+}}}
+
+Older Versions:
 {{{
 config interface lan1
         option ifname   eth0.0:0
