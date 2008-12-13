@@ -47,3 +47,10 @@ Usage: httpd [options]
 
 '''httpd''' suport [:OpenWrtDocs/httpd_CGI_scripts: CGI script]. 
  
+Note that multiple instances of httpd can be run, which would have different .conf files, e.g.
+
+/usr/sbin/httpd -p 80 -h /www
+
+/usr/sbin/httpd -p 8080 -h /www2 -c /etc/httpd2.conf
+
+The first instance could be open for public viewing, the second password protected--see .conf settings
