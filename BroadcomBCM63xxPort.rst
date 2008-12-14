@@ -89,7 +89,7 @@ Known 6348 platforms*:
 ||[http://www.netcomm.com.au/ADSL/NB9W_new.php Netcomm NB9W] (Re-branded Comtrend CT-638) ||
 ||[:OpenWrtDocs/Hardware/Netgear/DG834GT:Netgear DG834GT] ||
 ||[http://www.netgear.co.uk/wireless_modem_router_dg834pn.php Netgear DG834PN] ||
-||[:OpenWrtDocs/Hardware/PirelliBroadbandSolutions/AliceGateVoIP2Plus:Pirelli Alice Gate 2 Plus Wi-Fi] ||
+||Pirelli Alice Gate 2+ Wi-Fi (See 6358 too)||
 ||[http://www.thomson-broadband.co.uk/codepages/content3.asp?c=7&ProductID=511 Thomson Speedtouch ST585v6] ||
 ||[http://www.thomson-broadband.co.uk/codepages/content3.asp?c=7&ProductID=528 Thomson Speedtouch ST780(i)WL] ||
 ||[http://www.usr-emea.com/products/p-broadband-product.asp?prod=bb-9107&loc=unkg US Robotics USR9107] ||
@@ -104,7 +104,7 @@ Known 6358 platforms*:
 ||[:OpenWrtDocs/Hardware/Netcomm/NB9WMAXX:Netcomm NB9WMAXX] ||
 ||[:OpenWrtDocs/Hardware/Netgear/DG834N:Netgear DG834N] ||
 ||[:OpenWrtDocs/Hardware/Neuf/NeufBox4:Neuf Box 4] ||
-||[:OpenWrtDocs/Hardware/PirelliBroadbandSolutions/AliceGateVoIP2Plus: ALICE GATE VoIP 2 Plus] ||
+||[:OpenWrtDocs/Hardware/PirelliBroadbandSolutions/AliceGateVoIP2Plus: ALICE GATE VoIP 2 Plus Wi-Fi Business] ||
 ||[http://www.usr-emea.com/products/p-broadband-product.asp?prod=bb-9113&loc=unkg US Robotics USR9113] ||
 ||[http://zhone.com/products/6228/ Zhone 6228] ||
 
