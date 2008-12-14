@@ -1,5 +1,5 @@
 = Netgear DG834GT =
-The Netgear DG834GT is not as similar to the [:OpenWrtDocs/Hardware/Netgear/DG834G:DG834G] as the name may imply.  Unlike the DG834G which is [:AR7Port:AR7]-based, this device is based on the BCM6348, which is of opposite endianess (this device is big-endian).  Thus this device is not currently supported by OpenWrt. MIPS CPU is 256MHz, Atheros MiniPCI WLAN, BCM5325 switch. 4MiB flash, 16MiB RAM. More about this device might be found by searching the forum.
+The Netgear DG834GT is not as similar to the ["OpenWrtDocs/Hardware/Netgear/DG834G"] as the name may imply.  Unlike the DG834G which is [:AR7Port:AR7]-based, this device is based on the BCM6348, which is of opposite endianess (this device is big-endian).  Thus this device is not currently supported by OpenWrt. MIPS CPU is 256MHz, Atheros MiniPCI WLAN, BCM5325 switch. 4MiB flash, 16MiB RAM. More about this device might be found by searching the forum.
 
 ''' Cpu Info '''
 
@@ -192,7 +192,6 @@ help                Obtain help for CFE commands
 }}}
 ''' Serial Console '''
 
-
 Serial console is J503.
 ||'''pin''' ||'''signal''' ||
 ||1 ||GND ||
@@ -201,19 +200,16 @@ Serial console is J503.
 ||4 ||RX ||
 
 
-
-
 ''' JTAG Port '''
 
 Jtag Port is J201 this port is verified.
 
 Disposition on the board:
-
 ||2 ||4 ||6 ||8 ||10 ||12 ||
 ||1 ||3 ||5 ||7 || 9 ||11 ||
 
-JTAG signals and pins
 
+JTAG signals and pins
 ||nTRST || 1 || 2 || GND ||
 ||TDI || 3 || 4 || GND ||
 ||TDO || 5 || 6 || GND ||
@@ -228,10 +224,17 @@ The cable Unbuffered Cable, Xilinx DLC5 Cable III work very good.
 
 ''' Experience Debrick '''
 
-With access to Serial Console is possible to restore the firmware on the router from bootloader CFE. CFE can download the image with TFTP. 
+With access to Serial Console is possible to restore the firmware on the router from bootloader CFE. CFE can download the image with TFTP.
 
-'''Attention''' to use the command '''''e''''' for erase the whole flash when CFE can't read the tag it delete all flash also the CFE. For example if the flash is empty by ''dd if=/dev/zero of=/dev/mtd1'' the tag not exist. When the CFE is erased the only method to restore it is the JTAG Port.
-Dump of the CFE with dd if=/dev/mtd2 is in format BigEndian, but the dump with JTag Cable is in format LittleEndian so for restore a CFE need convert the image file.
+'''Attention''' to use the command '''''e''''' for erase the whole flash when CFE can't read the tag it delete all flash also the CFE. For example if the flash is empty by ''dd if=/dev/zero of=/dev/mtd1'' the tag not exist. When the CFE is erased the only method to restore it is the JTAG Port. Dump of the CFE with dd if=/dev/mtd2 is in format BigEndian, but the dump with JTag Cable is in format LittleEndian so for restore a CFE need convert the image file.
 
+'''Hardware'''
+
+Image of DG834GT:
+
+There is an unpopulated USB port near right from reset button. The voltage regulator, and some USB power related parts (capacitors, fuses) are missing too.
+
+attachment:netgearDG834GTbig.jpg
+[javascript:void(0);/*1229275641282*/ A bigger resolution of this image can downloaded here.]
 ----
-CategoryModel ["CategoryBCM63xx"]
+ CategoryModel ["CategoryBCM63xx"]
