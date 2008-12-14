@@ -83,6 +83,7 @@ Quicklinks to manufacturers:
  * [:Hardware/Neuf:]
  * [:Hardware/OvislinkAirLive:]
  * [:Hardware/PcEngines:]
+ * [:Hardware/PirelliBroadbandSolutions:]
  * [:Hardware/Planet:]
  * [:Hardware/Ravotek:]
  * [:Hardware/RaidSonic:]
