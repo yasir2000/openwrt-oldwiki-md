@@ -32,6 +32,8 @@ __ /!\ __ '''The reset button is hardwired on the SE505V2, so there is no failsa
 
 __ /!\ __ '''The tftp address during boot_wait is determined by NVRAM. CFE-default is 192.168.2.1 '''
 
+Overclocking will work with 216, 240 and 264 MHz. 228, 252, 280 and 300 Mhz will not work and you will need a JTAG cable to flash a NVRAM with good values. (backup before overclocking!)
+
 
 == Internal Connectors ==
 On Siemens SE505V2 models, the JTAG connector is labeled J7 (male 2mm connecting plug).
