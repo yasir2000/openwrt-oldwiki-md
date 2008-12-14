@@ -104,6 +104,7 @@ Known 6358 platforms*:
 ||[:OpenWrtDocs/Hardware/Netcomm/NB9WMAXX:Netcomm NB9WMAXX] ||
 ||[:OpenWrtDocs/Hardware/Netgear/DG834N:Netgear DG834N] ||
 ||[:OpenWrtDocs/Hardware/Neuf/NeufBox4:Neuf Box 4] ||
+||[:OpenWrtDocs/Hardware/PirelliBroadbandSolutions/AliceGateVoIP2Plus: ALICE GATE VoIP 2 Plus] ||
 ||[http://www.usr-emea.com/products/p-broadband-product.asp?prod=bb-9113&loc=unkg US Robotics USR9113] ||
 ||[http://zhone.com/products/6228/ Zhone 6228] ||
 
