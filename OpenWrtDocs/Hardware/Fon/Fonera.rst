@@ -125,15 +125,7 @@ FLASH: 0xa8000000 - 0xa87f0000, 128 blocks of 0x00010000 bytes each.
 RedBoot>
 }}}
 
----- /!\ '''Edit conflict - other version:''' ----
 Timing:
-
-
----- /!\ '''Edit conflict - your version:''' ----
-Timing:
-
-
----- /!\ '''End of edit conflict''' ----
 {{{
 power                t=0
 safe to connect TX   t+~3sec
@@ -143,11 +135,6 @@ redboot banner       t+13sec
 WLAN light blinks    t+86sec
 }}}
 
----- /!\ '''Edit conflict - other version:''' ----
-
----- /!\ '''Edit conflict - your version:''' ----
-
----- /!\ '''End of edit conflict''' ----
 Maybe you think your fonera serial port is not working due to bogus serial pinouts posted on Hungarian blog pages.  Maybe you started cursing greedy mouth-breathing corporations and ranting about the need for GPLv3.  If so, the timing above may help you restore your calmness.  You should see the '+' within 7 seconds of poweron.  The problem "my fonera doesn't boot with serial port plugged in" stops the '+' from appearing, so if you see '+' you haven't got that problem.
 
 Note: FON2200 seems to have more full-featured redboot, as well as address 192.168.1.1 set with a 2 second timeout. So theoratically, you could telnet directly into the Redboot, without serial or modification.
@@ -289,13 +276,7 @@ You have to download two files (right click and save as).
  * [http://downloads.openwrt.org/kamikaze/8.09_RC1/atheros/openwrt-atheros-root.squashfs openwrt-atheros-root.squashfs]
 
 
----- /!\ '''Edit conflict - other version:''' ----
 Copy openwrt-atheros-vmlinux.lzma and openwrt-atheros-root.squashfs to /tftpboot/ and flash them like this:
-
----- /!\ '''Edit conflict - your version:''' ----
-Copy openwrt-atheros-vmlinux.lzma and openwrt-atheros-root.squashfs to /tftpboot/ and flash them like this:
-
----- /!\ '''End of edit conflict''' ----
 
 {{{
 ^C
@@ -303,13 +284,7 @@ RedBoot> ip_address -h 192.168.5.2 -l 192.168.5.75/24
 IP: 192.168.5.75/255.255.255.0, Gateway: 0.0.0.0
 Default server: 192.168.5.2
 
----- /!\ '''Edit conflict - other version:''' ----
 RedBoot> load -r -b %{FREEMEMLO} openwrt-atheros-vmlinux.lzma
-
----- /!\ '''Edit conflict - your version:''' ----
-RedBoot> load -r -b %{FREEMEMLO} openwrt-atheros-vmlinux.lzma
-
----- /!\ '''End of edit conflict''' ----
 Using default protocol (TFTP)
 Raw file loaded 0x80041000-0x800f0fff, assumed entry at 0x80041000
 RedBoot> fis init}}}
@@ -342,13 +317,7 @@ Replace ''0xLENGTH'' with the value above (0x006F0000 in my case) and flash the 
 
 {{{
 
----- /!\ '''Edit conflict - other version:''' ----
 RedBoot> load -r -b %{FREEMEMLO} openwrt-atheros-root.squashfs
-
----- /!\ '''Edit conflict - your version:''' ----
-RedBoot> load -r -b %{FREEMEMLO} openwrt-atheros-root.squashfs
-
----- /!\ '''End of edit conflict''' ----
 Using default protocol (TFTP)
 |
 Raw file loaded 0x80041000-0x80200fff, assumed entry at 0x80041000
@@ -361,11 +330,6 @@ An image named 'rootfs' exists - continue (y/n)? y
 RedBoot> reset
 }}}
 
----- /!\ '''Edit conflict - other version:''' ----
-
----- /!\ '''Edit conflict - your version:''' ----
-
----- /!\ '''End of edit conflict''' ----
 If everything is okay, then it will now look like this:
 
 {{{
@@ -522,13 +486,7 @@ expect "RedBoot>"
 send -- "reset\r"
 }}}
 
----- /!\ '''Edit conflict - other version:''' ----
 = Upgrading OpenWrt from within a running OpenWrt installation =
-
----- /!\ '''Edit conflict - your version:''' ----
-= Upgrading OpenWrt from within a running OpenWrt installation =
-
----- /!\ '''End of edit conflict''' ----
 {{{
 cd /tmp
 scp host:/path/to/openwrt-atheros-vmlinux.lzma .
@@ -538,11 +496,6 @@ mtd -e rootfs write openwrt-atheros-root.jffs2-64k rootfs
 reboot
 }}}
 
----- /!\ '''Edit conflict - other version:''' ----
-
----- /!\ '''Edit conflict - your version:''' ----
-
----- /!\ '''End of edit conflict''' ----
 = Telnet into RedBoot =
 You can change the !RedBoot configuration, so you can later telnet into this bootloader in order to reflash this device from there, without having serial access.
 
