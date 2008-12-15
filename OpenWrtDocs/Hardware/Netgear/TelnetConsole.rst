@@ -22,7 +22,8 @@ Cm£ÅÀó¬*@yI£ndsf]üg:ÜV£ndsf£ndsf£ndsf£ndsf£ndsf£ndsf£ndsf£ndsf£
  * WGT624 v2: known to work
  * WGT624 v3: known to work
  * WGT624 (unknown version): [http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2006-1002 assumed to work]
- * WNR3500: known to work
+ * WNR3500 v1.0.29: works. Does NOT ask for username/password on login. On connection you should be dropped on a '#' prompt.
+
 Please add to this list, so people will know which are supported and which are not!
 
 Loginname/password(casesensitive): Gearguy/Geardog
