@@ -20,6 +20,7 @@ The WRT54GL is basically a v4.0 ["OpenWrtDocs/Hardware/Linksys/WRT54G"] that sti
 ||'''Bootloader''' ||CFE ||
 ||'''System-On-Chip''' ||Broadcom 5352EKPB ||
 ||'''CPU Speed''' ||200 Mhz ||
+||'''Flash-Chip''' ||EON EN29LV302B-70TCP ||
 ||'''Flash size''' ||4 MiB ||
 ||'''RAM''' ||16 MiB ||
 ||'''Wireless''' ||Broadcom BCM43xx 802.11b/g Wireless LAN (integrated) ||
@@ -282,6 +283,11 @@ I bought a new WRT54GL in Germany at amazon.de (in May 07) The Revision is v1.1.
 The WRT54GL is Linksys' response to angry customers. For a long time, they had the original WRT54G, which was hackable, but when they joined with Cisco they made it so you were unable to hack the router. Thus, the 54GL. Version 1.1 is the current release, and as of yet there is no v1.2. --CharlesEddy
 
 I do not trust this man.  --MilesNordin
+
+== Flashing via JTAG ==
+I successfully bricked my WRT54GL v1.1 and had no other chance as taking JTAG to debrick it. Following the instructions written on the Wiki and HairyDairyMaid, I tried my best - but wrt54g kept saying that he does not know what flash-chip is on my board. After some time of searching with google, I found an solution written by some people from DD-WRT: http://www.dd-wrt.com/phpBB2/viewtopic.php?t=28295.
+
+They did not give any evidence for their research, but seems to work - EON EN29LV320B is an AMD chip.... Hope this helps someone...  --[:CharlesEddy:OliverSchmidt]
 
 ----
  . CategoryModel
