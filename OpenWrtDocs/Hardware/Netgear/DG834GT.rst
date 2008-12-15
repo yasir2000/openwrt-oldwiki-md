@@ -230,12 +230,14 @@ With access to Serial Console is possible to restore the firmware on the router 
 
 '''Hardware'''
 
-Image of DG834GT:
-
 There is an unpopulated USB port near right from reset button. The voltage regulator, and some USB power related parts (capacitors, fuse) are missing too.
 
-attachment:netgearDG834GTsmall.jpg
 
-[attachment:netgearDG834GTbig.jpg A bigger resolution of this image can downloaded here.]
+Image of DG834GT:
+
+
+attachment:netgearDG834GTsmall
+
+[attachment:netgearDG834GTbig A bigger resolution of this image can downloaded here.]
 ----
  CategoryModel ["CategoryBCM63xx"]
