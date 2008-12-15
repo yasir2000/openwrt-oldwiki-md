@@ -113,6 +113,98 @@ PID Uid VmSize Stat Command
 #
 }}}
 
+And here is some additional data. This WNR3500 is running v1.0.29 (binary upgrade file is WNR3500-V1.0.29_8.0.29NA.chk):
+
+{{{
+BusyBox v1.01 (2008.10.17-05:51+0000) Built-in shell (msh)
+Enter 'help' for a list of built-in commands.
+
+# version
+Release version : Netgear Wireless Router WNR3500
+                  U12H09200/V1.0.29/8.0.29NA
+           Time : Oct 24 2008 14:31:44
+Bootcode version: NOT supported
+# cat /proc/version
+Linux version 2.4.27-vrs1 (weal@hotteam.cs) (gcc version 3.4.4 (release) (CodeSourcery ARM 2005q3-1)) #1 Fri Oct 24 14:29:18 CST 2008
+# cat /proc/cpuinfo
+Processor       : ARM926EJ-Sid(wb) rev 0 (v5EJl)
+BogoMIPS        : 332.59
+Features        : swp half thumb fastmult
+
+Hardware        : MV-88fxx81
+Revision        : 0000
+Serial          : 0000000000000000
+# routerinfo
+Release version : Netgear Wireless Router WNR3500
+                  U12H09200/V1.0.29/8.0.29NA
+           Time : Oct 24 2008 14:31:44
+Bootcode version: NOT supported
+WSC PIN - 56474947
+LAN mac address - 00:1E:2A:72:78:D9
+WAN mac address - 00:1E:2A:72:78:DA
+WLAN mac address - 00:1e:2a:72:78:d8
+Board ID - U12H092T01_NETGEAR
+serial number -
+# cat /proc/meminfo
+        total:    used:    free:  shared: buffers:  cached:
+Mem:  14909440 14385152   524288        0  1196032  2306048
+Swap:        0        0        0
+MemTotal:        14560 kB
+MemFree:           512 kB
+MemShared:           0 kB
+Buffers:          1168 kB
+Cached:           2252 kB
+SwapCached:          0 kB
+Active:           4008 kB
+Inactive:         2232 kB
+HighTotal:           0 kB
+HighFree:            0 kB
+LowTotal:        14560 kB
+LowFree:           512 kB
+SwapTotal:           0 kB
+SwapFree:            0 kB
+# ps x
+  PID  Uid     VmSize Stat Command
+    1 0           496 S   init
+    2 0               SW  [keventd]
+    3 0               RWN [ksoftirqd_CPU0]
+    4 0               SW  [kswapd]
+    5 0               SW  [bdflush]
+    6 0               SW  [kupdated]
+    7 0               SW  [mtdblockd]
+   17 0           492 S   /sbin/syslogd
+  138 0           408 S   /sbin/iwevent
+  144 0           456 S   swresetd
+  146 0           380 S   dnsRedirectReplyd
+  148 0          1024 S   httpd
+  152 0           496 S   udhcpd /tmp/udhcpd.conf
+  153 0           492 S   dnsmasq -h -n -c 0 -N -i br0 -r /tmp/resolv.conf -u r
+  155 0           476 S   ddnsd &
+  160 0           428 S   heartbeat
+  170 0           840 S   upnpd
+  179 0           660 S   /usr/sbin/email
+  184 0           580 S   lld2d br0
+  218 0           596 S   wpsd
+  224 0          1036 S   wsccmd /tmp/wsc
+  227 0           420 S   udhcpc -i eth0 -p /var/run/udhcpc0.pid -s /tmp/udhcpc
+  229 0           484 S   /bin/sh
+  232 0          1036 S   wsccmd /tmp/wsc
+  233 0          1036 S   wsccmd /tmp/wsc
+  234 0          1036 S   wsccmd /tmp/wsc
+  235 0          1036 R   wsccmd /tmp/wsc
+  236 0          1036 S   wsccmd /tmp/wsc
+  237 0          1036 S   wsccmd /tmp/wsc
+  238 0          1036 S   wsccmd /tmp/wsc
+  239 0          1036 S   wsccmd /tmp/wsc
+  240 0          1036 S   wsccmd /tmp/wsc
+  241 0          1036 S   wsccmd /tmp/wsc
+  242 0           676 S   hostapd -W /tmp/wsc/hostapd.conf
+ 1427 0           388 S   telnetd
+ 1972 0           504 S   /bin/sh
+ 2225 0           560 R   ps x
+
+}}}
+
 ----
 CategoryModel
 Category80211nDevice
