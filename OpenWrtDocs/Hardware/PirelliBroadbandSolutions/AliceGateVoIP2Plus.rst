@@ -16,8 +16,7 @@ The serial port is J10, on the left of the switch chip
 Settings are 115200 8N1
 
 == JATG ==
-
-This as to be checked. Jtag port is J9 near the Soc and the minipci socket.
+Jtag port is J9 near the Soc and the minipci socket.
 
 It seems to be be a mips e-jtag 14 pin connector with columns swapped.
 
@@ -28,3 +27,5 @@ It seems to be be a mips e-jtag 14 pin connector with columns swapped.
 || 6 || ? TDO || GND || 5 ||
 || 4 || ? TDI || GND || 3 ||
 || 2 || ? TRST_N || GND || 1 ||
+
+CPU Chip ID: 00000110001101011000000101111111 (0635817F)
