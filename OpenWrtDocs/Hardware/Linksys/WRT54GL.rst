@@ -287,7 +287,7 @@ I do not trust this man.  --MilesNordin
 == Flashing via JTAG ==
 I successfully bricked my WRT54GL v1.1 and had no other chance as taking JTAG to debrick it. Following the instructions written on the Wiki and HairyDairyMaid, I tried my best - but wrt54g kept saying that he does not know what flash-chip is on my board. After some time of searching with google, I found an solution written by some people from DD-WRT: http://www.dd-wrt.com/phpBB2/viewtopic.php?t=28295.
 
-They did not give any evidence for their research, but seems to work - EON EN29LV320B is an AMD chip.... Hope this helps someone...  --[:CharlesEddy:OliverSchmidt]
+They did not give any evidence for their research, but seems to work - EON EN29LV320B is an AMD 29LV320MB chip.... Hope this helps someone...  --OliverSchmidt
 
 ----
  . CategoryModel
