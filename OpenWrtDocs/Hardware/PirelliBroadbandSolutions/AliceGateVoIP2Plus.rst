@@ -21,7 +21,7 @@ This as to be checked. Jtag port is J9 near the Soc and the minipci socket.
 
 It seems to be be a mips e-jtag 14 pin connector with columns swapped.
 
-|| 14 || ? DINT || VCC || 13 ||
+|| 14 || ? DINT || VREF || 13 ||
 || 12 || ? SRST_N || GND || 11 ||
 || 10 || ? TCK || GND || 9 ||
 || 8 || ? TMS || GND || 7 ||
