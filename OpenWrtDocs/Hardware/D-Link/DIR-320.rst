@@ -6,7 +6,7 @@
 CPU : Broadcom BCM5354KFBG
 Flash : Spansion S29AL032D (4Mbytes)
 RAM : 32Mbytes SAMSUNG 
-Switch : 5325e
+Switch : ?
 Wi-Fi : BCM4318
 Serial : yes
 USB : yes
