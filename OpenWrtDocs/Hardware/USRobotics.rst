@@ -6,6 +6,6 @@
  * [:OpenWrtDocs/Hardware/USRobotics/5464: USR5464]
  * [:OpenWrtDocs/Hardware/USRobotics/USR6000: USR6000]
  * [:OpenWrtDocs/Hardware/USRobotics/9108: USR9108]
-
+ * [:USR9113:USR9113]
 ----
 CategoryBrand
