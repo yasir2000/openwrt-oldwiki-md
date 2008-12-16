@@ -15,8 +15,10 @@ JTAG : yes
 
 === Serial pinout ===
 
+{{{
 [x] : TX
 [x] : GND
 [x] : VCC 3.3V
 [ ]
 [x] : RX
+}}}
