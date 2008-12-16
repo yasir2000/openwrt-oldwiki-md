@@ -15,6 +15,15 @@ The serial port is J10, on the left of the switch chip
 
 Settings are 115200 8N1
 
+== FLASH ==
+
+|| CFE || 128KB || 0x00000 - 0x1FFFF ||
+|| FIRST IMAGE || ~8MB || 0x020000 - 0x7FFFFF ||
+|| SECOND IMAGE || ~8MB || 0x800000 - 0xFDFFFF ||
+|| FACTORY SETTINGS || 128KB || 0xFE0000 - 0xFFFFFF ||
+
+Note, when you flash from jtag the BASE ADDRESS is 0x1E000000
+
 == JATG ==
 Jtag port is J9 near the Soc and the minipci socket.
 
