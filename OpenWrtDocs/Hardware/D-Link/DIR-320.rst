@@ -22,3 +22,27 @@ JTAG : yes
 [ ]
 [x] : RX
 }}}
+
+=== Compile image ===
+{{{
+run make menuconfig
+select target system "Broadcom BCM947xx/953xx [2.4]"
+select you need packages
+select <Exit> and "Yes"
+
+run make kernel_menuconfig
+select Memory Technology Devices (MTD) -->
+    Ram/Rom/Flash chip drivers -->>>
+        
+check all "Support X-bit buswidth"
+check all "Support X-chip flash interleave"
+
+run make
+
+}}}
+
+=== Flashing ===
+==== Serial ====
+{{{
+flash -noheader <ip address of the TFTP server>: openwrt-brcm-2.4-squashfs.trx flash1.trx
+}}}
