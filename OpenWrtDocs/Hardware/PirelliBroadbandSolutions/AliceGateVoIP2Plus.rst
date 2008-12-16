@@ -38,3 +38,5 @@ It seems to be a mips e-jtag 14 pin connector with columns swapped.
 || 2 || ? TRST_N || GND || 1 ||
 
 CPU Chip ID: 00000110001101011000000101111111 (0635817F)
+
+I used the JTAG port with [http://urjtag.org urjtag], just use the svn version. Useful info on [http://www.neufbox4.org/wiki/index.php?title=Interface_JTAG "Neuf Box 4 JTAG" ]
