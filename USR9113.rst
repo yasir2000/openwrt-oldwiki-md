@@ -19,3 +19,8 @@ J506 is the same Port but with 9Pin Header
 ||7||RxD||
 ||<^>6,8||<^>GND||
 ||<^>others||<^>unknown||
+== JTAG ==
+J201
+||Pin||Function
+||2,4,6,8,10,12||GND||
+||others||unknown||
