@@ -40,3 +40,8 @@ It seems to be a mips e-jtag 14 pin connector with columns swapped.
 CPU Chip ID: 00000110001101011000000101111111 (0635817F)
 
 I used the JTAG port with [http://urjtag.org urjtag], just use the svn version. Useful info on [http://www.neufbox4.org/wiki/index.php?title=Interface_JTAG "Neuf Box 4 JTAG" ]
+
+== OpenWrt on the machine :-) ==
+
+There are some work to be done but you can boot openwrt on the router without too much problems. Just be carefull and make a backup of the flash.
+Until I post some more information take a look at this  [http://forum.openwrt.org/viewtopic.php?pid=78247#p78247 thread]
