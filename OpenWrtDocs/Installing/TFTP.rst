@@ -26,7 +26,8 @@ On routers with a DMZ LED, !OpenWrt will light the DMZ LED while booting, after 
 The TFTP commands vary across different implementations. Here are some examples:
 
 == Linux/BSD ==
- 
+/!\ '''If you get an ACK from your router but don't send any data, try a different tftp client. atftp works well. This occurs with some netkit tftp packages.'''
+
 netkit's tftp commands:
 
 {{{
