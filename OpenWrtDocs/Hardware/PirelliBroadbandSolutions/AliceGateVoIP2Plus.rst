@@ -21,6 +21,35 @@ Settings are 115200 8N1
 || FIRST IMAGE || ~8MB || 0x020000 - 0x7FFFFF ||
 || SECOND IMAGE || ~8MB || 0x800000 - 0xFDFFFF ||
 || FACTORY SETTINGS || 128KB || 0xFE0000 - 0xFFFFFF ||
+ 
+More detailed information came from the discuss prompt:
+{{{
+Section 00 Type BOOT       Range 0x00000000-0x00020000 MaxSize 0x00020000
+        No more information.
+
+Section 01 Type IMAGE      Range 0x00020000-0x007C0000 MaxSize 0x0079FF6C
+        Size 0x0070BC38 Name 'IMAGE'
+        Checksum 0x37FE2BDA Counter 0x00000002 Start Offset 0x00000000
+
+Section 02 Type IMAGE      Range 0x00800000-0x00FA0000 MaxSize 0x0079FF6C
+        Uninitialized.
+
+Section 03 Type CONF       Range 0x00FA0000-0x00FC0000 MaxSize 0x0001FF6C
+        Size 0x0000756B Name 'rg_conf'
+        Checksum 0x003A4562 Counter 0x0000002D Start Offset 0x00000000
+
+Section 04 Type CONF       Range 0x00FC0000-0x00FE0000 MaxSize 0x0001FF6C
+        Size 0x0000756B Name 'rg_conf'
+        Checksum 0x003A307D Counter 0x0000002E Start Offset 0x00000000
+
+Section 05 Type FACTORY    Range 0x00FE0000-0x00FF0000 MaxSize 0x0000FF6C
+        Size 0x00000506 Name 'rg_factory'
+        Checksum 0x00011485 Counter 0x0000001A Start Offset 0x00000000
+
+Section 06 Type UNKNOWN    Range 0x00FF0000-0x01000000 MaxSize 0x00010000
+}}}
+
+I don't understand the MaxSize value of some sections as they leave some space before the next section.
 
 Note, when you flash from jtag the BASE ADDRESS is 0x1E000000
 
