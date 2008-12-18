@@ -180,7 +180,7 @@ Although this router has no wireless support, there is tracking and pads on the 
 
 === Opening Up the Clamshell ===
 Under the Mac Address label on the bottom side is a hidden screw. Here's a picture.[[BR]]
-[http://home.comcast.net/~johnrw/image/hiddenScrew-1.jpg] [[BR]]
+[[ImageLink(http://home.comcast.net/~johnrw/image/hiddenScrew-1.jpg, target[width=1024,height=768])]][[BR]]
 Clear? Remove this screw before messing with the 7 tabs. Once the screw is out, remove the 4 rubber pads on the feet. I usually start on the top right corner with a small technician's flat screwdriver. It helps to have a second person. The second person uses a hard plastic edged thing you may have laying around... and pries upward in the groove that runs all around the housing, on the side. Good luck. It seems that everyone breaks the first tab on thier first time... so if you do, it's really okay. There are 6 more to hold it all in place when you are all finished.
 
 === USR8200 GPIO assignments ===
@@ -329,9 +329,9 @@ There are extensive pictures of this device at [http://home.comcast.net/~johnrw/
 
 Here is the pcb top side.
 
-[http://home.comcast.net/~johnrw/image/M5110012.JPG]
+[[ImageLink(http://home.comcast.net/~johnrw/image/M5110012.JPG, target[width=1024,height=768])]]
 
-
+  
 == Bugs to squash ==
 On my unit...{{{
 root@OpenWrt:/# lspci -v
