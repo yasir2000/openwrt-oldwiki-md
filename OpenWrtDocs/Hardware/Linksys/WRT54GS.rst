@@ -38,6 +38,15 @@ JTAG           : yes
 }}}
 Resetting to factory defaults via reset button or mtd erase nvram is '''safe''' on this unit.
 
+==== v1.0 Port Labels ====
+||Port number||Description||
+||0||Labeled "Internet"||
+||1||As labeled on unit||
+||2||As labeled on unit||
+||3||As labeled on unit||
+||4||As labeled on unit||
+||5||Wireless||
+
 === WRT54GS v1.1 ===
 The WRT54GS v1.1 uses a BCM5325 switch and DDR-SDRAM. Resetting to factory defaults via reset button or mtd erase nvram is '''safe''' on this unit.
 
