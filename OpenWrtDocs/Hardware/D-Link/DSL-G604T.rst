@@ -78,13 +78,10 @@ svn -r REVISIONNUMBER co https://svn.openwrt.org/openwrt/trunk}}}
 
 If you want to grab the extra packages type:
 {{{
-svn co https://svn.openwrt.org/openwrt/packages}}}
+./scripts/feeds update
+./scripts/feeds install -a}}}
 
-Then go to ''trunk/package/'' and type:
-{{{
-ln -s ../../packages/*/* .}}}
-
-This creates the symlinks for all the packages, now you are ready to configure.
+This creates the "symlinks" for all the packages, now you are ready to configure.
 
 Now go to ''trunk'' directory and type ''make menuconfig''.
 
