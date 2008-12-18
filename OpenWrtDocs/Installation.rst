@@ -109,3 +109,6 @@ For models low on memory (8MB), the firmware can be flashed directly from a web 
 {{{
 wget http://www.somesite.com/firmware.trx -O - | mtd -e linux -r write - linux
 }}}
+
+= What's Next? =
+Begin by [:OpenWrtDocs/Using:logging in with telnet] to 192.168.1.1 and setting a password.
