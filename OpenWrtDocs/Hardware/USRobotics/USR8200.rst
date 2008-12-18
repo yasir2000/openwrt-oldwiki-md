@@ -177,6 +177,12 @@ Some output.
 
 == Hardware Hacking ==
 Although this router has no wireless support, there is tracking and pads on the circuit board for a mini-PCI card, which may allow a wireless card to be added. Work is in progress to determine if this is feasible.
+
+=== Opening Up the Clamshell ===
+Under the Mac Address label on the bottom side is a hidden screw. Here's a picture.[[BR]]
+[http://home.comcast.net/~johnrw/image/hiddenScrew-1.jpg] [[BR]]
+Clear? Remove this screw before messing with the 7 tabs. Once the screw is out, remove the 4 rubber pads on the feet. I usually start on the top right corner with a small technician's flat screwdriver. It helps to have a second person. The second person uses a hard plastic edged thing you may have laying around... and pries upward in the groove that runs all around the housing, on the side. Good luck. It seems that everyone breaks the first tab on thier first time... so if you do, it's really okay. There are 6 more to hold it all in place when you are all finished.
+
 === USR8200 GPIO assignments ===
 || GPIO[0] || USB-1 LED || OUTPUT ||
 || GPIO[1] || USB-2 LED  ||  OUTPUT ||
@@ -192,6 +198,8 @@ Although this router has no wireless support, there is tracking and pads on the 
 || GPIO[11] || to VIA VT6202 USB Chip || Configured as INPUT ||
 || GPIO[12] || Reset button  || INPUT ||
 || GPIO[13] || PCI enable || OUTPUT ||
+|| GPIO[14] || Power LED  || OUTPUT ||
+
 jw... I think. :)
 [[BR]]Based upon... the factory firmware bootloader initializes GPOER to 0x1FF0, and GPOUTR to 0x600F
 This can be accomplished in Redboot with the following commands... in this order.
@@ -221,12 +229,15 @@ I paid more to ship them than they cost but less than the gas would have cost me
 NOTE: John did report having some trouble on one machine... with a direct hookup using the above cable.
 Since the Olimex ARM-USB-OCD comes with a serial port, he resolved that by plugging into that port and never had any problems after weeks of being on. With a direct connection from the USR8200 to the pc serial port, after a router reset via software reset or the reset button, would cause problems on the host machine. No further investigation was done on his part.
 
+JW: Update: A 4th wire, chassis ground was added to the homemade serial cable. Soldered to the D-sub housing on one end and an alligator clip on the other. Clipping the alligator clip to the USB shield housing was a good enough location. Reset bug solved. When using the Olimex, I never experienced it, but had some time to add the 4th wire to my spare today.
+
+
 === JTAG connector ===
 This device is equipted with a standard ARM 20 pin JTAG header.[[BR]]
 The Olimex ARM-USB-OCD device has been confirmed to work with it.[[BR]]
 The USBprog device is being worked on.
 
-=== Memory Map Virtual ===
+=== Jungo Memory Map Virtual ===
 When OpenOCD can't read those memory location published in Intel docs, because the MMU is enabled...
 you need this info to know where to look.
 {{{
@@ -267,7 +278,7 @@ grep VIRT ixp425.h
 #define IXP425_PCI_CSR(x) ((volatile u32 *)(IXP425_PCI_CFG_BASE_VIRT+(x)))
 }}}
 
-=== Memory Map Physical ===
+=== Jungo Memory Map Physical ===
 The important stuff is at the top, naturally.
 {{{
 grep PHYS ixp425.h
@@ -316,6 +327,11 @@ There are extensive pictures of this device at [http://home.comcast.net/~johnrw/
  1. CS1 may in fact not be used.
  1. CS2 is wired to the Epson 7301 rtc.
 
+Here is the pcb top side.
+
+[http://home.comcast.net/~johnrw/image/M5110012.JPG]
+
+
 == Bugs to squash ==
 On my unit...{{{
 root@OpenWrt:/# lspci -v
@@ -352,6 +368,8 @@ We will get to it.
 
 == Kernel Output (preliminary) ==
 {{{
+RedBoot> mfill -b 0xc8004004 -l 4 -p 0x1ff0 -4
+RedBoot> mfill -b 0xc8004000 -l 4 -p 0x600f -4
 RedBoot> fis load linux
 RedBoot> exec
 Using base address 0x00161400 and length 0x000ea8fc
@@ -524,6 +542,141 @@ Enter 'help' for a list of built-in commands.
   * 10 oz lime juice  Salute!
  ---------------------------------------------------
 root@OpenWrt:/#
+}}}
+
+== Config Files for OpenOCD rev 728 using Olimex's ARM-USB-OCD JTAG unit ==
+
+Since I had to do a lot of experimenting, I have tons of these files. I expect to make changes to these... but here... for now.
+This uses OpenOCD rev 728. I suggest you get that revision if you want to use these files. It works well enough with the cpu on this unit to even single step/set breakpoints in linux code.  These config files will not help you do that. They are posted to allow OpenOCD to write an image to the flash chip.
+
+{{{
+
+#-----------------begin xscale-olimex-ipx425.cfg-----------------------------
+# openocd rev 728 - for flash writing
+
+daemon configuration
+telnet_port 4444
+gdb_port 3333
+
+interface ft2232
+ft2232_device_desc "Olimex OpenOCD JTAG"
+ft2232_layout olimex-jtag
+ft2232_vid_pid 0x15ba 0x0003
+
+jtag_speed 0
+
+################################################################################
+# reset config <signals> [combination]
+# [trst-type] [srst-type] ? signals is one of none, trst only, srst only or trst and srst.
+# combination is one of srst pulls trst, trst pulls srst,combined, separate.
+# trst-type is one of trst open drain, trst push pull.
+# srst-type is one of srst push pull, srst open drain.
+#
+# use combined on interfaces or targets that can't set TRST/SRST separately
+# reset_config trst_and_srst srst_pulls_trst
+# reset_config trst_and_srst
+################################################################################
+reset_config trst_and_srst
+
+#jtag scan chain
+#format L IRC IRCM IDCODE (Length, IR Capture, IR Capture Mask, IDCODE)
+jtag_device 7 0x1 0x7f 0x7e
+
+# daemon_startup reset or attach
+daemon_startup reset
+
+
+#### target configuration
+#### target <type> <startup mode>
+#### target arm7tdmi <reset mode> <chainpos> <endianness> <variant>
+
+#target xscale big run_and_init 0 IXP42x
+target xscale big reset_init 0 ixp42x
+
+
+run_and_halt_time 0 30
+
+###############################################################################
+# target script <target#> <event> <scriptfile> event is either reset, post halt or pre resume.
+# JW... was this a cfg from the svn version? I hope not.
+################################################################################
+# target_script 0 reset ixp42x_big.init
+target_script 0 reset ixp42x.actions
+
+# specify 16MiB FLASH
+flash bank cfi 0x50000000 0x1000000 2 2 0
+
+working_area 0 0x800000 0x100000 nobackup
+
+reset halt
+
+#--------------------end xscale-olimex-ipx425.cfg-------------------
+
+
+#-----------------begin xscale-olimex-ipx42x.actions-----------------------------
+# openocd rev 728 - flash writing
+
+wait_halt
+#set big endian mode
+reg XSCALE_CTRL 0xF8
+
+#setup expansion bus CS#0, write enable, @0x50000000
+#mww 0xc4000000 0xbcd23c42
+mww 0xc4000000 0xbd113c42
+#setup expansion bus CS#1, write enable, @0x51000000
+mww 0xc4000004 0x80000002
+flash probe 0
+
+# 32 MB, CAS3
+##mww 0xcc000000 0x00000018
+
+# 64 MB, CAS2
+#mww 0xcc000000 0x00000002
+
+# 64 MB, CAS3
+mww 0xcc000000 0x0000000A
+
+### disable refresh
+mww 0xcc000004 0x00000000
+### nop
+mww 0xcc000008 0x00000003
+#######sleep 60
+### set refresh value
+#mww 0xcc000004 0x0000081a
+mww 0xcc000004 0x00000412
+### precharge all
+mww 0xcc000008 0x00000002
+sleep 20
+mww 0xcc000008 0x00000004
+mww 0xcc000008 0x00000004
+mww 0xcc000008 0x00000004
+mww 0xcc000008 0x00000004
+mww 0xcc000008 0x00000004
+mww 0xcc000008 0x00000004
+mww 0xcc000008 0x00000004
+mww 0xcc000008 0x00000004
+mww 0xcc000008 0x00000001
+mww 0xcc000008 0x00000006
+sleep 200
+# map SDRAM to 0x00000000
+mww 0xc4000020 0x00fffffe
+
+sleep 200
+mww 0x800000 0xFEED
+sleep 2000
+mdw 0x800000
+
+sleep 6000
+
+# Obviously you'll need to change this. I'll leave it enabled...
+flash write_image erase /var/www/redboot.bin 0x50000000 bin
+
+sleep 2000
+shutdown
+
+
+#-------------------end xscale-olimex-ipx42x.actions-----------------------------
+
 }}}
 
 == To Do List ==
