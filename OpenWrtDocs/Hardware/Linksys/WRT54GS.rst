@@ -45,7 +45,7 @@ Resetting to factory defaults via reset button or mtd erase nvram is '''safe''' 
 ||2||As labeled on unit||
 ||3||As labeled on unit||
 ||4||As labeled on unit||
-||5||Wireless||
+||5||CPU via eth0||
 
 === WRT54GS v1.1 ===
 The WRT54GS v1.1 uses a BCM5325 switch and DDR-SDRAM. Resetting to factory defaults via reset button or mtd erase nvram is '''safe''' on this unit.
