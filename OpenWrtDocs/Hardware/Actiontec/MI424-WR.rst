@@ -67,8 +67,8 @@ The original image can be restored using the following procedure:
  1. {{{go}}}
  1. Close telnet session and start another one. Verify that RAM version is running with {{{version}}} command.
  1. {{{load -h <ipaddress> -r -b %{FREEMEMLO} mi424wr-xxxxxxxxxxxx.bin}}}
- 1. {{{fis unlock -f 0x50000000 -l 0x800000}}}
- 1. {{{fis write -b %{FREEMEMLO} -l 0x800000 -f 0x50000000}}}
+ 1. {{{fis unlock RedBoot}}}
+ 1. {{{fis write -b %{FREEMEMLO} -l 0x600000 -f 0x50000000}}}
  1. Close telnet session and power cycle.
 ==== Building RedBoot ====
 !RedBoot can be built from the Intel !RedBoot sources found in the [http://www.intel.com/design/network/products/npfamily/download_ixp400.htm Intel IXP400 Software] site. You'll need the !RedBoot source code as well as the !RedBoot NPE microcode. This attachment:mi424wr.epk adds support for the MI424-WR. The procedure for building !RedBoot is as follows:
