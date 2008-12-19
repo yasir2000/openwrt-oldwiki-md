@@ -54,6 +54,14 @@ config interface lan
         option netmask  255.255.255.0
         option gateway  192.168.1.1
         option dns      192.168.1.1
+
+Note: In current versions of Kamikaze, traffic forwarding is disallowed by default. this means that in
+order to route between multiple networks on your local network, you will need to allow this.
+from telnet or ssh, enter this if your router can ping these networks, but hosts return "destination port unreachable"
+
+ uci set firewall.@zone[0].forward=ACCEPT; uci commit firewall; /etc/init.d/firewall restart
+
+
 }}}
 ==== Sub interfaces / IP Alias ====
 Kamikaze 8.09:
