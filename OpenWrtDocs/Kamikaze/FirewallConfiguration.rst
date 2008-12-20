@@ -1,6 +1,8 @@
 = Firewall configuration =
 == Parameters ==
 === Zones ===
+Zones are defined in the {{{/etc/config/network}}} file in the {{{config interface <zonename>}}} lines.
+
   * '''syn_flood''': defend the system from [http://en.wikipedia.org/wiki/SYN_flood SYN flood] attacks.  Valid values are 1 and 0.
   * '''input''': the chain to, by default, send incoming packets to.  Valid values: "DROP," "ACCEPT."
   * '''output''': the chain to, by default, send outgoing packets to.  If the value isn't "ACCEPT," all outgoing ports must be explicitly enabled; extra effort would be required for ping, wget, and ssh to work.  Valid values: "DROP," "ACCEPT."
