@@ -73,7 +73,7 @@ The ports then are configured. The vlan0 (LAN) is configured with four ports, pl
 
 This configuration then gives us "vlan1", tied to the WAN port, and "vlan0" tied to the other ports. As mentioned earlier, you can change any other port to be the WAN port - just set the vlan1 port to be something else, not that you really need to!
 
-The WAN port is then configured with an IP address and mapped to the logical 'wan' interface name:
+Vlan 1, which connections the WAN port to the CPU, is then configured with an IP address and mapped to the logical 'wan' interface name:
 
 {{{
 wan_ifname=vlan1
@@ -81,7 +81,7 @@ wan_ipaddr=a.b.c.d
 wan_netmask=255.255.255.0
 wan_proto=static
 }}}
-Next the LAN side is configured. Because of the bridging, there's an extra step, but overall it's similar:
+Next the LAN side is configured. The bridge must be created and the IP address is assigned to the bridge not a vlan, but overall it's similar:
 
 {{{
 lan_ifname=br0
