@@ -123,6 +123,20 @@ Check dmesg or syslog for the change.  If the mac address does not change, clean
 {{{
 http://wiki.openwrt.org/Faq#head-71cacf8460752af3f5771d2fae54923ded5beb9c
 }}}
+=== Static Routes ===
+Routes are automatically setup to the networks attached to interfaces.  Other static routes may be created.
+
+ {{{ config route foo
+   option interface lan
+   option target 1.1.1.0
+   option netmask 255.255.255.0
+   option gateway 192.168.1.1
+}}}
+The name for the route section is optional, the interface, target and gateway options are mandatory. Leaving out the netmask option will turn the route into a host route.
+ * interface -- The route is created after the designated interface is brought up.
+ * target -- Network to which a route is to be established.  0.0.0.0 is the default route.
+ * netmask -- netmask of target network, in dotted quad format x.x.x.x.  0.0.0.0 is the netmask for the default route.
+ * gateway -- Packets destined to the target network are sent to this IP address.
 === PPPoE and PPPoA ===
 PPPoE and PPPoA used for "dial-up" Cable and DSL connections, but not bridged.
 [:OpenWrtDocs/Kamikaze/PPPoX:PPP over *]
