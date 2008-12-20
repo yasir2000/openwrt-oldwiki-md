@@ -187,7 +187,7 @@ Clear? Remove this screw before messing with the 7 tabs. Once the screw is out, 
 || GPIO[0] || USB-1 LED || OUTPUT ||
 || GPIO[1] || USB-2 LED  ||  OUTPUT ||
 || GPIO[2] || IEEE1394 LED || OUTPUT ||
-|| GPIO[3] || LAN PORT 1 LED || OUTPUT ||
+|| GPIO[3] || Wireless LED * || OUTPUT ||
 || GPIO[4] || Yet Unknown || Configured as INPUT ||
 || GPIO[5] || Yet Unknown || Configured as INPUT ||
 || GPIO[6] || Yet Unknown || Configured as INPUT ||
@@ -199,12 +199,20 @@ Clear? Remove this screw before messing with the 7 tabs. Once the screw is out, 
 || GPIO[12] || Reset button  || INPUT ||
 || GPIO[13] || PCI enable || OUTPUT ||
 || GPIO[14] || Power LED  || OUTPUT ||
+|| GPIO[15] || PCI Clock || INPUT ||
+
+* The wireless LED GPIO[3] is not visible from the outside... as the cutout was never cut out because wireless was never added in a RTM model.
 
 jw... I think. :)
 [[BR]]Based upon... the factory firmware bootloader initializes GPOER to 0x1FF0, and GPOUTR to 0x600F
 This can be accomplished in Redboot with the following commands... in this order.
 [[BR]]mfill -b 0xc8004004 -l 4 -p 0x1ff0 -4
 [[BR]]mfill -b 0xc8004000 -l 4 -p 0x600f -4
+
+Setting the GPCLCKR register's MUX14 bit to zero enable GPIO control of GPIO[14], and thus allowing us to turn the Power LED to GREEN.
+On power on, the cpu sets this to zero... which made it a little elusive.
+[[BR]]mfill -b 0xc8004018 -l 4 -p 0x01100000 -4
+[[BR]]We will add these to the port... so you won't have to. :)
 
 === Serial Port pin assignments ===
 A standard 9-way ribbon cable for serial port can be used for serial port login.
