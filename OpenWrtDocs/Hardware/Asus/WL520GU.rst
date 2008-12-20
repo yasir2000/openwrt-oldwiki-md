@@ -87,7 +87,9 @@ Still testing, now with the USB 1.1 Mass storage...
 ...still a WIP
 
 -----
- . I just noticed on the dd-wrt forum a comment referring to a USB fix.  I have not investigated (I don't have one of these routers). http://www.dd-wrt.com/phpBB2/viewtopic.php?t=38777&postdays=0&postorder=asc&highlight=wl520gu&start=18
+ . I just noticed on the dd-wrt forum a comment referring to a USB fix.  I have not investigated (I don't have one of these routers). http://www.dd-wrt.com/phpBB2/viewtopic.php?t=38777&postdays=0&postorder=asc&highlight=wl520gu&start=18  and  http://www.dd-wrt.com/phpBB2/viewtopic.php?p=215724&sid=e021ff65c0a8f249b6a73a61398b04b6#215724
+ 
+
 -----
 
 This router is being used to build a Wifi Radio at http://mightyohm.com
