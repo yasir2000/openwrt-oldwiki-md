@@ -7,7 +7,7 @@ Zones are defined in the {{{/etc/config/network}}} file in the {{{config interfa
   * '''input''': the chain to, by default, send incoming packets to.  Valid values: "DROP," "ACCEPT."
   * '''output''': the chain to, by default, send outgoing packets to.  If the value isn't "ACCEPT," all outgoing ports must be explicitly enabled; extra effort would be required for ping, wget, and ssh to work.  Valid values: "DROP," "ACCEPT."
   * '''forward''': the chain to, by default, send forwarded packets to.  Valid values: "DROP," "ACCEPT."
-  * '''masq''': enable IP on the zone.  Typically, a wan zone will have this enabled.  Valid values are 1 and 0.
+  * '''masq''': enable network masquerading (i.e. IP translation aka dynamic NATting) on the zone.  Typically, a wan zone will have this enabled.  Valid values are 1 and 0.
 === Rules and forwarding ===
   * '''src''': the source ''network''; the first network the packet is seen on.  For traffic originating from the internet, this is "wan," and for traffic originating from the local network, this is "lan."  This also applies ('''please confirm''') to traffic originating from the current system, only "src" will be chosen according to the destination address, i.e. a packet on a typical network with a destination of 192.168.1.55 will have "lan" as the source, while a packet with a destination of 64.233.187.99 will have "wan" as the source.
   * '''dest''': the destination ''network''; the last network the system will see the packet on.  This option is mainly used for forwarding, routing, and NAT.
