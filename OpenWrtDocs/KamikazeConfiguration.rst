@@ -283,6 +283,8 @@ If that's the case, just append to your lan interface section:
 {{{
 option force 1
 }}}
+= Adding custom startup scripts =
+The startup process may be extended with CustomStartupScripts.
 = HowTo =
 There are How Tos spread throughout the wiki.  An easy way to browse through them (and get ideas) is the How To category:
   * CategoryHowTo
