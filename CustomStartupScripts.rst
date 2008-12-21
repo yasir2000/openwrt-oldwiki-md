@@ -106,5 +106,3 @@ root@OpenWrt:/# /etc/init.d/example custom
 custom function
 root@OpenWrt:/#
 }}}
- = See Also =
-The opkg command can be used to disable or re-enable the running of init scripts without having to un-install the associated package.
