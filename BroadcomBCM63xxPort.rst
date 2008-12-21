@@ -99,7 +99,7 @@ Known 6348 platforms*:
 
 
 Known 6358 platforms*:
-||[http://www.buffalo-technology.com/products/wireless/wireless-n-nfiniti/wireless-n-nfiniti-broadband-adsl2-modem-router/:Buffalo WBMR-G300N] ||
+||[http://www.buffalo-technology.com/products/wireless/wireless-n-nfiniti/wireless-n-nfiniti-broadband-adsl2-modem-router/ Buffalo WBMR-G300N] ||
 ||[http://www.dlink.com/products/?pid=567 D-Link DSL-2640B] ||
 ||[:OpenWrtDocs/Hardware/Freebox/FreeboxV5:Freebox v5] ||
 ||[:OpenWrtDocs/Hardware/Netcomm/NB9WMAXX:Netcomm NB9WMAXX] ||
