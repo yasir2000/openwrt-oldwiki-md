@@ -1,3 +1,35 @@
+= Installation =
+
+== Bill of Materials ==
+
+You will need:
+ * A tftp server
+ * A telnet client
+ * A copy of the OpenWRT kernel (openwrt-atheros-vmlinux.lzma)
+ * A copy of either the squashfs or jffs image (openwrt-atheros-root.squashfs or openwrt-atheros-root.jffs2-64k)
+
+== Process ==
+
+ 1. Connect your computer's ethernet port to the router's LAN port.
+ 2. Set your computer's IP to 192.168.1.254.
+ 3. Place the two images in the same directory on your computer, and start your tftp server serving that directory.
+ 4. Unplug the router.
+ 5. Start your computer pinging 192.168.1.1.
+ 6. Plug in the router.
+ 7. As soon as you see a reply to the ping, telnet 192.168.1.1 on port 9000.
+ 8. As soon as you see the connection made, type ^C.  You have 2 seconds from the router first booting to press ctrl-C.
+ 9. Now issue the following commands to copy the flash, note that each fis create command will take a significant amount of time.  The first will take aproximately 5 minutes, while the second about 10-15:
+{{{fis init
+load -r -v -b 0x80041000 openwrt-atheros-vmlinux.lzma
+fis create kernel
+load -r -v -b 0x80041000 openwrt-atheros-root.squashfs
+fis create -l 0x6f0000 rootfs}}}
+ 10.#10 Use {{{fis edit}}} to set the router to boot from kernel.
+ 11. Use {{{fis load -l kernel}}} and {{{exec}}} to load the kernel, and start OpenWRT.  You should see the OpenWRT banner, and a prompt.
+ 12. Configure OpenWRT!  You're done.
+
+= Other Information =
+
 Serial port pinout (front to rear) is GND,RX (input to the Fonera),TX (output from the Fonera),3.3V
 
 {{{
