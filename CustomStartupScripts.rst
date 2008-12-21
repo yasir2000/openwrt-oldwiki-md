@@ -4,7 +4,7 @@ From [http://forum.openwrt.org/viewtopic.php?id=11301]
 
 The boot process may be customized to add new daemons, provide alternate ways of starting existing daemons, or otherwise do things at startup and shutdown.
 
-This, is /etc/init.d/example.  As written it supports all standard options, e.g, 'restart', 'enable', etc. as well as 'start' and 'stop'.:
+This, is /etc/init.d/example:
 
 {{{
 #!/bin/sh /etc/rc.common
@@ -24,7 +24,7 @@ stop() {
         # commands to kill application 
 }
 }}}
-After creating it, run {{{chmod a+x /etc/init.d/example}}} to make it executable.  Then run {{{/etc/init.d/example enable}}}, this creates a link to the script in the {{{/etc/rc.d/}}} directory. The {{{START=10}}} means that this will become {{{/etc/init.d/S10example}}} - the 10 signifies the order the script is to be executed, allowing it to be placed before or after existing scripts. The {{{STOP=15}}} is optional and will create a {{{/etc/rc.d/K15example}}}.
+After creating it, run "/etc/init.d/example enable", this will copy the script to the /etc/rc.d/ directory. The START=10 means that this will become /etc/init.d/S10example - the 10 signifies the order the script is to be executed, allowing it to be placed before or after existing scripts. The STOP=15 is optional and will create a /etc/rc.d/K15example.
 
 On startup, all the scripts matching the pattern /etc/rc,d/S* are executed in the form of "<script> boot", which will run the commands in the start() section. On shutdown the /etc/rc.d/K* scripts are executed as "<script> stop" causing the stop() section to be run.
 
@@ -106,5 +106,3 @@ root@OpenWrt:/# /etc/init.d/example custom
 custom function
 root@OpenWrt:/#
 }}}
-----
-CategoryHowTo
