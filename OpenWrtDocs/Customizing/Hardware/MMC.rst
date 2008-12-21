@@ -299,15 +299,21 @@ Use mmc.c found at http://www.partners.biz/dd-wrt/mmc-buffalo.tar It will automa
 == WAP54G v31 ==
 Here is a link that describes how to add a SD card to a WAP54G v31 (EU), this project uses the card read only, first a cramfs is created on the card with the PC (this is the native system the Linksys software uses), so no MSDOS stuff needs to be added to the kernel (there is only 2MB FLASH in WAP54G v31 EU).  http://panteltje.com/panteltje/wap54g/to-linksys-wap54g-forum-2.txt
 
+
+
+
+
+
+
 This is another howto for wap54g...
 
-It uses optimized mmc v1.3.4
+'''''It uses optimized mmc v1.3.4 '''''
 
-gpio:3,4,6,7
+'''''gpio:3,4,6,7 '''''
 
-filesystem: ext2, vfat
+'''''filesystem: ext2, vfat '''''
 
-max cardsize: 2GB
+'''''max cardsize: 2GB '''''
 
 http://linksys.chyl.org/readarticle.php?article_id=1
 
