@@ -18,15 +18,18 @@ You will need:
  6. Plug in the router.
  7. As soon as you see a reply to the ping, telnet 192.168.1.1 on port 9000.
  8. As soon as you see the connection made, type ^C.  You have 2 seconds from the router first booting to press ctrl-C.
- 9. Now issue the following commands to copy the flash, note that each fis create command will take a significant amount of time.  The first will take aproximately 5 minutes, while the second about 10-15:
+ 9. Now issue the following commands to copy the flash, note that each fis create command will take a significant amount of time.  The first will take aproximately 5 minutes, while the second about 10-15.  During this time the router will lock up totally and become unpingable.  Do not touch it:
 {{{fis init
 load -r -v -b 0x80041000 openwrt-atheros-vmlinux.lzma
 fis create kernel
 load -r -v -b 0x80041000 openwrt-atheros-root.squashfs
 fis create -l 0x6f0000 rootfs}}}
+(replacing squashfs with jffs2-64k as required).
  10.#10 Use {{{fis edit}}} to set the router to boot from kernel.
- 11. Use {{{fis load -l kernel}}} and {{{exec}}} to load the kernel, and start OpenWRT.  You should see the OpenWRT banner, and a prompt.
- 12. Configure OpenWRT!  You're done.
+ 11. Issue the following commands to start OpenWRT.  Once you have done this, you should see the OpenWRT banner, and a normal bash prompt:
+{{{fis load -l kernel
+exec}}}
+ 12.#12 Configure OpenWRT!  You're done.
 
 = Other Information =
 
