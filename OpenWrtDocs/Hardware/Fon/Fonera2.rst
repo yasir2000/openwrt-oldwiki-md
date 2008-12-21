@@ -25,8 +25,12 @@ fis create kernel
 load -r -v -b 0x80041000 openwrt-atheros-root.squashfs
 fis create -l 0x6f0000 rootfs}}}
 (replacing squashfs with jffs2-64k as required).
- 10.#10 Use {{{fis edit}}} to set the router to boot from kernel.
- 11. Issue the following commands to start OpenWRT.  Once you have done this, you should see the OpenWRT banner, and a normal bash prompt:
+ 10.#10 Issue {{{fconfig -l}}} When asked for a boot script, enter the following including the final new line.  Leave all other settings unchanged, and answer yes, to save the config.
+{{{fis load -l kernel
+exec
+
+}}}
+ 11.#11 Issue the following commands to start OpenWRT.  Once you have done this, you should see the OpenWRT banner, and a normal bash prompt:
 {{{fis load -l kernel
 exec}}}
  12.#12 Configure OpenWRT!  You're done.
