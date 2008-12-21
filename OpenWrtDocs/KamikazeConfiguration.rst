@@ -283,8 +283,14 @@ If that's the case, just append to your lan interface section:
 {{{
 option force 1
 }}}
-= Adding custom startup scripts =
-The startup process may be extended with CustomStartupScripts.
+= Customizing Startup/Shutdown =
+The user space boot process is initiated by init as configured in {{{/etc/inittab}}}.  Kamakaze uses a limited form of the System V startup process.   Scripts in {{{/etc/init.d/}}} are run with the arguments of {{{start}}} or {{{stop}}} to start services at boot or stop them at shutdown.  The order of the startup scripts is determined by the names of the links in {{{/etc/rc.d/}}}.  
+
+{{{/etc/init.d/}}} scripts may be run by hand to manually start or stop services on a 1-time basis.
+
+Each {{{/etc/init.d/foo}}} script (should) take the arguments {{{disable}}} and {{{enable}}} to permanently disable or enable automatic boot-time startup of the service.
+
+The startup process may be extended with CustomStartupScripts.  This should also be read by those who want to change the order in which services are started.
 = HowTo =
 There are How Tos spread throughout the wiki.  An easy way to browse through them (and get ideas) is the How To category:
   * CategoryHowTo
