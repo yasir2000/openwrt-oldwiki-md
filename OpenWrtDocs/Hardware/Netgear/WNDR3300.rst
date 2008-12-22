@@ -4,7 +4,11 @@
 = Netgear WNDR3300 =
 The WNDR3300 is Netgear's Rangemax Next dual-band wireless-N broadband router based on Broadcom's 94704 platform.  It is manufactured by Ambit for Netgear. The Ambit board ID is U12H093T00.  Netgear's 1.0.30NA firmware runs Linux 2.4.20 internally.  FCC documents indicate three actual frequency bands: one at 2.4 GHz ( 2412 - 2462 ) and two at 5.0 GHz ( 5180 - 5240 and 5745 - 5825).
 
-'''NOTE:''' This device supports only 2.4 kernel versions of Kamikaze. At this time the Broadcom wl.o binary driver is only available for 2.4 kernels and the open source b43 driver is not ready yet.  Wireless WILL NOT WORK if you flash an image with a 2.6 kernel. 
+'''NOTE:''' This device supports only 2.4 kernel versions of Kamikaze. At this time the Broadcom wl.o binary driver is only available for 2.4 kernels and the open source b43 driver is not ready yet.  Wireless WILL NOT WORK if you flash an image with a 2.6 kernel
+
+=== Telnet Enable ===
+Using the default Netgear firmware, this router allows the TelnetEnable utility to enable telnet access via port 23.
+
 
 == General ==
 
