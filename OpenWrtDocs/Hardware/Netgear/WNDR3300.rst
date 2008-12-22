@@ -7,7 +7,7 @@ The WNDR3300 is Netgear's Rangemax Next dual-band wireless-N broadband router ba
 '''NOTE:''' This device supports only 2.4 kernel versions of Kamikaze. At this time the Broadcom wl.o binary driver is only available for 2.4 kernels and the open source b43 driver is not ready yet.  Wireless WILL NOT WORK if you flash an image with a 2.6 kernel
 
 === Telnet Enable ===
-Using the default Netgear firmware, this router allows the TelnetEnable utility to enable telnet access via port 23.
+When using the default Netgear firmware, this router allows the [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Netgear/TelnetConsole TelnetEnable utility] to enable telnet access via port 23.
 
 
 == General ==
