@@ -1,7 +1,7 @@
 = ZyXEL MAX-206M2 =
 
 {{{
-CPU:
+CPU: PMC MSP4200
 RAM: 32MB
 Flash: 8MB
 WiMAX : Sequans SQN1130
