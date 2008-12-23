@@ -4,7 +4,7 @@
 CPU:
 RAM: 32MB
 Flash: 8MB
-WiMAX : Sequans
+WiMAX : Sequans SQN1130
 }}}
 
 
