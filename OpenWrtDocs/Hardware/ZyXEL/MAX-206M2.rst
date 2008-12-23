@@ -5,6 +5,7 @@ CPU: PMC MSP4200
 RAM: 32MB
 Flash: 8MB
 WiMAX : Sequans SQN1130
+Switch : ADM6996
 }}}
 
 
