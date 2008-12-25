@@ -127,7 +127,7 @@ it can be deleted from {{{/usr/lib/opkg/lock}}}.
 Additionally, opkg doesn't remove the files it was installing.  One way to do this is get a list of the files it was installing, then delete them.
 {{{
 mkdir /tmp/opkg_cleanup
-cd /tmp/opkg_cleaup
+cd /tmp/opkg_cleanup
 opkg download <package>
 gunzip -c *.ipk | tar -x
 gunzip -c data.tar.gz | tar -x
