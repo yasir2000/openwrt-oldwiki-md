@@ -1,6 +1,5 @@
 = Linksys WAG54GX2 =
-
-The device is NOT supported in OpenWrt. The internals are strikingly similar to the [:OpenWrtDocs/Hardware/Netgear/DG834GT: DG834GT] and [:OpenWrtDocs/Hardware/Huawei/EchoLife_HG520: HG520].
+The device is NOT supported in OpenWrt. The internals are strikingly similar to the ["OpenWrtDocs/Hardware/Netgear/DG834GT"] and ["OpenWrtDocs/Hardware/Huawei/EchoLife HG520"].
 
 {{{
 Bootloader     : CFE version 1.0.37-5.11 for BCM96348 (32bit,SP,BE)
@@ -15,12 +14,9 @@ ADSL           : 2/2+
 Serial         : yes J503
 JTAG           : yes J201
 }}}
-
-
 The {{{boot_wait}}} NVRAM variable is not defined.
 
 == Firmware notes ==
-
 We can build custom firmwares that will upload via the regular web interface.
 
 {{{
@@ -48,32 +44,26 @@ Analysis of WAG54GX2_A_V1.00.01.img
 00410100-005b6100:gzip cramfs on /
 005b610c-        :lzma compressed kernel
 }}}
+The image is in flash at $1F800000 (the boot loader is at $1FC00000), the top $10000 (64k) of the flash contains the nvram and there is 64k of "lang" below this.
 
-
-The image is in flash at $1F800000 (the boot loader is at $1FC00000), the top $10000 (64k)
-of the flash contains the nvram and there is 64k of "lang" below this.
-
-To debrick this box you require a version of wrt54g.exe that has been modified to handle the big endian cpu. Also beware that the cfe commands think the cfe is at the bottom of flash rather than at $1fc00000! See [:OpenWrtDocs/Hardware/Netgear/DG834GT: DG834GT] about the endian problem.
+To debrick this box you require a version of wrt54g.exe that has been modified to handle the big endian cpu. Also beware that the cfe commands think the cfe is at the bottom of flash rather than at $1fc00000! See ["OpenWrtDocs/Hardware/Netgear/DG834GT"] about the endian problem.
 
 == connectors ==
-
 attachment:connector.jpg
 
 === Serial Console ===
-
 Serial console confirmed on J503.
-||'''pin'''||'''signal'''||
-||1||GND||
-||2||TX||
-||3||VCC (3.3v)||
-||4||RX||
+||'''pin''' ||'''signal''' ||
+||1 ||GND ||
+||2 ||TX ||
+||3 ||VCC (3.3v) ||
+||4 ||RX ||
+
 
 === JTAG Port ===
-
 Jtag Port confirmed on J201.
 
 JTAG signals and pins
-
 ||nTRST || 1 || 2 || GND ||
 ||TDI || 3 || 4 || GND ||
 ||TDO || 5 || 6 || GND ||
@@ -81,14 +71,12 @@ JTAG signals and pins
 ||TCK || 9 ||10 || GND ||
 ||nSRST ||11 ||12 || GND ||
 
-== Shell access ==
 
+== Shell access ==
 Serial console, or http://<router ip>/setup.cgi?todo=debug (turn on telnet server)
 
 == Appendix ==
-
 === dmesg ===
-
 {{{
 flash device_id = (0x22c9)
 Total Flash size: 8192K with 135 sectors
@@ -220,7 +208,5 @@ wns msg rcvd: type = 0x1304     length = 48
 br0: port 2(wlan0) entering forwarding state
 br0: topology change detected, propagating
 }}}
-
-
 ----
-CategoryModel ["CategoryBCM63xx"]
+ . CategoryModel ["CategoryBCM63xx"]
