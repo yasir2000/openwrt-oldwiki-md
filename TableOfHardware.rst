@@ -13,6 +13,7 @@ This is a table of all supported devices as of 2008/12/04
 
 == See also ==
  * '''CompleteTableOfHardware''' (the old version; a single-page version of these pages)
+ * '''[Gigabit_Routers]''' - Are you looking for a Gigabit router supported by OpenWRT?
  * '''MinimumSystemRequirements'''
  * '''["Unsupported"]'''
  * '''CategoryCategory''' - For a list of lists
