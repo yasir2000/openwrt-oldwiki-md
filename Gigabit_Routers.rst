@@ -5,7 +5,7 @@ I've been looking for a good Gigabit router supported by OpenWRT and haven't had
 ||''none'' ||
 ||... ||
 ||'''__Partially-Supported Gigabit Routers __''' ||
-||["OpenWrtDocs/Hardware/Linksys/WRT350N"] - Labeled "Work in Process" as of 12/27/2008 ||
+||[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT350N Linksys WRT350N] - Labeled "Work in Process" as of 12/27/2008 ||
 ||... ||
 ||'''__Unsupported Gigabit Routers __''' ||
 ||[http://www.dlink.com/products/?pid=530 D-Link DIR-655] - Not support as of 12/27/2008. ([http://forum.openwrt.org/viewtopic.php?pid=44370#p44370 link1]) ||
