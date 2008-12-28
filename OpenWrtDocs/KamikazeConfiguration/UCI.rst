@@ -47,3 +47,6 @@ config 'foobar'
 config 'barfoo' 'sectionname'
         option 'name1' 'value1'
 }}}
+
+= Example commands =
+ uci show network
