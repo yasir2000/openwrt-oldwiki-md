@@ -74,6 +74,8 @@ JTAG
 || On Reverse ||'''Pad 2''' ||GND ||'''Pad 4''' ||GND ||'''Pad 6''' ||GND ||'''Pad 8''' ||GND ||'''Pad 10''' ||GND ||'''Pad 12''' || ? ||
 || On Front ||'''Pad 1''' || RESET# ||'''Pad 3''' || TDI ||'''Pad 5''' || TD0 ||'''Pad 7''' || TMS ||'''Pad 9''' || TCK ||'''Pad 11''' || GND ||
 
+# Reset# of Flash Memory
+
 '''JP2'''
 
 3.3v TTL Serial
