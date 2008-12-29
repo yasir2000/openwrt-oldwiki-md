@@ -17,7 +17,9 @@ Link to Product info page at linksys.com -> [http://www.linksys.com/servlet/Sate
 = Supported Versions =
 
 Please see what version you have and add information to the wiki or post in this [http://forum.openwrt.org/viewtopic.php?id=15321 forum thread].
+
 According to Wikipedia there is more than one version of this device. [http://en.wikipedia.org/wiki/Linksys_WRT300N_series#WRT160N Reference]
+
 DD-Wrt [http://www.dd-wrt.com/wiki/index.php/Supported_Devices#Linksys Devices list] also mentions more than one.
 
 Please add/confirm info here if you can.
@@ -61,15 +63,16 @@ Please add/confirm info here if you can.
 == Pads on PCB ==
 
 There is 3 sets of pads on the PCB of the WRT160N.
-
-JP1 and JP3 seem to be missing some surface mount components so may not actually work. 
+ 
 Half of the JP1 and JP3 pads are on the reverse side of the PCB.
-
-JP2 works if you use a 3.3v TTL to RS-232.
+JP1 is the JTAG port.
+JP2 is a serial port and it works if you use a 3.3v TTL to RS-232.
 
 '''JP1'''
-|| On Reverse ||'''Pad 2''' ||GND ||'''Pad 4''' ||GND ||'''Pad 6''' ||GND ||'''Pad 8''' ||GND ||'''Pad 10''' ||GND ||'''Pad 11''' || ? ||
-|| On Front ||'''Pad 1''' || ? ||'''Pad 3''' || ? ||'''Pad 5''' || ? ||'''Pad 7''' || ? ||'''Pad 9''' || ? ||'''Pad 12''' || ? ||
+
+JTAG
+|| On Reverse ||'''Pad 2''' ||GND ||'''Pad 4''' ||GND ||'''Pad 6''' ||GND ||'''Pad 8''' ||GND ||'''Pad 10''' ||GND ||'''Pad 12''' || ? ||
+|| On Front ||'''Pad 1''' || ? ||'''Pad 3''' || TDI ||'''Pad 5''' || TD0 ||'''Pad 7''' || TMS ||'''Pad 9''' || TCK ||'''Pad 11''' || ? ||
 
 '''JP2'''
 
@@ -82,7 +85,11 @@ JP2 works if you use a 3.3v TTL to RS-232.
 
 == JTAG Port ==
 
-Not yet documented.
+The JTAG software needs to support 8-bit operation.
+
+tjtag v3-RC1 by Tornado can be used to read the flash chip. Get it from [http://www.dd-wrt.com/dd-wrtv2/down.php?path=downloads%2Fothers%2Ftornado%2Fjtag%2Ftjtagv3-RC-1/ here].
+ 
+Reference [http://www.dd-wrt.com/phpBB2/viewtopic.php?p=243652#243652 Here]
 
 == Serial Ports ==
 
