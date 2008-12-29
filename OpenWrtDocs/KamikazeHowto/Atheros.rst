@@ -8,12 +8,15 @@
 = Configurations for Atheros chipsets =
 
 === Bridged AP Mode ===
+[:OpenWrtDocs/KamikazeHowto/Atheros/BridgedAP:Bridged AP]
 To extend your existing wired host router with wireless capabilities. Clients connecting to OpenWRT will get an IP address of the wired host router.
 
 === Routed AP Mode ===
+[:OpenWrtDocs/KamikazeHowto/Atheros/RoutedAP:Routed AP]
 OpenWRT provides its own dhcp network and you’ll have NAT established between OpenWRT network and the host-router’s address space. This is the behaviour of a traditional router.
 
 === Routed Client Mode ===
+[:OpenWrtDocs/KamikazeHowto/Atheros/RoutedClient:Routed Client]
 To connect to an existing wireless network with dhcp enabled and you want OpenWRT being a client providing its own dhcp network to wired clients, 
 
 
