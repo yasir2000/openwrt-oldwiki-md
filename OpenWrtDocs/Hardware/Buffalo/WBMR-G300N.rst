@@ -1,8 +1,8 @@
-Hi, I'm (GalaxyMaster).  I have purchased Buffalo WBMR-G300N and discovered that it's not yet supported by OpenWRT.  A quick examination showed that it's quite a decent device (802.11n, ADSL2+, and 4 port switch) which is likely running Linux.  During my further examination I discovered that port 1 of the switch has suspicious 4 cooper track on the board and I guessed that it might be a serial console.  I have disassembled the device (the tough part is to remove the front cover -- I used a knife to unlock 4 small clips, but it was scary since every clip produced a sound that might look like the clip was just broken).
+Hi, I'm (GalaxyMaster).  I have purchased Buffalo WBMR-G300N and discovered that it's not yet supported by OpenWRT.  A quick examination showed that it's quite a decent device (802.11n, ADSL2+, and 4 port switch) which is likely running Linux.  During my further examination I discovered that port 1 of the switch has suspicious 4 cooper tracks on the board and I guessed that it might be a serial console.  I have disassembled the device (the tough part is to remove the front cover -- I used a knife to unlock 4 small clips, but it was scary since every clip produced a sound that might look like the clip was just broken).
 
-What I found inside were 3 big Boadcom's chips BCM6358 (SoC), BCM5325 (Switch), and BCM4321 (WiFi).  At the corner of the PCB I found 14 holes -- looks like a MIPS standard interface.
+What I found inside were 3 big Boadcom's chips BCM6358 (SoC), BCM5325 (Switch), and BCM4321 (WiFi).  At the corner of the PCB I found 14 holes -- looks like a MIPS standard JTAG interface.
 
-Then I powered the device up to check it with a multimeter.  The results were promising -- 4 cooper leads under UTP port 1 were Vcc (this one is closer to the ADSL port), Tx, Rx, GND (this one is closer to the rest of UTP ports).  Hence, I went ahead, purchased soldering iron (never soldered anything before :) ), read some soldering tutorials, and soldered 4 wires just behind UTP port 1 (I accidentally broke one of the resistors there, but I found out that they are 0-ohm, i.e. they could be just removed).
+Then I powered the device up to check it out with a multimeter.  The results were promising -- 4 cooper leads under UTP port 1 were Vcc (this one is closer to the ADSL port), Tx, Rx, GND (this one is closer to the rest of UTP ports).  Hence, I went ahead, purchased soldering iron (never soldered anything before :) ), read some soldering tutorials, and soldered 4 wires just behind UTP port 1 (I accidentally broke one of the resistors there, but I found out that they are 0-ohm, i.e. they could be just removed).
 
 My next step was to purchase Nokia CA-42 USB cable from eBay, and once I received it I connected it to the wires soldered to the PCB.  Then I attached the device to my notebook, loaded pl2303 (a module needed to work with Serial-to-USB converter builtin into the CA-42 USB jack).  Executed minicom, configured it to 115200 8N1 with no flow control, powered the device up and got the following:
 
@@ -232,3 +232,5 @@ killall: upnpd-igd: no process killed
 
 That's all for now since I'm working on the JTAG cable (my notebook has no LPT so I need to solder an USB JTAG cable to start playing with the device).
 If you have some questions or want to collaborate on preparing this device to be OpenWRT supported -- you can contact me at <gm.outside+openwrt AT gmail.com> (replace AT with the '@' sign).
+----
+["CategoryBCM63xx"]
