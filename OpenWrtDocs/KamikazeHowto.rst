@@ -235,8 +235,11 @@ http://forum.openwrt.org/profile.php?id=524
 === Samba ===
 [:OpenWrtDocs/SambaHowto:Samba]
 
-=== Atheros ===
-[:OpenWrtDocs/KamikazeHowto/Atheros:Atheros]
+=== Atheros Chipsets ===
+See [:OpenWrtDocs/KamikazeHowto/Atheros:Atheros]
+
+Atheros chipsets use a slightly different configuration syntax to the rest of the OpenWRT routers. 
+
 
 == Useful Details ==
 === boot_wait - What it is, and how it works ===
