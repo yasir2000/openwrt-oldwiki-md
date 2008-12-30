@@ -97,6 +97,5 @@ OpenWrt is aimed at advanced users.  Basic end users should start here: BasicEnd
 
 == Howto ==
 [:OpenWrtDocs/KamikazeHowto:Kamikaze]
- * [:OpenWrtDocs/KamikazeHowto/Atheros:Atheros]
 
 [:OpenWrtDocs/WhiterussianHowto:Whiterussian]
