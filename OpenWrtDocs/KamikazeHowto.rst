@@ -235,9 +235,13 @@ http://forum.openwrt.org/profile.php?id=524
 === Samba ===
 [:OpenWrtDocs/SambaHowto:Samba]
 
+=== Atheros ===
+[:OpenWrtDocs/KamikazeHowto/Atheros:Atheros]
+
 == Useful Details ==
 === boot_wait - What it is, and how it works ===
 See OpenWrtDocs/BootWait
+
 === CFE/PMON TFTP maximum image size limitation ===
 There is a physical limit of approximately 3,141,632 bytes that {{{CFE/PMON}}} will accept during the {{{boot_wait}}} stage.  Only 3,141,632 bytes will be flashed to the firmware. If your firmware image is larger than this, the result will be undefined; the kernel may load then either panic, or possibly the unit will reboot itself then proceed to spit out {{{Boot program checksum is invalid}}} during {{{PMON}}}, and drop you to the {{{CFE>}}} prompt (requiring serial console).
 
