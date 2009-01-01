@@ -1,5 +1,7 @@
 == D-Link DIR-320 ==
 
+http://img528.imageshack.us/img528/8263/seriedir300gc7.jpg
+
 === Hardware ===
 
 {{{
