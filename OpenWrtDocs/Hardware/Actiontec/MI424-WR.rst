@@ -38,7 +38,7 @@ There's a latch accessible via CS1 that is 16-bits wide.
 
 
 === Serial Port ===
-There's an internal serial port available on the J20 pins. It's found on the side. It's possible to connect a TTL 3.3V serial converter (e.g. [http://www.sparkfun.com/commerce/product_info.php?products_id=8772 this]) and have access to the console for both redboot and linux.
+There's an internal serial port available on the J20 pins. It's found on the side. It's possible to connect a TTL 3.3V serial converter (e.g. [http://www.sparkfun.com/commerce/product_info.php?products_id=8772 this]) and have access to the console for both redboot and linux. Remember that pin 1 has a square pad on the PCB.
 ||'''Pin''' ||'''Function''' ||
 ||<style="text-align: right;">1 ||Gnd ||
 ||<style="text-align: right;">2 ||Tx ||
@@ -50,11 +50,11 @@ There's an internal serial port available on the J20 pins. It's found on the sid
 
 == Software ==
 === Redboot ===
-A custom version of [http://sourceware.org/redboot RedBoot] has been built and can be found here: attachment:redboot.bin . The !RedBoot prompt is accessible via {{{telnet 192.168.1.1 9000}}} on the Wan port. The Wan port is configured to obtain an address via DHCP; if this fails it defaults to 192.168.1.1. Note that there's a feature that allows skipping the !RedBoot boot script by pressing the "Reset" button after power on for about 10 seconds. When !RedBoot is ready to accept commands, it sets the Internet LED red.
+A custom version of [http://sourceware.org/redboot RedBoot] has been built and can be found here: attachment:rb-mi424wr-ROM.bin . The !RedBoot prompt is accessible via {{{telnet 192.168.1.1 9000}}} on the Wan port. The Wan port is configured to obtain an address via DHCP; if this fails it defaults to 192.168.1.1. Note that there's a feature that allows skipping the !RedBoot boot script by pressing the "Reset" button after power on for about 10 seconds. When !RedBoot is ready to accept commands, it sets the Internet LED red.
 
-Installation of !RedBoot can be accomplished with the [https://dev.openwrt.org/browser/trunk/scripts/flashing/jungo-image.py?format=txt jungo-image.py] script. It requires that a tftp server that can serve the {{{redboot.bin}}}. The script uses the telnet interface into the router to accomplish it's task. Depending on the version of the firmware, it may have to be manually enabled in the advanced tab under local adminstration. The script will first make a backup of the current flash image; this procedure takes about 4 minutes. The actual writing of redboot requires the {{{-w}}} flag. Use {{{-h}}} to get help on all the options. If there's some failure, the only recourse is to install a JTAG header and restore the firmware via JTAG.
+Installation of !RedBoot can be accomplished with the [https://dev.openwrt.org/browser/trunk/scripts/flashing/jungo-image.py?format=txt jungo-image.py] script. The script uses the telnet interface into the router to accomplish it's task. Depending on the version of the firmware, it may have to be manually enabled in the advanced tab under local administration. The script will first make a backup of the current flash image; this procedure takes about 4 minutes. The actual writing of !RedBoot requires the {{{-w}}} flag. Use {{{-h}}} to get help on all the options. If there's some failure, the only recourse is to install a JTAG header and restore the firmware via JTAG; so, use at your own risk!
 
-After establishing a telnet session to redboot, the flash must be initialized and configured:
+After establishing a telnet session to !RedBoot, the flash must be initialized and configured:
 
  1. Initialize flash: {{{fis init}}}
  1. Configure MAC addresses: {{{fconfig npe_eth0_esa 0x00:0x01:0x02:0x03:0x04:0x05}}}. Use MAC address at the bottom of the unit!
@@ -62,7 +62,7 @@ After establishing a telnet session to redboot, the flash must be initialized an
  1. Write attachment:openwrt-mi424wr-squashfs.img to flash: {{{load -r -b %{FREEMEMLO} -h <hostip> openwrt-mi424wr-squashfs.img}}} followed by: {{{fis create rootfs}}}
 In order to autonomously boot to the openwrt kernel you just installed, you need to add a boot script to RedBoot:
 
- 1. Open RedBoot's configuration: {{{fco}}}
+ 1. Open RedBoot's configuration: {{{fconfig -d}}}
  1. When prompted with Runn script at boot, change the value to {{{true}}}
  1. Enter the following in the first line of the script enter: {{{fis load linux}}}
  1. Enter the second line: {{{exec}}}
@@ -73,8 +73,8 @@ In order to autonomously boot to the openwrt kernel you just installed, you need
  1. Power cycle the router and openwrt should boot. As long as everything installed properly, you can access Luci in about 50 seconds from switching on the power.
 The original image can be restored using the following procedure:
 
- 1. Get a copy of attachment:redram.img .
- 1. {{{load -h <ipaddress> redram.img}}}
+ 1. Get a copy of attachment:rb-mi424wr-RAM.img .
+ 1. {{{load -h <ipaddress> rb-mi424wr-RAM.img}}}
  1. {{{go}}}
  1. Close telnet session and start another one. Verify that RAM version is running with {{{version}}} command.
  1. {{{load -h <ipaddress> -r -b %{FREEMEMLO} mi424wr-xxxxxxxxxxxx.bin}}}
@@ -247,5 +247,6 @@ mini_fo: using storage directory: /jffs
 }}}
 === TODO ===
  * Debug ap (master) mode for rt2500 driver.
+ * Create single 8MB image file containing !RedBoot and linux.
 ----
  . CategoryModel ["CategoryIXP4xxDevice"]
