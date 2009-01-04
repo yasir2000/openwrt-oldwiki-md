@@ -1,30 +1,31 @@
-The Optware collection ports approximately 1000 application packages to embedded Linux; this collection originally was part of the Unslung environment in nslu2-linux.org's 'slug' project. 
+The Optware collection ports approximately 1000 application packages to embedded Linux; this collection originally was part of the Unslung environment in nslu2-linux.org's 'slug' project.
 
 As the packages are rather large, they are best suited for a USB-capable device with external storage (see UsbStorageHowto) or SD/MMC card flash.
 
 Before beginning installation, mount a writeable partition (flash or hard disc) as /opt - if you have a hard disc, you may also want to create a swap partition.
 
 === Installation for Whiterussian ===
-
 Once this is ready, download the ipkg-opt installer using:
+
 {{{
  wget http://pastebin.ca/raw/891052  -O - | tr -d '\r' > /tmp/optware-install.sh;
  sh /tmp/optware-install.sh
 }}}
+'''''Note:'''  ipkg-opt_0.99.163-'''9'''_mipsel.ipk used in the script is outdated and not available from that source, use  ipkg-opt_0.99.163-'''10'''_mipsel.ipk instead.''
 
 Upon successful install, you should be able to download a list of packages with:
+
 {{{
  ipkg-opt update
 }}}
-
-The installation of individual packages from the collection is then done using a similar procedure to standard ipkg installation, but using ipkg-opt. 
+The installation of individual packages from the collection is then done using a similar procedure to standard ipkg installation, but using ipkg-opt.
 
 The created /opt/etc/ipkg.conf contains:
+
 {{{
  src/gz optware http://ipkg.nslu2-linux.org/feeds/optware/ddwrt/cross/stable
  dest /opt/ /
 }}}
-
 This ensures that ipkg-opt downloaded packages will be placed under /opt/bin, /opt/lib, /opt/sbin instead of in the root filesystem.
 
 The Optware packages appear to be mostly compatible with OpenWRT Whiterussian installations, although problems occasionally will occur with differences in library files between the various distributions.
@@ -37,15 +38,15 @@ Packages designed for use under the 2.4 kernel (OpenWRT/Whiterussian) may not be
 There are some packages available for the current Kamikaze release here:
 
 ARM/IXScale:
+
 {{{
 src Optware http://ipkg.nslu2-linux.org/feeds/openwrt/kamikaze-7.09
 }}}
-
 Broadcom (2.4)
+
 {{{
 src Optware http://ipkg.nslu2-linux.org/feeds/optware/openwrt-brcm24/cross/unstable
 }}}
-
 Note: Not all platforms are supported yet under Kamikaze.
 
 === See also ===
@@ -53,4 +54,4 @@ Note: Not all platforms are supported yet under Kamikaze.
  * [http://ipkgfind.nslu2-linux.org/ NSLU2 packages search]
  * [http://ipkg.nslu2-linux.org/feeds/openwrt/ NSLU2 downloads for various OpenWrt platforms]
 ----
-CategoryPackage
+ CategoryPackage
