@@ -57,7 +57,7 @@ Installation of !RedBoot can be accomplished with the [https://dev.openwrt.org/b
 After establishing a telnet session to !RedBoot, the flash must be initialized and configured:
 
  1. Initialize flash: {{{fis init}}}
- 1. Configure MAC addresses: {{{fconfig npe_eth0_esa 0x00:0x01:0x02:0x03:0x04:0x05}}}. Use MAC address at the bottom of the unit!
+ 1. Configure MAC addresses: {{{fconfig npe_eth0_esa 0x00:0x01:0x02:0x03:0x04:0x05}}}. Use MAC address at the bottom of the unit plus 3. The one printed on the bottom is really for the lan... but we need to tell RedBoot what the WAN port MAC address is. You should probably verify what each MAC address is, and write them down somewhere, before installing OpenWRT.
  1. Write attachment:openwrt-mi424wr-zImage image to flash: {{{load -r -b %{FREEMEMLO} -h <hostip> openwrt-mi424wr-zImage}}} followed by: {{{fis create linux}}}
  1. Write attachment:openwrt-mi424wr-squashfs.img to flash: {{{load -r -b %{FREEMEMLO} -h <hostip> openwrt-mi424wr-squashfs.img}}} followed by: {{{fis create rootfs}}}
 In order to autonomously boot to the openwrt kernel you just installed, you need to add a boot script to RedBoot:
