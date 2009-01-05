@@ -224,7 +224,9 @@ To do:
 - decide to publish or not the code - there are several reason to be careful, the Intel code cannot be GPL'ed , patch into maybe illegal,etc.....
 }}}
 
-== related link ==
+= Replace OpenRG with redboot =
+d
+= related link =
 [http://www.seattlewireless.net/index.cgi/LinksysWrv54g]
 ----
 ["CategoryIXP4xxDevice"]
