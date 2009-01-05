@@ -5,8 +5,7 @@ For now, i recommend the openixp project if you have a wrv.
 
 = Hardware =
 == CPU ==
-Intel XScale 425
-Part number: FWIXP425AB
+Intel XScale 425 Part number: FWIXP425AB
 
 {{{
 Processor       : XScale-IXP42x Family rev 1 (v5b)
@@ -37,28 +36,26 @@ Serial          : 0000000000000000
 32MB
 
 == Flash ==
-Intel Strataflash 8MB
-Part Number: E28F640J3A120
+Intel Strataflash 8MB Part Number: E28F640J3A120
 
 == WLAN ==
 Intersil Prism54
 
-
 == Serial Pinout (J11) ==
  .
- || 1: || Txd ||
+|| 1: || Txd ||
  || 7: || Rxd  2,4: +3.3V ||
  || 6,8: || GND ||
 == JTAG Pinout (J2) to EA253 parallel cable ('''100Ohm except GND''') ==
  .
- || JTAG ||       DB-25 ||
+|| JTAG ||       DB-25 ||
  || 3 (TRST-) ||           6 ||
  || 5 (TDI) ||           2 ||
  || 7 (TMS) ||           4 ||
  || 9 (TCK) ||           3 ||
  || 11 (GND) ||          25 ||
-
 more detail pinout
+
 {{{
                c[] LED5
        +3.3V -- 1o o2 -- nc
@@ -223,10 +220,48 @@ To do:
 - use the built-in hardware for the crypto devices
 - decide to publish or not the code - there are several reason to be careful, the Intel code cannot be GPL'ed , patch into maybe illegal,etc.....
 }}}
-
 = Replace OpenRG with redboot =
-d
+== Redboot ==
+A custom version of RedBoot has been built and can be found here: attachment:redboot-ROM.bin . The RedBoot prompt is accessible via telnet 192.168.1.1 9000 on the Wan port. The Wan port is configured to obtain an address via BOOTP; if this fails it defaults to 192.168.1.1. Note that there's a feature that allows skipping the RedBoot boot script by pressing the "Reset" button after power on for about 10 seconds. When RedBoot is ready to accept commands, it sets the Power LED xxxx(need update).
+
+Place the Redboot image to be burnt into the /tftpboot directory (or any directory you set the server with) on your PC. Execute the following command from OpenRG's CLI:
+
+{{{
+OpenRG> load -u tftp://192.168.1.10/redboot.img -r 0
+}}}
+If there's some failure, the only recourse is to install a JTAG header and restore the firmware via JTAG; so, use at your own risk!
+
+After establishing a telnet session to RedBoot, the flash must be initialized and configured:
+
+ 1. Initialize flash: {{{fis init}}}
+ 1. Configure MAC addresses: {{{fconfig npe_eth0_esa 0x00:0x01:0x02:0x03:0x04:0x05}}}. Use MAC address at the bottom of the unit plus 3. The one printed on the bottom is really for the lan... but we need to tell RedBoot what the WAN port MAC address is. You should probably verify what each MAC address is, and write them down somewhere, before installing OpenWRT.
+ 1. Write attachment:openwrt-ixp4xx-zImage image to flash: {{{load -r -b %{FREEMEMLO} -h <hostip> openwrt-ixp4xx-zImage}}} followed by: {{{fis create linux}}}
+ 1. Write attachment:openwrt-ixp4xx-squashfs.img to flash: {{{load -r -b %{FREEMEMLO} -h <hostip> openwrt-ixp4xx-squashfs.img}}} followed by: {{{fis create rootfs}}}
+In order to autonomously boot to the openwrt kernel you just installed, you need to add a boot script to RedBoot:
+
+ 1. Open RedBoot's configuration: {{{fconfig -d}}}
+ 1. When prompted with Runn script at boot, change the value to {{{true}}}
+ 1. Enter the following in the first line of the script enter: {{{fis load linux}}}
+ 1. Enter the second line: {{{exec}}}
+ 1. Hit enter to finish the script with an empty line.
+ 1. You last entry is the timeout for loading the script. it shouldn't take longer than 1 or 2 seconds.
+ 1. Keep hitting enter until you get this prompt: {{{Update RedBoot non-volatile configuration - continue (y/n)?}}}.
+ 1. Type {{{y}}} and enter.
+ 1. Power cycle the router and openwrt should boot. As long as everything installed properly, you can access Luci in about 50 seconds from switching on the power.
+The original image can be restored using the following procedure:
+
+ 1. Get a copy of attachment:redboot-RAM.img .
+ 1. {{{load -h <ipaddress> redboot-RAM.img}}}
+ 1. {{{go}}}
+ 1. Close telnet session and start another one. Verify that RAM version is running with {{{version}}} command.
+ 1. {{{load -h <ipaddress> -r -b %{FREEMEMLO} wrv54g-xxxxxxxxxxxx.bin}}}
+ 1. {{{fis unlock RedBoot}}}
+ 1. {{{fis write -b %{FREEMEMLO} -l 0x600000 -f 0x50000000}}}
+ 1. Close telnet session and power cycle.
+
+reference from http://wiki.openwrt.org/OpenWrtDocs/Hardware/Actiontec/MI424-WR
 = related link =
-[http://www.seattlewireless.net/index.cgi/LinksysWrv54g]
+http://www.seattlewireless.net/index.cgi/LinksysWrv54g
+
 ----
-["CategoryIXP4xxDevice"]
+ ["CategoryIXP4xxDevice"]
