@@ -339,40 +339,11 @@ Here is the pcb top side.
 
 [[ImageLink(http://home.comcast.net/~johnrw/image/M5110012.JPG, target[width=1024,height=768])]]
 
+== USB Wireless w/Access Point Mode Added ==
+
+On Jan 3, 2009 John reached a project goal of his. AP mode with WPA-PSK encryption wireless support. Using the OpenWRT buildroot, and the compat-wireless branch from Dec 29, 2008, and Linux 2.6.28 he added support for the Linksys WUSB54GV2 adapter through the p54 driver. He reported the kernel had no trouble setting the card to Master mode using hostapd. He pinged the USR8200/WRT54GV2 all day with no significant packet loss. [[BR]]
+The Linksys USB adapter has a ISL3887(prism54 softmac) chip, which needed p54common, p54pci, p54usb and the new mac80211 Linux wireless stack. Well that turned out to be a great New Year's Day present from linux-wireless!
   
-== Bugs to squash ==
-On my unit...{{{
-root@OpenWrt:/# lspci -v
-00:0f.0 FireWire (IEEE 1394): VIA Technologies, Inc. IEEE 1394 Host Controller (rev 80) (prog-if 10 [OHCI])
-        Flags: bus master, stepping, medium devsel, latency 0, IRQ 25
-        Memory at 48000000 (32-bit, non-prefetchable) [size=2K]
-        I/O ports at 1000 [size=128]
-        Capabilities: [50] Power Management version 1
-        Kernel driver in use: ohci1394
-
-00:10.0 USB Controller: VIA Technologies, Inc. VT82xxxxx UHCI USB 1.1 Controller (rev 61) (prog-if 00 [UHCI])
-        Subsystem: VIA Technologies, Inc. VT82xxxxx UHCI USB 1.1 Controller
-        Flags: bus master, medium devsel, latency 22, IRQ 28
-        I/O ports at 1080 [size=32]
-        Capabilities: [80] Power Management version 2
-        Kernel driver in use: uhci_hcd
-
-00:10.1 USB Controller: VIA Technologies, Inc. VT82xxxxx UHCI USB 1.1 Controller (rev 61) (prog-if 00 [UHCI])
-        Subsystem: VIA Technologies, Inc. VT82xxxxx UHCI USB 1.1 Controller
-        Flags: bus master, medium devsel, latency 22, IRQ 27
-        I/O ports at 10a0 [size=32]
-        Capabilities: [80] Power Management version 2
-        Kernel driver in use: uhci_hcd
-
-00:10.2 USB Controller: VIA Technologies, Inc. USB 2.0 (rev 63) (prog-if 20 [EHCI])
-        Subsystem: VIA Technologies, Inc. USB 2.0
-        Flags: bus master, medium devsel, latency 22, IRQ 26
-        Memory at 48000800 (32-bit, non-prefetchable) [size=256]
-        Capabilities: [80] Power Management version 2
-        Kernel driver in use: ehci_hcd
-}}}
-latency 0, 22,22,22 is probably from something still yet unitialized.
-We will get to it.
 
 == Kernel Output (preliminary) ==
 {{{
