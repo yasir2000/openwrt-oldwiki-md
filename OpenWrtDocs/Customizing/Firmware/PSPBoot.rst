@@ -1,6 +1,6 @@
 [[TableOfContents]]
 = PSPBoot =
-PSPBoot is the bootloader used on the LinkSys WAG354G, WRTP54G and [http://www.linux-mips.org/wiki/ADSL2MUE ADSL2MUE]. It is similar to the ["ADAM2"] loader.
+PSPBoot is the bootloader used on the Linksys WAG354G, WRTP54G and [http://www.linux-mips.org/wiki/ADSL2MUE ADSL2MUE]. It is similar to the ["ADAM2"] loader.
 
 == User Guide ==
 Here is the user guide of PSPBoot version 1.2, attachment:PSPBoot_User_Guide.pdf
