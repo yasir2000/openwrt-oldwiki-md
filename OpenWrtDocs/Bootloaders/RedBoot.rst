@@ -20,6 +20,8 @@ To write an ordered pair, do this:
 
 Caveat: {{{mtd}}} and the library it uses might not let you write to that mtd device.  The lock is a software lock, implemented to prevent the mtd block following the RedBoot config from being erased as the config spans only a partial flash erase block.  There is a patch that removes this limitation, but it requires replacing the kernel.
 
+The {{{-v}}} flag increased verbosity.
+
 === Within RedBoot ===
 RedBoot, itself, also uses the {{{fconfig}}} command, albeit a bit differently.
 
@@ -48,6 +50,8 @@ Update RedBoot non-volatile configuration - continue (y/n)? y    //Enter 'y' and
 … Program from 0×80ff0000-0×81000000 at 0xa87e0000: .
 }}}
 === Configuration variables ===
+I'm guessing, here.
+
 || value               || description                                 || reasonable setting ||
 || boot_script         || Use a boot script to boot the device?       || true               ||
 || boot_script_data    || The script                                  || .. fis load -l vmlinux.bin.l7 .. exec ||
@@ -74,5 +78,3 @@ For both telnet and serial, reset the device.  RedBoot needs to receive Ctrl+c t
 ^C
 RedBoot>
 }}}
-
-The {{{-v}}} flag increased verbosity.
