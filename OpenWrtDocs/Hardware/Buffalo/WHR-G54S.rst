@@ -124,6 +124,16 @@ In the original hardware both pin 9 and pin 5 were not connected to anything. Th
 [[ImageLink(http://www.ratnet.stw.uni-erlangen.de/~simischo/openwrt/serial_connection.jpg ,height=200)]]
 
 
+== Ram Upgrade ==
+
+It is possible to upgrade the RAM on this Unit. 2x16MB are recognised automatically, 2x32 are only recognised as 32M. To get it working with 64MB do:
+
+{{{
+nvram set sdram_init=0x2008
+nvram set sdram_ncdl=0
+nvram commit 
+}}}
+(see http://www.dd-wrt.com/forum/viewtopic.php?p=82055&sid=070859bfc882c3055bb0d75b02eaa8b0)
 
 == some dmesg dumps ==
 this is for devices starting with serial 3407:
