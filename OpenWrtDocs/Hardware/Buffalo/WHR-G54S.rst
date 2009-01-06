@@ -126,7 +126,7 @@ In the original hardware both pin 9 and pin 5 were not connected to anything. Th
 
 == Ram Upgrade ==
 
-It is possible to upgrade the RAM on this Unit. 2x16MB are recognised automatically, 2x32 are only recognised as 32M. To get it working with 64MB do:
+It is possible to upgrade the RAM on this unit. 2x16MB are recognised automatically, 2x32 are recognised as 32M only. To get it working with 64MB do:
 
 {{{
 nvram set sdram_init=0x2008
