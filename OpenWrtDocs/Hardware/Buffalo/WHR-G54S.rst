@@ -129,9 +129,10 @@ In the original hardware both pin 9 and pin 5 were not connected to anything. Th
 It is possible to upgrade the RAM on this unit. 2x16MB are recognised automatically, 2x32 are recognised as 32M only. To get it working with 64MB do:
 
 {{{
-nvram set sdram_init=0x2008
-nvram set sdram_ncdl=0
-nvram commit 
+nvram set memc_config=0x00048008
+nvram set sdram_init=0x0008
+nvram commit
+reboot 
 }}}
 (see http://www.dd-wrt.com/forum/viewtopic.php?p=82055&sid=070859bfc882c3055bb0d75b02eaa8b0)
 
