@@ -21,7 +21,7 @@ To write an ordered pair, do this:
 Caveat: {{{mtd}}} and the library it uses might not let you write to that mtd device.  The lock is a software lock, implemented to prevent the mtd block following the RedBoot config from being erased as the config spans only a partial flash erase block.  There is a patch that removes this limitation, but it requires replacing the kernel.
 
 === Within RedBoot ===
-RedBoot, itself, also uses the {{{fconfig}} command, albeit a bit differently.
+RedBoot, itself, also uses the {{{fconfig}}} command, albeit a bit differently.
 
 {{{
 RedBoot> fconfig    //Press enter//
