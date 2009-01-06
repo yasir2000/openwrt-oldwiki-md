@@ -4,7 +4,7 @@ From [http://forum.openwrt.org/viewtopic.php?id=11301]
 
 The boot process may be customized to add new daemons, provide alternate ways of starting existing daemons, or otherwise do things at startup and shutdown.
 
-This, is /etc/init.d/example:
+This, is /etc/init.d/example.  As written it supports all standard options, e.g, 'restart', 'enable', etc. as well as 'start' and 'stop'.:
 
 {{{
 #!/bin/sh /etc/rc.common
