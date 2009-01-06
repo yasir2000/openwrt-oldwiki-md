@@ -18,7 +18,7 @@ To read a single ordered pair, use this:
 To write an ordered pair, do this:
 {{{fconfig -w -d /dev/mtd3 -n bootp -x TRUE}}}
 
-Caveat: {{{mtd}}} and the library it uses might not let you write to that mtd device.  The lock is a software lock, implemented to prevent the mtd block following the RedBoot config from being erased as the config spans only a partial flash erase block.  There is a patch that removes this limitation, but it requires replacing the kernel.
+Caveat: {{{mtd}}} and the library it uses might not let you write to that mtd device.  The lock is a software lock, implemented to prevent the mtd block following the RedBoot config from being erased as [http://forum.openwrt.org/viewtopic.php?pid=72704#p72704 the config spans only a partial flash erase block].  There is a patch that removes this limitation, but it requires replacing the kernel.
 
 The {{{-v}}} flag increased verbosity.
 
