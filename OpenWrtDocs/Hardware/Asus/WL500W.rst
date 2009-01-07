@@ -217,5 +217,10 @@ While holding in the black reset button apply the power. Then release the reset 
 === Ugly hack ===
 This is an ugly hack, but it works for me. I have 2 external 160 Gb harddisks attached to the WL500w running as a raid0 array. You should apply [http://lkml.org/lkml/diff/2007/5/8/5/1 this patch] to the kernel. Then edit the feeds/packages/utils/mdadm/Makefile and remove or comment out the DEPENDS:=@LINUX_2_6 line. Run make menuconfig and select mdadm. The run make kernel_menuconfig and set raid, usb mass storage and scsi disk support to compile into the kernel.
 
+
+== Adding a USB serial port ===
+I successfully added a USB serial port to my WL500W.  Docs and pics are at http://www.zacpod.com/?p=13
+
+
 ----
 CategoryModel Category80211nDevice
