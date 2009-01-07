@@ -5,34 +5,28 @@ The WHR-HP-AG108 (FFC ID: [https://fjallfoss.fcc.gov/oetcf/eas/reports/ViewExhib
 
 '''Flashing OpenWrt to a WHR-HP-AG108 is not trivial.''' The precompiled images from [http://downloads.openwrt.org/kamikaze/7.09/atheros-2.6/ OpenWrt] won't work with the WHR so you'll have to compile your own or download a custom firmware (available below). 
 
-To flash the WHR from it's original firmware you must: 
-  * gain debug access to the router
-  * activate telnet access
-  * change the [http://en.wikipedia.org/wiki/RedBoot RedBoot] configuration
-  * use the Redboot interface to flash the operating system and file system files, and enable the boot script. 
+To flash the WHR from it's original firmware you will have to
+  * Gain debug access to the router using Buffalo debug interface and activate telnet access
+  * Change the [http://en.wikipedia.org/wiki/RedBoot RedBoot] configuration to activate RedBoot access via ethernet
+  * Use the Redboot interface to flash the operating system, file system files, and enable the boot script. 
 It's not easy but the process is detailed below.
 
 == Prepare firmware image ==
 Get yourself a copy of Kamikaze from the SVN repository: svn co https://svn.openwrt.org/openwrt/trunk/ kamikaze {for the latest, bleeding edge, trunk release} I was unsuccessful with this release, but I did compile and flash the following stable tag svn: svn co https://svn.openwrt.org/openwrt/tags/kamikaze_7.09 kamikazestable
 
-Edit ''package/madwifi/Makefile''. Change the line containing ''HAL_TARGET'' so that it reads
+Edit ''package/madwifi/Makefile''. Change the line containing ''HAL_TARGET'' to
 
 {{{
 HAL_TARGET:=ap30
 }}}
 after that it's time for ''make menuconfig; make'' and have some fun and watching a short film while it compiles.
 
-I tested it with Kamikaze 7.06 so if you're unsure you may use that version. It also works with the stable release of 7.09 as of 10 March 08.
-
-'''If you can't compile the firmware image yourself you can download my pre-compiled OpenWrt Kamikaze 7.09 tag image for the WHR-HP-AG108 here: '''http://robrobinette.com/etc/Rob-WHR-HP-AG108.zip
+'''If you can't compile the firmware image yourself you can download pre-compiled OpenWrt Kamikaze 7.09 tag image for the WHR-HP-AG108 here: '''http://robrobinette.com/etc/Rob-WHR-HP-AG108.zip
 The image is very stable and has Webif^2 built in so you will be able to access the router using your web browser at http://192.168.1.1 after you flash it.
 
 == Buffalo debug interface ==
-{{{
-http://192.168.11.1/cgi-bin/cgi?req=frm&frm=py-db/55debug.html
-user: bufpy
-password: "otdpopy+your root password (empty by default)" e.g.: otdpopy1234
-}}}
+  * Open router’s administration page and set the root password to ''1234''
+  * Log in to http://192.168.11.1/cgi-bin/cgi?req=frm&frm=py-db/55debug.html with username: ''bufpy'' and password: ''otdpopy1234''
 
 == Accessing RedBoot via ethernet ==
   * Start Buffalo debug interface
@@ -61,16 +55,16 @@ RedBoot>
 }}}
 
 == Loading OpenWrt ==
-'''Always make a backup of your old firmware. If something goes wrong - I told you!'''
-
 If you're using a '''serial console''' configure it with:
 
 {{{
 screen -c /dev/null -m /dev/ttyUSB0 9600 8N1
 }}}
-If you're using '''ethernet''', make sure your network cable is plugged into port 1! It's the one closest to the antenna. I tried port 4 before and didn't got a network connection with that.
+If you're using '''ethernet''', make sure your network cable is plugged into port 1! It's the one closest to the antenna.
 
-Now you may power up your router and hit Ctrl-C when it asks for it. '''Once in !RedBoot''' you should set your network config
+Power up your router and hit Ctrl-C when it asks for it to access the RedBoot. 
+
+'''Once in !RedBoot''' set up your network config
 
 {{{
 ip_address -l [router ip address] -h [ftp server address]
@@ -93,37 +87,64 @@ exec
 }}}
 as bootscript.
 
-... done. Now it's time to restart your router with the 'reset' command and watch it boot up into !OpenWrt.
+... '''done'''. 
 
+Now it's time to restart your router with the 'reset' command and watch it boot up into !OpenWrt.
+
+=== Example ===
 Here's the RedBoot commands I used to flash my router with the pre-compiled OpenWrt Kamikaze 7.09 tag image for the WHR-HP-AG108 downloaded here: http://robrobinette.com/etc/Rob-WHR-HP-AG108.zip
-
 {{{
-RedBoot> fis init -f    (will erase everything but the Redboot info from the WHR's flash memory)
-fis free      (confirm you get the same free memory numbers below, if they are different the flash may not work)
+RedBoot> fis init -f
+}}}
+This will erase everything but the Redboot info from the WHR's flash memory
+{{{
+fis free
+}}}      
+Confirm you get the same free memory numbers below, if they are different the flash may not work
+{{{
   0xBE050000 .. 0xBE3D0000
   0xBE3E0000 .. 0xBE3F0000
-= %{FREEMEMLO}   (confirm you get the same number below)
+}}}
+{{{
+= %{FREEMEMLO}
+}}}   
+Confirm you get the same number below
+{{{
 0X80000400
+}}}
+{{{
 load -r -v -b %{FREEMEMLO} RobKamikaze709WHR.vmlinux.gz
 fis create -r 0x80041000 -e 0x80041000 vmlinux.gz
 load -r -v -b %{FREEMEMLO} RobKamikaze709WHR.squashfs
-fis free  (again confirm you get the same numbers below)
-  0xBE150000 .. 0xBE3D0000    (0xBE3D0000 - 0xBE150000 = 280000 (hex math))
+fis free
+}}} 
+Again confirm you get the same numbers below
+{{{
+  0xBE150000 .. 0xBE3D0000
   0xBE3E0000 .. 0xBE3F0000
-(I get 280000 free space so  it's:)
+}}}
+0xBE3D0000 - 0xBE150000 = 0x280000 (I get 0x280000 free space), so
+{{{
 fis create -l 0x280000 rootfs
-fis list   (confirm you get the same numbers, they may be listed in a different order)
+fis list
+}}}
+Confirm you get the same numbers, they may be listed in a different order
+{{{
 Name              FLASH addr  Mem addr    Length      Entry point
 RedBoot           0xBE000000  0xBE000000  0x00050000  0x00000000
 vmlinux.gz        0xBE050000  0x80041000  0x00100000  0x80041000
 rootfs            0xBE150000  0x80000400  0x00280000  0x80000400
 FIS directory     0xBE3D0000  0xBE3D0000  0x0000F000  0x00000000
 RedBoot config    0xBE3DF000  0xBE3DF000  0x00001000  0x00000000
+}}}
+{{{
 fis free
   0xBE270000 .. 0xBE3D0000
   0xBE3E0000 .. 0xBE3F0000
-fconfig  
-(when it asks you for your init script you put following lines)
+fconfig
+}}}  
+When it asks you for your init script you put following lines
+{{{
 fis load -d vmlinux.gz
 exec
 }}}
