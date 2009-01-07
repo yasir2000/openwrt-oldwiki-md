@@ -19,10 +19,10 @@ The Nanostation comes with a 12V powersupply, the internal DC-Converter seems to
 === Opening the case ===
 There are two screws under the label on the back.  After removing these, the board can be removed.
 
-#http://www.flickr.com/photos/mattw/2401470901/
+#### http://www.flickr.com/photos/mattw/2401470901/
 attachment:unscrewed_ns2.jpg
 
-#http://www.flickr.com/photos/mattw/2402299466/
+#### http://www.flickr.com/photos/mattw/2402299466/
 attachment:opening_ns2.jpg
 
 attachment:serial_ns2.jpg
