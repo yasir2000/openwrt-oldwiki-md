@@ -19,7 +19,8 @@ The Nanostation comes with a 12V powersupply, the internal DC-Converter seems to
 === Opening the case ===
 There are two screws under the label on the back.  After removing these, the board can be removed.
 
-attachment:ns2_unscrewed.jpg
+[http://www.flickr.com/photos/mattw/2401470901/ attachment:unscrewed_ns2.jpg]
+[http://www.flickr.com/photos/mattw/2402299466/ attachment:opening_ns2.jpg]
 
 == OpenWrt ==
 The NanoStation2 is supported by the OpenWrt AtherosPort.  It is available as a pre-built image and can be built through buildroot.
