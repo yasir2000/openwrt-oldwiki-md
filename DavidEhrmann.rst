@@ -30,7 +30,7 @@ But it's still changing...
 
 = A few external links =
   * [http://s3mp.org s3mp]: My Amazon S3-based mp3 player.  Extra pre-beta.
-  * [http://www.stuffengineerslike.com]: Stuff Engineers Like
+  * [http://www.stuffengineerslike.com Stuff Engineers Like]
 
 ----
 CategoryHomepage
