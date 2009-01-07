@@ -1,9 +1,9 @@
 = WHR-HP-AG108 =
 attachment:WHR-HP-AG108.jpg
 
-The WHR-HP-AG108 (FFC ID: [https://fjallfoss.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=600453&fcc_id=%27FDI-09101540-0%27 FDI-09101540-0]) has a [http://www.atheros.com/pt/bulletins/AR5002AP-2X.pdf Atheros AR5312 WiSoC] CPU running at 220 MHz (re AtherosPort). It has 4 MB flash and 32 MB RAM as well as '''two wireless devices onboard''' (one a/b/g, one b/g) which allows '''simultaneous a and g''' wireless networks. Serial port and the soldering points for JTAG can be found inside.
+The WHR-HP-AG108 (FFC ID: [https://fjallfoss.fcc.gov/oetcf/eas/reports/ViewExhibitReport.cfm?mode=Exhibits&RequestTimeout=500&calledFromFrame=N&application_id=600453&fcc_id=%27FDI-09101540-0%27 FDI-09101540-0]) has a [http://www.atheros.com/pt/bulletins/AR5002AP-2X.pdf Atheros AR5312 WiSoC] CPU running at 220 MHz. It has 4 MB flash and 32 MB RAM as well as '''two wireless devices onboard''' (one a/b/g, one b/g) which allows '''simultaneous a and g''' wireless networks. Serial port and the soldering points for JTAG can be found inside.
 
-'''Flashing OpenWrt to a WHR-HP-AG108 is not trivial.''' The precompiled images from [http://downloads.openwrt.org/kamikaze/7.09/atheros-2.6/ OpenWrt] won't work with the WHR so you'll have to compile your own or download a custom firmware (available below). 
+'''Flashing OpenWrt to a WHR-HP-AG108 is not trivial''' (refer to AtherosPort). The precompiled images from [http://downloads.openwrt.org/kamikaze/7.09/atheros-2.6/ OpenWrt] won't work with the WHR so you'll have to compile your own or download a custom firmware (available below). 
 
 To flash the WHR from it's original firmware you will have to
   * Gain debug access to the router using Buffalo debug interface and activate telnet access
