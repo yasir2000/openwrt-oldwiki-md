@@ -1,15 +1,15 @@
 = NanoStation2 =
 == Hardware ==
-* Bootloader: RedBoot
-* CPU: Atheros AR2315 according to the datasheet and cpuinfo, but chip is marked as AR2316A !!
-* CPU Speed: 180 Mhz
-* Flash size: 4 MB
-* RAM: 16 MB
-* Wireless: Atheros 802.11b/g (in CPU, 400mW)
-* Ethernet: 1 port connected to the CPU
-* Power: passive POE (pairs 4,5+; 7,8 return) 12 to 18 VDC (POE injector included in the package)
-* Serial: internal (HE-10 connector, 3.3V)
-* [wiki:Self:OpenWrtDocs/Customizing/Hardware/JTAG_Cable JTAG]: yes, internal (solder pads, 3.3V)
+ * Bootloader: RedBoot
+ * CPU: Atheros AR2315 according to the datasheet and cpuinfo, but chip is marked as AR2316A !!
+ * CPU Speed: 180 Mhz
+ * Flash size: 4 MB
+ * RAM: 16 MB
+ * Wireless: Atheros 802.11b/g (in CPU, 400mW)
+ * Ethernet: 1 port connected to the CPU
+ * Power: passive POE (pairs 4,5+; 7,8 return) 12 to 18 VDC (POE injector included in the package)
+ * Serial: internal (HE-10 connector, 3.3V)
+ * [wiki:Self:OpenWrtDocs/Customizing/Hardware/JTAG_Cable JTAG]: yes, internal (solder pads, 3.3V)
 
 This device is an integrated wifi spot designed to be used outdoor.
 With Ubiquiti Firmware, AirOS 3 actually, it can act as station, station WDS, client, client wds...
