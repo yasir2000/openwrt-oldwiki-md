@@ -93,43 +93,41 @@ Now it's time to restart your router with the 'reset' command and watch it boot 
 
 === Example ===
 Here's the RedBoot commands I used to flash my router with the pre-compiled OpenWrt Kamikaze 7.09 tag image for the WHR-HP-AG108 downloaded here: http://robrobinette.com/etc/Rob-WHR-HP-AG108.zip
+
+Erase everything but the Redboot info from the WHR's flash memory
 {{{
-RedBoot> fis init -f
+fis init -f
 }}}
-This will erase everything but the Redboot info from the WHR's flash memory
-{{{
-fis free
-}}}      
 Confirm you get the same free memory numbers below, if they are different the flash may not work
 {{{
+fis free
   0xBE050000 .. 0xBE3D0000
   0xBE3E0000 .. 0xBE3F0000
 }}}
-{{{
-= %{FREEMEMLO}
-}}}   
 Confirm you get the same number below
 {{{
+= %{FREEMEMLO}
 0X80000400
 }}}
+Copy the firmware from tftp to your router and write firmware to flash
 {{{
 load -r -v -b %{FREEMEMLO} RobKamikaze709WHR.vmlinux.gz
 fis create -r 0x80041000 -e 0x80041000 vmlinux.gz
 load -r -v -b %{FREEMEMLO} RobKamikaze709WHR.squashfs
-fis free
 }}} 
 Again confirm you get the same numbers below
 {{{
+fis free
   0xBE150000 .. 0xBE3D0000
   0xBE3E0000 .. 0xBE3F0000
 }}}
 0xBE3D0000 - 0xBE150000 = 0x280000 (I get 0x280000 free space), so
 {{{
 fis create -l 0x280000 rootfs
-fis list
 }}}
 Confirm you get the same numbers, they may be listed in a different order
 {{{
+fis list
 Name              FLASH addr  Mem addr    Length      Entry point
 RedBoot           0xBE000000  0xBE000000  0x00050000  0x00000000
 vmlinux.gz        0xBE050000  0x80041000  0x00100000  0x80041000
@@ -141,6 +139,8 @@ RedBoot config    0xBE3DF000  0xBE3DF000  0x00001000  0x00000000
 fis free
   0xBE270000 .. 0xBE3D0000
   0xBE3E0000 .. 0xBE3F0000
+}}}
+{{{
 fconfig
 }}}  
 When it asks you for your init script you put following lines
