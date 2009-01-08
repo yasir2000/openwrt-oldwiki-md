@@ -2,7 +2,7 @@
 
 ||<tablebgcolor="#f1f1ed" tablewidth="40%" tablestyle="FONT-SIZE: 0.9em; FLOAT: right; MARGIN: 0pt 0pt 1em 1em"style="PADDING-RIGHT: 0.5em; PADDING-LEFT: 0.5em; PADDING-BOTTOM: 0.5em; PADDING-TOP: 0.5em"> [[TableOfContents]] ||
 = Netgear WNR834B =
-The WNR834B is Netgear's Rangemax Next single-band wireless-N broadband router based on Broadcom's wireless-G MIMO platform.  It shares a similar hardware configuration with the Linksys WRT-150N and WRT-160N routers.  Netgear's 2_1_13_na firmware runs Linux 2.4.20 internally and DD-WRT v24 sp2 firmware runs Linux 2.4.36 internally.
+The WNR834B is Netgear's Rangemax Next single-band wireless-N broadband router based on Broadcom's wireless-G MIMO platform.  It shares a similar hardware configuration with the Linksys WRT-150N and WRT-160N routers.  Netgear's 2_1_13_na firmware runs Linux 2.4.20 and DD-WRT v24 sp2 firmware runs Linux 2.4.36.
 
 '''NOTE:''' This device supports only 2.4 kernel versions of Kamikaze. At this time the Broadcom wl.o binary driver is only available for 2.4 kernels and the open source b43 driver is not ready yet.  Wireless WILL NOT WORK if you flash an image with a 2.6 kernel. 
 
@@ -62,10 +62,13 @@ attachment:WNR834Bv2_Internals.JPG
 
 === Pads on PCB - v2 ===
 There are 3 sets of pads on the PCB of the WRN834B v2:
+ * Solder pads - JTAG - near radio shield, top edge of board.
  * JP1 - Serial console, 3.3V, 115200/8/N
  * J12 - JTAG
- * Solder pads - JTAG - near radio shield, top edge of board.
 
+attachment:wnr834bv2_tsop_jtag_180.jpg
+
+(Hi-res annotated JP1/J12 photo courtesy of Sparkie at DD-WRT forums)
 
 '''JP1''' 3.3v TTL Serial, 1 row of six pins
 ||'''Pin 1''' || 3.3V ||
