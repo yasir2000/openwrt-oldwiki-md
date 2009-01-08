@@ -88,7 +88,7 @@ There are also some other variants like bcm6341, which is a DSP used in VoIP pro
 ||[http://zhone.com/products/6238/ Zhone 6238] ||
 || Sagem F@ST 2504 (commonly shipped by Sky Broadband in UK) ||
 === Known 6358 platforms*: ===
-||[http://www.buffalo-technology.com/products/wireless/wireless-n-nfiniti/wireless-n-nfiniti-broadband-adsl2-modem-router/ Buffalo WBMR-G300N] ||
+||[:OpenWrtDocs/Hardware/Buffalo/WBMR-G300N:Buffalo WBMR-G300N] ||
 ||[http://www.dlink.com/products/?pid=567 D-Link DSL-2640B] ||
 ||[:OpenWrtDocs/Hardware/Freebox/FreeboxV5:Freebox v5] ||
 ||[:OpenWrtDocs/Hardware/Netcomm/NB9WMAXX:Netcomm NB9WMAXX] ||
