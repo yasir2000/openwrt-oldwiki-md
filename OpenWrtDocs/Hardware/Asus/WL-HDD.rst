@@ -111,6 +111,7 @@ entries in the logfile when using it as wireless client. this is a interference 
 nvram set lan_ifname=eth2
 nvram commit
 }}}
+If you have any problem setting up WDS on this WLHDD or signal issue with WLAN, try to set antenna to external by option rxant 0 and option txant 0 for Kamikaze or add nvram settings for Whiterussian. 
 == Hardware ==
 === Internal Images ===
 [:OpenWrtDocs/Hardware/Asus/WL-HDD/InternalImages:Internal Images]
