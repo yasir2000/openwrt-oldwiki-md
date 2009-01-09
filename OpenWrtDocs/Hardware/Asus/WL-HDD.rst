@@ -72,8 +72,40 @@ source patch: attachment:usbnet_ax88772.patch
 === Run root filesystem from the harddisk ===
 GerardBraad describes some additional steps on how to make the root filesystem run from the harddisk. These instructions can be found in the forum at http://forum.openwrt.org/viewtopic.php?id=7373
 
+In Kamikaze, instead of replacing /sbin/init, alternated method is to create pivotroot script under /etc/init.d, update the script with your H/D device path then run /etc/init.d/pivotroot enable to boot from H/D, or /etc/init.d/pivotroot disable to boot from flash rom. Follow the steps in USBStorageHowto to prepare H/D root file system.
+{{{
+#!/bin/sh /etc/rc.common
+
+
+START=06
+
+# change this to your boot partition
+boot_dev="/dev/discs/disc0/part?"
+swap_dev="/dev/discs/disc0/part?"
+
+boot() {
+        for module in  ide-core pdc202xx_old ide-detect ide-disk ext2 jbd ext3; do {
+                insmod $module
+        }; done
+
+        mount "$boot_dev" /jffsroot
+        # if everything looks ok, do the pivot root
+        [ -x /jffsroot/sbin/init ] && {
+                mount -o move /proc /jffsroot/proc && \
+                pivot_root /jffsroot /jffsroot/jffsroot && {
+                        mount -o move /jffsroot/dev /dev
+                        mount -o move /jffsroot/tmp /tmp
+                        mount -o move /jffsroot/jffs /jffs 2>&-
+                        mount -o move /jffsroot/sys /sys 2>&-
+                        swapon "$swap_dev"
+                }
+                }
+}
+}}}
+
 == Network Configuration ==
 As listed in [http://wiki.openwrt.org/OpenWrtDocs/Configuration OpenWrtDocs/Configuration] the network interfaces are configured as eth1 (wired) and eth2 (wireless). They are bridged in default installation.
+Note: In my Kamikaze 7.09, it's wl0 for wireless interface.
 
 === Device as Router ===
 To open the bridge you have to change the interfaces for lan only to eth2, set the wan device to eth1 and configure these devices as you like (static, dynamic, etc) (http://forum.openwrt.org/viewtopic.php?pid=37730)
