@@ -3,6 +3,13 @@ There are a few ways to do it.  One is the typical linux way: modify the kernel 
 
 A less-traditional approach is to switch roots during the boot process.
 
+== The traditional way ==
+Much of the traditional way of doing nfs roots is documented elsewhere.
+
+http://www.faqs.org/docs/Linux-mini/NFS-Root.html
+
+The OpenWrt-specific parts are ["OpenWrtDocs/BuildingKamikazeHowTo" building a custom image] and changing the kernel command line.  Changing the kernel command line varies from device to device, but it generally involves either a serial, telnet, or tftp connection into the bootloader.  See the page for the device on the TableOfHardware for more information.
+
 == Switching roots ==
 === Creating a new root ===
 First, follow the RemoteFileSystemHowTo to set up an NFS mount.
