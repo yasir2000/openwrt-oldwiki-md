@@ -222,7 +222,7 @@ If you can't access your device after making these changes, first try disabling 
   * If the device has a static IP, unplugging it from the network, then plugging it back in after booting will prevent the nfsroot init script from killing the normal init script.
   * If the device uses DHCP, creating a special entry or modifying an existing entry on the DHCP server to place the device in a different subnet than the NFS server would recover the device.
 
-If all else fails, try entering failsafe mode.  See [OpenWrtDocs/Troubleshooting].  There might also be device recovery information specific to your device.  See TableOfHardware.
+If all else fails, try entering failsafe mode.  See ["OpenWrtDocs/Troubleshooting"].  There might also be device recovery information specific to your device.  See TableOfHardware.
 
 === Possible improvements ===
 /var probably doesn't need to be mounted with the --bind option.
