@@ -1,12 +1,22 @@
 #pragma section-numbers off
 ||<tablebgcolor="#f1f1ed" tablewidth="40%" tablestyle="margin: 0pt 0pt 1em 1em; float: right; font-size: 0.9em;"style="padding: 0.5em;">[[TableOfContents]]||
 == ASUS WL-500g Premium V2 ==
-The redesigned version of the ASUS WL-500g Premium router, ["OpenWrtDocs/Hardware/Asus/WL500GP"] , has the following changes:
+The redesigned version of the ASUS WL-500g Premium router, ["OpenWrtDocs/Hardware/Asus/WL500GP"] , has the following hardware:
 
- * Broadcom BCM5354 CPU @ 240 Mhz
- * On-board wireless LAN controller
- * WLAN port and antenna port have changed sides
+ * Broadcom BCM5354 CPU @ 240 Mhz (130nm process)
+ * On-board integrated wireless LAN controller
+    -WLAN port and antenna port have changed sides
+    -2.412 - 2.484 GHz, 14 channel increments + auto setting
+    -(PCI Device 14e4:4318)
+ * 8 MB NAND, single chip
+    -Macronix 29LV640DB
+    -64K sector size
+ * Bootloader: CFE
+ * 32MB 16-bit DDR SDRAM
+
 Support in trunk since [https://dev.openwrt.org/changeset/10693 changeset 10693].
+
+USB NOTE: NO UHCI USB drivers needed... only EHCI are used
 
 Sancho: After a long period of fiddling with the SVN trunk, patching, re-compiling, etc. I found out, that the wireless is simply not working. On the other hand, the Kamikaze with 2.4 kernel works just fine. The wireless is turned off, but it's enough to turn it on using web interface. Works like a charm than.
 
