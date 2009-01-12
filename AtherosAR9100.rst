@@ -3,6 +3,7 @@ Atheros AR9100 routers
 (At the time of this page creation, the OpenWRT wiki is malfunctioning and not allowing edit of AtherosPort page, so creating a new page for temporary holding of this information)
 
 == AP81 Routers ==
+
  * Trendnet TEW-632BRP, AP81-AR9130-RT-070614-00, ar9102 2x2 MIMO
  * Trendnet TEW-652BRP, AP81-AR9130-RT-080609-05, ar9102 2x2 MIMO
  * D-Link DIR-615 revision C1, AP81-AR9130-RT-080609-05, ar9102 2x2 MIMO
@@ -14,8 +15,6 @@ Atheros AR9100 routers
  * Atlantiland A02-RB-W300N
  * Cameo Communications WLN2206, FCC id same as Trendnet TEW-632BRP according to SmallNetBuilder website
  * Mercury MWR300T+, ar9103 3x3 MIMO, details: http://bbs.whbear.com/thread-62276-1-1.html - probably a clone of the TL-WR941ND, because it uses the same firmware.
-
----- /!\ '''Edit conflict - other version:''' ----
  * Zyxel models NBG460N, X550N, X550NH, 401764. They run ZyOS (not Linux) but the bootloader seems flexible.  Info: http://en.network01.net/modules/newbb/viewtopic.php?topic_id=15&forum=2
 
 == AP83 Routers ==
@@ -24,15 +23,3 @@ Atheros AR9100 routers
  * Unex RNEA-81: AP83 AR9130+AR9104
  * ARADA SoC Econo Series 2
  * Linksys WAP-4410N, if you read the release notes for the firmware on this router you will clearly see AP83 reference.
-
----- /!\ '''Edit conflict - your version:''' ----
- * Zyxel models NBG460N, X550N, X550NH, 401764. They run ZyOS (not Linux) but the bootloader seems flexible.  Info: http://en.network01.net/modules/newbb/viewtopic.php?topic_id=15&forum=2
-
-== AP83 Routers ==
-
- * Unex RNRA-83, http://www.unex.com.tw/spec/rnra-83
- * Unex RNEA-81: AP83 AR9130+AR9104
- * ARADA SoC Econo Series 2
- * Linksys WAP-4410N, if you read the release notes for the firmware on this router you will clearly see AP83 reference.
-
----- /!\ '''End of edit conflict''' ----
