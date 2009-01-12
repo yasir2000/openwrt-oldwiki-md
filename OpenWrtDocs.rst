@@ -27,13 +27,13 @@
 ### my password the normal way.
 ### As unwelcome as this comment may be in the front page, I figure it's better than
 ### simply creating a (visible) link to a new page, which is what I probably should
-### do by rights, and allow the natural process of everyone revising that take it's course.
+### do by rights, and allow the natural process of everyone revising that take its course.
 ### Another reasonable approach would have been to create a new account, or call a
 ### friend who knows their password simply edit the page that gives the faulty directions.
-### But even after successfully logging in I do not have permission to edit that page.
+### But even after successfully logging in, I do not have permission to edit that page.
 ###
-### Yes I looked in the forms and didn't see anything there either, though even if there
-### were something there that's not very useful without a clearly labeled "contact us"
+### Yes, I looked in the forms and didn't see anything there either, though even if there
+### were something there, that's not very useful without a clearly labeled "contact us"
 ### or "feedback" or "site admin" or "webmaster" etc... link to it from here.
 ### I guess this is as good a way as any to point out the lack. Had there been some
 ### official place for such dialog, I'd have used it, instead of this messy comment.
@@ -42,28 +42,26 @@
 ### Respectfully, wiki user BrianWhite , brian@aljex.com
 ##
 
-= OpenWrt Community wiki =
-Welcome to the !OpenWrt Community Wiki!  As the title states, this is for all of you who use, develop with, and hack on !OpenWrt. (Read OpenWrtOverview if you are new to the world of !OpenWrt ).
+= OpenWrt Community Wiki =
+Welcome to the !OpenWrt Community Wiki! As the title suggests, this wiki is for all of you who use, develop with, and hack on !OpenWrt. It is constantly changing, so don't be surprised if you find stuff moving around on you.
 
-This, the public face of !OpenWrt is changing so don't be surprised if you find stuff moving around on you.
+!OpenWrt is an open-source project to create a free embedded operating system for network devices. It supports a wide range of [:TableOfHardware:Devices], and device developers can easily add support for new devices. Software developers, moreover, can add new [:OpenWrtDocs/Packages:packages], which can be built and run on all of the supported devices.
 
-!OpenWrt is an open source project to create a free embedded operating system for network devices.
-
-!OpenWrt is not tied to any particular device.  You can install the software on a wide range of [:TableOfHardware:Devices].  Device developers can easily add new devices.  Software developers can add new [:OpenWrtDocs/Packages:packages] which can be built and run on all of the supported devices.
+OpenWrt is aimed at advanced users. If you are new to the world of !OpenWrt, start with OpenWrtOverview.  Basic end-users should also read: BasicEndUser.
 
 Please join us on the !OpenWrt team.
 
-= Latest Release =
-The currently active release is [http://downloads.openwrt.org/kamikaze/7.09/ "Kamikaze 7.09"].
+= Latest Releases =
+The currently active release is [http://downloads.openwrt.org/kamikaze/7.09/ Kamikaze 7.09].
 
-The current release candidate is [http://downloads.openwrt.org/kamikaze/8.09_RC1/ "Kamikaze 8.09_RC1"].  This is a release candidate and while it should be stable, it should be used with caution.  Please read the [http://downloads.openwrt.org/kamikaze/8.09_RC1/release.txt release notes] carefully before downloading and using.
+The current release candidate is [http://downloads.openwrt.org/kamikaze/8.09_RC1/ Kamikaze 8.09_RC1].  While it should be stable, it should be used with caution.  Please read the [http://downloads.openwrt.org/kamikaze/8.09_RC1/release.txt release notes] carefully before deciding whether to download and use this release.
 
-The latest and last release of the Whiterussian series is [http://downloads.openwrt.org/whiterussian/0.9/ 0.9]  It is a bug fix release and represents the end of the Whiterussian series and has been superseded by the Kamikaze series.
+The latest and final release of the Whiterussian series is [http://downloads.openwrt.org/whiterussian/0.9/ 0.9].  It is a bug-fix release and represents the end of the Whiterussian series, which has been superseded by the Kamikaze series.
 
-= Got Questions =
-The !OpenWrt   [http://downloads.openwrt.org/kamikaze/docs/openwrt.html manual] and [:Faq:FAQ] can usually answer most questions. You can also look on the [http://forum.openwrt.org/ forums], ask on the [http://lists.openwrt.org/ Mailing Lists], or ask in IRC at irc.freenode.net, channel #openwrt.  For more information follow your interest below.
+= Have Questions? =
+The !OpenWrt [http://downloads.openwrt.org/kamikaze/docs/openwrt.html manual] and [:Faq:FAQ] can usually answer most questions. You can also look on the [http://forum.openwrt.org/ forums], ask on the [http://lists.openwrt.org/ Mailing Lists], or ask in IRC at irc.freenode.net, channel #openwrt. For more information, follow your interest below.
 
-OpenWrt is aimed at advanced users.  Basic end users should start here: BasicEndUser
+
 
 ## MOST OF THIS DOESN'T HAVE INFORMATION.
 ##
@@ -72,7 +70,7 @@ OpenWrt is aimed at advanced users.  Basic end users should start here: BasicEnd
 ##|| [:OpenWrtDocs/User/AdvancedEndUser:Advanced End-user] - Information for advanced end-users who want advanced ##and experimental functionality but who are not programmers. || [[System Developer]] - Information for system ##developers, including bootloader, kernel, and libraries. ||
 ##|| [[Business Development]] - Exchange of commercial opportunities for promoting widespread end-user acceptance. ##||  [[Hardware Developer]] - Information for hardware developers, including hardware specs and debug board. ||
 
-== OpenWrt documentation ==
+== OpenWrt Documentation ==
 
 '''[:OpenWrtDocs/Installation:Installing OpenWrt]'''
 
@@ -82,7 +80,7 @@ OpenWrt is aimed at advanced users.  Basic end users should start here: BasicEnd
 
 '''[:OpenWrtDocs/Hardware:Hardware Information]''' [[Include(OpenWrtDocs/Hardware,,titlesonly)]]
 
-== 3rd Party package documentation ==
+== Third-party Package Documentation ==
 '''[:OpenWrtDocs/ExternalDocumentation:External Documentation]'''
 
 == Firmware Configuration ==
@@ -95,5 +93,5 @@ OpenWrt is aimed at advanced users.  Basic end users should start here: BasicEnd
 
 [:OpenWrtDocs/OpnenWrtDocs/KamikazeBootScriptsHowTo:Kamikaze Boot Scripts and UCI Notes]
 
-== Howto ==
+== How-To ==
 [:OpenWrtDocs/KamikazeHowto:Kamikaze]
