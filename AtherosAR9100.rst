@@ -2,6 +2,10 @@ Atheros AR9100 routers
 
 (At the time of this page creation, the OpenWRT wiki is malfunctioning and not allowing edit of AtherosPort page, so creating a new page for temporary holding of this information)
 
+= OpenWRT Porting =
+
+As of January 2008, active work is under way to get OpenWRT running well on these routers.  AR9132 400Mhz MIPS CPU seems to be on all models, u-boot is the most frequent bootloader, all seem to have 32MB of RAM and at least 4MB of FLASH. The CPU is typically paired with the AR9102 (2x2 MIMO), or AR9103 (3x3 MIMO) radio chip. Check the Kamikaze forums for latest information.
+
 == AP81 Routers ==
 
  * Trendnet TEW-632BRP, AP81-AR9130-RT-070614-00, ar9102 2x2 MIMO
