@@ -15,7 +15,8 @@ Atheros AR9100 routers
  * Atlantiland A02-RB-W300N
  * Cameo Communications WLN2206, FCC id same as Trendnet TEW-632BRP according to SmallNetBuilder website
  * Mercury MWR300T+, ar9103 3x3 MIMO, details: http://bbs.whbear.com/thread-62276-1-1.html - probably a clone of the TL-WR941ND, because it uses the same firmware.
- * Zyxel models NBG460N, X550N, X550NH, 401764. They run ZyOS (not Linux) but the bootloader seems flexible.  Info: http://en.network01.net/modules/newbb/viewtopic.php?topic_id=15&forum=2
+ * Zyxel model NBG-420N
+ * Zyxel models NBG-460N, X550N, X550NH, 401764. They run ZyOS (not Linux) but the bootloader seems flexible.  Info: http://en.network01.net/modules/newbb/viewtopic.php?topic_id=15&forum=2
 
 == AP83 Routers ==
 
