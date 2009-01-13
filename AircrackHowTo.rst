@@ -41,7 +41,7 @@ Likewise, Atheros/MadWIFI users need wlanconfig.  This *should* be in either kmo
 = Configuring Your WRT54G/S to Monitor =
 Now that Aircrack is installed and ready to start capturing traffic, you have to tell your router to listen to all traffic and not just traffic of its own.  This is called "monitor mode."  To be able to change channels and sniff on all channels, you must have the router in client mode: ClientModeHowto
 
-Users with a PRISM chipset need to use the {{{wl}}} utility:
+Users with a Broadcom chipset need to use the {{{wl}}} utility:
 {{{
 wl monitor 1
 ifup prism0}}}
