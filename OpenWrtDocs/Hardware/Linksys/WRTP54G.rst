@@ -690,7 +690,14 @@ The CYT Device Unlock tools were written in order to gain access to routers prev
 http://www.bargainshare.com/index.php?showtopic=87504
 
 === Ping Hack ===
-[To be written.]
+
+One can execute commands on the router with many versions of the firmware by going to Administration->Diagnostics, pressing the Ping button, end entering a dummy IP address followed by a space, a double ampersand, and a space followed by a short command, like so:
+
+ 0.0.0.0 && ls -l /
+
+The first word on the line (0.0.0.0 in this case) must be parsable as an IP address, otherwise you will see the message "Unknown host" and nothing will be executed.  If the first word is valid, then it will seem as if nothing has happened, but a few seconds later the page will reload and your output will be displayed in the bit textarea.
+
+The size of the text entry field for the IP address is small.  You may have to download and hack the HTML in order to widen it.  If you do, you should be able to fit a wget command to download a small shell script containing the commands necessary to flash the router.  You can then use the ping hack again to run the shell script.
 
 = OpenWrt =
 
@@ -706,6 +713,8 @@ http://www.bargainshare.com/index.php?showtopic=87504
 
  After the vlynq is disabled, the boot goes [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRTP54G/OpenWrt/BootLog2 further]. But it can only boot once, the second time it will stop at PSPBoot.
 
+[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRTP54G/OpenWrt The latest progress]
+
 == Interrupt ==
 
   WRTP54g registers the following IRQs:
@@ -717,8 +726,6 @@ http://www.bargainshare.com/index.php?showtopic=87504
 ||40||INT_32||Telephony Interface, Internal Serial Port||Phone port||
 ||41||INT_33||Ethernet MAC 1 interrupt||WAN||
 ||80||||Low Vlynq Interrupts (Vlynq0)||WLAN on the expansion card (TNETW1130)||
-
-[http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRTP54G/OpenWrt The latest progress]
 
 ----
  . CategoryModel ["CategoryAR7Device"]
