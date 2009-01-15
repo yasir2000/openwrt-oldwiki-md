@@ -10,7 +10,7 @@ Install and verify that the USB modules (~= drivers) are installed. The command 
 
 Hints:
 
- * Modules are stored in the AP/Router at {{{/lib/modules/<kernel-version>/}}}. List this directory with ls and pay attention to the files having "usb" in their name.
+ * Modules are stored in the AP/Router at {{{/lib/modules/<kernel-version>/}}}. List this directory with '''ls''' and pay attention to the files having "usb" in their name.
  * check if modules are loaded with the command {{{lsmod}}}
  * modules that are loaded at boot time will be added to the folder {{{/etc/modules.d}}}, if you install the kmod packages the modules will be automatically loaded after rebooting.
 Detailed instructions can be found in UsbStorageHowto.
@@ -45,8 +45,7 @@ Most of this devices has 10/100Mbit/s Full-Duplex Ethernet interface, but transf
 It is possible, see this thread in the [http://forum.openwrt.org/viewtopic.php?id=1650 Forum].
 
 === USB VGA ===
-There is no reference to openwrt on that page, but if you wanna try:
-[http://www.winischhofer.at/linuxsisusbvga.shtml http://www.winischhofer.eu/linuxsisusbvga.shtml]
+There is no reference to openwrt on that page, but if you wanna try: [http://www.winischhofer.at/linuxsisusbvga.shtml http://www.winischhofer.eu/linuxsisusbvga.shtml]
 
 === USB Swap Space ===
 See LocalFileSystemHowTo
