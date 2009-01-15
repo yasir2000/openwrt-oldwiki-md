@@ -35,14 +35,14 @@ refer to ["OpenWrtDocs/Customizing/Serial Console"] for further information abou
 Infos on how to attach a ["webcam"] to OpenWRT compatible devices can be found on a dedicated page.
 
 === USB Ethernet ===
-If you need one (2..3..127) additional Ethernet ports, it is possible to use USB-to-Ethernet adaptor.
+If you need additional Ethernet ports, it is possible to use USB-to-Ethernet adaptor.
 
-As example, Genius (KYE) GF3000U, Linksys USB100TX, D-Link DSB-650TX which are based on the [http://www.nslu2-linux.org/wiki/HowTo/AddEthernetAdapter ADMtek Pegasus] AN986.
+For example, Genius (KYE) GF3000U, [http://www.linksysbycisco.com/UK/en/support/USB100TX Linksys USB100TX], D-Link DSB-650TX which are based on the [http://www.nslu2-linux.org/wiki/HowTo/AddEthernetAdapter ADMtek Pegasus] AN986 may be suitable.
 
-Most of this devices has 10/100Mbit/s Full-Duplex Ethernet interface, but transfer rate is about 10Mbit/s only.
+Most have 10/100Mbit/s Full-Duplex Ethernet capability but transfer rates will likely be less than 10Mbit/s (presumably due to limitations of USB 2.0).
 
 === USB Bluetooth ===
-It is possible, see this thread in the [http://forum.openwrt.org/viewtopic.php?id=1650 Forum].
+It is possible. See this thread in the [http://forum.openwrt.org/viewtopic.php?id=1650 Forum].
 
 === USB VGA ===
 There is no reference to openwrt on that page, but if you wanna try: [http://www.winischhofer.at/linuxsisusbvga.shtml http://www.winischhofer.eu/linuxsisusbvga.shtml]
