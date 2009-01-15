@@ -1,8 +1,7 @@
 = Netgear DG834GT =
 The Netgear DG834GT is '''not''' as similar to the ["OpenWrtDocs/Hardware/Netgear/DG834G"] as the name may imply.  Unlike the DG834G which is [:AR7Port:AR7]-based, this device is based on the BCM6348, which is of opposite endianess (this device is big-endian). The device runs Linux, you can reach it via telnet after opening the following web page of the router: http://<router_address>/setup.cgi?todo=debug
 
- MIPS CPU is 256MHz, Atheros MiniPCI WLAN, BCM5325 switch. 4MiB flash, 16MiB RAM. More about this device might be found by searching the forum.
-
+ . MIPS CPU is 256MHz, Atheros MiniPCI WLAN, BCM5325 switch. 4MiB flash, 16MiB RAM. More about this device might be found by searching the forum.
 ''' Cpu Info '''
 
 {{{
@@ -194,8 +193,7 @@ help                Obtain help for CFE commands
 }}}
 ''' Serial Console '''
 
-Serial console is J503.
-Settings are: 115200, 8, n, 1
+Serial console is J503. Settings are: 115200, 8, n, 1
 ||'''pin''' ||'''signal''' ||
 ||1 ||GND ||
 ||2 ||TX ||
@@ -243,9 +241,7 @@ Select the Broadcom BCM63xx [2.6] target system, and the default Atheros wifi ta
 
 {{{
 make V=99}}}
-Create a tftp server, and copy the trunk/bin/openwrt-96348GW-10-squashfs-cfe.bin to the tftproot.
-Attach your router to the PC with a level shifter, open a serial terminal with 115200 8n1, press a button, and power it up.
-We shold see the CFE menu:
+Create a tftp server, and copy the trunk/bin/openwrt-96348GW-10-squashfs-cfe.bin to the tftproot. Attach your router to the PC with a level shifter, open a serial terminal with 115200 8n1, press a button, and power it up. You shold see the CFE menu:
 
 {{{
 *** Press any key to stop auto run (1 seconds) ***
@@ -258,7 +254,6 @@ Finished loading 2621444 bytes
 '''Hardware'''
 
 There is an unpopulated USB port near right from reset button. The voltage regulator, and some USB power related parts (capacitors, fuse) are missing too.
-
 
 Image of DG834GT:
 
