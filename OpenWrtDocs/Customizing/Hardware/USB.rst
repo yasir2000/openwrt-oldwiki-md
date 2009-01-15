@@ -10,7 +10,7 @@ Install and verify that the USB modules (~= drivers) are installed. The command 
 
 Hints:
 
- * Modules are stored in the AP/Router at {{{/lib/modules/<kernel-version>/}}}. List this directory with '''ls''' and pay attention to the files having "usb" in their name.
+ * Modules are stored in the AP/Router at {{{/lib/modules/<kernel-version>/}}}. List this directory with {{{ls}}} and pay attention to the files having "usb" in their name.
  * check if modules are loaded with the command {{{lsmod}}}
  * modules that are loaded at boot time will be added to the folder {{{/etc/modules.d}}}, if you install the kmod packages the modules will be automatically loaded after rebooting.
 Detailed instructions can be found in UsbStorageHowto.
