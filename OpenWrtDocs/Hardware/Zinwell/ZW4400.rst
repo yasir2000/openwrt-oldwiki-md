@@ -30,7 +30,15 @@ The MAC addresses have a Zinwell OUI (00059E = Zinwell Corporation).
 
 J2 (the unique header socket to the right of J4)
 
+Pin 1 is marked with a triangle.
 
+Pin 4 is 3.3V RX (input to board)
+
+Pin 6 is 3.3V TX (output from board)
+
+Pin 8 is 0V GND
+
+Pin 9 is empty.
 
 The terminal settings for the connection:
 
