@@ -70,8 +70,8 @@ insmod usbcore
 insmod ehci-hcd
 }}}
 
-Note that you may want to have available the utility, lsusb.  To enable it in Kamikaze
-opkg install usbutils
+Note that you may want to have available the utility, lsusb.  To enable it in Kamikaze, run 
+"opkg install usbutils".
 
 == Modules for storage ==
 To add storage support finally install
