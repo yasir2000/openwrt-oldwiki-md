@@ -282,3 +282,6 @@ RJ45 connector
 == Status ==
 
 Untested (I am compiling).  May work with the new changeset for BMC96xx
+
+----
+CategoryBCM96xxPort
