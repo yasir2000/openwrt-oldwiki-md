@@ -386,8 +386,11 @@ The actual AAM6020VI board is shown below.
 attachment:AAM6020VI.jpg
 
 =Other Information=
-http://wiki.openwrt.org/OpenWrtDocs/Customizing/Firmware/PSPBoot?highlight=%28PSPBoot%29 - infor on tftp flashing using pspboot
+http://wiki.openwrt.org/OpenWrtDocs/Customizing/Firmware/PSPBoot?highlight=%28PSPBoot%29 - information on tftp flashing using pspboot
 https://dev.openwrt.org/ticket/4194 a ticket where this router has been succesfully flashed
+https://dev.openwrt.org/ticket/4017 sorts out the mtd values
+Openwrt Forum
+
 
 ----
  . CategoryModel ["CategoryAR7Device"]
