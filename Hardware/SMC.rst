@@ -1,7 +1,7 @@
 == SMC ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://smc.com/ SMC7908VoWBRB ] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ ||2 MB ||32 (?) MB ||TI ACX111 (["VLYNQ"]) ||switch 8port Marvell??? || ||Yes || ||Yes ||[:AR7Port:WiP] ||
-||[http://www.smc.com/index.cfm?event=viewProduct&localeCode=EN_PRT&pid=1402 SMC7904WBRA-EU ] ||751.7786 ||Texas Instruments TNETW1130GVF || || || ||Switch 4 ports || ||Yes ||Yes ||No || ||
+||[http://www.smc.com/index.cfm?event=viewProduct&localeCode=EN_PRT&pid=1402 SMC7904WBRA-EU ] ||751.7786 || || || ||Texas Instruments TNETW1130GVF ||Switch 4 ports Delta LF8731 0552 - Marvell 88E6060-RCJ|| ||Yes ||Yes ||No || ||
 ||[http://www.smc.com/index.cfm?event=viewProduct&localeCode=EN_PRT&pid=1547 SMC7904WBRA2-EU ] ||752.8593 || || || || ||Switch 4 ports || ||Yes ||Yes ||No || ||
 ||[http://www.smc.com/index.cfm?event=viewProduct&localeCode=EN_PRT&pid=1643 SMCWBR14S-N2 ] ||752.9127EU || || || || ||Switch 4 ports || ||Yes ||Yes ||No || ||
 ||[http://smc.com/index.cfm?event=viewProduct&localeCode=EN_HUN&pid=1506 SMCWBR14-G2 EU] ||751.8267 ||[http://www.atheros.com/pt/AR5006AP-G.htm Atheros AR2315] ||ST 25P16V6P (2MB) ||IC42S16400-7T (8MB) || ||IC+ IP175C || ||Yes ||Yes ||No || ||
