@@ -11,6 +11,102 @@ On AAM6020VI-T4 the WLAN card is in a mini-pci slot. The -T? bit is still confus
 Device has 16Mb Ram and 4Mb Ram which should make it a reasonably flexible unit
 
 It uses PSPBoot with a default address of 192.168.1.1
+It also has the adam2 bootloader with an ip address of 192.168.1.1
+
+== Flashing ==
+Openwrt kamakazi has been flashed on this device using the generic image openwrt-ar7-squashfs.bin. Use Kamakazi 8.09_RC1 or a newer snapshot. Use the find_kernal.2.pl tool at  https://dev.openwrt.org/ticket/4017 to find the new mtd values nessecary. Note mtd2 and 3 should not be changed as they contain the bootloader and config. However mtd4 (which is devided into mtd0 - the kernal andmtd1 the filesystem should be modifys. The default kerna space is 500kb but the openwrt kernal uses ~800kb.
+
+First get your image to flash, either use a latest snapshot or 8.09_RC1. Then login into the adam2 bootloader and use the command GETENV mtdx (where x is 1 2 and 4) to get the mtd mappings.
+
+{{{
+ftp 192.168.1.1
+Connected to wrt (192.168.1.1).
+220 ADAM2 FTP Server ready.
+Name (192.168.1.1:user): adam2
+530 Please login with USER and PASS.
+SSL not available
+331 Password required for adam2.
+Password:
+230 User adam2 successfully logged in.
+ftp>quote GETENV mtd0
+ftp>quote GETENV mtd1
+ftp>quote GETENV mtd4
+}}}
+
+RECORD YOUR ORIGINAL VALUES - so you can reflash the original firmware.
+
+
+Second use find_kernal.2.pl to calculate the new mtd mappings (dont forget to input the image and 
+
+
+
+Based on the tool found at this ticket https://dev.openwrt.org/ticket/4017 
+
+{{{
+perl ./find_kernel.2.pl openwrt-ar7-squashfs.bin mtd1start=0x????????? mdt0stop=0x????????
+
+Using Flash memory:
+	mtd0=0x?,0x90400000
+	mtd1=0x90020000,0x?
+Total: 2097156 bytes
+Found SquashFS start at 851968
+setenv mtd0 0x900f0000,0x90400000
+setenv mtd1 0x90020000,0x900f0000
+setenv mtd4 0x90020000,0x90400000
+}}}
+
+Third set the mtd values to the new values found by the above pearl script.
+
+{{{
+ftp 192.168.1.1
+Connected to wrt (192.168.1.1).
+220 ADAM2 FTP Server ready.
+Name (192.168.1.1:user): adam2
+530 Please login with USER and PASS.
+SSL not available
+331 Password required for adam2.
+Password:
+230 User adam2 successfully logged in.
+ftp>quote SETENV mtd?,0x????????,0x????????
+ftp>quote SETENV mtd?,0x????????,0x????????
+ftp>quote SETENV mtd?,0x????????,0x????????
+}}}
+
+
+Fourth flash as in http://wiki.openwrt.org/OpenWrtDocs/InstallingAR7 
+
+{{{
+ftp 192.168.1.1
+Connected to wrt (192.168.1.1).
+220 ADAM2 FTP Server ready.
+Name (192.168.1.1:user): adam2
+530 Please login with USER and PASS.
+SSL not available
+331 Password required for adam2.
+Password:
+230 User adam2 successfully logged in.
+ftp> binary
+ftp> quote MEDIA FLSH
+ftp> put openwrt-ar7-squashfs.bin "upgrade_code.bin mtd4"
+...60 second wait...
+ftp> quote REBOOT
+}}}
+
+Note: Record your original mtd values incase you want to reflash the original firmware
+Note: On my first flash my mtd values reset to new values and I had to redo the process for some reason.
+Note: The first few bytes of the mtd4 is not the mtd0 or mtd1 but is a firmware header. This isn't needed for openwrt, and stops openwrt from booting if you keep it. So if openwrt doesnt boot after your second calculation of mtd values, use the start of the mtd4 as mtd0start, or take the 90 of the end of the value.
+Note: See https://dev.openwrt.org/ticket/4194 for more information.
+
+==To install the correct ADSL driver ==
+{{{
+opkg update
+opkg install kmod-sangam-atm-annex-a
+}}}
+
+Also at present have no wireless, but otherwise the router appears to work.
+
+
+
 
 == Debug HW ==
 There is a 2x4 (male pins) EJTAG ["OpenWrtDocs/Customizing/Hardware/JTAG Cable"] connector and another 2x3 female one without a specific label (only says J1).
