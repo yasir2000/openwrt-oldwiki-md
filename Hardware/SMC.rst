@@ -1,6 +1,9 @@
 == SMC ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://smc.com/ SMC7908VoWBRB ] || ||[http://focus.ti.com/general/docs/bcg/bcggencontent.tsp?templateId=6116&navigationId=11917&path=templatedata/cm/general/data/bcgmiddl/ar7_cpe Texas Instruments AR7] @150MHZ ||2 MB ||32 (?) MB ||TI ACX111 (["VLYNQ"]) ||switch 8port Marvell??? || ||Yes || ||Yes ||[:AR7Port:WiP] ||
+||[http://www.smc.com/index.cfm?event=viewProduct&localeCode=EN_PRT&pid=1402 SMC7904WBRA-EU ] ||751.7786 || || || || ||Switch 4 ports || ||Yes ||Yes ||No || ||
+||[http://www.smc.com/index.cfm?event=viewProduct&localeCode=EN_PRT&pid=1547 SMC7904WBRA2-EU ] ||752.8593 || || || || ||Switch 4 ports || ||Yes ||Yes ||No || ||
+||[http://www.smc.com/index.cfm?event=viewProduct&localeCode=EN_PRT&pid=1643 SMCWBR14S-N2 ] ||752.9127EU || || || || ||Switch 4 ports || ||Yes ||Yes ||No || ||
 ||[http://smc.com/index.cfm?event=viewProduct&localeCode=EN_HUN&pid=1506 SMCWBR14-G2 EU] ||751.8267 ||[http://www.atheros.com/pt/AR5006AP-G.htm Atheros AR2315] ||ST 25P16V6P (2MB) ||IC42S16400-7T (8MB) || ||IC+ IP175C || ||Yes ||Yes ||No || ||
 ||[http://www.smc.com/index.cfm?event=viewProduct&localeCode=EN_HUN&cid=5&scid=&pid=1442 SMCWBR14T-G] ||752.8698 ||[http://www.atheros.com/pt/AR5006AP-GS.htm Atheros AR2316] ||[http://www.st.com/stonline/products/literature/ds/10027/m25p16.pdf ST 25P16V6P (2MB)] ||[http://www.issi.com/pdf/42S16800A.pdf IS42S16800A-7 (16MB)] || ||[http://www.icplus.com.tw/pp-IP175C.html IC+ IP175C] || ||Yes ||Yes ||No || ||
 ||[http://www.smc.com/index.cfm?event=viewProduct&localeCode=EN_NLD&cid=1&scid=119&pid=1640 SMCWBR14S-N] ||752.9105EU ||[:infineon:Infineon] PSB 50610 E chipset || ||PSC A2V28S40CTP ??32 MB?? ||RaLink RT2860T ||[:realtek:RealTek] RTL8306S || ||yes || ||no ||info entered ||
