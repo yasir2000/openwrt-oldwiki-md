@@ -1,12 +1,13 @@
 = Netgear DG834v3 =
-== Status ==
+== Information ==
+=== Status ===
 The unit comes with ADAM2 bootloader that has network and console input disabled. As a result the ethernet controller stays uninitialized during the boot process and unusable inside OpenWRT. The only way to get ethernet support is it flash a PSPBoot bootloader over the ADAM2.
 ||<tablewidth="600px"style="vertical-align: top; text-align: center;">'''Bootloader''' ||<style="text-align: center; vertical-align: top;">'''Ethernet Support''' ||<style="text-align: center; vertical-align: top;">'''ATM (xDSL) Support''' ||<style="text-align: center; vertical-align: top;">'''Comments''' ||
 ||<style="text-align: center; vertical-align: top;">ADAM2 0.22.02 ||<style="text-align: center; vertical-align: top;"> {X} ||<style="text-align: center; vertical-align: top;"> (./) ||<style="vertical-align: top;">Stock bootloader ||
 ||<style="text-align: center; vertical-align: top;">PSPBoot 1.4.0.4 ||<style="text-align: center; vertical-align: top;"> (./) ||<style="text-align: center; vertical-align: top;"> (./) ||<style="vertical-align: top;"> ||
 
 
-== Hardware ==
+=== Hardware Information ===
 ||<tablewidth="600px">'''Architecture''' ||MIPS ||
 ||'''Bootloader''' ||ADAM2 ||
 ||'''CPU''' ||Texas Instruments, AR7 TNETD7200ZDW ||
@@ -17,3 +18,8 @@ The unit comes with ADAM2 bootloader that has network and console input disabled
 ||<style="vertical-align: top;">'''SDRAM Size''' ||<style="vertical-align: top;">16MB ||
 ||<style="vertical-align: top;">'''Serial''' ||<style="vertical-align: top;">Yes ||
 ||<style="vertical-align: top;">'''JTAG''' ||<style="vertical-align: top;">Yes ||
+=== Picture ===
+=== Serial Interface ===
+=== JTAG Interface ===
+----
+ ["CategoryAR7Device"]
