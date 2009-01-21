@@ -19,7 +19,10 @@ The unit comes with ADAM2 bootloader that has network and console input disabled
 ||<style="vertical-align: top;">'''Serial''' ||<style="vertical-align: top;">Yes ||
 ||<style="vertical-align: top;">'''JTAG''' ||<style="vertical-align: top;">Yes ||
 === Picture ===
+attachment:dg834v3-wiki.jpg
 === Serial Interface ===
+attachment:dg834v3-serial.jpg
 === JTAG Interface ===
+attachment:dg834v3-jtag.jpg
 ----
- ["CategoryAR7Device"]
+ . ["CategoryAR7Device"]
