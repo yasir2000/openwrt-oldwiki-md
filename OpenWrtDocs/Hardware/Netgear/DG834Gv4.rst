@@ -21,9 +21,19 @@ extra interrupt vector  : yes
 hardware watchpoint     : no
 VCED exceptions         : not available
 VCEI exceptions         : not available
-#
 }}}
+''' Partition MTD '''
 
+{{{
+# cat /proc/mtd
+dev:    size   erasesize  name
+mtd0: 00309000 00010000 "fs"
+mtd1: 003d0000 00010000 "tag+fs+kernel"
+mtd2: 00010000 00002000 "bootloader"
+mtd3: 00010000 00010000 "nvram"
+mtd4: 00010000 00002000 "bootloader"
+mtd5: 00010000 00010000 "DPF_file"
+}}}
 
 
 Doesn't have /proc/sys/dev/adam2/, so might not be adam2 based bootloader?
