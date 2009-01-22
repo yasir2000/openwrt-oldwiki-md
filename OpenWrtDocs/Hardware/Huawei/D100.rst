@@ -46,43 +46,48 @@ Decompressing...........done
 }}}
 Uploading firmware with a TRX header via the D100's WebGUI reports "Parsing error on the name of the uploaded file" and as this product is new at the time of writing and no firmware upgrades have yet to be released, we will probably have to wait for an upgrade file before we can work out the format.
 
-||<tablewidth="100%" tablealign="">EDIT by synthetic:
-The Web interface is set to deny any firmware. In fact there is a Javascript inside the footer frame, which checks the firmware file name for any character of the keyboard and denies access if any is found. So firmware upgrade is generally denied. I did some further research on web update. Indeed, the web interface is stored inside the firmware but linked to /tmp/3w, which is writeble.
-You can telnet into the router, login with username admin and password admin(this login seems not to be changeable).
-first of all, do a dump of mtd2, which contains the root file system:
-dd if=/dev/mtd/2 of=/tmp/rootpart.img bs=64k
-you will now have a file called rootpart.img inside /tmp
-We will now transfer this file to your pc. it is a standart CRAMFS image.
-go to /tmp/3w
-do a rm -rf images
-do a mkdir images
-move the image to /tmp/3w/images:
-mv /tmp/rootpart.img /tmp/3w/images/bg_content.gif (this is neccesary because the server sometimes fails if a file that does not belong to the web interface is requested. we rename it to .gif extensions to ensure binary transfer, otherwise it doesnt detect the mime type and sends it as text, resulting in a corrupted file)
-go to your browser, login to your router, and enter the following URL:
-http://[yourroutersIP]/images/bg_content.gif
-save this file and rename it with the extension .img. now you can mount this image as cramfs:
-mkdir /mnt/router
-mount -t cramfs -o loop [firmwareimage.img] /mnt/router
-we will need the files inside the www/en directory.
-Open upgrade.asp from the www/en dir with a texteditor(I prefer mcedit or nano).
-search for the function btnUpgrade() inside the javascript and remove everything exept the line
-        document.forms[0].submit();
-from it. save the file.
-Now we must go on quickly:
-Log into your router. note that your session expires after a few minutes, so be quick. go to "Options, System". Now telnet into your router again.
-do a cd /tmp/3w
-do a rm -rf en
-en is the directory where all the asp pages are on
-use wget to download the new upgrade.asp to your router(for this you must have a local webserver installed on your PC, and upgrade.asp must be stored in its wwwroot)
-wget http://192.168.1.100/upgrade.asp.
-dont forget the http:// or wget will fail. replace the IP with the one your pc has from the router.
-no go back to your browser, click on Firmware Upgrade, select the firmware file, click upload.
-Unfortunately it doesnt accept any firmware, hell knows why.
-I have done some digging inside the original firmware sources. The upgrade.asp sends its content to upgrade.cgi. there is no file upgrade.cgi inside the whole router filesystem, and theres a reason for that:
-The D100 uses a milli_httpd webserver. this one is modified by huawei, so when you request upgrade.cgi, the server processes this itself. Unfortunately, huawei ships the source of the complete firmware, except the module that handles the upgrade process. this is shipped with the firmware sources as well, but as a compiled object file that is linked to the web server during the build process of the firmware.
-A further note. I have successfully compiled my own firmware from huawei sources, and even though the huawei employee that released it encourages people in the readme file of the sources to build own firmware files, it is not possible to flash them. the huawei original firmware files compile as a trx package. So there should be a way to get around this damn web server, i am currently disassembling the module responsible for Firmware upgrade process.
-@ original Author of this page... please contact me @ openwrt [at] ascendant.de||
+<table width="100%" tablealign="">
 
+EDIT by synthetic:
+
+The Web interface is set to deny any firmware. In fact there is a Javascript inside the footer frame, which checks the firmware file name for any character of the keyboard and denies access if any is found. So firmware upgrade is generally denied.
+
+I did some further research on web update. Indeed, the web interface is stored inside the firmware but linked to /tmp/3w, which is writeble.
+
+You can telnet into the router, login with username admin and password admin(this login seems not to be changeable).
+
+First of all, do a dump of mtd2, which contains the root file system:
+
+dd if=/dev/mtd/2 of=/tmp/rootpart.img bs=64k
+
+You will now have a file called rootpart.img inside /tmp. We will now transfer this file to your PC. It is a standart CRAMFS image.
+
+Go to /tmp/3w do a
+
+rm -rf images
+
+do a mkdir images
+
+move the image to /tmp/3w/images:
+
+mv /tmp/rootpart.img /tmp/3w/images/bg_content.gif (this is neccesary because the server sometimes fails if a file that does not belong to the web interface is requested. we rename it to .gif extensions to ensure binary transfer, otherwise it doesnt detect the mime type and sends it as text, resulting in a corrupted file)
+
+go to your browser, login to your router, and enter the following URL:
+
+http://(YourRoutersIP)/images/ http://[yourroutersIP]/images/bg_content.gif .gif
+
+ save this file and rename it with the extension .img. now you can mount this image as cramfs:
+
+mkdir /mnt/router
+
+mount -t cramfs -o loop [firmwareimage.img] /mnt/router we will need the files inside the www/en directory.
+
+
+
+Open upgrade.asp from the www/en dir with a texteditor(I prefer mcedit or nano). search for the function btnUpgrade() inside the javascript and remove everything exept the line
+
+ . document.forms[0].submit();
+from it. save the file. Now we must go on quickly: Log into your router. note that your session expires after a few minutes, so be quick. go to "Options, System". Now telnet into your router again. do a cd /tmp/3w do a rm -rf en en is the directory where all the asp pages are on use wget to download the new upgrade.asp to your router(for this you must have a local webserver installed on your PC, and upgrade.asp must be stored in its wwwroot) wget http://192.168.1.100/upgrade.asp. dont forget the http:// or wget will fail. replace the IP with the one your pc has from the router. no go back to your browser, click on Firmware Upgrade, select the firmware file, click upload. Unfortunately it doesnt accept any firmware, hell knows why. I have done some digging inside the original firmware sources. The upgrade.asp sends its content to upgrade.cgi. there is no file upgrade.cgi inside the whole router filesystem, and theres a reason for that: The D100 uses a milli_httpd webserver. this one is modified by huawei, so when you request upgrade.cgi, the server processes this itself. Unfortunately, huawei ships the source of the complete firmware, except the module that handles the upgrade process. this is shipped with the firmware sources as well, but as a compiled object file that is linked to the web server during the build process of the firmware. A further note. I have successfully compiled my own firmware from huawei sources, and even though the huawei employee that released it encourages people in the readme file of the sources to build own firmware files, it is not possible to flash them. the huawei original firmware files compile as a trx package. So there should be a way to get around this damn web server, i am currently disassembling the module responsible for Firmware upgrade process. @ original Author of this page... please contact me @ openwrt [at] ascendant.de
 
 Hence the only way to upload firmware to the D100 at present is via the console port. With a console port attached, press CTRL-C to cancel Automatic startup. If you hold the power button down on the D100, the D100 will switch off as soon as booting is interrupted. If this occurs, start pressing CTRL-C rapidly and very briefly press and release the D100's power button.
 
