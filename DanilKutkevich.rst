@@ -24,7 +24,15 @@
  * [http://downloads.openwrt.org/kamikaze/docs/openwrt.html Documentation]
 
 ==== Forum ====
-[http://forum.openwrt.org/viewtopic.php?pid=16505 Port forwarding with multiple WAN ips.]
+
+ * [http://forum.openwrt.org/viewtopic.php?pid=16505 Port forwarding with multiple WAN ips.]
+
+===== Multiple external IP addresses =====
+
+ * [http://forum.openwrt.org/viewtopic.php?id=14361 ifconfig alias]
+ * [http://forum.openwrt.org/viewtopic.php?id=6775 OpenWRT with multiple external IP addresses?]
+ * [http://forum.openwrt.org/viewtopic.php?id=10505 Setting up an ip alias on an interface]
+ * [http://forum.openwrt.org/viewtopic.php?pid=66096#p66096 multiple static IPs from ISP - /29 - 5 usable]
 
 === Bugs ===
 [http://forum.openwrt.org/viewtopic.php?pid=59584 Port forwarding stops working after a while on Kamikaze 7.09.]
