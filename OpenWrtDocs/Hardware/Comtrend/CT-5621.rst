@@ -289,5 +289,7 @@ This router/modem works fine for ramdisk booting with Kamikaze SVN.  I haven't t
 == Pictures ==
 
 attachment:CT-5621-board.jpg
+attachment:CT-5621-front.jpg
+attachment:CT-5621-back.jpg
 ----
 ["CategoryBCM63xx"]
