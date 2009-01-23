@@ -12,7 +12,10 @@ This is based on the Broadcom BCM96348
 
 === System Type ===
 
-96348GW-10
+96348GW-11
+
+
+'''This page needs to be updated.  The router was set to the wrong board when I received it (it was set to 96348GW-10 it is actually a 96348GW-11)'''
 
 === CPU ===
 
@@ -281,7 +284,7 @@ RJ45 connector
 
 == Status ==
 
-CFE networking appears not to work, or is attached to a device other than the switch for the LAN ports, as it appears to be impossible to get the CFE bootloader to download anything from a tftp server and 'put'ting a file at the router/modem via tftp doesn't work either.
+This router/modem works fine for ramdisk booting with Kamikaze SVN.  I haven't tried flashing yet as I want to backup the original firmware first.
 
 ----
 ["CategoryBCM63xx"]
