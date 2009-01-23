@@ -197,3 +197,196 @@ read root xml mod
 new_init_action:action=4
 
 Please press Enter to activate this console.  }}}
+
+== /etc/rcS ==
+{{{ 
+# cat rcS[J
+#!/bin/sh
+export PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/sbin/scripts
+
+UTC=yes
+
+mount -n -t proc proc /proc
+mount -n -t ramfs ramfs /tmp
+mount -n -t ramfs ramfs /var
+
+# build var directories 
+/bin/mkdir -m 0777 /tmp/var
+/bin/mkdir -m 0777 /var/lock
+/bin/mkdir -m 0777 /var/log
+/bin/mkdir -m 0777 /var/run
+/bin/mkdir -m 0777 /var/tmp
+/bin/mkdir -m 0777 /tmp/etc
+/bin/mkdir -m 0777 /tmp/etc/ppp
+/bin/mkdir -m 0755 /etc/dnrd
+/bin/mkdir -m 0777 /var/lib
+/bin/mkdir -m 0777 /var/cache
+/bin/mkdir -m 0777 /var/lib/dhcp-fwd
+/bin/mkdir -m 0777 /var/pda
+/bin/mkdir -m 0777 /var/etc
+/bin/mkdir -m 0777 /var/paed
+#/bin/ln -sf /isfs/truepda.bin /var/pda/truepda.bin
+/bin/cp /etc/wsc_config.txt /var/paed/wsc_config.txt
+/bin/cp -rf /usr/etc/ppp/* /tmp/etc/ppp/
+/bin/ln -sf /usr/sbin/setup.cgi /tmp/etc/setup.cgi
+/bin/ln -sf /usr/sbin/restore_config.cgi /tmp/etc/restore_config.cgi
+/bin/ln -sf /tmp/upgrade_flash.cgi /tmp/etc/upgrade_flash.cgi
+
+/sbin/insmod /lib/modules/led.ko
+#/sbin/insmod /lib/modules/push_button.ko
+/bin/echo "b1" > /proc/led
+
+#Kenneth
+/bin/read-truepda 
+#if [ -f /var/pda/truepda.bin ];
+#then /bin/ln -sf /isfs/truepda.bin /var/pda/truepda.bin;
+#fi;
+#Kenneth
+if [ ! -e /var/pda/truepda.bin ] ; then
+  busybox echo "NO PDA in flash, copying default PDA"
+  busybox cp /isfs/pda.bin /var/pda/truepda.bin
+fi
+
+# insert modules
+#/bin/startbsp
+busybox echo " Loading ether driver ..."
+busybox insmod /lib/solos_ethernet.ko
+busybox echo " Loading Conexant BSP..."
+busybox insmod /lib/hsl_mod_gpl.o
+busybox sleep 2
+busybox insmod /lib/cnxt_fiq.o
+busybox sleep 2
+busybox insmod /lib/cnxt_drv.o
+busybox sleep 2
+busybox echo "Aa1" >> /proc/quantum/drv_ctl
+#Wireless  Module
+busybox echo " Loading Wireless ..."
+busybox echo " Reading True PDA ..."
+#Kenneth remark begin...
+busybox sleep 1
+busybox insmod /lib/stun_ahb.ko
+busybox sleep 4
+setoid wlan0 0x10000002 ssid "SolosW_AP"
+setoid wlan0 0xd long 0
+#paed &
+/sbin/insmod /lib/wlan_wsc.ko
+#Kenneth remark end!
+#busybox echo "PSa1:AnnexAFastRetrain:Disable" >> /proc/quantum/drv_ctl
+#enable Learning mode,otherwise switch will forward all packet to every lan port
+/usr/sbin/ethtool -L eth0 Learning enable
+#enable sercomm download
+/usr/sbin/download
+# start services
+/usr/sbin/rc_server
+/usr/sbin/server_daemon&
+sleep 2
+/usr/sbin/rc setwmac start
+#busybox ifconfig wlan0 up
+#busybox ifconfig eth0 up
+/bin/brctl addbr br0
+/bin/brctl stp br0 no
+#/usr/sbin/brctl addif br0 wlan0
+/bin/brctl addif br0 eth0
+/bin/brctl setfd br0 0
+
+# stamp lan start time
+/bin/cp /proc/uptime /tmp/lan_uptime
+/bin/cp /usr/sbin/upgrade_flash.cgi /tmp/upgrade_flash.cgi
+/bin/cp /usr/sbin/mini_httpd /tmp/mini_httpd
+
+# increase lan interface waiting queue length
+/sbin/ifconfig br0 txqueuelen 100
+
+ifconfig lo 127.0.0.1
+route add -net 127.0.0.0 netmask 255.255.0.0 lo
+
+/sbin/klogd&
+#/usr/sbin/pb_ap&
+
+#/bin/echo "" > /var/first_start_wan
+
+/usr/sbin/rc adsl start
+/usr/sbin/rc printk start
+/usr/sbin/rc lan start
+#/bin/echo f7 > /proc/led 
+#Kenneth remark begin...
+/usr/sbin/rc wlan start
+#Kenneth remark end!
+/usr/sbin/lld2 br0 wlan0& 
+/usr/sbin/rc syslogd start
+/usr/sbin/rc httpd start
+/usr/sbin/rc dhcpd start
+#/usr/sbin/rc ntp start
+# start pb for test, will be removed later
+/usr/sbin/server pb start
+/usr/sbin/server ntp start
+/usr/sbin/rc route start
+/usr/sbin/rc ripd start
+#/usr/sbin/rc snmp start
+
+#/usr/sbin/crond &
+/usr/sbin/server crond start
+#/usr/sbin/scfgmgr
+/usr/sbin/server scfgmgr start
+#/usr/sbin/atm_monitor &
+/usr/sbin/server atm_monitor start
+#/usr/sbin/cmd_agent_ap
+/usr/sbin/server cmd_agent start
+#/usr/sbin/wizd&
+#/usr/sbin/server wizd start
+
+echo "0 0" > /proc/sys/vm/pagetable_cache
+#Add for force IGMP v2
+echo "2" > /proc/sys/net/ipv4/conf/all/force_igmp_version
+# router
+echo 1 > /proc/sys/net/ipv4/ip_forward
+# pppox
+echo 1 > /proc/sys/net/ipv4/ip_dynaddr
+
+# add more conntrack 
+# increase route cache max_size 
+echo 4096 > /proc/sys/net/ipv4/route/max_size 
+
+##echo 2048 > /proc/sys/net/ipv4/netfilter/ip_conntrack_max
+echo 3072 > /proc/sys/net/ipv4/ip_conntrack_max
+# disable log
+##echo 0 > /proc/sys/net/ipv4/netfilter/ip_conntrack_tcp_log_invalid
+
+# for debug, should be removed in formal released firmware
+echo 0 > /proc/cpu/alignment
+# ignore_all not yet used: this should be satisfactory
+echo 1 > /proc/sys/net/ipv4/icmp_echo_ignore_broadcasts
+# drop spoofed addr: turn this off when rip is on ?
+echo 1 > /proc/sys/net/ipv4/conf/default/rp_filter
+echo 1 > /proc/sys/net/ipv4/conf/all/rp_filter
+# do not honor source route flags
+echo 0 > /proc/sys/net/ipv4/conf/default/accept_source_route
+echo 0 > /proc/sys/net/ipv4/conf/all/accept_source_route
+# this needs proper sampling on av_blog to determine optimal value
+# for now just observe softnet_stats to see # time was throttled
+# historical value was 300
+echo 100 > /proc/sys/net/core/netdev_max_backlog
+##echo 60 > /proc/sys/net/ipv4/netfilter/ip_conntrack_udp_timeout
+# For voice 
+##echo 600 > /proc/sys/net/ipv4/netfilter/ip_conntrack_udp_timeout_stream
+#telnetd&
+#sleep 3
+/usr/sbin/rc printk start 
+/usr/sbin/rc upnp start
+/bin/cp /proc/uptime /tmp/hnap_devready
+#insatll netfilter module for firewall
+/sbin/insmod lib/modules/ipt_LOG.ko
+/sbin/insmod lib/modules/ipt_DLOG.ko
+/sbin/insmod lib/modules/ipt_http_string.ko
+/sbin/insmod lib/modules/ipt_multi_match.ko
+/sbin/insmod lib/modules/ipt_psd.ko
+/sbin/insmod lib/modules/ipt_string.ko
+#/sbin/insmod lib/modules/ipt_webstr.ko
+/sbin/insmod lib/modules/ipt_stringGET.ko
+/sbin/insmod lib/modules/ipt_stringHEAD.ko
+/sbin/insmod lib/modules/ipt_stringHOST.ko
+
+#set led status to READY
+/bin/echo "b2" > /proc/led
+
+# }}}
