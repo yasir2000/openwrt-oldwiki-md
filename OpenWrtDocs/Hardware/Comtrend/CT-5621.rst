@@ -286,5 +286,8 @@ RJ45 connector
 
 This router/modem works fine for ramdisk booting with Kamikaze SVN.  I haven't tried flashing yet as I want to backup the original firmware first.
 
+== Pictures ==
+
+attachment:CT-5621-board.jpg
 ----
 ["CategoryBCM63xx"]
