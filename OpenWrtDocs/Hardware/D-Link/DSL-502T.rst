@@ -6,11 +6,12 @@ This page is mostly current as at r14165 (24 Jan 2009)
 == Related models ==
 
 I have a 504T, it's the same as the 502T but doesn't have the USB port and it has 4 ethernet 10/100 ports -- war3333
+ * Anything special needed to handle the extra ethernet ports? Switch support?
 
 I have a 562T, it's the same as the 502T but for Annex B (ISDN) instead of Annex A (POTS). I am running Kamikaze r10180 without any problems. -- DominikKubla
 
-I've a 524T, it has it's own wiki page here [LINK], no USB, 4 ethernet ports, Annex A. - What is the difference between the
-504T and 524T?
+The 524T is reportedly similar to the 504T: no USB, 4 ethernet ports, Annex A.
+ * What is the difference between the 504T and 524T?
 
 == Specifications ==
  * ADSL modem with ADSL2/2+ support to 24Mbit/s+.
@@ -20,13 +21,13 @@ I've a 524T, it has it's own wiki page here [LINK], no USB, 4 ethernet ports, An
  * SDRAM: 16Mbytes - Nanya NT5SV8M16DS-6K
  * CPU: TNETD7300GDU Texas Instruments AR7 MIPS based
 == How to get OpenWRT onto the router: ==
-'''Preamble/Disclaimer'''
+=== Preamble/Disclaimer ===
 
 It's possible (but unlikely) that you will 'brick' the router (e.g. if you manage to delete the bootloader or config space) such that it can't be booted at all. This needs a JTAG cable to recover from. They are around US$20 from eBay.
 
 In most other situations, the worst that will happen is that you will have to power-cycle the router and flash known good firmware onto the router to recover it.
 
-'''Get the source code'''
+=== Get the source code ===
 
 Warning! over 2GB space needed to complete install
 
@@ -45,25 +46,25 @@ To update an existing checkout to the latest version (only the changes are downl
 {{{
 $ svn update
 }}}
-'''Apply useful patches that aren't in subversion yet'''
+
+=== Apply useful patches that aren't in subversion yet ===
 
 These are patches that have tickets open but haven't made it into the subversion tree yet:
 
- * Fix "interrupted system call" from adam2flash-502T.pl: https://dev.openwrt.org/ticket/4490
- * Enable WAN (ADSL) interface automatically on boot: https://dev.openwrt.org/ticket/2781 (still needed as at r14165)
+ * Fix "interrupted system call" from adam2flash-502T.pl: [https://dev.openwrt.org/ticket/4490 #4490]
+ * Enable WAN (ADSL) interface automatically on boot: [https://dev.openwrt.org/ticket/2781 #2781] (still needed as at r14165)
 
 In general they can be applied by downloading and saving the "original version" of the patchfile attached to the ticket, then {{{"cd openwrt/trunk; patch -p0 <name-of-patch-file"}}}
 
-'''Download source code for optional extra packages'''
-
-Browse https://dev.openwrt.org/browser/packages and see if there's anything you want. Then check out the relevant packages into the "package" directory the tree you previously checked out:
+=== Retrieve optional extra packages ===
 
 {{{
-$ cd openwrt/trunk/package
-$ svn co https://svn.openwrt.org/openwrt/packages/net/ntpclient
-$ svn co https://svn.openwrt.org/openwrt/packages/net/tcpdump
+$ cd openwrt/trunk
+$ scripts/feeds update packages luci   # update the "packages" and "luci" feeds, see feeds.conf.default
+$ scripts/feeds install -a -p luci     # 'install' all available packages, preferring the "luci" feed. (This just makes them available to build)
 }}}
-''' Install prerequisites for compiling'''
+
+=== Install prerequisites for compiling ===
 
 For Ubuntu grab 'build-essential' 'gawk' 'flex' 'bison' 'autoconf' 'zlib1g-dev' 'libncurses5-dev', 'automake', 'g++'  i.e
 
@@ -74,7 +75,7 @@ For Debian:
 
 At the time of writing (30/12/2007), Debian 'stable' has gcc-4.1 which breaks during the make process. There are no backports for gcc-4.2, but 'testing' has gcc-4.2, which may require you to cross-grade. [BD]
 
-'''Select firmware components'''
+=== Select firmware components ===
 
 Enter into the folder and run make menuconfig. Select at least:
 
@@ -83,14 +84,15 @@ Enter into the folder and run make menuconfig. Select at least:
  * Target Images -> SquashFS
  * Base system -> br2684ctl (only needed by PPPoE)
  * Network -> ppp -> ppp-mod-pppoa and/or ppp-mod-pppoe, depending on your ADSL type
- * Kernel Modules -> Network Devices -> select either annex A or B depending on your ADSL type (A = POTS, the more common case; B = ISDN - Germany only?). The annex of your router is marked on the PCB if you don't mind opening the case.
+ * Kernel Modules -> Network Devices -> kmod-sangam-atm-annex-a or -b depending on your ADSL type (A = POTS, the more common case; B = ISDN - Germany only?). The annex of your router is marked on the PCB if you don't mind opening the case.
+
 Quit and save the config.
 
 Run 'make' to download essential packages (approximately 100MByte, this is an extreme under estimate, I run out of space after having more than 600MB of free space) and compile the firmware. Go and get a coffee. Maybe a second coffee too.
 
 The final firmware produced by the build is located in bin/openwrt-ar7-squashfs.bin.
 
-'''Flash the new firmware'''
+=== Flash the new firmware ===
 
  * Download a copy of the standard D-Link firmware so you can revert to it if things go wrong! You need the "web upgrade" .BIN version of the firmware, not the .EXE version. D-Link firmware can be downloaded from (for example) http://www.dlink.com.au/tech/
  * You will be using trunk/scripts/flashing/adam2flash-502T.pl in the OpenWRT tree to flash the firmware. Make sure you grab the necessary patch to it too: https://dev.openwrt.org/ticket/4490
@@ -120,16 +122,16 @@ You can also use adam2flash-502T.pl to restore the original D-Link firmware if n
 
 The flashing process can be a bit flaky. It will often hang halfway through the firmware transfer; if that happens, power the router off and try again. It seems to help if you do not have other network traffic present while doing the firmware transfer (DNS lookups, etc)
 
-'''Connecting to ADAM2 manually'''
+=== Manually flashing the firmware ===
 
-If you need to manually tweak firmware settings, you can do so by getting adam2flash to assign the bootloader an IP then doing a manual telnet to the FTP control port:
+This is basically just a case of doing what adam2flash does yourself, manually. See ["ADAM2"] for more information. adam2flash-502T.pl has a large comment at the top explaining the expected MTD layout. The process is essentially:
 
-{{{
-$ scripts/flashing/adam2flash-502T.pl 192.168.1.1 && telnet 192.168.1.1 21
-}}}
-Now you are connected to the bootloader FTP server. Log in with "USER adam2" and "PASS adam2". There are a few pages elsewhere that describe ADAM2 commands etc.
+ * Run "adam2flash-502T.pl <IP> && ftp <IP>", then powercycle the device; this should get you talking to the bootloader's FTP server.
+ * Log in (adam2/adam2)
+ * Check/modify MTD1 (quote GETENV, quote SETENV). See adam2flash-502T.pl for comments about the expected flash layout.
+ * Write the firmware to MTD1 (put)
 
-'''Checking that it worked'''
+=== Checking that it worked ===
 
 The router will go through three states while rebooting:
 
@@ -138,17 +140,17 @@ The router will go through three states while rebooting:
   * "ADSL" should start flashing as the DSL line is brought up
  1. "status" pulsing in a heartbeat (pulse pulse - pause - pulse pulse - pause) - OpenWrt completed booting, normal operation
 
-Some time after rebooting, you should be able to ping or telnet to 192.168.1.1. If so -- congratulations!
+Some time after rebooting, you should be able to ping and telnet to 192.168.1.1. Note that the first reboot is often slower than normal as there is some one-off initialization that is done on the first boot.
 
 You can reconfigure your PC for DHCP if you like, you should be given an IP in the 192.168.1.x range.
 
-'''Password protect the router'''
+=== Password protect the router ===
 
-Get a ssh client such as, well, "ssh"!. Under Window, try [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html PuTTY].
+Get a ssh client such as openssh (probably installed by default on your build system). Under Windows, try [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html PuTTY].
 
 Telnet to the router and type 'passwd' to set a password. Now telnet will be disabled, and you should log back in over ssh.
 
-'''Configure the front-panel LEDs''''
+=== Configure the front-panel LEDs ===
 
 You can configure the spare LEDs ("ethernet" / "usb") to display network activity. Edit /etc/config/system and add something like this:
 
@@ -171,9 +173,10 @@ This maps the "Ethernet" LED to ethernet traffic, and the "USB" LED to ADSL/PPP 
 Then run /etc/init.d/led start (or reboot the device) to reload the configuration.
 
 == Enabling ADSL ==
-'''Set up modulation'''
 
-This usually works without changes. That said, here's how you change it if you need to.
+=== Set up modulation ===
+
+This usually works without needing anything changed. That said ..
 
 Current firmware supports both ADSL1 (G.DMT, G.lite, T.1413, Multi-Mode) and ADSL2+.
 
@@ -183,9 +186,10 @@ The modulation can be changed via the adam2 prompt: "SETENV modulation,GDMT" or 
  * T.1413 is an older version of G.DMT.
  * G.Lite is a lighter version of G.DMT that supports up to 1.5Mbit/s.
  * MMODE is Multi-Mode and negotiates the best mode that it can.
-'''Check your line is in sync'''
 
-If DSL is working, the ADSL LED should be solidly on. Check 'dmesg' for DSL log messages. You should see something like this:
+=== Check your line is in sync ===
+
+If DSL is working, the ADSL LED should be solidly on. Check 'dmesg' or 'logread' for DSL log messages:
 
 {{{
 registered device TI Avalanche SAR
@@ -197,11 +201,16 @@ Creating new root folder avalanche in the proc for the driver stats
 Texas Instruments ATM driver: version:[7.02.01.00]
 DSL in Sync
 }}}
-You can also do cat /proc/avalanche/avsar_modem_training and if it says "IDLE" that means you've probably set the wrong annex, if it says "INIT" that is good as the modem is negotiating a speed with the exchange, then it should say "SHOWTIME" when it is ready to work.
 
-You can also do cat /proc/avalanche/avsar_modem_stats this is the best way of working out if you connection is initialised as it will show Upstream/Downstream sync speeds.
+Check the link state in /proc/avalanche/avsar_modem_training if you have problems:
 
-'''PPPoA configuration'''
+ * IDLE - you've probably set the wrong annex
+ * INIT - the modem is negotiating a speed with the exchange
+ * SHOWTIME - the link is up
+
+There are a number of stats available in /proc/avalanche/avsar_modem_stats including upstream/downstream speeds.
+
+=== PPPoA configuration ===
 
 Edit /etc/config/network. Add a section like this at the end:
 
@@ -219,9 +228,9 @@ config interface wan
 }}}
 encaps should be "vc" or "llc". vpi and vci are specific to your ISP.
 
-'''PPPoE configuration'''
+=== PPPoE configuration ===
 
-As for PPPoA, edit /etc/config/network. One more section is needed for the ATM-bridge.
+Edit /etc/config/network. One more section is needed for the ATM-bridge.
 
 {{{
 config atm-bridge
@@ -238,20 +247,20 @@ config interface wan
 }}}
 encaps should be "vc" or "llc". vpi and vci are specific to your ISP.
 
-'''Connect to your ISP directly using DHCP'''
+=== Connect to your ISP directly using DHCP ===
 
 Most people will be using PPPoE or PPPoA. However, if you are using DHCP, please read this thread: http://forum.openwrt.org/viewtopic.php?id=8019
 
-'''Bring up the ADSL connection'''
+=== Bring up the ADSL connection ===
 
 {{{
 /etc/init.d/br2684ctl restart  # for PPPoE
 ifup wan
 /etc/init.d/firewall restart
 }}}
-The firewall only needs to be restarted after making configuration changes, not every time.
+The firewall/bridge only needs to be restarted after making configuration changes, not every time.
 
-Currently the ADSL connection will not start automatically on boot. See https://dev.openwrt.org/ticket/2781 for a patch to fix this, or manually run 'ifup wan' after a reboot.
+Currently the ADSL connection will not start automatically on boot. See [https://dev.openwrt.org/ticket/2781 #2781] for a patch to fix this, or manually run 'ifup wan' after a reboot.
 
 The "USB" LED should turn on (it's been hijacked to display PPP state, not USB state), and 'ifconfig' should show something like this:
 
@@ -280,74 +289,23 @@ Dec  1 06:17:43 OpenWrt daemon.notice pppd[639]: secondary DNS address 202.27.15
 }}}
 And you should now have internet access!
 
-'''Set up port forwarding'''
-
-For general port forwarding, edit /etc/config/firewall and follow the comments. Run '/etc/init.d/firewall restart' after configuration changes.
-
-'''How to give interfaces fixed IP addresses'''
-
-For port forwarding you need to have fixed IP addresses, just find out the MAC address of the ethernet card via the XP command prompt ipconfig /all or via linux ifconfig.
-
-Then add an appropriate line to /etc/ethers matching the ethernet MAC address to an IP, e.g.
-
-{{{
-00:30:1B:B5:DC:D8 192.168.1.2
-}}}
-Finally, run '/etc/init.d/dnsmasq' to ensure that the DHCP server picks up the configuration change.
-
 == Troubleshooting ==
-'''WPNT834 Performance problem'''
+
+=== WPNT834 Performance problem ===
 
 Poor performance of the ADSL connection exists between the Netgear WPNT834 Rangemax 240 and D-Link DSL-502T, characterised by poor transfer speeds which may be asynchronous in nature, many retransmits and general packet loss in TCPdump and poor telnet access/webpage access to the DSL-502T, this is caused by poor ethernet performance between the two devices. This is possibly caused by a duplex mismatch or buggy 100FD/HD code on one of the devices.
 
-The only way to solve this at present is to force the DSL-502T ethernet connection to Autonegotiate 10Mbit/s by changing one line of source code: see the last two posts here:
-
- . http://forum.openwrt.org/viewtopic.php?id=8117
-
-'''Can't open data connection'''
-
-In the event of a data connection error the process of flashing can be done manually to investigate the error or complete the process in another operating system. 
-Once this error has been reached in the adam2flash-502t.pl script the ip of the boot loader will have been displayed and the mtd1 updated for the image you are trying to flash if you set the option -setmtd1.
-From this point flashing can be done manually from a command prompt in windows or a Linux terminal. Reboot the modem and log in to the boot loader ftp as in the following example (it should log in immediately):
-
-{{{
-$ ftp <Bootloader ip address>
-Connected to <Bootloader ip address>.
-220 ADAM2 FTP Server ready.
-Name: adam2
-331 Password required for adam2.
-Password: adam2
-230 User adam2 successfully logged in.
-Remote system type is UNIX.
-ftp> binary
-200 Type set to I.
-ftp> quote MEDIA FLSH
-200 Media set to FLSH.
-ftp> put "<image address>" "<image name> mtd4"
-(..short pause...)
-200 Port command successful.
-(..short pause..)
-150 Opening BINARY mode data connection for file transfer.
-(..short pause..)
-4059136 bytes sent in 83.15 secs (47.7 kB/s)
-ftp> quote REBOOT
-226 Transfer complete.
-ftp> exit
-221-Thank you for using the FTP service on ADAM2.
-221 Goodbye.
-}}}
-
-It should be noted that the above example does not update the mtld1 and so can brick the modem.
-For manually updating the mtld1 see this script https://dev.openwrt.org/browser/trunk/scripts/adam2flash-502T.pl
+The only way to solve this at present is to force the DSL-502T ethernet connection to Autonegotiate 10Mbit/s by changing one line of source code: see the last two posts here: http://forum.openwrt.org/viewtopic.php?id=8117
  
 == How to Debrick ==
-You can generally use the methods on DLinks site or just change ur mtd0/1/4 variables back to defaults and upload the dlink firmware.
+
+You can generally use the methods on D-Link's site, or just change your mtd0/1/4 variables back to defaults and upload the dlink firmware.
 
 But if you've accidentally destroyed your mtd2 adam2 bootloader or mtd3 config file you will need a JTAG cable.
 
-'''Instructions for debricking with a JTAG'''
+Also see this (old) thread for more details - it may be out of date: http://forum.openwrt.org/viewtopic.php?id=7742
 
-'''How to get hold of a JTAG or make one '''
+==== How to make a JTAG cable ====
 
 I grabbed one from ebay but you can make your own with 4/5 resistors, pin schematics are here:
 
@@ -366,13 +324,14 @@ My pins are numbered as so:
 6 - 9
 7 - 8 (VIO/VCCC/VREF)
 }}}
-'''Bios settings'''
+
+=== Bios settings ===
 
 My BIOS settings for my printer port were: ECP+EPP, 0x378.
 
-'''Using the Debrick utility to restore the bootloader and config'''
+=== Using the Debrick utility to restore the bootloader and config ===
 
-Once you do this you can use HairyDairyMaids debrick utility 4.8 Get it here:http://downloads.openwrt.org/utils/
+Once you do this you can use HairyDairyMaids debrick utility 4.8. Get it here: [http://downloads.openwrt.org/utils/]
 
 Under Windows: load giveio.sys by running loaddrv.exe and adding 'giveio.sys' to the end of the line and clicking install+start.
 
@@ -398,30 +357,9 @@ Once this is done, set you lan IP as 10.8.8.1 subnet 255.0.0.0 (on Linux u need 
 
 ping 10.8.8.8 to see if adam2 is working
 
-'''Uploading the original firmware'''
+=== Uploading the original firmware ===
 
 Now that ADAM2 is working, you can use adam2flash-502T.pl to install firmware of your choice, including the original D-Link firmware. See above.
-
-== Further Information ==
-Old threads that may be of some use:
-
-How to debrick the DSL-502T: http://forum.openwrt.org/viewtopic.php?id=7742
-
-How to bring up the ADSL interface: http://forum.openwrt.org/viewtopic.php?pid=35563
-
-PPPoE on the DSL-502T: http://forum.openwrt.org/viewtopic.php?pid=35563
-
-Script to bring up the ADSL interface on bootup: http://forum.openwrt.org/viewtopic.php?id=8342
-
-How to change passwd:[http://forum.openwrt.org/viewtopic.php?id=8342 http://forum.openwrt.org/viewtopic.php?id=9093]
-
-VCMUX/LLC howto: http://forum.openwrt.org/viewtopic.php?id=8700
-
-WPNT834 with DSL-502T duplex mismatch bug: http://forum.openwrt.org/viewtopic.php?id=8117
-
-Bridged DSL (not PPP): http://forum.openwrt.org/viewtopic.php?id=8019
-
-Couldn't increase MTU to 1500: http://forum.openwrt.org/viewtopic.php?id=9281
 
 == Acknowlegements ==
 
