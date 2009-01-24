@@ -33,7 +33,7 @@ The linksys software is based on kernel 2.6.11 with plenty of patching. GPL code
 You can get root from the serial console just by pressing enter- no login needed.
 
 == Boot Loader ==
-The boot loaded is 'PS Boot' - conexant specific. Have a look ["OpenWrtDocs/Bootloaders/PS Boot"]
+The boot loaded is 'PP Boot' - conexant specific. Have a look ["OpenWrtDocs/Bootloaders/PP Boot"]
 
 == Boot Log ==
 
