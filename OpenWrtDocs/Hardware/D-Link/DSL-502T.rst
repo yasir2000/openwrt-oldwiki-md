@@ -1,22 +1,14 @@
 = Work in Progress =
 Porting OpenWrt to the DSL-502T is a work in progress.
 
-This page is to assist those working in that direction.
+== Related models ==
 
-Thanks Strider for starting the page off for me.
+I have a 504T, it's the same as the 502T but doesn't have the USB port and it has 4 ethernet 10/100 ports -- war3333
 
-Thank you nbd and all the OpenWRT developers for making this work-Z3r0 (not the z3r0 on IRC)
+I have a 562T, it's the same as the 502T but for Annex B (ISDN) instead of Annex A (POTS). I am running Kamikaze r10180 without any problems. -- DominikKubla
 
-Thank you Mr Chandler for fixing some of the formatting.
-
-Note, as of 17th May '07 I am no longer maintaining this page as I no longer have a DSL-502T, if you would like to update this page please feel free to. (Z3r0)
-
-(I have a 504T, it's the same as the 502T but doesn't have the USB port and it has 4 ethernet 10/100 ports) -- war3333
-
-(I have a 562T, it's the same as the 502T but for Annex B (ISDN) instead of Annex A (POTS). I am running Kamikaze r10180 without any problems. -- DominikKubla)
-
-(I've a 524T, it has it's own wiki page here [LINK], no USB, 4 ethernet ports, Annex A. - What is the difference between the
-504T and 524T?)
+I've a 524T, it has it's own wiki page here [LINK], no USB, 4 ethernet ports, Annex A. - What is the difference between the
+504T and 524T?
 
 == Specifications ==
  * ADSL modem with ADSL2/2+ support to 24Mbit/s+.
@@ -89,7 +81,7 @@ Enter into the folder and run make menuconfig. Select at least:
  * Target Images -> SquashFS
  * Base system -> br2684ctl (only needed by PPPoE)
  * Network -> ppp -> ppp-mod-pppoa and/or ppp-mod-pppoe, depending on your ADSL type
- * Kernel Modules -> Network Devices -> select either annex A or B depending on your ADSL type (B = Germany only?). The annex of your router is marked on the PCB if you don't mind opening the case.
+ * Kernel Modules -> Network Devices -> select either annex A or B depending on your ADSL type (A = POTS, the more common case; B = ISDN - Germany only?). The annex of your router is marked on the PCB if you don't mind opening the case.
 Quit and save the config.
 
 Run 'make' to download essential packages (approximately 100MByte, this is an extreme under estimate, I run out of space after having more than 600MB of free space) and compile the firmware. Go and get a coffee. Maybe a second coffee too.
@@ -99,8 +91,7 @@ The final firmware produced by the build is located in bin/openwrt-ar7-squashfs.
 '''Flash the new firmware'''
 
  * Download a copy of the standard D-Link firmware so you can revert to it if things go wrong! You need the "web upgrade" .BIN version of the firmware, not the .EXE version. D-Link firmware can be downloaded from (for example) http://www.dlink.com.au/tech/
- * Get [https://dev.openwrt.org/attachment/ticket/2780/adam2flash-502T.pl?format=raw adam2flash-502T.pl].
- * If you have an Australian version of the router: H/W version A5, or ProductID "AR7DB" see this patch for adam2flash-502T.pl: https://dev.openwrt.org/ticket/2904
+ * You will be using trunk/scripts/flashing/adam2flash-502T.pl in the OpenWRT tree to flash the firmware.
  * Configure your PC for a static IP address, I'd suggest 192.168.1.2 (or another address on that subnet)
  * Choose an IP address for your router. The OpenWrt firmware will use 192.168.1.1 after rebooting, so that's a sensible choice.
  * Turn off the router.
@@ -108,7 +99,7 @@ The final firmware produced by the build is located in bin/openwrt-ar7-squashfs.
  * Turn on the router.
  * Wait for the upload to complete. Here's a sample session:
 {{{
-$ scripts/adam2flash-502T.pl 192.168.1.1 -setmtd1 bin/openwrt-ar7-squashfs.bin
+$ scripts/flashing/adam2flash-502T.pl 192.168.1.1 -setmtd1 bin/openwrt-ar7-squashfs.bin
 Looking for device: ..... found!
 ADAM2 version 0.22.2 at 192.168.1.1 (192.168.1.1)
 Firmware type: OpenWRT (little-endian)
@@ -122,7 +113,6 @@ Erasing flash and establishing data connection (this may take a while): ok.
 Writing firmware: ... (lots more dots) ... done.
 Rebooting device.}}}
  * Watch the LEDs and wait for the router to reboot. After a while, you should be able to ping 192.168.1.1!
-For more information on the firmware & memory layout of the DSL-502T, see the [https://dev.openwrt.org/attachment/ticket/2780/adam2flash-502T.pl comments in adam2flash-502T.pl]
 
 You can also use adam2flash-502T.pl to restore the original D-Link firmware if needed - it recognizes D-Link firmware and adjusts MTD settings accordingly.
 
@@ -131,13 +121,13 @@ You can also use adam2flash-502T.pl to restore the original D-Link firmware if n
 If you need to manually tweak firmware settings, you can do so by getting adam2flash to assign the bootloader an IP then doing a manual telnet to the FTP control port:
 
 {{{
-$ scripts/adam2flash-502T.pl 192.168.1.1 && telnet 192.168.1.1 21
+$ scripts/flashing/adam2flash-502T.pl 192.168.1.1 && telnet 192.168.1.1 21
 }}}
-Now you are connected to the bootloader FTP server. Log in with "USER adam2" and "PASS adam2".
+Now you are connected to the bootloader FTP server. Log in with "USER adam2" and "PASS adam2". There are a few pages elsewhere that describe ADAM2 commands etc.
 
 '''Checking that it worked'''
 
-If you applied the LED patches above, the router will go through three states while rebooting:
+The router will go through three states while rebooting:
 
  1. "status" off - bootloader running
  1. "status" flashing rapidly - image loaded OK, kernel booted, OpenWrt initializing
@@ -145,7 +135,6 @@ If you applied the LED patches above, the router will go through three states wh
   * "Ethernet" should turn on as the ethernet interface is brought up
   * If you've configured PPP (see below), "USB" should turn on as the PPP layer is brought up
  1. "status" pulsing in a heartbeat (pulse pulse - pause - pulse pulse - pause) - OpenWrt completed booting, normal operation
-If you didn't apply the LED patch, the only LEDs that will do anything are the status LED and the ADSL LED.
 
 I've found that /etc/init.d/ledsetup was missing the execute bit. So after logging in, running the following fixed everything up (I had the AR7DB version of the router and had to manually patch platform.c)[BD]:
 
@@ -238,7 +227,7 @@ Most people will be using PPPoE or PPPoA. However, if you are using DHCP, please
 /etc/init.d/br2684ctl restart  # for PPPoE
 ifup wan
 /etc/init.d/firewall restart
-/etc/init.d/ledsetup restart  # if you installed the LED patches
+/etc/init.d/ledsetup restart
 }}}
 The firewall and ledsetup only needs to be restarted after making configuration changes, not every time.
 
@@ -413,6 +402,18 @@ WPNT834 with DSL-502T duplex mismatch bug: http://forum.openwrt.org/viewtopic.ph
 Bridged DSL (not PPP): http://forum.openwrt.org/viewtopic.php?id=8019
 
 Couldn't increase MTU to 1500: http://forum.openwrt.org/viewtopic.php?id=9281
+
+== Acknowlegements ==
+
+(Moved from the top)
+
+Thanks Strider for starting the page off for me.
+
+Thank you nbd and all the OpenWRT developers for making this work-Z3r0 (not the z3r0 on IRC)
+
+Thank you Mr Chandler for fixing some of the formatting.
+
+Note, as of 17th May '07 I am no longer maintaining this page as I no longer have a DSL-502T, if you would like to update this page please feel free to. (Z3r0)
 
 ----
 CategoryModel . ["CategoryAR7Device"]
