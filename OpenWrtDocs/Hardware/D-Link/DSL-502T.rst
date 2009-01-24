@@ -11,8 +11,6 @@ Thank you Mr Chandler for fixing some of the formatting.
 
 Note, as of 17th May '07 I am no longer maintaining this page as I no longer have a DSL-502T, if you would like to update this page please feel free to. (Z3r0)
 
-(I'm starting to update this page to reflect the current port status. -- OliverJowett)
-
 (I have a 504T, it's the same as the 502T but doesn't have the USB port and it has 4 ethernet 10/100 ports) -- war3333
 
 (I have a 562T, it's the same as the 502T but for Annex B (ISDN) instead of Annex A (POTS). I am running Kamikaze r10180 without any problems. -- DominikKubla)
@@ -73,10 +71,10 @@ $ svn co https://svn.openwrt.org/openwrt/packages/net/tcpdump
 }}}
 ''' Install prerequisites for compiling'''
 
-For Ubuntu grab 'build essentials' 'flex' 'bison' 'autoconf' 'zlib1g-dev' 'libncurses5-dev', 'automake', 'g++'  i.e
+For Ubuntu grab 'build-essential' 'gawk' 'flex' 'bison' 'autoconf' 'zlib1g-dev' 'libncurses5-dev', 'automake', 'g++'  i.e
 
 {{{
-$ apt-get install flex bison autoconf zlib1g-dev libncurses5-dev automake g++
+$ sudo apt-get install build-essential gawk flex bison autoconf zlib1g-dev libncurses5-dev automake g++
 }}}
 For Debian:
 
