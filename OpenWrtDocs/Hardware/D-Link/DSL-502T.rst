@@ -1,6 +1,8 @@
 = Work in Progress =
 Porting OpenWrt to the DSL-502T is a work in progress.
 
+This page is mostly current as at r14165 (24 Jan 2009)
+
 == Related models ==
 
 I have a 504T, it's the same as the 502T but doesn't have the USB port and it has 4 ethernet 10/100 ports -- war3333
@@ -47,6 +49,7 @@ $ svn update
 
 These are patches that have tickets open but haven't made it into the subversion tree yet:
 
+ * Fix "interrupted system call" from adam2flash-502T.pl: https://dev.openwrt.org/ticket/4490
  * Enable WAN (ADSL) interface automatically on boot: https://dev.openwrt.org/ticket/2781 (still needed as at r14165)
 
 In general they can be applied by downloading and saving the "original version" of the patchfile attached to the ticket, then {{{"cd openwrt/trunk; patch -p0 <name-of-patch-file"}}}
@@ -90,7 +93,7 @@ The final firmware produced by the build is located in bin/openwrt-ar7-squashfs.
 '''Flash the new firmware'''
 
  * Download a copy of the standard D-Link firmware so you can revert to it if things go wrong! You need the "web upgrade" .BIN version of the firmware, not the .EXE version. D-Link firmware can be downloaded from (for example) http://www.dlink.com.au/tech/
- * You will be using trunk/scripts/flashing/adam2flash-502T.pl in the OpenWRT tree to flash the firmware.
+ * You will be using trunk/scripts/flashing/adam2flash-502T.pl in the OpenWRT tree to flash the firmware. Make sure you grab the necessary patch to it too: https://dev.openwrt.org/ticket/4490
  * Configure your PC for a static IP address, I'd suggest 192.168.1.2 (or another address on that subnet)
  * Choose an IP address for your router. The OpenWrt firmware will use 192.168.1.1 after rebooting, so that's a sensible choice.
  * Turn off the router.
