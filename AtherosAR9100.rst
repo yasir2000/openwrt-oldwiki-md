@@ -8,14 +8,14 @@ As of January 2009, active work is under way to get OpenWRT running well on thes
 
 == AP81 Routers ==
 
- * Trendnet TEW-632BRP, AP81-AR9130-RT-070614-00, ar9102 2x2 MIMO
- * Trendnet TEW-652BRP, AP81-AR9130-RT-080609-05, ar9102 2x2 MIMO
+ * Trendnet TEW-632BRP, AP81-AR9130-RT-070614-00, ar9102 2x2 MIMO, 2 removable antennas
+ * Trendnet TEW-652BRP, AP81-AR9130-RT-080609-05, ar9102 2x2 MIMO, 2 removable antennas
  * D-Link DIR-615 revision C1, AP81-AR9130-RT-080609-05, ar9102 2x2 MIMO
- * Netgear WNR2000, unknown hardware ID, ar9103 3x3 MIMO
- * TP-Link TL-WR941N or TL-WR941ND, unknown hardware ID, ar9103 3x3 MIMO, details: http://network.pconline.com.cn/pingce/0803/1252528_5.html
- * Planex mzk-w300nh, unknown hardware ID, ar9102 2x2 MIMO
- * Netgear WN802T version 2, suggested on this page http://blog.chinaunix.net/u2/83623/showart_1353786.html
- * Planex MZK-W04NU, ar9103 3x3 MIMO, 1 USB port included - and believed to have 8MB of FLASH based on firmware download size
+ * Netgear WNR2000, unknown hardware ID, ar9103 3x3 MIMO, internal antennas
+ * TP-Link TL-WR941N or TL-WR941ND, unknown hardware ID, ar9103 3x3 MIMO, 3 removable antennas. details: http://network.pconline.com.cn/pingce/0803/1252528_5.html
+ * Netgear WN802T version 2 (WN802Tv2), suggested on this page http://blog.chinaunix.net/u2/83623/showart_1353786.html
+ * Planex MZK-W300NH, unknown hardware ID, ar9102 2x2 MIMO, 8MB flash
+ * Planex MZK-W04NU, unknown hardware ID, ar9103 3x3 MIMO, 8MB flash, 1 USB port included, 3 removable antennas
  * Atlantiland A02-RB-W300N
  * Cameo Communications WLN2206, FCC id same as Trendnet TEW-632BRP according to SmallNetBuilder website
  * Mercury MWR300T+, ar9103 3x3 MIMO, details: http://bbs.whbear.com/thread-62276-1-1.html - probably a clone of the TL-WR941ND, because it uses the same firmware.
