@@ -118,6 +118,8 @@ Rebooting device.}}}
 
 You can also use adam2flash-502T.pl to restore the original D-Link firmware if needed - it recognizes D-Link firmware and adjusts MTD settings accordingly.
 
+The flashing process can be a bit flaky. It will often hang halfway through the firmware transfer; if that happens, power the router off and try again. It seems to help if you do not have other network traffic present while doing the firmware transfer (DNS lookups, etc)
+
 '''Connecting to ADAM2 manually'''
 
 If you need to manually tweak firmware settings, you can do so by getting adam2flash to assign the bootloader an IP then doing a manual telnet to the FTP control port:
