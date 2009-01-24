@@ -26,7 +26,7 @@ In most other situations, the worst that will happen is that you will have to po
 
 '''Get the source code'''
 
-Warning! over 1GB space needed to complete install
+Warning! over 2GB space needed to complete install
 
 The sourcecode is held in a subversion repository and is updated continuously. Install the subversion package (e.g. using the synaptic package manager on ubuntu). To get the latest trunk code:
 
@@ -45,11 +45,10 @@ $ svn update
 }}}
 '''Apply useful patches that aren't in subversion yet'''
 
-These are patches that have tickets open but haven't made it into the subversion tree yet: (Is this still true as of r10887? With my DSL-524T revision 10887 without any patches enables wlan on boot and the LEDs work as expected.)
+These are patches that have tickets open but haven't made it into the subversion tree yet:
 
- * Enable WAN (ADSL) interface automatically on boot: https://dev.openwrt.org/ticket/2781 (may not be needed anymore)
- * Make LEDs blink on network activity: https://dev.openwrt.org/ticket/2776
- * Also for the LEDs, if you have an Australian version of the router: H/W version A5, or ProductID "AR7DB", you may need to modify openwrt/trunk/target/linux/ar7/files/arch/mips/ar7/platform.c to include lines to detect your device. At revision 10021, the patches above don't yet adequately take care of it.
+ * Enable WAN (ADSL) interface automatically on boot: https://dev.openwrt.org/ticket/2781 (still needed as at r14165)
+
 In general they can be applied by downloading and saving the "original version" of the patchfile attached to the ticket, then {{{"cd openwrt/trunk; patch -p0 <name-of-patch-file"}}}
 
 '''Download source code for optional extra packages'''
@@ -132,15 +131,8 @@ The router will go through three states while rebooting:
  1. "status" off - bootloader running
  1. "status" flashing rapidly - image loaded OK, kernel booted, OpenWrt initializing
   * "ADSL" should start flashing as the DSL line is brought up
-  * "Ethernet" should turn on as the ethernet interface is brought up
-  * If you've configured PPP (see below), "USB" should turn on as the PPP layer is brought up
  1. "status" pulsing in a heartbeat (pulse pulse - pause - pulse pulse - pause) - OpenWrt completed booting, normal operation
 
-I've found that /etc/init.d/ledsetup was missing the execute bit. So after logging in, running the following fixed everything up (I had the AR7DB version of the router and had to manually patch platform.c)[BD]:
-
-{{{
-chmod +x /etc/init.d/ledsetup
-/etc/init.d/ledsetup enable}}}
 Some time after rebooting, you should be able to ping or telnet to 192.168.1.1. If so -- congratulations!
 
 You can reconfigure your PC for DHCP if you like, you should be given an IP in the 192.168.1.x range.
@@ -151,8 +143,32 @@ Get a ssh client such as, well, "ssh"!. Under Window, try [http://www.chiark.gre
 
 Telnet to the router and type 'passwd' to set a password. Now telnet will be disabled, and you should log back in over ssh.
 
+'''Configure the front-panel LEDs''''
+
+You can configure the spare LEDs ("ethernet" / "usb") to display network activity. Edit /etc/config/system and add something like this:
+
+{{{
+config led ethernet
+	option sysfs ethernet
+	option trigger netdev
+	option mode "link tx rx"
+	option dev eth0
+	
+config led usb
+	option sysfs usb
+	option trigger netdev
+	option mode "link tx rx"
+	option dev ppp0
+}}}
+
+This maps the "Ethernet" LED to ethernet traffic, and the "USB" LED to ADSL/PPP traffic.
+
+Then run /etc/init.d/led start (or reboot the device) to reload the configuration.
+
 == Enabling ADSL ==
 '''Set up modulation'''
+
+This usually works without changes. That said, here's how you change it if you need to.
 
 Current firmware supports both ADSL1 (G.DMT, G.lite, T.1413, Multi-Mode) and ADSL2+.
 
@@ -227,11 +243,10 @@ Most people will be using PPPoE or PPPoA. However, if you are using DHCP, please
 /etc/init.d/br2684ctl restart  # for PPPoE
 ifup wan
 /etc/init.d/firewall restart
-/etc/init.d/ledsetup restart
 }}}
-The firewall and ledsetup only needs to be restarted after making configuration changes, not every time.
+The firewall only needs to be restarted after making configuration changes, not every time.
 
-Currently the ADSL connection will not start automatically on boot. See https://dev.openwrt.org/ticket/2781 for a patch to fix this, or manually run 'ifup wan' after a reboot. (This may not be needed anymore.)
+Currently the ADSL connection will not start automatically on boot. See https://dev.openwrt.org/ticket/2781 for a patch to fix this, or manually run 'ifup wan' after a reboot.
 
 The "USB" LED should turn on (it's been hijacked to display PPP state, not USB state), and 'ifconfig' should show something like this:
 
@@ -262,7 +277,7 @@ And you should now have internet access!
 
 '''Set up port forwarding'''
 
-For general port forwarding, edit /etc/firewall.config and follow the comments. Run '/etc/init.d/firewall restart' after configuration changes.
+For general port forwarding, edit /etc/config/firewall and follow the comments. Run '/etc/init.d/firewall restart' after configuration changes.
 
 '''How to give interfaces fixed IP addresses'''
 
