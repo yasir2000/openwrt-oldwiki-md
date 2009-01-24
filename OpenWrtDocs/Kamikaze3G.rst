@@ -39,3 +39,8 @@ In case the binary packages don't work for you, you need to compile yourself. Th
   * Enable usb_modeswitch (Utilities)
   * Enable kmod-hso (Other modules)
  6. make
+
+== Comments ==
+
+At least Huawei E169 seems to hold the usb_modeswitched state for some seconds after unplugging. I used it with usb_modeswitch on a linux PC and then plugged it into an openwrt router which did not have the switch tool itself. I guess this works also with windows. Your router must never loose power for too long. Can someone confirm this phenomenon?
+In usb_modeswitched state E169 exports 4 usb-serial lines. Before the switch it exports only one.
