@@ -9,30 +9,21 @@
 [[TableOfContents]]
 = Introduction =
 == What is Aircrack? ==
-Aircrack is a suite of tools that enables wireless traffic monitoring and penetration/security testing. The official page for [http://www.aircrack-ng.org Aircrack] is www.aircrack-ng.org.
+Aircrack is a suite of tools that enables wireless traffic monitoring and penetration/security testing. The official page for [http://www.aircrack-ng.org Aircrack] is www.aircrack-ng.org
 
 = Requirements =
- * A WRT54G/S in client mode~-2-~
+ * A WRT54G/S in client mode~-1-~.
  * aircrack package.
- * {{{wl}}} utility.
- * External storage.
+ * {{{wl}}} utility~-2-~.
+ * External storage~-3-~.
 '''Notes'''
+
 ~-
-1. The following packages and the packages they depend upon
-
-2. ["OpenWrtDocs/WhiteRussian/ClientMode"]
-
-3. ["OpenWrtDocs/Kamikaze/ClientMode"]
-
-4. Please refer to the RemoteFileSystemHowTo for instructions on how to set this up
-
-5. (i.e. an NFS drive, or a CIFS drive)
-
+1. ["OpenWrtDocs/WhiteRussian/ClientMode"]
+   ["OpenWrtDocs/Kamikaze/ClientMode"]
+2. Possible dependency.
+3. For example NFS or CIFS mounted drive. See RemoteFileSystemHowTo for instructions on how to set this up.
 -~
-1.a
-1.b
-1. a
-1. b
 
 = Installation =
 Aircrack can easily be installed using !OpenWrt backports repository.  See ["OpenWrtDocs/Packages"]
