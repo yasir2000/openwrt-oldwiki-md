@@ -78,6 +78,26 @@ For details please see, [http://sourceforge.net/projects/hotspot-zone HOTSPOT-ZO
 
 Thanks to M (nick on IRC).
 
+And here is another option to consider using OpenWrt + chillispot + freeradius:
+
+''Chillifire™ simplifies hotspots and offers the ability to manage them remotely. The features are as rich as for a professional solution, usually only available to professional ISPs:
+·         Video and PDF tutorials showing you exactly what to do.
+·         Set up different pricing plans (charge a block of time, for data usage or online time usage, or charge periodically) in your own currency with amounts you determine.
+·         Set bandwidth limits, and even set lower bandwidth limits (throttle a connection) one monthly or weekly time or data allowance has been used up.
+·         Grant fee access to your hotspot, by registrating user’s address details and limiting them to bandwidth, time or data limits you determine.
+·         Add your own branding and logos to the hotspot logon screen, and you can charge via a proper credit card solution (2Checkout.com), or PayPal, or sell them access vouchers on location
+·         Link your own 2Checkout.com, or PayPal account or both to receive the payments directly. No wait for your money, no fees charged for transferring the money, no currency conversion losses through transfer of funds.
+·         Allow your customers to roam between your hotspots or limit them to the hotspot they bought their ticket from.
+·         Disconnect users remotely and bar certain device MAC addresses (user devices such as a laptop) from using the services.
+·         Access the router remotely (it can be anywhere in the world, and manage and change its configuration
+·         Set-up a walled garden (sites and pages you grant access to for unauthenticated users), link to your own personal splash screen (first screen to appear when user connects to your hotspot), and set your own personal ‘landing page (page the user sees once successfully authenticated.
+·         The service is based on redundant and load balanced web server, database servers and radius servers – not downtime for your hotspot.
+In the spirit of open source there is no licensing for any software or any set-up fees, even the Chillifire™ specific management web-application. The service is free for non-commercial use as defined on our website, and operates at very low rates for commercial use.
+''
+
+For details see [http://www.chillifire.net Chillifire]
+
+
 === Quick info about your connection ===
 Followed are a couple of scripts that are useful when writing other scripts.  They help you determine your ip, gateway and gateway mac.  With a little modification, they can be adapted to do other stuff
 
@@ -236,10 +256,9 @@ http://forum.openwrt.org/profile.php?id=524
 [:OpenWrtDocs/SambaHowto:Samba]
 
 === Atheros Chipsets ===
-See [:OpenWrtDocs/KamikazeHowto/Atheros:Atheros]
+See ["/Atheros"]
 
-Atheros chipsets use a slightly different configuration syntax to the rest of the OpenWRT routers. 
-
+Atheros chipsets use a slightly different configuration syntax to the rest of the OpenWRT routers.
 
 == Useful Details ==
 === boot_wait - What it is, and how it works ===
