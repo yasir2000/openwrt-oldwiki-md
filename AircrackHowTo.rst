@@ -29,7 +29,8 @@ Aircrack can easily be installed using !OpenWrt backports repository.  See ["Ope
 for how to configure your device to use the repository, then install aircrack by typing:
 
 {{{
-ipkg install aircrack}}}
+ipkg install aircrack-ng
+}}}
 
 If you have a [http://en.wikipedia.org/wiki/PRISM_%28chipset%29 PRISM] chipset, in order to capture traffic, you need {{{wl}}}. This can be installed by typing:
 
