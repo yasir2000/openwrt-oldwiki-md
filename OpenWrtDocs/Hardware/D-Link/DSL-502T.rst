@@ -61,7 +61,7 @@ In general they can be applied by downloading and saving the "original version" 
 {{{
 $ cd openwrt/trunk
 $ scripts/feeds update packages luci   # update the "packages" and "luci" feeds, see feeds.conf.default
-$ scripts/feeds install -a -p luci     # 'install' all available packages, preferring the "luci" feed. (This just makes them available to build)
+$ scripts/feeds install -a             # 'install' all available packages. (This just makes them available for configuration later)
 }}}
 
 === Install prerequisites for compiling ===
@@ -77,7 +77,12 @@ At the time of writing (30/12/2007), Debian 'stable' has gcc-4.1 which breaks du
 
 === Select firmware components ===
 
-Enter into the folder and run make menuconfig. Select at least:
+Run:
+{{{
+$ make menuconfig
+}}}
+
+Select at least:
 
  * Target System -> TI AR7 [2.6]
  * Target Profile -> No Wifi
@@ -85,6 +90,8 @@ Enter into the folder and run make menuconfig. Select at least:
  * Base system -> br2684ctl (only needed by PPPoE)
  * Network -> ppp -> ppp-mod-pppoa and/or ppp-mod-pppoe, depending on your ADSL type
  * Kernel Modules -> Network Devices -> kmod-sangam-atm-annex-a or -b depending on your ADSL type (A = POTS, the more common case; B = ISDN - Germany only?). The annex of your router is marked on the PCB if you don't mind opening the case.
+
+Plus any extra packages you desire (don't go overboard, there's not much space on these devices)
 
 Quit and save the config.
 
@@ -155,16 +162,18 @@ Telnet to the router and type 'passwd' to set a password. Now telnet will be dis
 You can configure the spare LEDs ("ethernet" / "usb") to display network activity. Edit /etc/config/system and add something like this:
 
 {{{
-config led ethernet
+config led
+        option name ethernet
 	option sysfs ethernet
 	option trigger netdev
-	option mode "link tx rx"
+	option mode 'link tx rx'
 	option dev eth0
 	
-config led usb
+config led
+        option name usb
 	option sysfs usb
 	option trigger netdev
-	option mode "link tx rx"
+	option mode 'link tx rx'
 	option dev ppp0
 }}}
 
