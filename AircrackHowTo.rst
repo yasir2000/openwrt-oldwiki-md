@@ -7,33 +7,35 @@
 '''Aircrack Quick Guide for the WRT54G/S'''
 
 [[TableOfContents]]
+
+
 = Introduction =
 == What is Aircrack? ==
 Aircrack is a suite of tools that enables wireless traffic monitoring and penetration/security testing. The official page for [http://www.aircrack-ng.org Aircrack] is www.aircrack-ng.org
 
+
 = Requirements =
- * A WRT54G/S in client mode.[[FootNote(Getting your router into ClientMode   ["OpenWrtDocs/WhiteRussian/ClientMode"]     ["OpenWrtDocs/Kamikaze/ClientMode"] )]]
+ * A WRT54G/S in client mode.
  * aircrack package.
- * {{{wl}}} utility.[[FootNote(  Possible dependency. )]]
- * External storage.[[FootNote( For example NFS or CIFS mounted drive. See RemoteFileSystemHowTo for instructions on how to set this up. )]]
+ * {{{wl}}} utility.[[FootNote(Possible dependency.)]]
+ * External storage.[[FootNote(For example NFS or CIFS mounted drive. See RemoteFileSystemHowTo for instructions on how to set this up.)]]
+
 
 = Installation =
 Aircrack can easily be installed using !OpenWrt backports repository.  See ["OpenWrtDocs/Packages"]
 for how to configure your device to use the repository, then install aircrack by typing:
-
 {{{
 ipkg install aircrack-ng
 }}}
-
 If you have a [http://en.wikipedia.org/wiki/PRISM_%28chipset%29 PRISM] chipset, in order to capture traffic, you need {{{wl}}}. This can be installed by typing:
-
 {{{
-ipkg install wl}}}
-
+ipkg install wl
+}}}
 Likewise, Atheros/MadWIFI users need wlanconfig.  This *should* be in either kmod-madwifi or wireless-tools.
 
+
 = Configuring Your WRT54G/S to Monitor =
-Now that Aircrack is installed and ready to start capturing traffic, you have to tell your router to listen to all traffic and not just traffic of its own.  This is called "monitor mode."  To be able to change channels and sniff on all channels, you must have the router in client mode: ClientModeHowto
+Now that Aircrack is installed and ready to start capturing traffic, you have to tell your router to listen to all traffic and not just traffic of its own.  This is called "monitor mode."  To be able to change channels and sniff on all channels, you must have the router in client mode: ["OpenWrtDocs/WhiteRussian/ClientMode"]     ["OpenWrtDocs/Kamikaze/ClientMode"]
 
 Users with a Broadcom chipset need to use the {{{wl}}} utility:
 {{{
@@ -41,9 +43,10 @@ wl monitor 1
 ifup prism0
 }}}
 
-Users with an Atheros chipset need to use {{wlanconfig}}:
+Users with an Atheros chipset need to use {{{wlanconfig}}}:
 {{{
-wlanconfig ath1 create wlandev wifi0 wlanmode monitor}}
+wlanconfig ath1 create wlandev wifi0 wlanmode monitor
+}}}
 
 MadWIFI allows you you have virtual interfaces, provided they are on the same channel.  This is why ath1 is specified.  All Atheros chipset cards have a wifi<instance> device, and each device can have multiple ath devices.
 
@@ -55,7 +58,8 @@ Begin by changing into the directory that you want to store the dump file in. Th
 Once you are in the directory that you want to store the dump file in, run the following commands:
 
 {{{
-airodump prism0 test 0 1}}}
+airodump prism0 test 0 1
+}}}
 
 What the above command does is:
 
@@ -113,3 +117,7 @@ Newer versions (like in the Kamikaze release) use a different syntax:
  * If you get stuck on something, there are lots of good resources at the official aircrack [http://www.aircrack-ng.org website]
  * Aircrack discussion forums are [http://tinyshell.be/aircrackng/forum/ here]
  * You can also join the channel #aircrack-ng on Freenode IRC (irc.freenode.net)
+
+
+
+-------
