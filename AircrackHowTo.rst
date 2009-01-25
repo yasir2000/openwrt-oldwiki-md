@@ -17,13 +17,12 @@ Aircrack is a suite of tools that enables wireless traffic monitoring and penetr
  * {{{wl}}} utility.
  * External storage.
 
-~-
 1. The following packages and the packages they depend upon
 1. ["OpenWrtDocs/WhiteRussian/ClientMode"]
 1. ["OpenWrtDocs/Kamikaze/ClientMode"]
 1. Please refer to the RemoteFileSystemHowTo for instructions on how to set this up
 1. (i.e. an NFS drive, or a CIFS drive)
--~
+
 
 = Installation =
 Aircrack can easily be installed using !OpenWrt backports repository.  See ["OpenWrtDocs/Packages"]
