@@ -12,16 +12,10 @@
 Aircrack is a suite of tools that enables wireless traffic monitoring and penetration/security testing. The official page for [http://www.aircrack-ng.org Aircrack] is www.aircrack-ng.org
 
 = Requirements =
- * A WRT54G/S in client mode[[FootNote(   ["OpenWrtDocs/WhiteRussian/ClientMode"]  )]].
+ * A WRT54G/S in client mode.[[FootNote(Getting your router into ClientMode   ["OpenWrtDocs/WhiteRussian/ClientMode"]     ["OpenWrtDocs/Kamikaze/ClientMode"] )]]
  * aircrack package.
- * {{{wl}}} utility~-2-~.
- * External storage~-3-~.
-
-
-   ["OpenWrtDocs/Kamikaze/ClientMode"]
- Possible dependency.
- For example NFS or CIFS mounted drive. See RemoteFileSystemHowTo for instructions on how to set this up.
-
+ * {{{wl}}} utility.[[FootNote(  Possible dependency. )]]
+ * External storage.[[FootNote( For example NFS or CIFS mounted drive. See RemoteFileSystemHowTo for instructions on how to set this up. )]]
 
 = Installation =
 Aircrack can easily be installed using !OpenWrt backports repository.  See ["OpenWrtDocs/Packages"]
