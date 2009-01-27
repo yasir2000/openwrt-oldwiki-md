@@ -666,7 +666,7 @@ Some additional things I can think of quickly.
  1. Pictures, pictures and more pictures.
  1. Improve device timings. More experimentation is needed to optimize the hardware setup.
 
-== Using the collectd-exec plugin
+== Using the collectd-exec plugin ==
 Recently, as part of a different project, I had need to use the collectd-exec plugin. It needs it's own wiki page, as it has a couple gotcha's.
 
  1. It refuses to execute anything as user root. Upon examing the source  http://www.sfr-fresh.com/unix/privat/collectd-4.4.5.tar.gz:a/collectd-4.4.5/src/exec.c beginning at line 290:{{{
