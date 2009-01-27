@@ -48,6 +48,9 @@ GND-o o-TCK
 GND-o o-TMS
   10   9
 }}}
+
+German Manual for building a JTAG Adapter: http://www.meeveo.com/2008/08/jtag-adapter-siemens-se505-selber-bauen/
+
 The serial connector is labeled J2 and has the following pin-out (Molex 2mm):
 
 {{{
