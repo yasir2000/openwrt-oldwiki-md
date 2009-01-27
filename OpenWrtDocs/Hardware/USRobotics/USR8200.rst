@@ -666,6 +666,43 @@ Some additional things I can think of quickly.
  1. Pictures, pictures and more pictures.
  1. Improve device timings. More experimentation is needed to optimize the hardware setup.
 
+== Using the collectd-exec plugin
+Recently, as part of a different project, I had need to use the collectd-exec plugin. It needs it's own wiki page, as it has a couple gotcha's.
+
+ 1. It refuses to execute anything as user root. Upon examing the source  http://www.sfr-fresh.com/unix/privat/collectd-4.4.5.tar.gz:a/collectd-4.4.5/src/exec.c beginning at line 290:{{{
+  290   uid = sp.pw_uid;
+  291   gid = sp.pw_gid;
+  292   if (uid == 0)
+  293   {
+  294     ERROR ("exec plugin: Cowardly refusing to exec program as root.");
+  295     exit (-1);
+  296   }
+}}}
+
+ Solution: I discovered it would allow execution of programs as uid:nobody,gid:root.
+
+ 1. The environment created in /etc/profile is not inherited. 
+    Since I was trying to run the python interpreter, I needed to set some environment variables. I did not experiment to see what environment variables are there for example... but noticed that they were not set after I added them to /etc/profile. Stuff like this... essential for correct python operation... especially when it is installed in a nonstandard location. Mine is installed to /mnt/sda1/python, a removable flash drive, so these needed to be inherited from collectd's environment.
+{{{
+PATH=/mnt/sda1/python/usr/bin:$PATH
+export PATH
+
+PYTHONHOME=/mnt/sda1/python/usr/
+export PYTHONHOME
+
+PYTHONPATH=/mnt/sda1/python/usr/lib/python25.zip:\
+/mnt/sda1/python/usr/lib/python2.5/:\
+/mnt/sda1/python/usr/lib/python2.5/plat-linux2:\
+/mnt/sda1/python/usr/lib/python2.5/lib-tk:\
+/mnt/sda1/python/usr/lib/python2.5/lib-dynload:\
+/mnt/sda1/python/usr/lib/python2.5/site-packages:\
+/mnt/sda1/python/usr/lib/python2.5/sqlite3
+
+export PYTHONPATH
+}}}
+
+Solution: Add them to /etc/init.d/collectd instead.
+
 == Attachments ==
 Here is a list of all the files provided so far.[[AttachList]] 
 ----
