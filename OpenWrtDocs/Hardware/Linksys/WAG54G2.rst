@@ -8,7 +8,11 @@ WAG54G2 is an ADSL gateway router with 4 (available) port 10/100 ethernet switch
 OpenWRT doesn't support this platform yet, but i'm going to have a go at getting it running. So, for now, this page is preliminary info.
 
 == Hardware ==
-Based on the Conexant CX94610 ADSL2plus chipset, which is a SoC with an ARM1026EJ core. Ethernet switch is an IC+ IP175 5 port, 4 ports are available on the back panel. WLAN: unknown Conexant, WLAN chips are covered by an aluminium screen on the board 16 MB SDRAM 4 MB Flash
+ * Based on the Conexant CX94610 ADSL2plus chipset, which is a SoC with an ARM1026EJ core.
+ * Ethernet switch is an IC+ IP175 5 port, 4 ports are available on the back panel.
+ * WLAN: unknown Conexant, WLAN chips are covered by an aluminium screen on the board 
+ * 16 MB SDRAM in two 64Mb (4M x 16) [http://www.etron.com/manager/uploads/EM638165_v22.pdf Etrontech EM638165TS] chips
+ * 4 MB Flash is a [http://www.spansion.com/products/S29GL032N.html Spansion S29GL032N] ( MirrorBit, 32Mb, 110nm). Spansion was a joint venture between AMD and Fujitsu
 
 == Serial Console ==
 ''will add photo later''
