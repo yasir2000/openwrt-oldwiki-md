@@ -44,41 +44,27 @@ Test it by pressing the button you configured above.
 This is another setup based upon the above script, and also the one at: http://wiki.openwrt.org/OpenWrtDocs/KamikazeConfiguration
 There are a few reasons for this modified version.  First objective is to reuse the code to allow for easy wireless (with accompanying led) toggling within the shell too.  Second objective is to minimise the number of writes to the flash rom every time wireless is toggled.
 
-Note: If you are using wireless encryption, nas and radius daemons will not be turned off during toggle and will continue to occupy cpu/memory. They should not consume too many resources with no client load though.
-
-First, make sure
-{{{ option disabled 0 }}}
-is set in the {{{/etc/config/wireless}}} (Kamikaze) for your interface.  This will mean the wireless will go up every time the router is powered up.  
+Note: If you are using wireless encryption, nas and radius daemons will not be turned off during toggle and will continue to occupy cpu/memory. They should not consume too many resources with no client load though.  
 
 == Generic Toggle Script ==
 Create a file called {{{woggle}}} in {{{/sbin}}} and paste this into it:
 {{{
 #!/bin/sh
 
-WIFI_RADIOSTATUS=$(wlc radio)
+WIFI_RADIOSTATUS=$(uci show wireless.wl0.disabled | cut -d = -f 2)
 case "$WIFI_RADIOSTATUS" in
-0)
-        wlc radio 1
-        echo 1 > /proc/diag/led/ses_white ;;
 1)
-        wlc radio 0
+        uci set wireless.wl0.disabled=0
+        wifi
+        echo 1 > /proc/diag/led/ses_white ;;
+0)
+        uci set wireless.wl0.disabled=1
+        wifi
         echo 0 > /proc/diag/led/ses_white
         echo 2 > /proc/diag/led/wlan
 esac
 }}}
 Then set {{{ chmod +x /sbin/woggle }}}
-
-== Bringing Wireless Offline After Boot ==
-To bring wireless down at boot(only if you want) after it's brought up by regular network scripts, create a file called {{{wifidown}}} in {{{/etc/init.d}}} and copy and paste this in:
-{{{ #!/bin/sh /etc/rc.common
-START=41
-STOP=41
-/usr/sbin/woggle
-}}}
-Set {{{ chmod +x /etc/init.d/wifidown }}}
-Then, you need it to load during boot, so type
-{{{ /etc/init.d/wifidown enable }}}
-This will make sure it is one of the last scripts to be loaded after boot (to give the network scripts a chance to load first).
 
 == Hotplugging ==
 
