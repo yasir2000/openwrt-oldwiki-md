@@ -15,6 +15,8 @@ It contains:
  * an ALVCH162260 (close to the flash above)
  * an oversized miniPCI card containing a Marvell 88W8361P-BEM1 (stepping A3P) and an Etrontech EM638325TS-6G (RAM?). It's got its own FCC ID: PY306200049.
 
+The PCB layout is similar to the [http://www.sparklan.com/data/prod_data/108/prod_data.pdf Sparklan WRTM-320] except for the voltage regulators.
+
 === JTAG ===
 
 Due to a [http://forum.openwrt.org/viewtopic.php?pid=58440#p58440 posting] in the mailing list, CON3 (2x5 pins, close to the miniPCI slot) is the JTAG connector:
