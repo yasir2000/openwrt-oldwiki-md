@@ -1,7 +1,21 @@
 ## page was renamed from OpenWrtDocs/Hardware/Netgear/WNR854
-'''Netgear WNR854'''
+'''Netgear WNR854T'''
 
 The hardware in this router is very similar to the [:OpenWrtDocs/Hardware/Buffalo/WZR-AG300:Buffalo WZR-AG300], although that has two N cards and the user space differs.  However, the Airlink 101 AR625W is a carbon of this router, and is identical in almost every detail.
+
+=== Hardware ===
+
+The board is labeled as ''WRTM-177GN_V01''.
+It contains:
+ * a Marvell 88F5180NB1 (under a black heatsink).
+ * a Marvell 88E6131-LAR1 (black heatsink).
+ * two Marvell 88E1112 GbE PHY (small silver heatsink). They seems to be connected to the rightmost Ethernet ports.
+ * two Nanya NT5DS8M16FS-5T RAM IC (one on each side of the PCB).
+ * an Intel JS28F640 flash
+ * an ALVCH162260 (close to the flash above)
+ * an oversized miniPCI card containing a Marvell 88W8361P-BEM1 (stepping A3P) and an Etrontech EM638325TS-6G (RAM?). It's got its own FCC ID: PY306200049.
+
+Beside the nine pin serial connectors it features a 2x5 pin row, probably JTAG, called CON3, but some resistors are missing.
 
 === Serial Port ===
 
