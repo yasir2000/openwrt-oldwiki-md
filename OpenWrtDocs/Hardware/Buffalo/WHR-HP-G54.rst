@@ -1,4 +1,5 @@
-http://www.buffalo-technology.com/images/products/whr-hp-g54_front_sm_2.jpg
+ http://www.buffalo-technology.com/images/products/whr-hp-g54_front_sm_2.jpg
+
 = WHR-HP-G54 =
 The [http://www.buffalo-technology.com/products/wireless/wireless-g-mimo-performance/wireless-g-mimo-performance-broadband-router-and-access-point/ WHR-HP-G54] router has a Broadcom 5352 CPU running at 200 MHz.  It has 4 MB of flash and 16 MB of RAM and has  JTAG and serial support.
 
