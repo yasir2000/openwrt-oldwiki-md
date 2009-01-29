@@ -14,7 +14,7 @@ GND - o o
 
 [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Netgear/TelnetConsole Telnet access on WPN824]
 
-== 824v2 ==
+== WPN824v2 ==
 
 === Specs ===
 Hardware (opening enclosure):
@@ -42,5 +42,62 @@ wlan0 revisions: mac 11.0 phy 4.8 analog 7.0
 chip is AR5315
 }}}
 
+== WPN824v3 ==
+
+=== Specs ===
+Probably the same as v2 but haven't looked.
+
+=== Information from telnet session ===
+{{{
+/ # cat /proc/cpuinfo 
+system type             : Atheros AR531X_COBRA
+processor               : 0
+cpu model               : unknown V6.4
+BogoMIPS                : 183.50
+wait instruction        : no
+microsecond timers      : yes
+tlb_entries             : 16
+extra interrupt vector  : yes
+hardware watchpoint     : no
+VCED exceptions         : not available
+VCEI exceptions         : not available
+}}}
+
+{{{
+/ # cat /proc/version 
+Linux version 2.4.27 (root@linux-server) (gcc version 3.3.3) #2 Thu Nov 1 17:33:11 CST 2007
+}}}
+
+{{{
+/ # cat proc/meminfo 
+        total:    used:    free:  shared: buffers:  cached:
+Mem:  14753792 10797056  3956736        0  1110016  4182016
+Swap:        0        0        0
+MemTotal:        14408 kB
+MemFree:          3864 kB
+MemShared:           0 kB
+Buffers:          1084 kB
+Cached:           4084 kB
+SwapCached:          0 kB
+Active:           3696 kB
+Inactive:         2652 kB
+HighTotal:           0 kB
+HighFree:            0 kB
+LowTotal:        14408 kB
+LowFree:          3864 kB
+SwapTotal:           0 kB
+SwapFree:            0 kB
+}}}
+
+{{{
+/ # cat /proc/mtd
+dev:    size   erasesize  name
+mtd0: 0001f800 00010000 "RedBoot"
+mtd1: 00000400 00010000 "FIS directory"
+mtd2: 00000400 00010000 "RedBoot config"
+mtd3: 00070000 00010000 "vmlinux.bin.gz"
+mtd4: 00150000 00010000 "rootfs"
+mtd5: 00010000 00010000 "user_config"
+}}}
 ----
 CategoryModel
