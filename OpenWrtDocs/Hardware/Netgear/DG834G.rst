@@ -109,7 +109,7 @@ Partially taken from http://www.earth.li/~noodles/blog/dg834g/dg834g-openwrt.htm
 
  1. Telnet into your router
   . {{{
-telnet 192.168.1.1
+telnet 192.168.0.1
 }}}
  1. '''Make sure to give adam2 an ip'''
   . {{{
