@@ -15,7 +15,16 @@ It contains:
  * an ALVCH162260 (close to the flash above)
  * an oversized miniPCI card containing a Marvell 88W8361P-BEM1 (stepping A3P) and an Etrontech EM638325TS-6G (RAM?). It's got its own FCC ID: PY306200049.
 
-Beside the nine pin serial connectors it features a 2x5 pin row, probably JTAG, called CON3, but some resistors are missing.
+=== JTAG ===
+
+Due to a [http://forum.openwrt.org/viewtopic.php?pid=58440#p58440 posting] in the mailing list, CON3 (2x5 pins, close to the miniPCI slot) is the JTAG connector:
+||Pin 1|| Vcc ||Pin 2|| nTRST ||
+||Pin 3|| GND ||Pin 4|| TDI ||
+||Pin 5|| GND ||Pin 6|| TMS ||
+||Pin 7|| TDO ||Pin 8|| TCK ||
+||Pin 9|| sRST ||Pin 10|| RTCK ||
+
+The posting claims that OpenOCD works for this device.
 
 === Serial Port ===
 
