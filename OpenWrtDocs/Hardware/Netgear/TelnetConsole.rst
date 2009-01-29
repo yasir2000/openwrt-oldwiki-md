@@ -12,7 +12,8 @@ Some ["OpenWrtDocs/Hardware/Netgear"] routers run a telnet daemon which can be a
  * WGR614 v1-2: unknown, may well work
  * WGT624 V3H1: worked, after 6-12 try, reboot, try again cycles.
  * WPN824 v1: known to work
- * WPN824 V2.0.15_1.0.11 : works!
+ * WPN824 V2.0.15_1.0.11: works!
+ * WPN824 V3: not needed! Enable the utelnetd option in Remote Management.
  * WG602 (unknown version): [http://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2006-1002 assumed to work]
   . Tried from a Gentoo box on a WG602v3: does not work.
   {{{
