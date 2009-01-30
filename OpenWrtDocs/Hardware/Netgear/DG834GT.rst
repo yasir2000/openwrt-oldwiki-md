@@ -255,15 +255,14 @@ Finished loading 2621444 bytes
 
 There is an unpopulated USB port near right from reset button.
 
+attachment:100_6268.JPG
+
 If you want to use it you need to solder the USB connector and the following parts:
-
-
-
-||<tablewidth="379px" tableheight="179px" tablealign="">C515||Polarized capacitor, 470 uF||
-||C516||Capacitor 100nF size: 0805||
-||FB1||Resistor 0 Ohm size: 0805||
-||C124||Capacitor 100nF size: 1210||
-||U102||5 Volt voltage regulator SOT-223 package  ||
+||<tablewidth="379px" tableheight="179px" tablestyle="">C515 ||Polarized capacitor, 470 uF ||
+||C516 ||Capacitor 100nF size: 0805 ||
+||FB1 ||Resistor 0 Ohm size: 0805 ||
+||C124 ||Capacitor 100nF size: 1210 ||
+||U102 ||5 Volt voltage regulator SOT-223 package ||
 
 
 Warning!
@@ -272,8 +271,13 @@ Be careful with the voltage regulator! If you want to use an USB device which is
 
 Let's calculate. The input voltage is 12 Volt (or a bit more) the output is 5 Volt. So the regulator will dissipate (12-5)*current power. For example my webcam need 100 mA power according to it's description. So the regulator in my case will dissipate 7 V *0,1A = 0,7 W power. This amount of power cannot be handled by an SOT-223 package. Regulators in TO-220 package will do it better. The best choice is a small switching mode DC-DC converter.
 
+attachment:100_6269bc.JPG
 
+Unfortunatelly there are some hardly solderable 0402 size parts are missing too.
 
+||<tablewidth="372px" tableheight="142px" tablealign="">R515, R514||between 16 and 44 Ohm||
+||R516, R517||15 KOhm||
+||C511, C512||47 or 50 pF ||
 
 
 Image of DG834GT:
