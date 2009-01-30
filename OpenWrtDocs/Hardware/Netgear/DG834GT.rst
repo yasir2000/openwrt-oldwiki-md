@@ -241,7 +241,7 @@ Select the Broadcom BCM63xx [2.6] target system, and the default Atheros wifi ta
 
 {{{
 make V=99}}}
-Create a tftp server, and copy the trunk/bin/openwrt-96348GW-10-squashfs-cfe.bin to the tftproot. Attach your router to the PC with a level shifter, open a serial terminal with 115200 8n1, press a button, and power it up. You shold see the CFE menu:
+Launch a tftp server, and copy the trunk/bin/openwrt-96348GW-10-squashfs-cfe.bin to the tftproot. Attach your router to the PC with a level shifter, open a serial terminal with 115200 8n1, press a button, and power it up. You shold see the CFE menu:
 
 {{{
 *** Press any key to stop auto run (1 seconds) ***
@@ -251,9 +251,30 @@ CFE> flashimage 192.168.1.100:openwrt-96348GW-10-squashfs-cfe.bin
 Loading 192.168.1.100:openwrt-96348GW-10-squashfs-cfe.bin ...
 Finished loading 2621444 bytes
 ...............................................................}}}
-'''Hardware'''
+'''USB PORT'''
 
-There is an unpopulated USB port near right from reset button. The voltage regulator, and some USB power related parts (capacitors, fuse) are missing too.
+There is an unpopulated USB port near right from reset button.
+
+If you want to use it you need to solder the USB connector and the following parts:
+
+
+
+||<tablewidth="379px" tableheight="179px" tablealign="">C515||Polarized capacitor, 470 uF||
+||C516||Capacitor 100nF size: 0805||
+||FB1||Resistor 0 Ohm size: 0805||
+||C124||Capacitor 100nF size: 1210||
+||U102||5 Volt voltage regulator SOT-223 package  ||
+
+
+Warning!
+
+Be careful with the voltage regulator! If you want to use an USB device which is powered from the USB port (usb stick, webcamera, etc.), you '''should not use SOT-223''' package regulator, because it could not dissipate the amount of power.
+
+Let's calculate. The input voltage is 12 Volt (or a bit more) the output is 5 Volt. So the regulator will dissipate (12-5)*current power. For example my webcam need 100 mA power according to it's description. So the regulator in my case will dissipate 7 V *0,1A = 0,7 W power. This amount of power cannot be handled by an SOT-223 package. Regulators in TO-220 package will do it better. The best choice is a small switching mode DC-DC converter.
+
+
+
+
 
 Image of DG834GT:
 
