@@ -82,6 +82,7 @@ Just because a device is listed doesn't mean that OpenWRT will run on this devic
  * ["Hardware/PcEngines"]
  * ["Hardware/PirelliBroadbandSolutions"]
  * ["Hardware/Planet"]
+ * ["Hardware/Planex"] aka PCi
  * ["Hardware/Ravotek"]
  * ["Hardware/RaidSonic"]
  * ["Hardware/Samsung"]
