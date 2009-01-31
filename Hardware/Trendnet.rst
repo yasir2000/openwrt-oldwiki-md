@@ -9,4 +9,5 @@
 ||[http://www.trendware.com/products/TEW-432BRP.htm TEW-432BRP] || ||Marvell 88W8510-BAN ||1MB ||8MB || ||Marvell 88E6060-RCJ || || || ||No ||Untested ||
 ||[http://www.trendware.com/products/TEW-432BRP.htm TEW-432BRP HW:D1.0R] || ||RealTek 8186 ||2MB MX29LV160BTC-70 ||8MB M12L64164A ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=4&Level=6&Conn=5&ProdID=46 Realtek RTL8225] ||Realtek RTL8306S || || || ||No ||Untested ||
 ||[http://www.trendnet.com/products/TEW-434APB.htm TEW-434APB] || ||RealTek 8186 ||?MB ||?MB ||[http://www.realtek.com.tw/products/productsView.aspx?Langid=1&PFid=4&Level=6&Conn=5&ProdID=46 Realtek RTL8225] ||None || || || ||No ||Untested (does PoE) ||
-||[http://www.trendnet.com/products/TEW-632BRP.htm TEW-632BRP] || ||Atheros 9130 ||4MB ||32MB || AR9130 || AR7100 || n/a || Yes || Yes ||No || [http://wiki.x-wrt.org/index.php/Trendnet_TEW-632BRP WiP] ||
+||[http://www.trendnet.com/products/TEW-632BRP.htm TEW-632BRP] || ||Atheros 9130 ||4MB ||32MB || AR9102 2x2 MIMO || AR7100 || n/a || Yes || Yes ||No || working Kamakazi trunk 2009-01-15 ||
+||[http://www.trendnet.com/products/TEW-652BRP.htm TEW-652BRP] || ||Atheros 9130 ||4MB ||32MB || AR9102 2x2 MIMO || AR7100 || n/a || Yes || Yes ||No || working Kamakazi trunk 2009-01-15 ||
