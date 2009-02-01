@@ -35,26 +35,6 @@ Standard 12 pin's, close to the leds.
 For internals and pinouts see (in Dutch):
 http://gathering.tweakers.net/forum/list_message/27451094#27451094
 
----- /!\ '''Edit conflict - your version:''' ----
-Pinout as follows:
-{{{
-1 VCC 3.3V
-2 GND
-3 TX
-4 RX
-5 GND
-6 nc
-}}}
-
-=== JTAG ===
-Standard 12 pin's, close to the leds.
-
-=== Links ===
-For internals and pinouts see (in Dutch):
-http://gathering.tweakers.net/forum/list_message/27451094#27451094
-
----- /!\ '''End of edit conflict''' ----
-
 ----
 CategoryModel ["CategoryBCM63xx"]
  
