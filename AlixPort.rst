@@ -14,15 +14,6 @@ Anyway, here are the patches: http://www.psyc.vt.edu/openwrt/110-geode_aes_suppo
 Run 'make distclean' before running menuconfig, this will re-load the alix profile.
 
 == Building firmware for ALIX ==
-{{{
-$ cd ~/
-$ rm -rf ~/alix/
-$ svn checkout https://svn.openwrt.org/openwrt/trunk/ ~/alix
-$ cd ~/alix/
-$ mkdir -p files/etc/uci-defaults; cp -fpR ~/patches/defaults files/etc/uci-defaults/; chmod a+x files/etc/uci-defaults/defaults
-$ ./scripts/feeds update packages luci
-$ ./scripts/feeds install -a -p luci
-$ make menuconfig}}}
 ~/patches/defaults:
 
 {{{
@@ -34,6 +25,16 @@ uci batch <<-EOF
         set network.wan.ifname=eth1
         commit network
 EOF}}}
+compile:
+{{{
+$ cd ~/
+$ rm -rf ~/alix/
+$ svn checkout https://svn.openwrt.org/openwrt/trunk/ ~/alix
+$ cd ~/alix/
+$ mkdir -p files/etc/uci-defaults; cp -fpR ~/patches/defaults files/etc/uci-defaults/; chmod a+x files/etc/uci-defaults/defaults
+$ ./scripts/feeds update packages luci
+$ ./scripts/feeds install -a -p luci
+$ make menuconfig}}}
 Changes in menuconfig:
 
  * Target System: '''x86 [2.6]'''
@@ -47,9 +48,9 @@ Changes in menuconfig:
  * Kernel modules
   * Filesystems
    * kmod-fs-ext3: '''M'''
-   * Network Devices
-    * kmod-natsemi: '''N'''
-    * kmod-ne2k-pci: '''N'''
+  * Network Devices
+   * kmod-natsemi: '''N'''
+   * kmod-ne2k-pci: '''N'''
   * USB Support
    * kmod-usb-core: '''M'''
     * kmod-usb-ohci: '''M'''
