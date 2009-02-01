@@ -16,26 +16,22 @@ JTAG           : yes
 }}}
 
 === Serial console ===
-
 Pinout as follows:
-
 {{{
-Ethernet ports
-
-  o  o  o  o
-GND TX VCC RX
-
-     Leds
+1 VCC 3.3V
+2 GND
+3 TX
+4 RX
+5 GND
+6 nc
 }}}
 
-=== Shell access ===
+=== JTAG ===
+Standard 12 pin's, close to the leds.
 
-
-=== Bootlog ===
-
-{{{
-TODO
-}}}
+=== Links ===
+For internals and pinouts see (in Dutch):
+http://gathering.tweakers.net/forum/list_message/27451094#27451094
 
 ----
 CategoryModel ["CategoryBCM63xx"]
