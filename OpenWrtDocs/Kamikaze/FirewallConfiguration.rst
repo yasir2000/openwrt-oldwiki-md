@@ -99,4 +99,5 @@ To add this new section from UCI CLI do:
 root@OpenWrt:~# uci add firewall include
 root@OpenWrt:~# uci set firewall.@include[0].path=/etc/firewall.user
 root@OpenWrt:~# uci commit firewall
+root@OpenWrt:~# /etc/init.d/firewall restart
 }}}
