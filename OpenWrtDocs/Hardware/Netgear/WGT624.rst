@@ -28,6 +28,10 @@ A photo can be found [http://www.wireless-forum.ch/forum/files/netgear_wgt624_pl
 
 The PCB layout [http://www.embraceit.com.au/wgt624/ here] resembles the one of a WGT624v2 (it's got a step-down converter close to the antenna compared to v1).
 
+== WGT624v3 ==
+
+See [http://forum.openwrt.org/viewtopic.php?id=13455 this thread] for some pictures of the WGT624v3. Seems like the flash is a serial one, no a parallel as used in v1 and v2.
+
 == Serial ==
 It got populated Serial and JTAG-Headers.
 
