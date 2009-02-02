@@ -15,6 +15,16 @@ the WGT624 is based on an Atheros System on a Chip (Soc). It got a ar2312a MIPS 
  * Powersupply: 5V
 Some photos are here: http://home.fhtw-berlin.de/~s0502837/wgt624/
 
+== Specs for WGT624v2 ==
+ * FCC ID: PY3WGR614v3
+ * internal label: U12H018, REV.1
+ * CPU: Atheros AR2313A
+ * Flash: MX 29LV160BTTC-90 (2MByte)
+ * RAM: Winbond W981216DH-75 (16 MByte)
+ * Switch: Marvell 88E6060-RCJ
+ * one external fixed antenna, one antenna on the PCB
+ * Powersupply: 12V/1A
+
 == Serial ==
 It got populated Serial and JTAG-Headers.
 
