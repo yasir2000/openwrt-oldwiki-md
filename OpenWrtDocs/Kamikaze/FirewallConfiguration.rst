@@ -31,7 +31,7 @@ config rule
         option dest_port        22
         option proto            tcp
 }}}
-To add this rule via UCI CLI do:
+To add this new section from UCI CLI do:
 
 {{{
 root@OpenWrt:~# uci add firewall rule
