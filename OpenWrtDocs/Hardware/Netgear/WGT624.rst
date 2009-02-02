@@ -13,7 +13,8 @@ the WGT624 is based on an Atheros System on a Chip (Soc). It got a ar2312a MIPS 
  * 1 WAN-Ports
  * 4 LAN-Ports
  * Powersupply: 5V
-Some photos are here: http://home.fhtw-berlin.de/~s0502837/wgt624/
+
+A photo can be found [http://www.wireless-forum.ch/forum/files/netgear_wgt624_platine.jpg here].
 
 == Specs for WGT624v2 ==
  * FCC ID: PY3WGR614v3
