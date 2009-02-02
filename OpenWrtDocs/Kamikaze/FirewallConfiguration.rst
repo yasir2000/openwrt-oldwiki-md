@@ -21,7 +21,7 @@ To specify a range of ports for '''src_dport''' and '''dest_port''' separate the
 
 == Examples ==
 === Opening ports ===
-The default configuration accepts all LAN traffic, but blocks all incoming WAN traffic on ports not currently used for connections or NAT.  To open a port for a service, add a "rule" entry:
+The default configuration accepts all LAN traffic, but blocks all incoming WAN traffic on ports not currently used for connections or NAT.  To open a port for a service, add a new "rule" section entry:
 
 {{{
 config rule
