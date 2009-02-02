@@ -57,6 +57,20 @@ config redirect
         option dest_port        80
         option proto            tcp
 }}}
+To add this new section from UCI CLI do:
+
+{{{
+root@OpenWrt:~# uci add firewall redirect
+root@OpenWrt:~# uci set firewall.@redirect[-1]._name=Webserver
+root@OpenWrt:~# uci set firewall.@redirect[-1].src=wan
+root@OpenWrt:~# uci set firewall.@redirect[-1].src_dport=80
+root@OpenWrt:~# uci set firewall.@redirect[-1].dest=lan
+root@OpenWrt:~# uci set firewall.@redirect[-1].dest_ip=192.168.1.10
+root@OpenWrt:~# uci set firewall.@redirect[-1].dest_port=80
+root@OpenWrt:~# uci set firewall.@redirect[-1].proto=tcp
+root@OpenWrt:~# uci commit firewall
+root@OpenWrt:~# /etc/init.d/firewall restart
+}}}
 This example forwards http (but not https) traffic to the webserver running on 192.168.1.10.
 
 === Source NAT (SNAT) ===
@@ -86,20 +100,6 @@ config redirect
         option dest             lan
         option dest_port        80
         option proto            tcp
-}}}
-To add this new section from UCI CLI do:
-
-{{{
-root@OpenWrt:~# uci add firewall redirect
-root@OpenWrt:~# uci set firewall.@redirect[-1]._name=Webserver
-root@OpenWrt:~# uci set firewall.@redirect[-1].src=wan
-root@OpenWrt:~# uci set firewall.@redirect[-1].src_dport=80
-root@OpenWrt:~# uci set firewall.@redirect[-1].dest=lan
-root@OpenWrt:~# uci set firewall.@redirect[-1].dest_ip=192.168.1.10
-root@OpenWrt:~# uci set firewall.@redirect[-1].dest_port=80
-root@OpenWrt:~# uci set firewall.@redirect[-1].proto=tcp
-root@OpenWrt:~# uci commit firewall
-root@OpenWrt:~# /etc/init.d/firewall restart
 }}}
 === Manual iptables rules ===
 iptables rules, in the standard iptables unix command form, can be specified in an external file and included in the firewall config file.
