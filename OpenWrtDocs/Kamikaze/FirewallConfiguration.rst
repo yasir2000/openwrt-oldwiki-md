@@ -50,13 +50,7 @@ Following the "zone" entries, add a "redirect" entry:
 
 {{{
 config redirect
-
----- /!\ '''Edit conflict - other version:''' ----
-
----- /!\ '''Edit conflict - your version:''' ----
         option _name            Webserver
-
----- /!\ '''End of edit conflict''' ----
         option src              wan
         option src_dport        80
         option dest             lan
@@ -78,11 +72,7 @@ root@OpenWrt:~# uci set firewall.@redirect[-1].proto=tcp
 root@OpenWrt:~# uci commit firewall
 root@OpenWrt:~# /etc/init.d/firewall restart
 }}}
-
----- /!\ '''Edit conflict - other version:''' ----
-To add this new section from UCI CLI do:
-
-{{{
+To add this new section from UCI CLI do:{{{
 root@OpenWrt:~# uci add firewall redirect
 root@OpenWrt:~# uci set firewall.@redirect[-1]._name=Webserver
 root@OpenWrt:~# uci set firewall.@redirect[-1].src=wan
@@ -94,12 +84,7 @@ root@OpenWrt:~# uci set firewall.@redirect[-1].proto=tcp
 root@OpenWrt:~# uci commit firewall
 root@OpenWrt:~# /etc/init.d/firewall restart
 }}}
-
----- /!\ '''Edit conflict - your version:''' ----
-
----- /!\ '''End of edit conflict''' ----
 This example forwards http (but not https) traffic to the webserver running on 192.168.1.10.
-
 === Source NAT (SNAT) ===
 Source NAT changes an outgoing packet outgoing packet destined for the system so that is looks as though the system is the source of the packet.
 
@@ -133,10 +118,9 @@ iptables rules, in the standard iptables unix command form, can be specified in 
 
 {{{
 config include
-       option path /etc/firewall.user
-}}}
-
----- /!\ '''Edit conflict - other version:''' ----
+       option path /etc/firewall.user}}}
+----
+----
 === Manual iptables rules ===
 iptables rules, in the standard iptables unix command form, can be specified in an external file and included in the firewall config file.
 
@@ -144,29 +128,11 @@ iptables rules, in the standard iptables unix command form, can be specified in 
 config include
        option path /etc/firewall.user
 }}}
-
----- /!\ '''Edit conflict - your version:''' ----
-
----- /!\ '''End of edit conflict''' ----
 To add this new section from UCI CLI do:
 
 {{{
-
----- /!\ '''Edit conflict - other version:''' ----
 root@OpenWrt:~# uci add firewall include
 root@OpenWrt:~# uci set firewall.@include[0].path=/etc/firewall.user
-
----- /!\ '''Edit conflict - your version:''' ----
-root@OpenWrt:~# uci add firewall include
-root@OpenWrt:~# uci set firewall.@include[0].path=/etc/firewall.user
-
----- /!\ '''End of edit conflict''' ----
 root@OpenWrt:~# uci commit firewall
 root@OpenWrt:~# /etc/init.d/firewall restart
 }}}
-
----- /!\ '''Edit conflict - other version:''' ----
-
----- /!\ '''Edit conflict - your version:''' ----
-
----- /!\ '''End of edit conflict''' ----
