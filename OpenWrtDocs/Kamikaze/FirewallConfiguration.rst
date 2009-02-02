@@ -93,3 +93,10 @@ iptables rules, in the standard iptables unix command form, can be specified in 
 config include
        option path /etc/firewall.user
 }}}
+To add this new section from UCI CLI do:
+
+{{{
+root@OpenWrt:~# uci add firewall include
+root@OpenWrt:~# uci set firewall.@include[0].path=/etc/firewall.user
+root@OpenWrt:~# uci commit firewall
+}}}
