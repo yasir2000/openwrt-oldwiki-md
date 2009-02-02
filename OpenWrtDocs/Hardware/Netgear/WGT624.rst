@@ -26,6 +26,8 @@ A photo can be found [http://www.wireless-forum.ch/forum/files/netgear_wgt624_pl
  * one external fixed antenna, one antenna on the PCB
  * Powersupply: 12V/1A
 
+The PCB layout [http://www.embraceit.com.au/wgt624/ here] resembles the one of a WGT624v2 (it's got a step-down converter close to the antenna compared to v1).
+
 == Serial ==
 It got populated Serial and JTAG-Headers.
 
