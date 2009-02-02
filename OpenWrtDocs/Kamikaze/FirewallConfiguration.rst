@@ -25,11 +25,25 @@ To specify a range of ports for '''src_dport''' and '''dest_port''' separate the
 The default configuration accepts all LAN traffic, but blocks all incoming WAN traffic on ports not currently used for connections or NAT.  To open a port for a service, add a "rule" entry:
 {{{
 config rule
+        option _name            SSH
         option src              wan
         option dest_port        22
         option target           ACCEPT
         option proto            tcp
 }}}
+
+To add this rule via UCI CLI do:
+{{{
+root@OpenWrt:~# uci add firewall rule
+root@OpenWrt:~# uci set firewall.@rule[-1]._name=SSH
+root@OpenWrt:~# uci set firewall.@rule[-1].src=wan
+root@OpenWrt:~# uci set firewall.@rule[-1].target=ACCEPT
+root@OpenWrt:~# uci set firewall.@rule[-1].dest_port=22
+root@OpenWrt:~# uci set firewall.@rule[-1].proto=tcp
+root@OpenWrt:~# uci commit firewall
+root@OpenWrt:~# /etc/init.d/firewall restart
+}}}
+
 This example enables machines on the internet to use SSH to access your router.
 
 === Forwarding ports (Destination NAT/DNAT) ===
