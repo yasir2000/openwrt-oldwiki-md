@@ -67,6 +67,8 @@ To remove the front cover you simply pop the front of the case off after removin
 There are two screws holding the PCB to the bottom cover.
 
 = Installation =
+You MUST MUST MUST first install version 2.4 kernel before you attempt to install a 2.6! The nvram paramaters are unavailable in 2.6. So don't install 2.6 versions on this box until you've installed 2.4 first and done this step.
+
 Right after flashing at your first login set a few NVRAM parameters.
 
 {{{
@@ -78,7 +80,7 @@ NOTE: You do not have to touch any other NVRAM parameters. After this point NVRA
 == Using the Linksys web GUI ==
 It is possible to install !OpenWrt directly with the Linksys web GUI. If you are initially installing !OpenWrt use the Linksys web GUI. This is the easiest way.
 
- * Download the openwrt-wrt54g-2.4-squashfs.bin firmware image to your PC
+ * Download the openwrt-wrt54g-2.4-squashfs.bin firmware image to your PC. DO NOT DOWNLOAD AND INSTALL THE 2.6 VERSION!! YOU WON'T BE ABLE TO SET nvram boot_wait=on in it, because it has no nvram command. So first instal 2.4 even if that isn't what you want, then upgrade later.
  * Open http://192.168.1.1/Upgrade.asp in your browser or manually go to http://192.168.1.1 -> Administration -> Firmware Upgrade
  * Upload openwrt-wrt54g-2.4-squashfs.bin
  * Wait 2 minutes. The router will reboot itself automatically after the upgrade is complete.
