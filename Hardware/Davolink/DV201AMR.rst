@@ -60,6 +60,21 @@ update: mtd write Patched-cfe-for-Davolink.bin /dev/mtd0
 
 attachment:bcm963xx_fs_kernel_dv201amr   Firmware image
 
+'''Working:'''
+{{{
+CFE
+Ethernet
+wlan
+}}}
+'''Missing:'''
+{{{
+switch
+voip dsp
+adsl dsp
+host usb
+slave usb
+}}}
+
 === Links ===
 For internals and pinouts see (in Dutch):
 http://gathering.tweakers.net/forum/list_message/27451094#27451094
