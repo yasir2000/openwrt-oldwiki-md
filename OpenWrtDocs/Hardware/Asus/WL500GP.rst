@@ -376,6 +376,8 @@ Now open the URL http://192.168.1.1:8080/ in the Firefox browser or VLC and watc
 === Turn your router into a networked music player ===
 Work in progress. Please see the UsbAudioHowto.
 
+A German description, how to turn your asus into an music player: http://neophob.com/serendipity/index.php?/archives/149-Diplomarbeit-Embedded-Linux-German.html
+
 [[Anchor(2.6)]]
 
 == Trunk with Kernel 2.6 ==
@@ -399,7 +401,7 @@ Work in progress. Please see the UsbAudioHowto.
  * HardwareAcceleratedCrypto
 ----
  . [[Anchor(links)]]
-  [[Anchor(Links)]]
+  . [[Anchor(Links)]]
 == External Links ==
 === Tutorials ===
  * [http://wl500g.info/showthread.php?t=12962 RAM Upgrade]
