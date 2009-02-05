@@ -58,6 +58,7 @@ attachment:Patched-cfe-for-Davolink.bin
 
 update: mtd write Patched-cfe-for-Davolink.bin /dev/mtd0
 
+attachment:bcm963xx_fs_kernel_dv201amr   Firmware image
 
 === Links ===
 For internals and pinouts see (in Dutch):
