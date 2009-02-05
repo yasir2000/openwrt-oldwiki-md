@@ -27,6 +27,30 @@ attachment:opening_ns2.jpg
 
 attachment:serial_ns2.jpg
 
+== Serial ==
+
+{{{
+pin 1 - vcc
+pin 3 - RX
+pin 7 - TX
+pin 9 - gnd
+
+(9600 8n1)
+}}}
+
+{{{
+RedBoot> fconfig
+[...]
+Local IP address: 192.168.1.20
+Local IP address mask: 255.255.255.0
+[...]
+}}}
+
+{{{
+$ echo -e "\0377\0364\0377\0375\0006" > break
+$ nc -vvv 192.168.1.20 9000 < break ; telnet 192.168.1.20 9000
+}}}
+
 == OpenWrt ==
 The NanoStation2 is supported by the OpenWrt AtherosPort.  It is available as a pre-built image and can be built through buildroot.
 
