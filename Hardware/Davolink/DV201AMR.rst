@@ -54,6 +54,10 @@ Patched CFE, proposed MAP is like:
   0x00410000+<kernel_len>:<rootfs_len>            rootfs
   0x00410000+<kernel_len>+<rootfs_len>:-0x8000000 free1
 }}}
+attachment:Patched-cfe-for-Davolink.bin
+
+update: mtd write Patched-cfe-for-Davolink.bin /dev/mtd0
+
 
 === Links ===
 For internals and pinouts see (in Dutch):
