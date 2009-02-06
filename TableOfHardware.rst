@@ -50,6 +50,7 @@ Just because a device is listed doesn't mean that OpenWRT will run on this devic
  * ["Hardware/Castlenet"]
  * ["Hardware/CC&C"]
  * ["Hardware/Compex"]
+ * ["Hardware/Comtrend"]
  * ["Hardware/Corinex"]
  * ["Hardware/Davolink"]
  * ["Hardware/Dell"]
