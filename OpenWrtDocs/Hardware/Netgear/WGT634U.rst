@@ -195,6 +195,8 @@ Options for serial console wiring include:
  * a cell phone data cable, for example the [http://www.radioshack.com/product/index.jsp?productId=2103605 Radio Shack "Mobile Phone Data Cable, Cable 22"] (part number 170-0762) works, clipping off the cell phone end and attaching the exposed wires as follows: green wire to GND; orange wire to RX; and white wire to TX; leaving VCC unconnected (may not be available any longer)
  * some variant of the [http://www.ftdichip.com/Products/EvaluationKits/TTL-232R-WE.htm FTDI TTL-232R-3V3-WE].
  * build something with this: http://www.sparkfun.com/commerce/product_info.php?products_id=718
+ * as of 090205, an FTDI USB->3V3 serial cable is available for $20US here: [http://www.adafruit.com/index.php?main_page=product_info&products_id=70]; also on the FTDI site.
+
 On a linux box, the USB tty devices usually show up at /dev/ttyUSBn.  You can point minicom (or similar) there.
 
 J6 (left from J7) is a second serial port, but has no header on it. It has the same pinout as J7.
