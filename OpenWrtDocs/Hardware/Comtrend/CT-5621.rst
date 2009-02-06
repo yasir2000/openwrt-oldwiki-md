@@ -517,8 +517,8 @@ Pinout:
 || 6  ||  5  || 4  ||  3  ||  2  ||  1 ||
 || 12 || 11  || 10 ||  9  ||  8  ||  7 ||
 
-{{{
 Meaning and mapping to LPT for an unbuffered cable (see ["OpenWrtDocs/Customizing/Hardware/JTAG_Cable"])
+{{{
 Pin 3 - TDI - DATA0  - Pin 2
 Pin 5 - TD0 - SELECT - Pin 13
 Pin 7 - TMS - DATA2  - Pin 4
