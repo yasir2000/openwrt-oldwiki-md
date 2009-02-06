@@ -491,11 +491,11 @@ Number of MAC Addresses (1-32)  :  11
 Base MAC Address                :  00:40:dd:37:ad:e4  
 }}}
 
-== Accessing the Device ==
+== Accessing the Stock Device ==
 
-* You can get shell prompt by using telnet or ssh (if they are enabled in the web interface) or using a serial console attached to the console jack, and typing sh at the menu prompt.  ls is missing but cat * works.
+ * You can get shell prompt by using telnet or ssh (if they are enabled in the web interface) or using a serial console attached to the console jack, and typing sh at the menu prompt.  ls is missing but cat * works.
 
-* Using a serial cable is recommended
+ * the CFE ["OpenWrtDocs/Customizing/Firmware/CFE"] can be accessed by pressing any key within the timeout period (default 1s).  From there you program various parameters of the device, erase and flash the flash and nvram or run a kernel from a remote host (i.e. without flashing)
 
 == Serial Console Pinout ==
 
