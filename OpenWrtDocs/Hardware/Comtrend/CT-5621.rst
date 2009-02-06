@@ -539,6 +539,10 @@ This router is partially supported.
  * The USB slave (that is the connector that allows you to connect a host computer to the router and 'see' an ethernet device) is not.
  * The switch currently does not appear to support VLAN's (work is in progress on this)
 
+== Tools ==
+
+If you want to play with the stock firmware and know the required offsets and size, you can use the [attachment:make-flash-image.tar.gz make-flash-image.tar.gz] to create imagetag, which will generate a correct image header so you can flash the modified firmware to the router (using cfe).
+
 == Pictures ==
 
 attachment:CT-5621-board.jpg
