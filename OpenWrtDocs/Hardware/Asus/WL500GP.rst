@@ -3,6 +3,8 @@
 == ASUS WL-500g Premium ==
 With Kamikaze 7.09 and target system Broadcom BCM947xx/953xx [2.4 kernel] the ASUS WL-500g Premium is fully supported and runs stable.
 
+Important notice: there is a long standing bug that makes it impossible to do port forwarding (NAT) with this router on 2.4 kernel, see https://dev.openwrt.org/ticket/2558.  Otherwise the router works great, if you can live with the reduced functionality.
+
 With a 2.6 kernel, wireless support is problematic.  The supplied Broadcom wireless miniPCI card requires the open source b43 driver.  As of 2008 July 5, that driver is not yet completely functional.  It appears to work in STA mode (client mode).
 
 If you replace the Broadcom wirelss miniPCI card with an Atheros card, you can run a 2.6 kernel, as long has it has [https://dev.openwrt.org/changeset/9285 SVN 9285].
