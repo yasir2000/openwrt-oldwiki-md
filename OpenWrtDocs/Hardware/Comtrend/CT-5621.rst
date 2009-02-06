@@ -508,6 +508,24 @@ RJ45 connector
 1,2,5,6,8: Not Connected
 }}}
 
+== JTAG ==
+
+Located near the front left, beside the CPU.  Pin 1 has white box surrounding it and the whole connection area is surrounded by a white border (thin).  There is no existing header, if you want one you have to add it (there are only solder pads in the stock configuration).
+
+Pinout: 
+
+|| 6  ||  5  || 4  ||  3  ||  2  ||  1 ||
+|| 12 || 11  || 10 ||  9  ||  8  ||  7 ||
+
+{{{
+Meaning and mapping to LPT for an unbuffered cable (see ["OpenWrtDocs/Customizing/Hardware/JTAG_Cable"])
+Pin 3 - TDI - DATA0  - Pin 2
+Pin 5 - TD0 - SELECT - Pin 13
+Pin 7 - TMS - DATA2  - Pin 4
+Pin 9 - TCK - DATA1  - Pin 3
+}}}
+
+
 == Status ==
 
 This router is partially supported.  
