@@ -497,6 +497,8 @@ Base MAC Address                :  00:40:dd:37:ad:e4
 
  * the CFE ["OpenWrtDocs/Customizing/Firmware/CFE"] can be accessed by pressing any key within the timeout period (default 1s).  From there you program various parameters of the device, erase and flash the flash and nvram or run a kernel from a remote host (i.e. without flashing)
 
+ * The stock firmware is quite locked up, with most executables being run from one master binary (not symlinked like busybox either) which controls the execution, and they can't be called individually as standalone commands, only the way the binary is configured to use them.  Also the mtd partitions are not all shown, and only one mtd block device is visible (i.e. none of the raw devices).
+
 == Serial Console Pinout ==
 
 {{{
