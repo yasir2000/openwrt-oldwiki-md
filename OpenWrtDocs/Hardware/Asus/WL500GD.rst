@@ -142,7 +142,14 @@ Devices that pop up on the MII bus, accesible via the mac core:
 bcm5325e or compatible, MII (MDC/MDIO)  5 ports switch
 
 }}}
-
+==Enabling all RAM==
+If you have only 16MB of RAM enable you can enable all of the 32 MB with these command
+{{{
+nvram set sdram_init=0x2008
+nvram set sdram_ncdl=0
+nvram commit
+reboot
+}}}
 == 64MB RAM upgrade ==
 The following schematics from page 183 FCC report shows current RAM section:
 [[ImageLink(wl500gx-ram-schematics.png,width=100%)]]
