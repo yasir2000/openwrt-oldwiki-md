@@ -8,7 +8,7 @@ This is an ADSL2+ Modem + 4-port Switch with USB (it can act as a USB network de
 
 === Chipset ===
 
-This is based on the Broadcom BCM96348 SoC and a Broadcom switch
+This is based on the Broadcom BCM96348 SoC, BCM5325EQKM switch, Fujitsu MPM29DL32B-70PFTN Flash, Hynix 409A HY57 283220I-7 SDRAM, and ADM202EARN RS-232c Line Driver
 
 === System Type ===
 
@@ -16,6 +16,9 @@ This is based on the Broadcom BCM96348 SoC and a Broadcom switch
 
 
 === CPU ===
+
+CPU is BigEndian
+
 {{{
 BCM6348 V0.7
 256 MHz
@@ -67,7 +70,7 @@ VCEI exceptions		: not available
 
 === Flash ===
 
-4 MiB 
+4 MiB Fujitsu MPM29DL32B-70PFTN
 
 == Messages ==
 
@@ -507,9 +510,12 @@ RJ45 connector
 
 == Status ==
 
-This router/modem works fine for ramdisk booting with Kamikaze SVN.  I haven't tried flashing yet as I want to backup the original firmware first.
+This router is partially supported.  
 
-The ADSL modem is currently not supported with a GPL'ed kernel module.     Apparently there should be a closed source module available, but I haven't tried this yet.
+ * The ADSL modem is currently not supported with a GPL'ed kernel module and the closed source module is for too old a kernel (2.6.8).  
+ * The USB Host device is supported, 
+ * The USB slave (that is the connector that allows you to connect a host computer to the router and 'see' an ethernet device) is not.
+ * The switch currently does not appear to support VLAN's (work is in progress on this)
 
 == Pictures ==
 
