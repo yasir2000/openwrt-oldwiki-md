@@ -525,7 +525,9 @@ Pin 7 - TMS - DATA2  - Pin 4
 Pin 9 - TCK - DATA1  - Pin 3
 }}}
 
+== USB ==
 
+This board only needs some resistors and a capacitor, and the connector, to have a USB host port on the board (i.e. to drive USB mass storage, wireless, etc)
 == Status ==
 
 This router is partially supported.  
