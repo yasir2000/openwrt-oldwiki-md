@@ -142,8 +142,8 @@ Devices that pop up on the MII bus, accesible via the mac core:
 bcm5325e or compatible, MII (MDC/MDIO)  5 ports switch
 
 }}}
-==Enabling all RAM==
-If you have only 16MB of RAM enable you can enable all of the 32 MB with these command
+== Enabling all RAM ==
+If you have only 16MB of RAM enable you can enable all of the 32 MB with these command (work for me)
 {{{
 nvram set sdram_init=0x2008
 nvram set sdram_ncdl=0
