@@ -2,7 +2,7 @@
 
 == General Information ==
 
-This is an ADSL2+ Modem + 4-port Switch with USB (it can act as a USB network device).  It is manufactured by Comtrend who, as best I can determine from their voice prompts for assistance, only sell their equipment to ISP's and Telcos, thus bypassing regular users as customer and receivers of source code.
+This is an ADSL2+ Modem + 4-port Switch with USB (it can act as a USB network device).  It is manufactured by Comtrend who, as best I can determine from their voice prompts for assistance, only sell their equipment to ISP's and Telcos, thus bypassing regular users as customers and therefore recipients of source code.
 
 == Specifications ==
 
