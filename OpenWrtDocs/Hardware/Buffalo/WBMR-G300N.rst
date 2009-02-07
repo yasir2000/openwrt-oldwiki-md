@@ -231,6 +231,130 @@ killall: upnpd-igd: no process killed
 }}}
 
 That's all for now since I'm working on the JTAG cable (my notebook has no LPT so I need to solder an USB JTAG cable to start playing with the device).
+
+Well, I've soldered my USB JTAG cable based on FT2232 IC and below is what I'm getting using UrJTAG:
+{{{
+[root@galaxy bin]# ./jtag
+
+UrJTAG 0.9 #1417
+Copyright (C) 2002, 2003 ETC s.r.o.
+Copyright (C) 2007, 2008 Kolja Waschk and the respective authors
+
+jtag> cable OOCDLink-s
+Connected to libftd2xx driver.
+jtag> frequency 300000
+Setting TCK frequency to 300000 Hz
+jtag> detect
+IR length: 5
+Chain length: 1
+Device Id: 00000110001101011000000101111111 (0x000000000635817F)
+  Manufacturer: Broadcom
+  Part(0):         BCM6358
+  Stepping:     V1
+  Filename:     /home/galaxy/urjtag/share/urjtag/broadcom/bcm6358/bcm6358
+tap_capture_ir: Invalid state:  5
+tap_shift_register: Invalid state:  8
+tap_capture_dr: Invalid state: 16
+tap_shift_register: Invalid state: 42
+ImpCode=00000110001101011000000101111111
+EJTAG version: <= 2.0
+EJTAG Implementation flags: R4k ASID_6 MIPS16 DMA MIPS64
+Clear memory protection bit in DCR
+Clear Watchdog
+Potential flash base address: [0x643000], [0x1fc0000c]
+Processor successfully switched in debug mode.
+tap_shift_register: Invalid state:  8
+Error: Unable to detect JTAG chain end!
+tap_shift_register: Invalid state:  8
+tap_capture_ir: Invalid state: 16
+tap_shift_register: Invalid state:  8
+tap_capture_dr: Invalid state: 16
+tap_shift_register: Invalid state: 42
+ImpCode=00000000100000011000100100000100
+EJTAG version: <= 2.0
+EJTAG Implementation flags: R4k MIPS16 DMA MIPS32
+Clear memory protection bit in DCR
+Clear Watchdog
+Potential flash base address: [0x643000], [0x1fc0000c]
+Processor successfully switched in debug mode.
+jtag>
+}}}
+
+Unfortunately, I still hasn't figured out what do all these "Invalid state" error mean -- I'm new to JTAG and the ways it's working.
+However, I've got a full flash dump with the following commands:
+{{{
+jtag> initbus ejtag_dma
+ImpCode=00000000100000011000100100000100
+EJTAG version: <= 2.0
+EJTAG Implementation flags: R4k MIPS16 DMA MIPS32
+Clear memory protection bit in DCR
+Clear Watchdog
+Potential flash base address: [0x643000], [0x1fc0000c]
+Processor successfully switched in debug mode.
+jtag> print
+ No. Manufacturer              Part                 Stepping Instruction          Register
+-------------------------------------------------------------------------------------------------------------------
+   0 Broadcom                  BCM6358              V1       EJTAG_CONTROL        EJCONTROL
+
+Active bus:
+*0: EJTAG compatible bus driver via DMA (JTAG part No. 0)
+        start: 0x00000000, length: 0x1E000000, data width: 32 bit, (USEG : User addresses)
+        start: 0x1E000000, length: 0x02000000, data width: 16 bit, (FLASH : Addresses in flash (boot=0x1FC000000))
+        start: 0x20000000, length: 0x60000000, data width: 32 bit, (USEG : User addresses)
+        start: 0x80000000, length: 0x20000000, data width: 32 bit, (KSEG0: Kernel Unmapped Cached)
+        start: 0xA0000000, length: 0x20000000, data width: 32 bit, (KSEG1: Kernel Unmapped Uncached)
+        start: 0xC0000000, length: 0x20000000, data width: 32 bit, (SSEG : Supervisor Mapped)
+        start: 0xE0000000, length: 0x20000000, data width: 32 bit, (KSEG3: Kernel Mapped)
+jtag> detectflash 0x1e000000
+Query identification string:
+        Primary Algorithm Command Set and Control Interface ID Code: 0x0002 (AMD/Fujitsu Standard Command Set)
+        Alternate Algorithm Command Set and Control Interface ID Code: 0x0000 (null)
+Query system interface information:
+        Vcc Logic Supply Minimum Write/Erase or Write voltage: 2700 mV
+        Vcc Logic Supply Maximum Write/Erase or Write voltage: 3600 mV
+        Vpp [Programming] Supply Minimum Write/Erase voltage: 0 mV
+        Vpp [Programming] Supply Maximum Write/Erase voltage: 0 mV
+        Typical timeout per single byte/word program: 16 us
+        Typical timeout for maximum-size multi-byte program: 0 us
+        Typical timeout per individual block erase: 1024 ms
+        Typical timeout for full chip erase: 0 ms
+        Maximum timeout for byte/word program: 512 us
+        Maximum timeout for multi-byte program: 0 us
+        Maximum timeout per individual block erase: 16384 ms
+        Maximum timeout for chip erase: 0 ms
+Device geometry definition:
+        Device Size: 4194304 B (4096 KiB, 4 MiB)
+        Flash Device Interface Code description: 0x0002 (x8/x16)
+        Maximum number of bytes in multi-byte program: 1
+        Number of Erase Block Regions within device: 2
+        Erase Block Region Information:
+                Region 0:
+                        Erase Block Size: 65536 B (64 KiB)
+                        Number of Erase Blocks: 63
+                Region 1:
+                        Erase Block Size: 8192 B (8 KiB)
+                        Number of Erase Blocks: 8
+Primary Vendor-Specific Extended Query:
+        Major version number: 1
+        Minor version number: 1
+        Address Sensitive Unlock: Required
+        Erase Suspend: Read/write
+        Sector Protect: 1 sectors per group
+        Sector Temporary Unprotect: Not supported
+        Sector Protect/Unprotect Scheme: 29BDS640 mode (Software Command Locking)
+        Simultaneous Operation: Not supported
+        Burst Mode Type: Supported
+        Page Mode Type: Not supported
+        ACC (Acceleration) Supply Minimum: 11500 mV
+        ACC (Acceleration) Supply Maximum: 12500 mV
+        Top/Bottom Sector Flag: Top boot device
+jtag> readmem 0x1E000000 0x02000000 flash.dump
+address: 0x1E000000
+length:  0x02000000
+reading:
+[it has taken awhile at 300kHz clock -- will update this output once another run completes]
+}}}
+
 If you have some questions or want to collaborate on preparing this device to be OpenWRT supported -- you can contact me at <gm.outside+openwrt AT gmail.com> (replace AT with the '@' sign).
 ----
 ["CategoryBCM63xx"]
