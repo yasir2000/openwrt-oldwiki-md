@@ -89,6 +89,8 @@ The most famous software for JTAG is probably the Linksys De-Brick Utility by Ha
 The Hairydairymaid de-brick utility is mainly with Linksys WRT54G and WRT54GS routers. It will ''not'' help you de-brick other routers that are not based on Broadcom CPUs (e.g. Edimax and its clones).
 
 '''''[Edit by hairydairymaid - the v4.5 debrick utility WILL and CAN operate on most any MIPS based cpu supporting EJTAG by using PrAcc routines (non-dma mode) - use the /nodma switch. It is not limited to WRT54G/GS units.] '''''
+
+'''''[Edit by DanielDickinson - I have uploaded [attachment:HairyDairyMaid_WRT54G_Debrick_Utility_v48~cshore1.zip A version of debrick that does dma with bigendian cpus and reads/writes bigendian files].  It also understands 64k and 128k CFE's such as the 64k CFE on Broadcom 63xx-based boards.  Also included is a trivial endianness-switcher which translates stdin and writes the result on stdout.'''''
 --------------------
 '''''Edit by Johann Pascher - Timing on HairyDairyMaid's utility is not correct, he sets or reads  all signal including the clock at the same time, this works in most cases but is not conform to the data sheets of ejtab bus.
 Some minor change on the very low level routines can solve this problem, so the result is that it is not critical how the cable is wired. 
