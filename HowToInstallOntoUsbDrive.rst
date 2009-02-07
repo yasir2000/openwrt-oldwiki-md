@@ -259,6 +259,8 @@ Once again, this is activated and enabled using:
 
 .. and there you have it.  Your router with a USB mounted, a swap-file and more space to play with while you get things sorted.  Pipe your logs to it.  Put xmail on your router and have a small mail server.  Run asterisk and have voicemail.  I have all of these working.
 
+Be aware that installing kernel modules or iptables modules onto an alternate drive does not work.  You would need to fix up both the modules.conf and possibly symlink in the modules directory somehow.  I decided it was not worth doing.
+
 I even have xmail receiving VOIP mailbox emails - unpacking them and placing them in the asterisk voicemail directory (appropriately ''soxed'' into shape). I've added this (filter script included) to the voip-info wiki here:  [http://www.voip-info.org/wiki/view/Xmail+filter+to+Voicemail+script Xmail Filter to Voicemail]
 
 === Updated /etc/rc.common === 
