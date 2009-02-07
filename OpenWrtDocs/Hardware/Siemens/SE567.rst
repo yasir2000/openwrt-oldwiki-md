@@ -222,3 +222,5 @@ WLAN: Initialization Successful
  . CategoryNotSupported
 ----
 ["CategoryAR7Device"]
+----
+CategoryDslModems
