@@ -21,7 +21,7 @@ opkg install kmod-fs-ext3 kmod-scsi-core kmod-usb-core kmod-usb-storage kmod-usb
 === Mount the drive ===
 Plug in your drive and work out what device you have.  This is on 2.4 with devfs. Then mount it.
 {{{
-  find /dev/scsi -type f 
+  find /dev/scsi -type b 
   mkdir -p /usb
   mount /dev/scsi/host0/bus0/target0/lun0/part1 /usb
 }}}
