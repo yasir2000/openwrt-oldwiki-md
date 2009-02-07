@@ -15,7 +15,7 @@ I will assume that you have formatted a USB drive with a linux compatible (not f
 Install the kernel modules you will need (assuming usb2 here):
 
 {{{
-ipkg install kmod-fs-ext3 kmod-scsi-core kmod-usb-core kmod-usb-storage kmod-usb2
+opkg install kmod-fs-ext3 kmod-scsi-core kmod-usb-core kmod-usb-storage kmod-usb2
 }}} 
 
 === Mount the drive ===
@@ -27,10 +27,10 @@ Plug in your drive and work out what device you have.  This is on 2.4 with devfs
 }}}
 
 === Some Configuration details ===
-Add in a destination to your ipkg.conf
+Add in a destination to your opkg.conf (ipkg.conf for older versions):
 
 {{{
-  echo "dest usb /usb/">> /etc/ipkg.conf
+  echo "dest usb /usb/">> /etc/opkg.conf
 }}}
 
 This allows you to install things onto your thumb-drive. However, the activating of init scripts on alternate destinations isn't really sorted out properly yet - so you will need to get a little creative.
@@ -93,6 +93,14 @@ startup()
 
 }}}
 
+You will also need to modify your profile to add the paths in.
+
+==== /etc/profile ====
+{{{
+#export PATH=/bin:/sbin:/usr/bin:/usr/sbin
+export PATH=/bin:/usb/bin:/sbin:/usb/sbin:/usr/bin:/usb/usr/bin:/usr/sbin:/usb/usr/sbin
+}}}
+
 I have modified disable() enable() and enabled() in /etc/rc.common.  The 'init.d/drivername enable' function will place a link in ../rc.d that points to ../init.d/drivername. ''Note: This has been modified (2/7/2008) to support being placed into files/etc directory on a custom build.  If IPKG_INSTROOT isn't supported, the image (from bitter experience) will turn your router into a switch and you will have to use the inbuilt rescue mode.''
 
 {{{
@@ -151,7 +159,7 @@ enabled() {
 Installation onto the USB drive is now easy.  One small caveat though - don't install kernel modules or iptables modules onto your alternate drive.  They will not get loaded.  It is probably easy to fix - but I decided it wasn't worth the effort - kernel modules are generally better off on the main memory.
 
 {{{
-  ipkg -d usb install asterisk14
+  opkg -d usb install asterisk14
   /usb/etc/init.d/asterisk enable
 }}}
 
@@ -159,8 +167,8 @@ Installation onto the USB drive is now easy.  One small caveat though - don't in
 
 For this you will need some extra utilities
 {{{
-  ipkg install kmod-loop
-  ipkg -d usb install losetup swap-utils
+  opkg install kmod-loop
+  opkg -d usb install losetup swap-utils
 }}}
 
 .. and a nice little init script.  This is not generic. It would be very easy to make
