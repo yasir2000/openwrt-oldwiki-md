@@ -220,7 +220,7 @@ WLAN: Initialization Successful
 == Other Categories this device is in ==
 
  . CategoryNotSupported
+ . ["CategoryAR7Device"]
+ . CategoryDslModems
 ----
-["CategoryAR7Device"]
-----
-CategoryDslModems
+CategoryModel
