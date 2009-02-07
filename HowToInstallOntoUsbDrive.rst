@@ -260,5 +260,133 @@ Once again, this is activated and enabled using:
 .. and there you have it.  Your router with a USB mounted, a swap-file and more space to play with while you get things sorted.  Pipe your logs to it.  Put xmail on your router and have a small mail server.  Run asterisk and have voicemail.  I have all of these working.
 
 I even have xmail receiving VOIP mailbox emails - unpacking them and placing them in the asterisk voicemail directory (appropriately ''soxed'' into shape). I've added this (filter script included) to the voip-info wiki here:  [http://www.voip-info.org/wiki/view/Xmail+filter+to+Voicemail+script Xmail Filter to Voicemail]
+
+=== Updated /etc/rc.common === 
+
+{{{
+#!/bin/sh
+# Copyright (C) 2006 OpenWrt.org
+
+. $IPKG_INSTROOT/etc/functions.sh
+
+start() {
+	return 0
+}
+
+stop() {
+	return 0
+}
+
+reload() {
+	return 1
+}
+
+restart() {
+	trap '' TERM
+	stop
+	start
+}
+
+boot() {
+	start
+}
+
+shutdown() {
+	return 0
+}
+
+disable() {
+	name="$(basename "${initscript}")"
+	if [ "$IPKG_INSTROOT" == "" ]; then
+		basedir=${initscript%/[^/]*}
+		[ -z $basedir ] || cd $basedir
+		cd ../rc.d
+	else
+		cd "$IPKG_INSTROOT"/etc/rc.d
+	fi
+	
+	stripname=${name##[SK][0-9][0-9]}
+	rm -f [SK]??$stripname
+}
+
+enable() {
+	name="$(basename "${initscript}")"
+
+	if [ "$IPKG_INSTROOT" == "" ]; then
+		basedir=${initscript%/[^/]*}
+		[ -z $basedir ] || cd $basedir
+		cd ../rc.d
+	else
+		cd "$IPKG_INSTROOT"/etc/rc.d
+	fi
+
+	stripname=${name##[SK][0-9][0-9]}
+	rm -f [SK]??$stripname
+
+	[ "$START" ] && ln -s "../init.d/$name" S${START}${stripname}
+	[ "$STOP" ] && ln -s "../init.d/$name" K${STOP}${stripname}
+}
+
+enabled() {
+	name="$(basename "${initscript}")"
+
+	if [ "$IPKG_INSTROOT" == "" ]; then
+		basedir=${initscript%/[^/]*}
+		[ -z $basedir ] || cd $basedir
+		cd ../rc.d
+	else
+		cd "$IPKG_INSTROOT"/etc/rc.d
+	fi
+
+	stripname=${name##[SK][0-9][0-9]}
+	[ -x "S${START}${stripname}" ]
+}
+
+depends() {
+	return 0
+}
+
+help() {
+	cat <<EOF
+Syntax: $initscript [command]
+
+Available commands:
+	start	Start the service
+	stop	Stop the service
+	restart	Restart the service
+	reload	Reload configuration files (or restart if that fails)
+	enable	Enable service autostart
+	disable	Disable service autostart
+$EXTRA_HELP
+EOF
+}
+
+initscript="$1"
+[ "$#" -ge 1 ] && shift
+action="$1"
+[ "$#" -ge 1 ] && shift
+
+. "$initscript"
+
+cmds=
+for cmd in $EXTRA_COMMANDS; do
+	cmds="${cmds:+$cmds$N}$cmd) $cmd \"\$@\";;"
+done
+
+eval "case \"\$action\" in
+	start) start \"\$@\";;
+	stop) stop \"\$@\";;
+	reload) reload \"\$@\" || restart \"\$@\";;
+	restart) restart \"\$@\";;
+	boot) boot \"\$@\";;
+	shutdown) shutdown \"\$@\";;
+	enable) enable \"\$@\";;
+	enabled) enabled \"\$@\";;
+	disable) disable \"\$@\";;
+	$cmds
+	*) help;;
+esac"
+}}}
+
 ----
 CategoryHowTo
