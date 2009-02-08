@@ -148,9 +148,6 @@ Most devices listed here do not have enough flash memory, but there might be oth
 == TRENDnet ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||[http://www.trendnet.com/products/TEW-431BRP.htm TEW-431BRP] || ||[http://www.marvell.com/products/wireless/libertas/Libertas_88W8010_88W8510.pdf Marvell 88W8510] (ARM9 core) ||1MB (Macronix 29LV800TTC-70) ||4 MB (2x EM636165TS-6: 1M x 16'') '' ||integrated (Marvell Libertas) ||Marvell 88E6060 (4x) || || ||20-pin not soldered ||No ||No ||
-== US Robotics ==
-||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
-||[http://www.usr-emea.com/products/p-broadband-product.asp?prod=bb-9108&loc=unkg USR9108] || ||[http://www.broadcom.com/products/DSL/ADSL-CPE-Chips/BCM6348 BCM6348] @ 256MHz ||4MB ||16MB ||mini-PCI || || ||No || ||Yes ||No ||
 == Western Digital ==
 ||'''Model''' ||'''Version''' ||'''Platform & Frequency''' ||'''Flash''' ||'''RAM''' ||'''Wireless NIC''' ||'''Switch''' ||'''boot_wait''' ||'''Serial''' ||'''JTAG''' ||'''USB''' ||'''Status''' ||
 ||WD MyBook World Edition || ? || ? || ? || 32MB || None || None || || || || ||Unsupported ||
