@@ -3,6 +3,10 @@ Works fine with openwrt-brcm-2.4-squashfs.trx.
 
 Also works with openwrt-brcm47xx-squashfs.trx, but USB won't work.
 
+= Hardware =
+[http://img231.imageshack.us/img231/1539/backfb6.jpg]
+[http://img3.imageshack.us/img3/603/frontfi8.jpg]
+[http://img17.imageshack.us/img17/5649/usbtf4.jpg]
 = Software =
 For IDE: kmod-ide-aec62xx kmod-ide-core
 
