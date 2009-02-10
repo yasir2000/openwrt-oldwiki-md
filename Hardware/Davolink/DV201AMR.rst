@@ -8,7 +8,7 @@ CPU Speed      : 256MHz, Bus: 128MHz, Ref: 32MHz
 Flash size     : 8 MB
 RAM            : 16 MB
 Wireless       : Broadcom 4320 802.11b/g (mini-pci DV201AMR) (integrated DV2020)
-Switch         : BCM5325
+Switch         : BCM5325E
 USB            : 1.1 slave
 ADSL           : 2/2+
 Serial         : yes
@@ -63,16 +63,15 @@ attachment:bcm963xx_fs_kernel_dv201amr   Firmware image
 '''Working:'''
 {{{
 CFE
-Ethernet
-wlan
+Ethernet  BCM6348
+wlan      BCM4320
+switch    BCM5325E    
 }}}
 '''Missing:'''
 {{{
-switch
-voip dsp
 adsl dsp
-host usb
-slave usb
+voip dsp
+slave usb 
 }}}
 
 === Links ===
