@@ -212,5 +212,11 @@ gpio3: Red LED on circuit board, replaces blue when on
 gpio4: unknown
 }}}
 
+= Stock firmware GPL =
+Although this source code is for Dlink Dir 300, you can probably compile it for Airlink AR335W/AR430W router.
+
+http://tsd.dlink.com.tw/ModelDocuView.asp?SourceType=download&ModelSno=DFNHCEIM&DocuSno=FIBFENBG
+
+
  . Category80211gDevices
  . CategorySupportedInKamikaze7_07
