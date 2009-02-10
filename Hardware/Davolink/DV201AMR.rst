@@ -69,9 +69,9 @@ switch    BCM5325E
 }}}
 '''Missing:'''
 {{{
-adsl dsp
-voip dsp
-slave usb 
+adsl dsp   BCM6348
+voip dsp   BCM6341
+slave usb  BCM6348
 }}}
 
 === Links ===
