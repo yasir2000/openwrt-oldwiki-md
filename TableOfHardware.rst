@@ -2,7 +2,7 @@ This is a table of all supported devices as of 2008/12/04
 
 == Legend ==
  * '''Supported''' - supported in White Russian (previous release)
- * '''Partial''' - partially supported, no support for the wireless card.
+ * '''Partial''' - partially supported, eg. no support for the wireless card.
  * '''Untested''' - should work in theory but never tested (please see ["Donations"])
  * '''Kamikaze''' - this device is only supported in Kamikaze (current release)
  * '''WiP''' - Work in Progress (check the port's page and/or Kamikaze)
