@@ -104,6 +104,8 @@ Works on v2.0 fw 2.08 - -- MarioS [[DateTime()]]
 
 Works on v2.0 fw 3.04 - -- JonM [[DateTime(2008-12-11T20:50:00Z)]]
 
+Correction! Bricks v2.0 on fw 3.04 - -- JonM [[DateTime(2009-02-11T10:40:00Z)]]
+
 ==== Setting boot_wait from a serial connection ====
 Same as for [:OpenWrtDocs/Installing:WRT54G].
 
