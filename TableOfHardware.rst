@@ -99,6 +99,7 @@ Just because a device is listed doesn't mean that OpenWRT will run on this devic
  * ["Hardware/Targa"]
  * ["Hardware/Thomson"]
  * ["Hardware/Toshiba"]
+ * ["Hardware/TP-Link"]
  * ["Hardware/Trendnet"]
  * ["Hardware/Tranzeo"]
  * ["Hardware/US Robotics"]
