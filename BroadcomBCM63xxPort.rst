@@ -44,6 +44,7 @@ There are also some other variants like bcm6341, which is a DSP used in VoIP pro
 ||[http://www.zhone.com/products/6211/ Paradyne 6211-A1] ||
 ||[http://www.usr.com/images/products/product-emea.asp?prod=9105 US Robotics USR9105] ||
 ||[http://www.usr.com/images/products/product-emea.asp?prod=9106 US Robotics USR9106] ||
+||[http://www.belkin.com/uk/support/product/?lid=enu&pid=F5D7632uk4A Belkin F5D7632 v2] ||
 === Known 6338 platforms*: ===
 ||[http://ru.asus.com/products.aspx?l1=13&l2=96&l3=0&l4=0&model=1105&modelmenu=1 ASUS AM602] ||
 ||[:OpenWrtDocs/Hardware/Huawei/EchoLife HG520:Huawei EchoLife HG510] ||
