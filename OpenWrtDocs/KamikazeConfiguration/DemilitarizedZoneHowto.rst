@@ -31,7 +31,7 @@ br-lan: 192.168.1.1 (192.168.1.0/24)
 == Create a new vlan ==
 You now have to decide which one of the LAN ports on the back of your router you want to use for the demilitarized zone. On this page it's LAN port 4.
 
-The configuration is easily done by reconfiguring the switch via UCI.
+The configuration is easily done by reconfiguring the switch via UCI CLI.
 
 /!\ '''WARNING:''' Doublecheck these settings before commit them!
 
@@ -59,7 +59,6 @@ root@OpenWrt:~# uci set network.dmz.ipaddr=192.168.2.1
 root@OpenWrt:~# uci set network.dmz.netmask=255.255.255.0
 root@OpenWrt:~# uci set network.dmz.ifname=eth0.2
 root@OpenWrt:~# uci commit network}}}
-
 == Routing (optional) ==
 {{{
 root@OpenWrt:~# uci add network route
