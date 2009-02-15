@@ -9,7 +9,7 @@ The Linksys WAG200G, and its EU variant (WAG200G-EU), is an ADSL 2+ home gateway
 == Hardware ==
 The router is based on the Texas Instruments AR7 platform (AR7WRD) which features an integrated MIPS(TM)-based 32-bit RISC core, a digital signal processor-based trans- ceiver and an ADSL Analog Front-End (AFE).
 
-|| || <style="text-align: center;"> Hardware components ||||
+||||||<:99%> '''Hardware components''' ||
 || Component || Chip || Description ||
 || SoC || TI TNETD7200ZDW || TI AR7 System-on-Chip ||
 || CPU || MIPS 4KEc V4.8 || MIPS-32 RISC core @ 211MHz ||
@@ -28,10 +28,12 @@ Picture of the board (as reported in [1]):
 The AR7 integrates a dual 16550 UART for remote console: on of the two is accessibile via the 4-pin header (which need to be soldered) (1 in the following picture under the barcode sticker)
 
 The pin layout is:
+{{{
 1 GND (black wire on the photo)
 2 TX (white wire on the photo)
 3 Vcc (red wire on the photo)
 4 RX (blue wire on the photo)
+}}}
 
 Note that a voltage level adapter need to be done before attaching the pin to the PC serial port. I have successfully attached the serial console as described here (MAX232. Settings are 115200,8,N,1.).
 You cannot plug directly those pins to your pc serial port. You need a RS232-TTL level adapter.
@@ -43,6 +45,7 @@ The AR7 JTAG connector is JPXX (2 in picture)
 The pinout and specifications are the same of others AR7 devices that is 14 ping ejtag 2.6.
 
 The pinout is the following:
+{{{
 nTRST 1  2   GND
 TDI   3  4   GND
 TDO   5  6   GND
@@ -50,23 +53,31 @@ TMS   7  8   GND
 TCK   9  10  GND
 nSRST 11 12  n/a
 n/a   13 14  Vcc
+}}}
 
 You can use Hairydairymaid Debrick Utility with a Xilinx cable.
 
 == Software ==
 * ADAM2 boot loader
+
 * Linux kernel version 2.4.17 ( in Linksys version 1.00.07 )
+
 * squashfs filesystem for main software image
+
 * 64Kb, flash based NVRAM ( as in ohter ADAM2 based devices )
+
 * precompiled, binary-only kernel modules for AR7, DSL, WLAN and onboard LED's.
 
 == ADAM2 ==
 
 == Diagnostic command output ==
+{{{
 # ls /dev/mtdblock/
 /dev/mtdblock/0 /dev/mtdblock/2 /dev/mtdblock/4
 /dev/mtdblock/1 /dev/mtdblock/3 /dev/mtdblock/5
+}}}
 
+{{{
 # cat mtd
 dev: size erasesize name
 mtd0: 002d0000 00010000 "mtd0"
@@ -75,7 +86,9 @@ mtd2: 00020000 00010000 "mtd2"
 mtd3: 00010000 00010000 "mtd3"
 mtd4: 00010000 00010000 "mtd4"
 mtd5: 00040000 00010000 "mtd5"
+}}}
 
+{{{
 # cat cpuinfo
 processor : 0
 cpu model : MIPS 4KEc V4.8
@@ -86,7 +99,9 @@ extra interrupt vector : yes
 hardware watchpoint : yes
 VCED exceptions : not available
 VCEI exceptions : not available
+}}}
 
+{{{
 # cat sys/dev/adam2/environment
 maca 00:14:bf:6f:81:b2
 macb 00:14:bf:6f:81:b3
@@ -112,7 +127,9 @@ mtd3 0x903e0000,0x903f0000
 mtd4 0x903f0000,0x90400000
 mtd5 0x903a0000,0x903e0000
 oam_lb_timeout 100
+}}}
 
+{{{
 # cat partitions
 major minor #blocks name
 
@@ -122,7 +139,9 @@ major minor #blocks name
 31 3 64 mtdblockd
 31 4 64 mtdblocke
 31 5 256 mtdblockf
+}}}
 
+{{{
 # cat meminfo
 total: used: free: shared: buffers: cached:
 Mem: 14581760 12328960 2252800 0 1191936 4251648
@@ -141,12 +160,16 @@ LowTotal: 14240 kB
 LowFree: 2200 kB
 SwapTotal: 0 kB
 SwapFree: 0 kB
+}}}
 
+{{{
 # cat tty/driver/serial
 serinfo:1.0 driver:5.05c revision:2001-07-08
 0: uart:16550A port:A8610E00 irq:15 baud:7944 tx:6225 rx:0 RTS|DTR
 1: uart:unknown port:A8610F00 irq:16
+}}}
 
+{{{
 # cat wlan/hal/acxParams
 -------- ConfigOptionsFixed ----------
 NVSVersion = 04 1b 06 00 12 00 00 06
@@ -167,7 +190,9 @@ AntennaList (0) =
 SupportedPowerLevels (2) = 0x1e00 0xa00
 SupportedDataRates (5) = 0x02 0x04 0x11 0x22 0x44
 SupportedRegDomains (0) =
+}}}
 
+{{{
 # ps -ef
 PID Uid VmSize Stat Command
 1 root 288 S init
@@ -200,13 +225,16 @@ PID Uid VmSize Stat Command
 142 root 716 S /usr/sbin/upnpd nas0 br0 30 4
 21465 root 416 S -sh
 21993 root 292 R ps -ef
+}}}
 
+{{{
 # lsmod
 Module Size Used by
 tiap 843072 1
 led 3880 0
 push_button 1544 1
 tiatm 122440 0
+}}}
 
 === MTD Layout ===
 
