@@ -76,16 +76,6 @@ I used the JTAG port with [http://urjtag.org urjtag], just use the svn version. 
 There are some work to be done but you can boot openwrt on the router without too much problems. Just be carefull and make a backup of the flash.
 Until I post some more information take a look at this  [http://forum.openwrt.org/viewtopic.php?pid=78247#p78247 thread]
 
----- /!\ '''Edit conflict - other version:''' ----
-
 == Picture with highlighted Serial and Jtag ==
 
 attachment:alice_agpf.jpg
-
----- /!\ '''Edit conflict - your version:''' ----
-
-== Picture with highlighted Serial and Jtag ==
-
-attachment:alice_agpf.jpg
-
----- /!\ '''End of edit conflict''' ----
