@@ -83,7 +83,7 @@ There are also some other variants like bcm6341, which is a DSP used in VoIP pro
 ||[http://www.netgear.co.uk/wireless_modem_router_dg834pn.php Netgear DG834PN] ||
 ||Pirelli Alice Gate 2+ Wi-Fi (See 6358 too) ||
 ||[http://www.thomson-broadband.co.uk/codepages/content3.asp?c=7&ProductID=511 Thomson Speedtouch ST585v6] ||
-||Thomson Speedtouch ST716g ||
+||[http://www.thomsonbroadbandpartner.com/dsl-modems-gateways/products/previous-product-detail.php?id=84 Thomson Speedtouch ST716(g)] ||
 ||[http://www.thomson-broadband.co.uk/codepages/content3.asp?c=7&ProductID=528 Thomson Speedtouch ST780(i)WL] ||
 ||[http://www.usr-emea.com/products/p-broadband-product.asp?prod=bb-9107&loc=unkg US Robotics USR9107] ||
 ||[http://www.usr-emea.com/products/p-broadband-product.asp?prod=bb-9108&loc=unkg US Robotics USR9108] ||
