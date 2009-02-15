@@ -17,6 +17,8 @@ It contains:
 
 The PCB layout is similar to the [http://www.sparklan.com/data/prod_data/108/prod_data.pdf Sparklan WRTM-320] except for the voltage regulators.
 
+See [http://www.eetasia.com/ART_8800449259_499488_NP_01145fb8.HTM this article] for a description of the hardware parts.
+
 === JTAG ===
 
 Due to a [http://forum.openwrt.org/viewtopic.php?pid=58440#p58440 posting] in the mailing list, CON3 (2x5 pins, close to the miniPCI slot) is the JTAG connector:
