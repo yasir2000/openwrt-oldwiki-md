@@ -47,8 +47,7 @@ Additionally, many processors can be overclocked (though this operation has some
 ||<style="vertical-align: top;">2008-04-30 ||<style="vertical-align: top;">DooMMasteR ||<style="vertical-align: top;">5.26s ||<style="vertical-align: top;">10.14s ||<style="vertical-align: top;">11.27s ||<style="vertical-align: top;">6.19s ||<style="vertical-align: top;">v0.6 ||<style="vertical-align: top;">DD-WRT ||<style="vertical-align: top;">WL500GP ||<style="vertical-align: top;">BCM94704 ||<style="vertical-align: top;">280Mhz ||<style="vertical-align: top;">OpenWrtDocs ||
 || 2008-06-30 || ''a9988cd'' || 4.9s || 9.4s || 10.3s || 5.2s || v0.6 || ''Tomato 1.19''|| ''ASUS WL-500gP v1'' || ''BCM4704 rev 8'' || ''O.C.300Mhz'' || ''OpenWrtDocs/Hardware/Asus/WL500GP'' ||
 || 2008-06-30 || ''a9988cd'' || 6.8s || 11.9s || 13.3s || 7.5s || v0.6 || ''Tomato 1.19-ND''|| ''ASUS WL-500gP v2'' || ''BCM5354 rev 2'' || ''240Mhz'' || ''LinkToHwPage'' ||
-|| 2009-02-12 || ''xxiao'' || 8.5s || 19.8s || 15.2s || 11.2s || v0.6 || ''OS'' || ''LS SR71'' || ''AR7161'' || ''680Mhz'' || ''LinkToHwPage'' ||
-
+|| 2009-02-19 || ''xxiao'' || 3.8s || 4.8s || 4.8s || 2.0s || v0.6 || ''openwrt r14561'' || ''Litestation SR71'' || ''AR7161'' || ''680Mhz'' || ''LinkToHwPage'' ||
 
 TODO, which bench to use?
 ||Date''' ''' ||Tester''' ''' ||Time to run''' ''' ||Version of bench''' ''' ||Device''' ''' ||CPU''' ''' ||Freq''' ''' ||Link to HW page''' ''' ||
