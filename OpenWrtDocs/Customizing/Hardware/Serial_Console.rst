@@ -95,9 +95,10 @@ If you've found a good cell phone cable to use, you merely need to determine whi
 ==== MAX232 Kits ====
 You can also search for MAX232 Kits. There are some kits available.
 
- * http://cgi.ebay.fr/RS232-to-TTL-level-Signal-Converter-Kit_W0QQitemZ9703039037QQcategoryZ41995QQssPageNameZWD2VQQrdZ1QQcmdZViewItem,
+ * http://shop.ebay.com/?_nkw=rs232+ttl
  * http://www.elv-downloads.de/service/manuals/TTLRS232-Umsetzer/38439-TTLRS232-Umsetzer.pdf
  * http://www.compsys1.com/workbench/On_top_of_the_Bench/Max233_Adapter/max233_adapter.html
+ * http://alldav.com/index.php?main_page=product_info&cPath=9&products_id=11
 
 ==== Model-specific guides ====
 These guides are somewhat model specific, but if you're struggling to build your own cable, they're filled with information that applies to that part of the process.
