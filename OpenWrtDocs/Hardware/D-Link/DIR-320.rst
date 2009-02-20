@@ -1,22 +1,18 @@
 == D-Link DIR-320 ==
-
 attachment:boardimg.jpg
 
 === Hardware ===
-
 {{{
 CPU : Broadcom BCM5354KFBG
 Flash : Spansion S29AL032D (4Mbytes)
-RAM : 32Mbytes SAMSUNG 
+RAM : 32Mbytes SAMSUNG
 Switch : ?
 Wi-Fi : BCM4318
 Serial : yes
 USB : yes
 JTAG : yes
 }}}
-
 === Serial pinout ===
-
 {{{
 [x] : TX
 [x] : GND
@@ -24,23 +20,18 @@ JTAG : yes
 [ ]
 [x] : RX
 }}}
-
 === BootLog ===
 {{{
 Decompressing...........done
-
-
 CFE version 1.0.37 for BCM947XX (32bit,SP,LE)
 Build Date: Thu Jul 19 10:53:24 CST 2007 (root@redhat9)
 Copyright (C) 2000,2001,2002,2003 Broadcom Corporation.
-
 Initializing Arena
 Initializing Devices.
 Boot partition size = 262144(0x40000)
 et0: Broadcom BCM47xx 10/100 Mbps Ethernet Controller 4.150.3.0
 CPU type 0x29029: 240MHz
 Total memory: 32768 KBytes
-
 Total memory used by CFE:  0x80300000 - 0x803C0720 (788256)
 Initialized Data:          0x80337730 - 0x8033AE50 (14112)
 BSS Area:                  0x8033AE50 - 0x8033C720 (6352)
@@ -49,7 +40,6 @@ Stack Area:                0x803A0720 - 0x803C0720 (131072)
 Text (code) segment:       0x80300000 - 0x80337730 (227120)
 Boot area (physical):      0x003C1000 - 0x00401000
 Relocation Factor:         I:00000000 - D:00000000
-
 alpha bootcode ver 0.1.2
 cmd = ifconfig eth0 -addr=192.168.0.1 -mask=255.255.255.0
 We disable the arp for self.
@@ -348,34 +338,29 @@ start usb plugplay ...
 [/etc/init.d/S10system.sh] done!
 rcS done!
 Starting pid 1118, console /dev/tts/0: '/bin/sh'
-
-
 BusyBox v1.00 (2008.09.10-05:29+0000) Built-in shell (msh)
 Enter 'help' for a list of built-in commands.
 }}}
-
 === Compile image ===
 {{{
 run make menuconfig
 select target system "Broadcom BCM947xx/953xx [2.4]"
 select you need packages
 select <Exit> and "Yes"
-
 run make kernel_menuconfig
 select Memory Technology Devices (MTD) -->
     Ram/Rom/Flash chip drivers -->>>
-        
-check all "Support X-bit buswidth"
-check all "Support X-chip flash interleave"
-
+Actually for kamikaze 8.09 just check  "Support 8-bit buswidth"
+     (Seems,
+     #  check all "Support X-bit buswidth"
+     #  check all "Support X-chip flash interleave"
+     makes wrong image.)
 run make
-
 }}}
-
 === Flashing ===
 ==== Serial ====
 {{{
 flash -noheader <ip address of the TFTP server>: openwrt-brcm-2.4-squashfs.trx flash1.trx
 }}}
 ==== Windows ====
-[http://www.shadowandy.net/2008/06/flashing-guide-for-dir-320.htm]
+http://www.shadowandy.net/2008/06/flashing-guide-for-dir-320.htm
