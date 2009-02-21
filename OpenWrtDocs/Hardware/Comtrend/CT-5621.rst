@@ -541,7 +541,7 @@ This router is partially supported.
 
 == Tools ==
 
-If you want to play with the stock firmware and know the required offsets and size, you can use the [attachment:make-flash-image.tar.gz make-flash-image.tar.gz] to create imagetag, which will generate a correct image header so you can flash the modified firmware to the router (using cfe).
+If you want to play with the stock firmware and know the required offsets and size, you can use the [http://cshore.is-a-geek.com/libre/openwrt/imagetag-rootfs+kernel-0.1.0.tar.gz a modified imagetag], which will generate a correct image header so you can flash the modified firmware to the router (using cfe).  The instruction for use, such as they, can be found on [http://www.bmts.com/~cshore/libre/openwrt/index.html The C Shore; OpenWRT Contributions] and [http://forum.openwrt.org/viewtopic.php?pid=82331#p82331 on the OpenWRT Forum]
 
 The modified imagetag does a minimal amount of work; you already need to know the entry point of the kernel, the size and offset of the kernel in the flash (once flashed), and size of the mtd partition that is used around the rootfs+kernel. 
 
