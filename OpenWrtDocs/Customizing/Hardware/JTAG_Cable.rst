@@ -90,7 +90,15 @@ The Hairydairymaid de-brick utility is mainly with Linksys WRT54G and WRT54GS ro
 
 '''''[Edit by hairydairymaid - the v4.5 debrick utility WILL and CAN operate on most any MIPS based cpu supporting EJTAG by using PrAcc routines (non-dma mode) - use the /nodma switch. It is not limited to WRT54G/GS units.] '''''
 
-'''''[Edit by DanielDickinson - I have uploaded [attachment:HairyDairyMaid_WRT54G_Debrick_Utility_v48~cshore1.zip A version of debrick that does dma with bigendian cpus and reads/writes bigendian files].  It also understands 64k and 128k CFE's such as the 64k CFE on Broadcom 63xx-based boards.  Also included is a trivial endianness-switcher which translates stdin and writes the result on stdout.'''''
+'''''Edit by DanielDickinson''''' - I have [http://cshore.is-a-geek.com/libre/openwrt/HairyDairyMaid_WRT54G_Debrick_Utility_v48~cshore2.zip An updated version of debrick on my website]
+
+    *  Supports dma on bigendian CPU's (such as the BCM63xx)
+    * Supports reading and writing either bigendian or littleendian images files (little endian is what debrick does by default, bigendian is what dd if=/dev/mtdX will give you on a bigendian cpu)
+    * Includes a trivial endianness translator (a simple commandline filter)
+    * Adds support for the flash chip on various brcm96348 boards
+    * Adds support for 64k (and 128k) CFE such as the 64k CFE on various 96348GW-11 boards
+    * Fixes a bug in Wiggler cable support
+
 --------------------
 '''''Edit by Johann Pascher - Timing on HairyDairyMaid's utility is not correct, he sets or reads  all signal including the clock at the same time, this works in most cases but is not conform to the data sheets of ejtab bus.
 Some minor change on the very low level routines can solve this problem, so the result is that it is not critical how the cable is wired. 
