@@ -4,6 +4,15 @@ Belkin's N+ Wireless Router (F5D8235-4) features a USB Storage port on the back 
 = Hardware =
 http://imageflux.net/uploads/090222/EqB7kcOLRkQMu6ENabjeDd_we3Q/belkin_nplus_board.jpg
 
+{{{
+CPU: Ralink RT2880F
+RAM: 32MB
+Flash: 8MB
+Wi-Fi: Ralink RT2820
+Switch: Realtek RTL8366SR
+USB: NEC?
+}}}
+
 = System Information =
 '''1) cat /proc/version'''
 {{{
