@@ -18,4 +18,4 @@
 ||[http://www.belkin.com/support/product/?lid=en&pid=F5D8231-4 F5D8231-4] ||1 ||Intel IXP425 @ 400MHz ||4MB ||32MB ||Atheros (mini-PCI, madwifi) || || ||Yes ||Yes ||No ||[:OpenWrtDocs/Hardware/Belkin/F5D8231-4:Untested] ||
 ||[http://catalog.belkin.com/IWCatProductPage.process?Product_Id=377018 F5D8232 Vision N1 (with display)] ||1 ||? ||?MB ||?MB ||? || || ||? ||? ||? ||N1 Vision with large display ||
 ||[http://catalog.belkin.com/IWCatProductPage.process?Product_Id=372043 F5D8233-4 ] ||1 ||? ||?||? ||? || || || ? || ?  || ?  ||[:OpenWrtDocs/Hardware/Belkin/F5D8233-4:Untested] ||
-||[http://catalog.belkin.com/IWCatProductPage.process?Product_Id=459640 F5D8235-4 ] ||1000 ||Ralink RT2880F ? ||8MB ||32MB ||Ralink RT2820L ||Realtek RTL8366SR || ||? ||?  ||1x v2.0  ||[:OpenWrtDocs/Hardware/Belkin/F5D8235-4:Untested] ||
+||[http://catalog.belkin.com/IWCatProductPage.process?Product_Id=459640 F5D8235-4 ] ||1000 ||Ralink RT2880F @ 266Mhz ||8MB ||32MB ||Ralink RT2820L ||Realtek RTL8366SR || ||? ||?  ||1x v2.0  ||[:OpenWrtDocs/Hardware/Belkin/F5D8235-4:Untested] ||
