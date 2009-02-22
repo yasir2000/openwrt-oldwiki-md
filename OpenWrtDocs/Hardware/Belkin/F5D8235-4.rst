@@ -110,7 +110,9 @@ ERR:          0
 == Enable telnet ==
 Go to http://belkin/ver.htm and set "Start telnetd for debug" parameter to 1. You will also need to add telnetd binary to firmware image or recompile busybox with telnetd applet.
 
-I will upload my modified firmware image as soon as I have find some clean way to get root user access.
+Firmware images with telnetd is available at http://download.dsmg600.info/?dir=./people/sala/F5D8235-4
+
+I will re-upload my modified firmware image as soon as I have find some clean way to get root user access. Right now you can log in as guest with no password.
 
 ----
 
