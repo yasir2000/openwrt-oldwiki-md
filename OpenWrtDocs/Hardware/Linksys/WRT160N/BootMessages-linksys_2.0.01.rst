@@ -5,15 +5,37 @@
 This is what shows on the serial console when booting the Linksys 2.0.01 firmware 
 
 {{{
+U-Boot 1.1.3 (Aug 22 2008 - 16:05:01)
+Board: RT2880 DRAM:  16 MB
+******************************
+Switch Reset Occurred
+******************************
+The Flash ID =22F9 MAN_ID=7F
+CFI QUERY flash sectors=[8],sector_size=[2000]
+CFI QUERY flash sectors=[63],sector_size=[10000]
+============================================ 
+ASIC -VerB/C (MAC to 100PHY Mode)
+DRAM COMPONENT=64Mbits 
+DRAM BUS=32BIT 
+Total memory = 16Mbytes
+Date:Aug 22 2008  Time:16:05:01
+============================================ 
+--------***** Rtl8306_asicSoftReset *****-------
+ --------***** Get the RTL8306SD Manufactory ID=5988 *****-------
+Found valid NVRAM.
+Board IP Address		192.168.1.1
+Default host ip Address		192.168.1.10
+Board MAC Address		00:22:6b:74:5c:c2
+Boot file name			"uboot.bin"
+Boot address			BFC40000
+Deafult baud rate		115200
 *** Press Ctrl-C or ESC key to stop boot run ***
-
-You choosed 3
-                                                                                                               0 
+ 0   
 3: System Boot system code via Flash.
 ## Booting image at bf040000 ...
    Image Name:   Linux Kernel Image
    Created:      2008-08-22   8:41:56 UTC
-System Control Status = 0x02110084
+System Control Status = 0x02110084 
    Image Type:   MIPS Linux Kernel Image (lzma compressed)
    Data Size:    3436544 Bytes =  3.3 MB
    Load Address: 8a000000
@@ -23,16 +45,12 @@ System Control Status = 0x02110084
 No initrd
 ## Transferring control to Linux (at address 881d8040) ...
 ## Giving linux memsize in MB, 16
-
 Starting kernel ...
-
-
 THIS IS ASIC
 ramsize = 16 MBytes
 rambase not set, set to default (0x08000000)
 MEMORY DESCRIPTOR dump:
 [0,8825b660]: base<08000000> size<01000000> type<Free RAM memory>
-
  The CPU feqenuce set to 266 MHz
 CPU revision is: 0001906c
 icache: sets:256, ways:4, linesz:16 ,total:16384, waybit:12, flags:0x0
@@ -83,7 +101,6 @@ N_HDLC line discipline registered.
 RA2880 Ethernet Driver Initilization. v1.01  256 rx/tx descriptors allocated!
 Netlink init ok!
 PROC INIT OK!
-
 --------***** Rtl8306_asicSoftReset *****-------
 --------***** Get the RTL8306SD Manufactory ID=5988 *****-------
 rdm_major = 254
@@ -170,15 +187,11 @@ trying to start /sbin/init
 MTD_open
 MTD_read
 MTD_close
-Needed modules: rt2860v2_ap
+Needed modules: rt2860v2_ap 
 cmd=[insmod rt2860v2_ap ]
-Name to be unset = wl_phytype=n
-Name to be unset = action_service=filters
 The chipset is RA_RT2880
-
 Hit enter to continue...
 Bootloader is UBOOT.
-
 CODE_PATTERN =>N160
 Make date==>Year:8,Month:8,Day:22
 Firmware version =>v2.0.01
@@ -198,31 +211,28 @@ cmd=[brctl setfd br0 0 ]
 cmd=[brctl addif br0 vlan1 ]
 lo: File exists
 Set 66560 to /proc/sys/net/core/rmem_max ...
+br0 192.168.1.100  86400
 cmd=[brctl addif br0 ra0 ]
 cmd=[resetbutton ]
+cmd=[udhcpd /tmp/udhcpd.conf ]
 cmd=[tftpd -s /tmp -c -l -P N160 ]
 tftp server started
 tftpd: standalone socket
+info, udhcp server (v0.9.8) started
 [HTTPD Starting on /www]
 zebra disabled.
 upnpd adding route[route add -net 239.0.0.0 netmask 255.0.0.0 br0]
 cmd=[httpd ]
-Jan  1 00:00:09 crond[28]: crond 1.9.1 started, log level 8
-
-
+Jan  1 00:00:09 crond[32]: crond 1.9.1 started, log level 8
 J>>>>>> START WSC  >>>>>>>>>>>
-
 led reset.....LED1 orange, LED2 Green
-iwpriv cmd is iwpriv ra0 set WscConfMode=7
-iwpriv cmd is iwpriv ra0 set WscConfStatus=2
+iwpriv cmd is iwpriv ra0 set WscConfMode=7 
+iwpriv cmd is iwpriv ra0 set WscConfStatus=1 
 HANP:using uuid:00220022-6b74-5cc3-c3c2-00226b745cc3
-
 Hit enter to continue...
 cmd=[udhcpc -i vlan2 -l br0 -p /var/run/wan_udhcpc.pid -s /tmp/udhcpc ]
 info, udhcp client (v0.9.8) started
-
-Hit enter to continue...
-
 Hit enter to continue...
 libupnp: using UDP SSDP_PORT = 1901
+Hit enter to continue...
 }}}
