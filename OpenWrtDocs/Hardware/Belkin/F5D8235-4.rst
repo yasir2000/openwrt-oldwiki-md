@@ -111,3 +111,9 @@ ERR:          0
 Go to http://belkin/ver.htm and set "Start telnetd for debug" parameter to 1. You will also need to add telnetd binary to firmware image or recompile busybox with telnetd applet.
 
 I will upload my modified firmware image as soon as I have find some clean way to get root user access.
+
+----
+
+CategoryModel
+ . CategoryGigabitDevices
+ . Category80211nDevice
