@@ -27,7 +27,7 @@ Please add/confirm info here if you can.
 ||'''Model''' ||'''CPU''' ||'''Wireless''' ||'''Flash''' ||'''RAM''' ||'''S/N''' ||'''FCC ID''' ||'''!OpenWrt Kamikaze''' ||
 ||WRT160N v1.0 ||? ||? ||4MB ||32MB || ? || || X ||
 ||WRT160N v1.1 || BCM4703||BCM4321 ||4MB ||16MB ||CSE01 ||Q87WRT160N || X (See Below)||
-||WRT160N v2.0 ||? ||ralink || ? ||8 ||CSE11 ||Q87WRT160NV2 || X ||
+||WRT160N v2.0 || RT2880F||ralink || ? ||8 ||CSE11 ||Q87WRT160NV2 || not supported ||
 
 
 = Hardware =
