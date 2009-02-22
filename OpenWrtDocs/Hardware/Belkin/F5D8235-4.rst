@@ -106,7 +106,12 @@ ERR:          0
  9652 guest       344 R   ps
 }}}
 
-= Hacks =
+= OpenWrt =
+At the time of writing this page, OpenWrt is not supported.
+
+DD-WRT has target in their svn http://svn.dd-wrt.com:8000/dd-wrt/browser/src/linux/rt2880 but I have no information how will it work in F5D8235-4.
+
+= Original firmware hacks =
 == Enable telnet ==
 Go to http://belkin/ver.htm and set "Start telnetd for debug" parameter to 1. You will also need to add telnetd binary to firmware image or recompile busybox with telnetd applet. To disable telnetd go to http://belkin/ver.htm and set "Start telnetd for debug" parameter to 0.
 
