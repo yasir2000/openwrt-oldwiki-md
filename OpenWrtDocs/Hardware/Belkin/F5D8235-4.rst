@@ -108,7 +108,7 @@ ERR:          0
 
 = Hacks =
 == Enable telnet ==
-Go to http://belkin/ver.htm and set "Start telnetd for debug" parameter to 1. You will also need to add telnetd binary to firmware image or recompile busybox with telnetd applet.
+Go to http://belkin/ver.htm and set "Start telnetd for debug" parameter to 1. You will also need to add telnetd binary to firmware image or recompile busybox with telnetd applet. To disable telnetd go to http://belkin/ver.htm and set "Start telnetd for debug" parameter to 0.
 
 Firmware images with telnetd is available at http://download.dsmg600.info/?dir=./people/sala/F5D8235-4
 
