@@ -21,6 +21,8 @@ It should be noted that there are two different brcm directories (brcm-2.4/ and 
 
 When the correct image is downloaded, then it is just needed to login to the router (enter the ip address of your router in a browser and press return) followed by pointing the firmware upgrade function at the correct image and the pressing of the 'upgrade button'. *It is always recommended to use a cable connection between router and pc/laptop. The wireless connection can fluctuate and this might result in loss of data during the transfer, which again would leave the router with a non-functional system after reboot.
 
+If you are installing from Safari on a Macintosh and you receive an "Upgrade Failed" message from the default Linksys firmware try using Firefox.
+
 == 2. Getting access ==
 Getting the first access to the new Kamikaze system requires that you login to the router via telnet (http://en.wikipedia.org/wiki/Telnet) and set a new login password (on windows you would need to install something like Putty (http://www.chiark.greenend.org.uk/~sgtatham/putty/). The default ip address of the router is 192.168.1.1, so you would have to check that your pc/laptop has acquired a correct corresponding ip address from the router (which should be the case if you'r still connected via Ethernet cable). If the ip address is not correct, then try to force a re-new of the ip address.
 
