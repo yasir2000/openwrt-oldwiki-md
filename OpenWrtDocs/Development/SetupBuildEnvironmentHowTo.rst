@@ -58,14 +58,14 @@ You should now be able to login via SSH (e.g via [http://www.chiark.greenend.org
 {{{make menuconfig}}} will tell you if more packages have to be installed via APT by the root user.
 Here's a table with the package name for each prerequisite separated for different Linux distributions.
 
-||'''Prerequisite'''||'''Debian'''||'''Suse'''||'''Red Hat'''||
-||ncurses||ncurses-dev||?||?||
-||zlib||zlib1g-dev||?||?||
-||GNU awk||gawk||?||?||
-||GNU bison||bison||?||?||
-||flex||flex||?||?||
-||unzip||unzip||?||?||
-||GNU autoconf||autoconf||?||?||
+||'''Prerequisite'''||'''Debian'''||'''Suse'''||'''Red Hat'''||'''OS X'''||
+||ncurses||ncurses-dev||?||?||?||
+||zlib||zlib1g-dev||?||?||?||
+||GNU awk||gawk||?||?||?||
+||GNU bison||bison||?||?||?||
+||flex||flex||?||?||?||
+||unzip||unzip||?||?||?||
+||GNU autoconf||autoconf||?||?||?||
 
 Installation example for a fresh Debian 5.0r0: {{{aptitude install ncurses-dev zlib1g-dev gawk bison flex unzip autoconf}}}
 
