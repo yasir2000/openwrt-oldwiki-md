@@ -641,10 +641,9 @@ Note that this does not completely fix the problem, it only helps mitigate the i
 = Development =
 See also the !OpenWrt [http://dev.openwrt.org/ development center] website. There you can browse the source code and send reproducible bugs with the ticket system (in trac).
 
-== How do I create a package? ==
-See BuildingPackagesHowTo.
-
 == Requirements for compiling OpenWrt ==
+If you are not used to a Linux development environment or not sure how to set it up correctly, then first check out the [:OpenWrtDocs/Development/SetupBuildEnvironmentHowTo: Setup Build Environment HowTo].
+
 For compiling !OpenWrt (from SVN or from the tarball, both the White Russian stable release) you need at least a recent GNU/Linux distribution and the following programs installed:
 
 {{{
@@ -658,8 +657,10 @@ Approximately required disc space for compiling OpenWrt:
 ||Stable Source ||1.5 GB ||3.5 GB ||
 ||Development ||? ||3.8 GB ||
 
-
 Compiling also tested on Windows pc under [http://wiki.gp2x.org/wiki/AndLinux AndLinux] ([http://www.colinux.org coLinux] + Ubuntu)
+
+== How do I create/compile/build OpenWRT myself? ==
+Check out the [:OpenWrtDocs/BuildingKamikazeHowTo: Building Kamikaze HowTo].
 
 == Where is the subversion (SVN) repository ? ==
 '''Stable Source'''
@@ -690,3 +691,6 @@ Yes. If you find any bugs, please use our [http://dev.openwrt.org/report ticket 
 
 == Where is the buildroot documentation? ==
 BuildRoot. Or see [http://downloads.openwrt.org/docs/buildroot-documentation.html buildroot documentation].
+
+== How do I create a package? ==
+See BuildingPackagesHowTo.
