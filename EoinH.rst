@@ -4,10 +4,9 @@
 
 IT support technician to the third sector in Edinburgh.
 
-attachement:eh09b.png
-http://eoin.top.tc
+attachment:eh09b.png http://eoin.top.tc
 
 ...
 
 ----
-CategoryHomepage
+ CategoryHomepage
