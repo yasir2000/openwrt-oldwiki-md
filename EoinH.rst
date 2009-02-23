@@ -1,12 +1,12 @@
 ##master-page:HomepageTemplate
 #format wiki
-'''Eoin Houston'''
+'''Eoin Houston''' attachment:e09b.png
 
 IT support technician to the third sector in Edinburgh.
 
-attachment:eh09b.png http://eoin.top.tc
+http://eoin.top.tc
 
 ...
 
 ----
- CategoryHomepage
+ . CategoryHomepage
