@@ -78,4 +78,16 @@ chmod 755 /etc/init.d/loadmon
 /etc/init.d/loadmon enable
 }}}
 
+=== more elegant flashing under Kamikaze ===
+I'm not sure if this works under WhiteRussian, so only adding it as a note for now.
+{{{
+...
+if [ "$load" -gt "$VERYHIGHLOAD" ]; then
+                echo "0" > /proc/diag/led/ses_white
+                echo "f" > /proc/diag/led/ses_orange
+        elif [ "$load" -gt "$HIGHLOAD" ]; then
+...
+}}}
+Is a more elegant way to make the orange LED flash. This also enables you to set the polling time of the script higher (I use 5 seconds) without influencing the speed of the flashing LED.
+
 CategoryHowTo
