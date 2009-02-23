@@ -1,3 +1,6 @@
+== Development Environment ==
+If you are not used to a Linux development environment or not sure how to set it up correctly, then first check out the [:OpenWrtDocs/Development/SetupBuildEnvironmentHowTo: Setup Build Environment HowTo].
+
 == Requirements ==
 The build-system checks for the requirements and print what's missing on your system. Then install the packages.
 
