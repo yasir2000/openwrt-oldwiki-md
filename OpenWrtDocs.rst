@@ -52,9 +52,7 @@ OpenWrt is aimed at advanced users. If you are new to the world of !OpenWrt, sta
 Please join us on the !OpenWrt team.
 
 = Latest Releases =
-The currently active release is [http://downloads.openwrt.org/kamikaze/7.09/ Kamikaze 7.09].
-
-The current release candidate is [http://downloads.openwrt.org/kamikaze/8.09_RC2/ Kamikaze 8.09_RC2].  While it should be stable, it should be used with caution.  Please read the [http://openwrt.org/ release announcement]carefully before deciding whether to download and use this release.
+The currently active release is [http://downloads.openwrt.org/kamikaze/8.09/ Kamikaze 8.09].
 
 The latest and final release of the Whiterussian series is [http://downloads.openwrt.org/whiterussian/0.9/ 0.9].  It is a bug-fix release and represents the end of the Whiterussian series, which has been superseded by the Kamikaze series.
 
