@@ -343,18 +343,15 @@ Enter 'help' for a list of built-in commands.
 }}}
 === Compile image ===
 {{{
-run make menuconfig
+Add 2 lines to ./target/linux/brcm-2.4/config-default
+
+CONFIG_MTD_CFI_B1=y
+CONFIG_MTD_CFI_I2=y
+--
+make menuconfig
 select target system "Broadcom BCM947xx/953xx [2.4]"
 select you need packages
 select <Exit> and "Yes"
-run make kernel_menuconfig
-select Memory Technology Devices (MTD) -->
-    Ram/Rom/Flash chip drivers -->>>
-Actually for kamikaze 8.09 just check  "Support 8-bit buswidth"
-     (Seems,
-     #  check all "Support X-bit buswidth"
-     #  check all "Support X-chip flash interleave"
-     makes wrong image.)
 run make
 }}}
 === Flashing ===
@@ -363,4 +360,42 @@ run make
 flash -noheader <ip address of the TFTP server>: openwrt-brcm-2.4-squashfs.trx flash1.trx
 }}}
 ==== Windows ====
+
 http://www.shadowandy.net/2008/06/flashing-guide-for-dir-320.htm
+
+{{{
+' Set IP addr of LAN interface = 192.168.0.2
+' attach computer ( recomended use switch ) and lan1 port on the device
+' Run script: <script_file_name> <firmware_file_name>
+@Echo Off 
+set DEFAULT_FW=firmware.bin
+set FMFILE=%1
+if X"%FMFILE%" == X"" (
+  set FMFILE=%DEFAULT_FW%
+)
+
+if NOT EXIST %FMFILE% (
+	echo.
+	echo  ERROR: File %FMFILE% does not exist
+	GOTO HELP
+)
+Goto BEGIN
+:HELP
+	echo.
+	set FW_PARAM=firmware_file
+	echo Use %0 [%FW_PARAM%]
+	echo   By default %FW_PARAM% is %DEFAULT_FW%
+	
+	Goto END
+:BEGIN
+	echo ============================================	
+	ping -n 1 -w 10 192.168.0.1
+	If ERRORLEVEL 1 Goto BEGIN
+	If ERRORLEVEL 0 Goto FLASH 
+	Goto END 
+:FLASH 
+	echo ============================================
+	echo *** Start Flashing **** 
+	tftp -i 192.168.0.1 put firmware.bin 
+:END
+}}}
