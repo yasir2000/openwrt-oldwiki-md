@@ -50,6 +50,7 @@ Serial port settings: 38400 8N1
 === Boot log from original firmware ===
 With some useful output of some commands at the end.
 
+The original T-Com FW has no telnetd in busybox, so dialing #96*7*, will not enable telnet.
 {{{
 
 (AVM) EVA Revision: 1.458 Version: 1458
