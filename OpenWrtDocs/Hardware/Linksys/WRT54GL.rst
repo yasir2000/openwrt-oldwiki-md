@@ -80,11 +80,12 @@ NOTE: You do not have to touch any other NVRAM parameters. After this point NVRA
 == Using the Linksys web GUI ==
 It is possible to install !OpenWrt directly with the Linksys web GUI. If you are initially installing !OpenWrt use the Linksys web GUI. This is the easiest way.
 
- * Download the openwrt-wrt54g-2.4-squashfs.bin firmware image to your PC. DO NOT DOWNLOAD AND INSTALL THE 2.6 VERSION!! YOU WON'T BE ABLE TO SET nvram boot_wait=on in it, because it has no nvram command. So first instal 2.4 even if that isn't what you want, then upgrade later.
+ * Download the openwrt-wrt54g-squashfs.bin firmware image from the brcm-2.4 folder to your PC. DO NOT DOWNLOAD AND INSTALL THE 2.6 VERSION!! YOU WON'T BE ABLE TO SET nvram boot_wait=on in it, because it has no nvram command. So first instal 2.4 even if that isn't what you want, then upgrade later.
  * Open http://192.168.1.1/Upgrade.asp in your browser or manually go to http://192.168.1.1 -> Administration -> Firmware Upgrade
- * Upload openwrt-wrt54g-2.4-squashfs.bin
+ * Upload openwrt-wrt54g-squashfs.bin
  * Wait 2 minutes. The router will reboot itself automatically after the upgrade is complete.
  * You are done! You should be able to telnet to your router (IP address: 192.168.1.1) and start configuring.
+
 == Using the TFTP method ==
 Once you have set the NVRAM parameters above it is possible to use a TFTP client to flash !OpenWrt. The TFTP method is also the recommended way to restore the original Linksys firmware or switch to other third-party firmwares.
 
