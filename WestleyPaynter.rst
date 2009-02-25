@@ -12,9 +12,11 @@ Email: [[MailTo(wpaynter AT SPAMFREE multitechsystems DOT ca)]]
 === Devices I Have ===
 
  * Airlink101 ANAS350
+ * Linksys WRT54-G v5
  * Linksys WRT54-GL
  * Linksys NSLU2 (Running OpenWRT)
- * Linksys WRT160N
+ * Linksys WRT160N v1.1
+ * Asus WL700gE
 
 === Patches ===
 
