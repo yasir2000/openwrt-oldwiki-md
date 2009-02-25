@@ -36,20 +36,22 @@ Please add/confirm info here if you can.
 
 ||<tablestyle="FLOAT: right; margin: -15px 0 0 0; padding: 0;">attachment:wrt160N_CPU_systeminfo_.jpg||
 
-||'''Architecture''' ||MIPS ||
-||'''Vendor''' ||Broadcom ||
-||'''Bootloader''' ||CFE ||
-||'''System-On-Chip'''||Broadcom 4703KFBG||
-||'''CPU Speed''' ||266 Mhz ||
-||'''Flash size''' ||4 MiB ||
-||'''RAM''' ||16 MiB ||
-||'''Wireless''' ||Broadcom BCM4321 802.11b/g/n Wireless LAN (integrated) ||
-||'''Ethernet''' ||Switch in CPU ||
-||'''USB''' ||No ||
-||'''Serial'''||Yes ||
+||'''Version''' ||1.0/1.1 || 2.0||
+||'''Architecture''' ||MIPS || MIPS ||
+||'''Vendor''' ||Broadcom || Ralink ||
+||'''Bootloader''' ||CFE || U-Boot ||
+||'''System-On-Chip'''||Broadcom 4703KFBG|| RT2880 Soc ||
+||'''CPU Speed''' ||266 Mhz || 266 Mhz ||
+||'''Flash size''' ||4 MiB || 4 MiB ||
+||'''RAM''' ||32/16 MiB || 16 Mib ||
+||'''Wireless''' ||Broadcom BCM4321 802.11b/g/n Wireless LAN (integrated) || RT2880 Soc ||
+||'''Ethernet''' ||Switch in CPU || - ||
+||'''USB''' ||No || - ||
+||'''Serial'''||Yes || Yes ||
 
 == Chips on the PCB ==
 
+=== V1.0/1.1 ===
  * CPU - BCM4703 [http://www.broadcom.com/collateral/pb/4703_4704-PB00-R.pdf Product_Brief] (the original linksys firmware calls it a BCM4704 in /proc/cpuinfo)
 
  * BCM5325 [http://www.broadcom.com/collateral/pb/5325-PB05-R.pdf Product_Brief]
@@ -60,7 +62,17 @@ Please add/confirm info here if you can.
 
  * BCM2055 (under the shield) [http://www.broadcom.com/collateral/pb/4321_2055-PB02-R.pdf Product_Brief]
 
-== Pads on PCB ==
+=== V2.0 ===
+
+ * RT2880F [http://www.ralinktech.com.tw/data/RT2880.pdf Product_brief]
+
+ * RTL8306SD
+
+ * Flashchip - Samsung 813; K8P3215UQB
+
+== Pads/headers on PCB ==
+
+=== V1.0/1.1 ===
 
 There is 3 sets of pads on the PCB of the WRT160N.
  
@@ -84,6 +96,22 @@ JTAG
 '''JP3'''
 || On Reverse ||'''Pad 2''' ||GND ||'''Pad 4''' ||GND ||'''Pad 6''' ||GND ||'''Pad 8''' ||GND ||'''Pad 10''' ||GND ||'''Pad 11''' || ? ||
 || On Front ||'''Pad 1''' || ? ||'''Pad 3''' || ? ||'''Pad 5''' || ? ||'''Pad 7''' || ? ||'''Pad 9''' || ? ||'''Pad 12''' || ? ||
+
+=== V2.0 ===
+
+J10 is an empty 5-pin header
+
+J11 is an empty 14-pin header
+
+'''J10'''
+
+||'''Pin 1''' || ? ||'''Pin 2''' || ? ||'''Pin 3''' || ? ||'''Pin 4''' || ? ||'''Pin 5''' || ? ||
+
+'''J11'''
+
+||'''Pin 1''' || ? ||'''Pin 3''' || ? ||'''Pin 5''' || ? ||'''Pin 7''' || ? ||'''Pin 9''' || ? ||'''Pin 11''' || ? ||'''Pin 13''' || ? ||
+||'''Pin 2''' || ? ||'''Pin 4''' || ? ||'''Pin 6''' || ? ||'''Pin 8''' || ? ||'''Pin 10''' || ? ||'''Pin 12''' || ? ||'''Pin 14''' || ? ||
+
 
 == JTAG Port ==
 
