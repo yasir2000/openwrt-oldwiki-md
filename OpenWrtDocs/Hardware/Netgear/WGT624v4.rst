@@ -23,6 +23,8 @@ Please let me know what commands should be run on this router to provide needed 
 
 == Photos ==
 
+[http://physchem.ox.ac.uk/~rodgers/netgear/internal_photos/ High resolution photos of the main board are available here].
+
 === HW REV V3H1 ===
 
 
