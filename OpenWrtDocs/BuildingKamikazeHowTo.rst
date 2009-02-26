@@ -12,15 +12,26 @@ $ make prereq
 Note for Mac OS X Users: To build your images on a Mac OS X Machine all you need is the package "fileutils" from the fink project. (Tested on Leopard 10.5.3)
 
 == Actual commands ==
+Login with a normal user, not root!
+Create a directory inside your home to hold the !OpenWrt code.
+Then checkout the development code with Subversion ([http://svnbook.red-bean.com/ All about using Subversion]).
+Accept the certificate when asked, you can verify its correctness with a browser and the same URL.
 {{{
-$ cd ~/
-$ svn checkout https://svn.openwrt.org/openwrt/trunk/ ~/kamikaze-trunk
+$ mkdir ~/kamikaze-trunk/
 $ cd ~/kamikaze-trunk/
+$ svn checkout https://svn.openwrt.org/openwrt/trunk/ .
+}}}
+Get all the general packages, the ones for Luci and if you wish the ones for Xwrt too.
+Then install the packages you need, so that you can choose them later in the menuconfig.
+{{{
 $ ./scripts/feeds update packages luci      # Checkout the extra packages
 $ ./scripts/feeds install -a -p luci        # Install the LuCI WebUI (selected and included in the final image by default)
 $ ./scripts/feeds install <name_1> <name_2> # Creates the symlinks for the packages you like to install
+}}}
+Call the configuration menu, set the desired target, select the wanted packages and save. Then start building with make.
+{{{
 $ make menuconfig                           # Select your target, packages and other options. Only select the packages you need.
-$ make world
+$ make
 }}}
 == Configuring a custom kernel ==
 While you won't typically need to do this, if you need to modify the Linux kernel configuration, use this command to enter the regular Linux menuconfig:
