@@ -66,6 +66,16 @@ Here's a table with the package name for each prerequisite separated for differe
 ||flex||flex||?||?||?||
 ||unzip||unzip||?||?||?||
 ||GNU autoconf||autoconf||?||?||?||
+||rsync||rsync||?||?||?||
+||xgettext||gettext||?||?||?||
+||fastjar||fastjar||?||?||?||
+||jikes||jikes||?||?||?||
+||xsltproc||xsltproc||?||?||?||
+||working-sdcc||?||?||?||?||
+||sdcc||sdcc||?||?||?||
+||openssl/ssl.h||libssl-dev||?||?||?||
+||intltool-update||intltool||?||?||?||
+||gtk2.0-dev||libgtk2.0-dev||?||?||?||
 
 Installation example for a fresh Debian 5.0r0: {{{aptitude install ncurses-dev zlib1g-dev gawk bison flex unzip autoconf}}}
 
