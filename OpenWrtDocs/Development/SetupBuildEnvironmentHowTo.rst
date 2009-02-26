@@ -10,7 +10,7 @@ Linux users should be able to distinguish between Windows and Linux to filter th
 
 = Initial Virtual Machine Setup and Debian Installation =
 To setup the development system download [http://www.debian.org/distrib/ Debian] (here  5.0), only DVD #1 is needed, and install it inside a virtual machine (VM) of [http://www.virtualbox.org VirtualBox].
- * In the VM creation assistent use Linux, Debian, 768MB RAM, 8GB virtual harddisk
+ * In the VM creation assistent use Linux, Debian, 768MB RAM, __16GB__ virtual harddisk (need a lot of space for __all__ packages)
  * If a personal firewall is used, make sure that !VirtualBox can access the internet and act as a server for the trusted zone (LAN). Permanently or temporary as preferred. This is necessary to install the latest updates and to access the VM via SSH later.
  * Set the boot options to only boot from harddisk.
  * Assign the Debian DVD image to the VM's CD/DVD-ROM drive
