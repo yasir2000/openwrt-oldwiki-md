@@ -4,9 +4,10 @@ This page covers the BCM63xx SoC specificities, but the BCM33xx SoC (excluding B
 
 = Status of the Broadcom 63xx port of OpenWrt =
  * The Broadcom BCM963xx currently only works with BCM6348/BCM6358 boards. Others expected soon.
- * We have GPL drivers for USB (OHCI and EHCI), Ethernet, DSL is still binary though
-  . Belkin has released [http://www.belkin.com/uk/support/article/?lid=enu&pid=F5D7633uk4A&aid=9294&scid=314 "GPL code for the F5D7633"], but it only has binary Broadcom drivers.
-*TP-link also has some code out for the platform --> see [http://www.tp-link.com/support/gpl.asp TP-link GPL code for many of their products (many are broadcom based) ]
+ * We have GPL drivers for USB (OHCI and EHCI), Ethernet, DSL is still binary though.
+ * Belkin has released [http://www.belkin.com/uk/support/article/?lid=enu&pid=F5D7633uk4A&aid=9294&scid=314 "GPL code for the F5D7633"], but it only has binary Broadcom drivers.
+ * TP-link also has some code out for the platform --> see [http://www.tp-link.com/support/gpl.asp TP-link GPL code for many of their products (many are broadcom based).]
+ * D-Link GPL download center: [http://tsd.dlink.com.tw/ D-Link GPL code for all of their products (DSL-2640B, DSL-2740B).]
 
 == What is this Broadcom 63xx stuff? ==
 [http://www.broadcom.com/products/DSL/xDSL-CPE-Solutions/BCM6348 Broadcom63xx SoC]integrates ADSL/ADSL2+ features, routing, and external Wireless NIC.
