@@ -93,6 +93,7 @@ There are also some other variants like bcm6341, which is a DSP used in VoIP pro
 === Known 6358 platforms*: ===
 ||[:OpenWrtDocs/Hardware/Buffalo/WBMR-G300N:Buffalo WBMR-G300N] ||
 ||[http://www.dlink.com/products/?pid=567 D-Link DSL-2640B] ||
+||[http://www.dlink.co.uk/cs/Satellite?c=Product_C&childpagename=DLinkEurope-GB%2FDLProductCarousel&cid=1197319446523&p=1197318962342&packedargs=ParentPageID%3D1197318962321%26TopLevelPageProduct%3DConsumer%26locale%3D1195806691854%26packedargs%3DProductParentID%253D1195808621247&pagename=DLinkEurope-GB%2FDLWrapper D-Link DSL-2740B hw C2, C3] ||
 ||[:OpenWrtDocs/Hardware/Freebox/FreeboxV5:Freebox v5] ||
 ||[:OpenWrtDocs/Hardware/Netcomm/NB9WMAXX:Netcomm NB9WMAXX] ||
 ||[:OpenWrtDocs/Hardware/Netgear/DG834N:Netgear DG834N] ||
