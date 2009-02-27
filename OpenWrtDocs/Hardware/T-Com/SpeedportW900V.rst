@@ -17,7 +17,7 @@ CPU: TNETD7200ZDW (AR7) @211Mhz  Flash: 8 MB  Ram: 32 MB  WLan Chip: TNETW1350A 
 
 It also has a single 3.3v serial port, the original T-Com firmware allows you shell access with no password to the device though the serial port.
 
-Details about the DECT part are [:OpenWrtDocs/Hardware/T-Com/SpeedportW900Vdect:here].
+Details about the DECT part are [:OpenWrtDocs/Hardware/T-Com/SpeedportW900V/DECT:here].
 
 === Photos ===
 
