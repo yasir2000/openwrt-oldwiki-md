@@ -1,4 +1,4 @@
-= Linksys WRT160N / BootMessages =
+= Linksys WRT160N V1.1 / BootMessages =
 
 [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT160N Return to WRT160N]
 
