@@ -131,18 +131,24 @@ Details at this page:
 
 == Boot Messages ==
 
+=== V1.1 ===
+
  * Boot messages from original Linksys firmware are [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT160N/BootMessages here]
- * Boot messages from original Linksys 2.0.01 firmware are [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT160N/BootMessages-linksys_2.0.01 here]
  * Boot messages from DD-WRT v24 [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT160N/BootMessages-DD-WRT_v24 here]
  * Boot messages from OpenWRT Trunk 8-17-2008 [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT160N/BootMessages-OpenWRT-Trunk_8-17-2008 here]
  * Boot messages from OpenWRT Trunk 8-19-2008 [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT160N/BootMessages-OpenWRT-Trunk_8-19-2008+options1 here] Adding some kernel options makes the flash appear in the boot messages.
  * Boot messages from OpenWRT Trunk Rev12360 [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT160N/BootMessages-OpenWRT-Trunk_Rev12360+options1 here] Adding some kernel options makes the flash appear in the boot messages and boot correctly.
  * Boot messages from OpenWRT Trunk Rev12360 [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT160N/BootMessages-OpenWRT-Trunk_Rev12360+options2 here] Adding some kernel options makes the flash appear in the boot messages, wireless appears to detect correctly and boots to a shell.
 
+=== V2 ===
+
+ * Boot messages from original Linksys 2.0.01 firmware are [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT160N/BootMessages-linksys_2.0.01 here]
+
 = Installation =
 
 == How To Build ==
 
+=== V1.1 ===
 You will need to use a Linux machine with development tools to compile the firmware.
 See [https://dev.openwrt.org/browser/trunk/README here] to see what are the dependencies of the buildroot.
 
@@ -196,9 +202,30 @@ make
 Now you can flash the firmware image in /bin to your WRT160N using the Linksys web interface. (I tried the openwrt-wrt150n-squashfs.bin and it worked; openwrt-brcm-2.4-squashfs.trx also works if using the tftp install method)
  * The wireless works when you enable it in /etc/config/wireless 
 
+= Recovery =
+
+== V1.1 ==
+If the device becomes bricked, (and this can happen very easily with this device) you should attach a serial port to it to view the console and see why it has stopped booting. 
+
+Boot_wait does not seem to work on this device. 
+
+One common reason for it to stop booting is, after loading a image that doesn't recognize the 8-bit flash, it will be stuck in a endless reboot loop as seen [http://wiki.openwrt.org/OpenWrtDocs/Hardware/Linksys/WRT160N/BootMessages-OpenWRT-Trunk_8-17-2008 here]. 
+
+Once the serial console is installed you can use a terminal emulator to stop the boot and manually flash a good image to it.
+
+Connect to the device using 115200 baud 8-n-1 and No Flow Control.
+
+press Ctrl + C very early in the boot to break into the CFE prompt.
+Enter this command to make the router accept an image via tftp.
+{{{
+flash -ctheader : flash1.trx
+}}}
+
 = Linksys WRT160N specific configuration =
 
 == NVRAM ==
+
+=== V1.1 ===
 
 || '''boardtype''' || 0x0472 ||
 || '''boardnum''' || 42 ||
@@ -207,8 +234,7 @@ Now you can flash the firmware image in /bin to your WRT160N using the Linksys w
 = TODO =
 
  * Confirm existence of different versions of this model
- * Find the data sheets for the chips used in this device.
- * Figure out what JP1, JP3 are for and the exact pin outs.
+ * Figure out what JP3 is for and the exact pin out.
 
 = Other Categories this device is in =
 
