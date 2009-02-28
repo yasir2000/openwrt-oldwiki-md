@@ -11,11 +11,21 @@ The DECT module of the Speedport W900V contains:
  * a [http://pdf1.alldatasheet.com/datasheet-pdf/view/28521/TI/LC126A.html TI SN74LVC126A], a quad bus buffer with 3-state outputs.
  * a [http://www.st.com/stonline/products/literature/ds/4578/m24128-bw.pdf ST 4128BWP], a 128 KBit I2C EEPROM.
 
+The [http://elinux.org/upload/7/74/SST39VF400.pdf SST39VF400A], a NOR flash of 256K x 16bit, may be connected to the SC14428 as well.
+
 === PCB Traces ===
+
+I couldn't find the pinout of the SC14428 in 128TQFP in the net.
 
 ||'''SC14428 Pin'''||'''connected to'''||
 ||14 || SDA of i2c eeprom||
+||21 || XTAL (10.368 MHz) ||
+||22 || condensator to the XTAL||
+||47 || via 330 Ohm to testpin 1 of the bottom side of the PCB (see picture below)||
+||48 || via 330 Ohm to testpin 2||
+||51 || to testpin 4 (?)||
 ||67 || SCL of i2c eeprom||
+
 
 === Pictures ===
 
