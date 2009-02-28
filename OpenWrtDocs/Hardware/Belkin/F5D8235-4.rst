@@ -16,7 +16,7 @@ USB: NEC?
 = Serial port =
 Serials console baudrate is : 57600,8n1
 == Pinout ==
-Serial console is available on J1, pinout as follow :
+Serial console is available on J6, pinout as follow :
 {{{
 TXD 0 0
     0 0
