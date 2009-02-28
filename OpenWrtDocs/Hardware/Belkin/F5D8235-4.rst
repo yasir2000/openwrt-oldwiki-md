@@ -18,8 +18,8 @@ Serials console baudrate is : 57600,8n1
 == Pinout ==
 Serial console is available on J6, pinout as follow :
 {{{
-TXD 0 0
-    0 0
+TXD 0 0 VCC 3.3V
+    0 0 VCC 3.3V
     0 0 GND
 RXD 0 0 GND
     0
