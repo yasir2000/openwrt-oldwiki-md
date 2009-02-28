@@ -13,6 +13,8 @@ The DECT module of the Speedport W900V contains:
  * a [http://elinux.org/upload/7/74/SST39VF400.pdf SST39VF400A], NOR flash of 256K x 16bit.
  * a radio module on a separate PCB, containing Philips UAA3546 und 3595.
 
+The NOR and i2c flash and the bus buffer IC are supplied with a Vcc of 3.3V (which implies that we have a SC14428 without internal flash).
+
 === PCB Traces ===
 
 I couldn't find the pinout of the SC14428 in 128TQFP in the net.
