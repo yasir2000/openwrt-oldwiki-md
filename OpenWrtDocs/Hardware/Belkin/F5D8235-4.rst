@@ -14,8 +14,9 @@ USB: NEC?
 }}}
 
 = Serial port =
+Serials console baudrate is : 57600,8n1
 == Pinout ==
-J6
+Serial console is available on J1, pinout as follow :
 {{{
 TXD 0 0
     0 0
@@ -632,6 +633,13 @@ At the time of writing this page, OpenWrt is not supported.
 DD-WRT has target in their svn http://svn.dd-wrt.com:8000/dd-wrt/browser/src/linux/rt2880 but I have no information how will it work in F5D8235-4.
 
 = Original firmware hacks =
+== GPL source code ==
+Buildable source code is available at http://www.belkin.com/support/opensource/
+
+For 1.01.19 firmware - F5D8235v1-1.01.19-GPL.tar.gz
+
+For 1.01.21 firmware - F5D8235v1-1.01.21-GPL.tar.gz
+
 == Enable telnet ==
 Go to http://belkin/ver.htm and set "Start telnetd for debug" parameter to 1. You will also need to add telnetd binary to firmware image or recompile busybox with telnetd applet. To disable telnetd go to http://belkin/ver.htm and set "Start telnetd for debug" parameter to 0.
 
