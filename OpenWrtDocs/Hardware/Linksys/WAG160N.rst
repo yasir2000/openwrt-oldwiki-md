@@ -22,9 +22,11 @@ Processor: ?
 
 4 port switch: ?
 
-Wireless chipset: ?
+Wireless chipset: Atheros AR5008 series
 
 Expansions: ?
+
+Ram: EM6AA160TS-5G (16 MB)
 
 Internal Front:
 
