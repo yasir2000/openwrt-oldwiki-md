@@ -18,7 +18,7 @@ Most of the pages for customizing can be found in CategoryHowTo
  * http://www.hacklab.nl/blog/2008/10/18/wx200wl500g/ Adding a WX200 / WM918 / WMR918 / WMR968 Weather Station
  * [http://www.duff.dk/wrt54gs/pics/reuter_lcd.jpg picture] Adding an LCD
  * [http://www.duff.dk/wrt54gs/pics/Complete_VGA_Setup.jpg picture] and [http://www.duff.dk/wrt54gs/pics/HW_VGA_Setup.jpg picture] Adding VGA Output
- * [http://sonic.dnsalias.net/openwrt/slugterm_4d.html] Adding an OLED and a keyboard as a colour VT102 terminal
+ * [http://sven.killig.de/openwrt/slugterm_4d.html] Adding an OLED and a keyboard as a colour VT102 terminal
  * [http://tibalfr.free.fr/pub/openwrt/54gsv2-inside.jpg picture] and [http://tibalfr.free.fr/pub/openwrt/54gsv2-front.jpg picture] Adding heatsinks, serial ports, a fan and a MMC slot
  * http://yasha.okshtein.net/wrt54g/ How to Mobilize a WRT54g on a RC car
  * http://www.byteclub.net/wiki/index.php?title=Wrt54g Adding i2c bus
