@@ -142,6 +142,7 @@ The ethernet jacks are mapped to port numbers of the IP175C switch (looking at t
 Currently (svn trunk r13124) eth0 is mapped onto port4, while eth1 uses port1 and port2. Port1 and Port2 are not switched in the default config.
 If you want this behaviour, you need kmod-switch with phorn's patches and
 {{{
+uci set network.0=switch
 uci set network.0.vlan1="1 2 5*u"
 /etc/init.d/network restart
 }}}
