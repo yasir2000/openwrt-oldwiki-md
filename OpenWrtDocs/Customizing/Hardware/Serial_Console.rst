@@ -45,7 +45,7 @@ These days, computer manufacturers are dropping RS232 serial ports, while USB po
 ==== Prebuilt Cables ====
 
 Standard RS232 levels, for example:
- * [http://www.zonetusa.com/DispProduct.asp?ProductID=119 Zonet ZUC3100] uses pl2303 chip, well-supported in Linux
+ * [http://www.zonetusa.com/products-132.aspx Zonet ZUC3100] uses pl2303 chip, well-supported in Linux
 
 TTL 5V, for example:
  * [http://www.mouser.com/Search/ProductDetail.aspx?qs=OMDV80DKjRorBEBwmlJ4Pg%3d%3d FTDI TTL-232R-5V]
@@ -80,7 +80,7 @@ reference: http://www.nslu2-linux.org/wiki/HowTo/AddASerialPort
 
 === Level conversion ===
 
-TTL-RS-232 level conversion is a fairly common problem, so there are a number of ICs on the market that convert between these voltage levels.  [http://www.maxim-ic.com Maxim IC] has made a few handy little ICs for us to use. The best (IMHO) is the , or more specifically, the MAX233a, which has a higher speed capacity and uses less power. This guide will tell you how to solder everything together to get a pc-compatible serial port on your OpenWrt router.
+TTL-RS-232 level conversion is a fairly common problem, so there are a number of ICs on the market that convert between these voltage levels.  [http://www.maxim-ic.com Maxim IC] has made a few handy little ICs for us to use. The best (IMHO) is the MAX3232, which can operate at different voltages depending on the capacitors in the circuit. This guide will tell you how to solder everything together to get a pc-compatible serial port on your OpenWrt router.
 
 ==== From scratch ====
 First, you need an "RS232-TTL level converter chip."  RS232 refers to the standard defining what plugs into your computer, and TTL is a family of chips that use 0V and 0.8V as low and 2.2V and 5V as high.  They can be purchased new (the [http://www.maxim-ic.com Maxim IC] MAX233x line is popular).  Most vendors have large minimums, but some (e.g. [http://mouser.com/ Mouser Electronics]) sell components in small quantities.
@@ -99,6 +99,10 @@ You can also search for MAX232 Kits. There are some kits available.
  * http://www.elv-downloads.de/service/manuals/TTLRS232-Umsetzer/38439-TTLRS232-Umsetzer.pdf
  * http://www.compsys1.com/workbench/On_top_of_the_Bench/Max233_Adapter/max233_adapter.html
  * http://alldav.com/index.php?main_page=product_info&cPath=9&products_id=11
+
+These may be useful for connecting to a device:
+
+ * http://shop1.frys.com/product/1599820
 
 ==== Model-specific guides ====
 These guides are somewhat model specific, but if you're struggling to build your own cable, they're filled with information that applies to that part of the process.
