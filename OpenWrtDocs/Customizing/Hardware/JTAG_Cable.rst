@@ -11,6 +11,10 @@ For SOHO routers and other network devices there are two popular cables: the buf
 
 There are other types of JTAG cables as well. Macraigor sells the Raven cable which is even more expensive than the Wiggler. Lately there are also cables that use a USB interface on the PC side instead of the 25-pin parallel port connector. I have not had any experience with these. There are still other JTAG solutions out there that are faster and more sophisticated than the interfaces built by hobbyists, but these are generally not cost-effective for someone who just wants to re-flash a single flash chip. A complete JTAG test rig is used in industry for much more than programming flash chips. Some of these industrial-strength setups can cost thousands and thousands of dollars.
 
+[http://microcontrollershop.com/product_info.php?products_id=589 Cheapest ready-made parallel JTAG adapter to buy in the USA…]
+[http://microcontrollershop.com/product_info.php?products_id=3124 Cheapest ready-made USB JTAG adapter to buy in the USA…]
+[http://shop1.frys.com/product/1599820 Hookups to defeat pinout mismatches…]
+
 Driving a JTAG interface through the parallel port on a PC is a slow proposition. ''Really'' slow. This is due more to the nature of the parallel port connection than an inherent limit of the JTAG specification. In fact, the JTAG spec allows for up to 25 million bits-per-second transfers. With a parallel port cable, however, you will be lucky to achieve more than about 400,000 bits-per-second. With these speeds it is not unusual to spend 25 minutes writing a mere 256 KB of data over a JTAG cable. Programming an entire 2 MB or 4 MB flash chip can literally take hours. It's worth it, however, if you have an otherwise worthless device on your hands and JTAG is the only way to revive it. The Macraigor Raven and USB JTAG adapters are much faster, but there are no known schematic to implement it.
 
 There are a many variants of the LPT-to-JTAG cables. All of them are different in the LPT pins -to- JTAG pins mapping and may be in the buffered and unbuffered variant.
@@ -142,7 +146,7 @@ The following patch file addresses the issues outlined above. It should be appli
 --------
  Please note that the above gzipped patch file uses Unix-style line endings. The de-brick utility source code files use DOS-style line endings. This shouldn't be a problem but if you gunzip the patch file and open it in a DOS or Windows editor it may look strange.
 
-Daniel Gimpelevich sez: '''''The above patch is preserved for posterity for reference ONLY. In v48, you would simply append "/wiggler" to the command line to use a wiggler instead of a Xilinx. However, this will NOT work unless you apply the following patch first:'''''
+DanielGimpelevich sez: '''''The above patch is preserved for posterity for reference ONLY. In the updated version by DanielDickinson above, you would simply append "/wiggler" to the command line to use a wiggler instead of a Xilinx. This is due to the following patch of mine that he applied to v48:'''''
 {{{
 --- wrt54g.c.orig	2006-09-17 16:27:34.000000000 -0700
 +++ wrt54g.c	2007-10-26 19:10:52.640822951 -0700
@@ -151,7 +155,7 @@ Daniel Gimpelevich sez: '''''The above patch is preserved for posterity for refe
  
     data ^= 0x80;
 -   data >>= TDO;
-+   data >>= wiggler?WTDO:TDO;
++   data >>= wiggler ? WTDO : TDO;
     data &= 1;
  
     return data;
