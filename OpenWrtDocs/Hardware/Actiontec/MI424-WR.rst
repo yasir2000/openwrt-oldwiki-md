@@ -4,6 +4,8 @@
 = Actiontec MI424-WR Overview =
 The [http://www.actiontec.com Actiontec] MI424-WR router is based on a 533MHz IXP425. It has 32MB RAM and 8MB of FLASH. It has 4 external LAN ports connected to a switch and 1 WAN port. It has a coax interface and IEEE 802.11g support. Some pictures of the unit and the various revisions can be found here: http://en.wikipedia.org/wiki/MI424WR.
 
+Note: the images described below have only been tested on revision A units. There are reports that using this on revision D will cause problems!
+
 == Hardware ==
  * NPEB - WAN interface with separate Micrel KS8721 PHY; PHY address: 17.
  * NPEC - LAN interface connected to Micrel KSZ8995MA switch via SPI; PHY addresses: 1, 2, 3, 4.
@@ -49,10 +51,19 @@ There's an internal serial port available on the J20 pins. It's found on the sid
 
 
 == Software ==
-=== Redboot ===
-A custom version of [http://sourceware.org/redboot RedBoot] has been built and can be found here: attachment:rb-mi424wr-ROM.bin . The !RedBoot prompt is accessible via {{{telnet 192.168.1.1 9000}}} on the Wan port. The Wan port is configured to obtain an address via DHCP; if this fails it defaults to 192.168.1.1. Note that there's a feature that allows skipping the !RedBoot boot script by pressing the "Reset" button after power on for about 10 seconds. When !RedBoot is ready to accept commands, it sets the Internet LED red.
+=== Jungo OpenRG ===
+The unit comes standard with a customized version Jungo's OpenRG firmware. This is a Linux-based distribution with some proprietary packages such as drivers for the MoCA and Wifi devices.
 
-Installation of !RedBoot can be accomplished with the [https://dev.openwrt.org/browser/trunk/scripts/flashing/jungo-image.py?format=txt jungo-image.py] script. The script uses the telnet interface into the router to accomplish it's task. Depending on the version of the firmware, it may have to be manually enabled in the advanced tab under local administration. The script will first make a backup of the current flash image; this procedure takes about 4 minutes. The actual writing of !RedBoot requires the {{{-w}}} flag. Use {{{-h}}} to get help on all the options. If there's some failure, the only recourse is to install a JTAG header and restore the firmware via JTAG; so, use at your own risk!
+Installation of !RedBoot can be accomplished with the [https://dev.openwrt.org/browser/trunk/scripts/flashing/jungo-image.py?format=txt jungo-image.py] script. The script uses the telnet interface into the router to accomplish it's task. Depending on the version of the firmware, it may have to be manually enabled in the advanced tab under local administration. The script can be used to first make a backup of the current flash image; this procedure takes about 4 minutes. Use {{{-h}}} to get help on all the options. If there's some failure during the write portion, the only recourse may be to install a JTAG header and restore the firmware via JTAG; so, use at your own risk!
+
+Here's the basic usage:
+ * Backup existing image: {{{python jungo-image.py -p <password> <ip address>}}}
+ * Write new image: {{{python jungo-image.py -p <password> <ip address> <image file>}}}
+
+=== Redboot ===
+A custom version of [http://sourceware.org/redboot RedBoot] has been built and can be found here: attachment:rb-mi424wr-ROM.bin . The !RedBoot prompt is accessible via {{{telnet 192.168.1.1 9000}}} on the WAN port. The WAN port is configured to obtain an address via DHCP; if this fails it defaults to 192.168.1.1. !RedBoot does initialize the LAN switch so special action on Linux is required.
+
+Note that this version of !RedBoot has the option of bypassing the boot script if the reset button is pressed during the power-on sequence. This always allows access to !RedBoot via telnet on the WAN port. When !RedBoot is ready to accept commands, it sets the Internet LED red.
 
 After establishing a telnet session to !RedBoot, the flash must be initialized and configured:
 
@@ -63,7 +74,7 @@ After establishing a telnet session to !RedBoot, the flash must be initialized a
 In order to autonomously boot to the openwrt kernel you just installed, you need to add a boot script to RedBoot:
 
  1. Open RedBoot's configuration: {{{fconfig -d}}}
- 1. When prompted with Runn script at boot, change the value to {{{true}}}
+ 1. When prompted with Run script at boot, change the value to {{{true}}}
  1. Enter the following in the first line of the script enter: {{{fis load linux}}}
  1. Enter the second line: {{{exec}}}
  1. Hit enter to finish the script with an empty line.
@@ -94,7 +105,7 @@ The original image can be restored using the following procedure:
 The resulting {{{redboot.bin}}} image can be found in the {{{install/bin}}} direcoctory.
 
 === Linux ===
-Board id 1778 has been registered for this device. The attached MI424-WR images have been built from the OpenWrt trunk with various patches and tweaks. Basic support for the MI424-WR is found in target/linux/ixp4xx/patches-2.6.27/185-mi424wr_support.patch. Some additional patches are in the queue; hopefully, they will be merged into the trunk soon.
+Board id 1778 has been registered for this device. The attached MI424-WR images have been built from the OpenWrt trunk with various patches and tweaks. Basic support for the MI424-WR is found in target/linux/ixp4xx/patches-2.6.27/185-mi424wr_support.patch. Building from source requires using {{{make kernel_menuconfig}}} and selecting the MI424-WR board type (it's not set by default). After building, the resulting image openwrt-ixp4xx-zImage can be downloaded to the board as described above.
 
 Support for the wifi rt2500pci card is still experimental. It works in client mode but there are problems in AP mode.
 
