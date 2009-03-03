@@ -11,9 +11,9 @@ For SOHO routers and other network devices there are two popular cables: the buf
 
 There are other types of JTAG cables as well. Macraigor sells the Raven cable which is even more expensive than the Wiggler. Lately there are also cables that use a USB interface on the PC side instead of the 25-pin parallel port connector. I have not had any experience with these. There are still other JTAG solutions out there that are faster and more sophisticated than the interfaces built by hobbyists, but these are generally not cost-effective for someone who just wants to re-flash a single flash chip. A complete JTAG test rig is used in industry for much more than programming flash chips. Some of these industrial-strength setups can cost thousands and thousands of dollars.
 
-[http://microcontrollershop.com/product_info.php?products_id=589 Cheapest ready-made parallel JTAG adapter to buy in the USA…]
-[http://microcontrollershop.com/product_info.php?products_id=3124 Cheapest ready-made USB JTAG adapter to buy in the USA…]
-[http://shop1.frys.com/product/1599820 Hookups to defeat pinout mismatches…]
+ * [http://microcontrollershop.com/product_info.php?products_id=589 Cheapest ready-made parallel JTAG adapter to buy in the USA…]
+ * [http://microcontrollershop.com/product_info.php?products_id=3124 Cheapest ready-made USB JTAG adapter to buy in the USA…]
+ * [http://shop1.frys.com/product/1599820 Hookups to defeat pinout mismatches…]
 
 Driving a JTAG interface through the parallel port on a PC is a slow proposition. ''Really'' slow. This is due more to the nature of the parallel port connection than an inherent limit of the JTAG specification. In fact, the JTAG spec allows for up to 25 million bits-per-second transfers. With a parallel port cable, however, you will be lucky to achieve more than about 400,000 bits-per-second. With these speeds it is not unusual to spend 25 minutes writing a mere 256 KB of data over a JTAG cable. Programming an entire 2 MB or 4 MB flash chip can literally take hours. It's worth it, however, if you have an otherwise worthless device on your hands and JTAG is the only way to revive it. The Macraigor Raven and USB JTAG adapters are much faster, but there are no known schematic to implement it.
 
