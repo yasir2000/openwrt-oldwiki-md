@@ -1,3 +1,9 @@
+~+'''Building Kamikaze !HowTo'''+~
+
+__Valid for the following releases:__ Kamikaze, White Russian
+
+[[TableOfContents]]
+
 == Development Environment ==
 If you are not used to a Linux development environment or not sure how to set it up correctly, then first check out the [:OpenWrtDocs/Development/SetupBuildEnvironmentHowTo: Setup Build Environment HowTo].
 
@@ -48,16 +54,20 @@ Directions are available [http://downloads.openwrt.org/docs/buildroot-documentat
  * http://downloads.openwrt.org/docs/buildroot-documentation.html
 
 == Packages that do not compile ==
-Non-compilable packages as of revision 14750:
- * '''libgd''' (Ticket); dependent packages are bandwidthd, php4-mod-gd, php5-mod-gd, st2205tool, vnstati {{{
- ./scripts/feeds uninstall libgd bandwidthd php4-mod-gd php5-mod-gd st2205tool vnstati}}}
- * '''dsl-qos-queue''' ([https://dev.openwrt.org/ticket/4706 Ticket]) {{{
+ * '''dsl-qos-queue''' in revision 14750 ([https://dev.openwrt.org/ticket/4706 Ticket]) {{{
  ./scripts/feeds uninstall dsl-qos-queue}}}
- * '''quagga''' & '''quagga-unstable''' (Ticket) {{{
+ * '''kmod-ucmb''' in revision 14750 ([https://dev.openwrt.org/ticket/4711 Ticket]) {{{
+ ./scripts/feeds uninstall dsl-qos-queue}}}
+ * '''lftp''' in revision 14750 ([https://dev.openwrt.org/ticket/4705 Ticket]); apply patch from ticket
+ * '''libgd''' in revision 14750 (Ticket); dependent packages are bandwidthd, php4-mod-gd, php5-mod-gd, st2205tool, vnstati {{{
+ ./scripts/feeds uninstall libgd bandwidthd php4-mod-gd php5-mod-gd st2205tool vnstati}}}
+ * '''luasec''' in revision 14750 ([https://dev.openwrt.org/ticket/4739 Ticket]); apply patch from ticket
+ * '''quagga''' & '''quagga-unstable''' in revision 14750 (Ticket) {{{
  ./scripts/feeds uninstall quagga quagga-unstable}}}
- * '''lftp''' ([https://dev.openwrt.org/ticket/4705 Ticket]); apply patch from ticket
- * '''luasec''' ([https://dev.openwrt.org/ticket/4739 Ticket]); apply patch from ticket
- * '''qwo''' (Ticket) {{{
+ * '''qwo''' in revision 14750 (Ticket) {{{
  ./scripts/feeds uninstall qwo}}}
+ * '''xsupplicant''' in revision 14750 (Ticket) {{{
+ ./scripts/feeds uninstall xsupplicant}}}
+
 
 CategoryHowTo
