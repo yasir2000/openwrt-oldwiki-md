@@ -31,7 +31,7 @@ $ ./scripts/feeds install <name_1> <name_2> # Creates the symlinks for the packa
 Call the configuration menu, set the desired target, select the wanted packages and save. Then start building with make.
 {{{
 $ make menuconfig                           # Select your target, packages and other options. Only select the packages you need.
-$ make
+$ make ; echo -e '\a'                       # The echo is a bell/beep/alert in BASH (here Debian GNU/Linux), when make finishes
 }}}
 == Configuring a custom kernel ==
 While you won't typically need to do this, if you need to modify the Linux kernel configuration, use this command to enter the regular Linux menuconfig:
