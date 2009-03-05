@@ -1,7 +1,7 @@
 #pragma section-numbers off
 ||<tablebgcolor="#f1f1ed" tablewidth="40%" tablestyle="margin: 0pt 0pt 1em 1em; float: right; font-size: 0.9em;"style="padding: 0.5em;">[[TableOfContents]]||
 == ASUS WL-500g Premium ==
-With Kamikaze 7.09 and target system Broadcom BCM947xx/953xx [2.4 kernel] the ASUS WL-500g Premium is fully supported and runs stable.
+Since Kamikaze 7.09 and target system Broadcom BCM947xx/953xx [2.4 kernel] the ASUS WL-500g Premium is fully supported and runs stable.  The Kamikaze 8.09 release appears to work fine too.
 
 Important notice: there is a long standing bug that makes it impossible to do port forwarding (NAT) with this router on 2.4 kernel, see https://dev.openwrt.org/ticket/2558.  Otherwise the router works great, if you can live with the reduced functionality.
 
@@ -409,7 +409,8 @@ A German description, how to turn your asus into an music player: http://neophob
  * [http://wl500g.info/showthread.php?t=12962 RAM Upgrade]
  * [http://www.marcusbrutus.soho.on.net/blog/?p=67 Adding a Bluetooth PAN] by Marcus Brown
  * [http://sr.uz/index.php?p=223&more=1&c=1&tb=1&pb=1 Example configuration for the Atheros MiniPCI card on wl-500gP (translated from Russian)]  and [http://sr.uz/index.php?p=220&more=1&c=1&tb=1&pb=1 The original Russian text]
- * [http://josefsson.org/grisslan/wlan.html Setting up WDS/PSK2 on two Asus WL-500gP] by Simon Josefsson
+ * [http://josefsson.org/openwrt/wlan.html Setting up WDS/PSK2 on two Asus WL-500gP] by Simon Josefsson
+ * [http://josefsson.org/openwrt/dongle.html Using Huawei E220 with Asus WL-500gP] by Simon Josefsson
 === Product Info Pages ===
  * [http://usa.asus.com/search.aspx?searchitem=1&searchkey=WL-500g+Premium ASUS WL-500g Premium]
  * [http://www.broadcom.com/products/Wireless-LAN/802.11-Wireless-LAN-Solutions/BCM94704 Broadcom BCM94704 Reference SoC]
