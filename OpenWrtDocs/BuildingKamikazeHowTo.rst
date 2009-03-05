@@ -39,10 +39,25 @@ While you won't typically need to do this, if you need to modify the Linux kerne
 {{{
 $ make kernel_menuconfig
 }}}
+
 == Customizing the Target Filesystem ==
 Directions are available [http://downloads.openwrt.org/docs/buildroot-documentation.html#custom_targetfs here].
+
 == Additional Documentation ==
  * BuildRoot
  * http://downloads.openwrt.org/docs/buildroot-documentation.html
+
+== Packages that do not compile ==
+Non-compilable packages as of revision 14750:
+ * '''libgd''' (Ticket); dependent packages are bandwidthd, php4-mod-gd, php5-mod-gd, st2205tool, vnstati {{{
+ ./scripts/feeds uninstall libgd bandwidthd php4-mod-gd php5-mod-gd st2205tool vnstati}}}
+ * '''dsl-qos-queue''' ([https://dev.openwrt.org/ticket/4706 Ticket]) {{{
+ ./scripts/feeds uninstall dsl-qos-queue}}}
+ * '''quagga''' & '''quagga-unstable''' (Ticket) {{{
+ ./scripts/feeds uninstall quagga quagga-unstable}}}
+ * '''lftp''' ([https://dev.openwrt.org/ticket/4705 Ticket]); apply patch from ticket
+ * '''luasec''' ([https://dev.openwrt.org/ticket/4739 Ticket]); apply patch from ticket
+ * '''qwo''' (Ticket) {{{
+ ./scripts/feeds uninstall qwo}}}
 
 CategoryHowTo
