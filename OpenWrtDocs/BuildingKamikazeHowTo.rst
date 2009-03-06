@@ -27,7 +27,7 @@ $ mkdir ~/kamikaze-trunk/
 $ cd ~/kamikaze-trunk/
 $ svn checkout https://svn.openwrt.org/openwrt/trunk/ .
 }}}
-Get all the general packages, the ones for Luci and if you wish the ones for Xwrt too.
+Get all the extra packages, the ones for Luci and if you wish the ones for Xwrt too.
 Then install the packages you need, so that you can choose them later in the menuconfig.
 {{{
 $ ./scripts/feeds update packages luci      # Checkout the extra packages
