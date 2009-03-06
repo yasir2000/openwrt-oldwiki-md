@@ -61,7 +61,6 @@ Directions are available [http://downloads.openwrt.org/docs/buildroot-documentat
  * '''lftp''' in revision 14750 ([https://dev.openwrt.org/ticket/4705 Ticket]); apply patch from ticket
  * '''libgd''' in revision 14750 ([https://dev.openwrt.org/ticket/4741 Ticket]); depending packages are bandwidthd, php4-mod-gd, php5-mod-gd, st2205tool, vnstati {{{
  ./scripts/feeds uninstall gd bandwidthd php4-mod-gd php5-mod-gd st2205tool vnstati}}}
- * '''luasec''' in revision 14750 ([https://dev.openwrt.org/ticket/4739 Ticket]); apply patch from ticket
  * '''quagga''' & '''quagga-unstable''' in revision 14750 (Ticket) {{{
  ./scripts/feeds uninstall quagga quagga-unstable}}}
  * '''qwo''' in revision 14750 (Ticket) {{{
