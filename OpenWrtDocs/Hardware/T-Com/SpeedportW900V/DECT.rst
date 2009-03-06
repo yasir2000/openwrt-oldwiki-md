@@ -26,7 +26,6 @@ I couldn't find the pinout of the SC14428 in 128TQFP in the net.
 ||30 || A15 of NOR flash||
 ||47 || via 330 Ohm to testpin 1 of the bottom side of the PCB (see picture below)||
 ||48 || via 330 Ohm to testpin 2||
-||51 || to testpin 4 (?)||
 ||67 || SCL of i2c eeprom||
 ||68-75||DQ0,DQ8,DQ1,DQ9,DQ2,DQ10,DQ3,DQ11 of the NOR flash||
 ||85-92||DQ4,DQ12,DQ5,DQ13,DQ6,DQ14,DQ7,DQ15 of the NOR flash||
@@ -40,4 +39,4 @@ http://s1b.directupload.net/images/090227/qc3c4cuo.jpg
 
 bottom side (These may be test points to the SC14428):
 
-http://s1b.directupload.net/images/090227/34aok29k.jpg
+http://s8b.directupload.net/images/090306/y3bx84jt.jpg
