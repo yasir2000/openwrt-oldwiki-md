@@ -57,9 +57,9 @@ Directions are available [http://downloads.openwrt.org/docs/buildroot-documentat
  * '''dsl-qos-queue''' in revision 14750 ([https://dev.openwrt.org/ticket/4706 Ticket]) {{{
  ./scripts/feeds uninstall dsl-qos-queue}}}
  * '''kmod-ucmb''' in revision 14750 ([https://dev.openwrt.org/ticket/4711 Ticket]) {{{
- ./scripts/feeds uninstall dsl-qos-queue}}}
+ ./scripts/feeds uninstall kmod-ucmb}}}
  * '''lftp''' in revision 14750 ([https://dev.openwrt.org/ticket/4705 Ticket]); apply patch from ticket
- * '''libgd''' in revision 14750 ([https://dev.openwrt.org/ticket/4741 Ticket]); dependent packages are bandwidthd, php4-mod-gd, php5-mod-gd, st2205tool, vnstati {{{
+ * '''libgd''' in revision 14750 ([https://dev.openwrt.org/ticket/4741 Ticket]); depending packages are bandwidthd, php4-mod-gd, php5-mod-gd, st2205tool, vnstati {{{
  ./scripts/feeds uninstall gd bandwidthd php4-mod-gd php5-mod-gd st2205tool vnstati}}}
  * '''luasec''' in revision 14750 ([https://dev.openwrt.org/ticket/4739 Ticket]); apply patch from ticket
  * '''quagga''' & '''quagga-unstable''' in revision 14750 (Ticket) {{{
