@@ -32,6 +32,8 @@ nvram unset disabled_57xx
 nvram commit
 }}}
 
+WARNING: Flashing the pre-build openwrt-wrt350n_v1-squashfs.bin from downloads.openwrt.org could very well disable all ethernet ports on the router, forcing you to install a serial port to recover.  Search the forums and you'll see that happened to a bunch of people (include yours truely), so be warned.
+
 
 '''WRT350N v2.0'''
 
