@@ -70,6 +70,7 @@ Here's a table with the package name for each prerequisite separated for differe
 ||xgettext||gettext||?||?||?||
 ||fastjar||fastjar||?||?||?||
 ||jikes||jikes||?||?||?||
+||ruby||ruby||?||?||?||
 ||xsltproc||xsltproc||?||?||?||
 ||working-sdcc||?||?||?||?||
 ||sdcc||sdcc||?||?||?||
