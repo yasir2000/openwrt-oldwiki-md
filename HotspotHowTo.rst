@@ -52,7 +52,7 @@ config 'interface' 'wifi'
 
 {{{
 config 'wifi-device' 'wlan0'
-	option 'type'	'broadcom'
+	option 'type'	''mac80211''
 	option 'channel'	'11'
 	option 'disabled'	'0'
 
