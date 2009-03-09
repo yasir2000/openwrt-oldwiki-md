@@ -249,3 +249,5 @@ http://www.linux-mips.org/wiki/AR7#AR7
 http://ar7.wikispaces.com/
 
 http://archive.seattlewireless.net/index.cgi/ADAM2
+----
+["CategoryAR7Device"]
