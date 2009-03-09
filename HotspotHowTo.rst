@@ -26,24 +26,24 @@ ipkg install nodogsplash
 
 {{{
 #### LAN configuration
-config interface lan
-option type      bridge
-option ifname    eth0.0
-option proto     static
-option ipaddr    10.10.10.1
-option netmask   255.255.255.0
+config 'interface' 'lan'
+	option 'type'	'bridge'
+	option 'ifname'	'eth0.0'
+	option 'proto'	'static'
+	option 'ipaddr'	'10.10.10.1'
+	option 'netmask'	'255.255.255.0'
 
 #### WAN configuration
-config interface wan
-option ifname    eth0.1
-option proto     dhcp
+config 'interface' 'wan'
+	option 'ifname'	'eth0.1'
+	option 'proto'	'dhcp'
 
 #### HOTSPOT configuration
-config interface wifi
-option ifname    eth1.0
-option proto     static
-option ipaddr    10.10.15.1
-option netmask   255.255.255.0
+config 'interface' 'wifi'
+	option 'ifname'	'eth1.0'
+	option 'proto'	'static'
+	option 'ipaddr'	'10.10.15.1'
+	option 'netmask'	'255.255.255.0'
 }}}
 
 == Configure wireless settings ==
@@ -51,27 +51,27 @@ option netmask   255.255.255.0
 /etc/config/wireless
 
 {{{
-config wifi-device  wlan0
-option type         broadcom
-option channel      11
-option disabled     0
+config 'wifi-device' 'wlan0'
+	option 'type'	'broadcom'
+	option 'channel'	'11'
+	option 'disabled'	'0'
 
-config wifi-iface
-option device       wlan0
-option network      lan
-option mode         ap
-option ssid         mywifi-secure
-option encryption   psk2
-option hidden       0
-option key          'your%verylong.andsecure-pskkey'
+config 'wifi-iface'
+	option 'device'	'wlan0'
+	option 'network'	'lan'
+	option 'mode'	'ap'
+	option 'ssid'	'mywifi-secure'
+	option 'encryption'	'psk2'
+	option 'hidden'	'0'
+	option 'key'	''your%verylong.andsecure-pskkey''
 
-config wifi-iface
-option device       wlan0
-option network      wifi
-option mode         ap
-option ssid         public-hotspot
-option encryption   none
-option hidden       0
+config 'wifi-iface'
+	option 'device'	'wlan0'
+	option 'network'	'wifi'
+	option 'mode'	'ap'
+	option 'ssid'	'public-hotspot'
+	option 'encryption'	'none'
+	option 'hidden'	'0'
 }}}
 
 == Configure DHCP ==
@@ -79,21 +79,21 @@ option hidden       0
 /etc/config/dhcp
 
 {{{
-config dhcp
-        option interface        lan
-        option start    100
-        option limit    150
-        option leasetime        12h
+config 'dhcp'
+        	option 'interface'	'lan'
+        	option 'start'	'100'
+        	option 'limit'	'150'
+        	option 'leasetime'	'12h'
 
-config dhcp
-        option interface        wan
-        option ignore   1
+config 'dhcp'
+        	option 'interface'	'wan'
+        	option 'ignore'	'1'
 
-config dhcp
-        option interface        wifi
-        option start    100
-        option limit    150
-        option leasetime        2h
+config 'dhcp'
+        	option 'interface'	'wifi'
+        	option 'start'	'100'
+        	option 'limit'	'150'
+        	option 'leasetime'	'2h'
 }}}
 
 == Configure nodogsplash ==
