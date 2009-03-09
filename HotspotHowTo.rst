@@ -52,7 +52,7 @@ config 'interface' 'wifi'
 
 {{{
 config 'wifi-device' 'wlan0'
-	option 'type'	''mac80211''
+	option 'type'	'mac80211'
 	option 'channel'	'11'
 	option 'disabled'	'0'
 
@@ -63,7 +63,7 @@ config 'wifi-iface'
 	option 'ssid'	'mywifi-secure'
 	option 'encryption'	'psk2'
 	option 'hidden'	'0'
-	option 'key'	''your%verylong.andsecure-pskkey''
+	option 'key'	'your%verylong.andsecure-pskkey'
 
 config 'wifi-iface'
 	option 'device'	'wlan0'
