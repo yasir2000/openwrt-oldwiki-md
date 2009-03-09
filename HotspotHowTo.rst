@@ -51,13 +51,13 @@ option netmask   255.255.255.0
 /etc/config/wireless
 
 {{{
-config wifi-device  wl0
+config wifi-device  wlan0
 option type         broadcom
 option channel      11
 option disabled     0
 
 config wifi-iface
-option device       wl0
+option device       wlan0
 option network      lan
 option mode         ap
 option ssid         mywifi-secure
@@ -66,7 +66,7 @@ option hidden       0
 option key          'your%verylong.andsecure-pskkey'
 
 config wifi-iface
-option device       wl0
+option device       wlan0
 option network      wifi
 option mode         ap
 option ssid         public-hotspot
@@ -105,7 +105,7 @@ config dhcp
 Tell nodogsplash to manage the public hotspot connection:
 
 {{{
-GatewayInterface wl0.1
+GatewayInterface wlan0.1
 }}}
 
 Allow access to email:
