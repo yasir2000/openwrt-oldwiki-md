@@ -98,6 +98,8 @@ config 'dhcp'
 
 == Configure nodogsplash ==
 
+Note: Kamikaze 8.09 is recommended here, as nodogsplash didn't include anything in /etc/ until 8.09.  Also, the init.d script for nodogsplash currently requires a few fixes, [http://forum.openwrt.org/viewtopic.php?pid=83610 available here].
+
 /etc/nodogsplash/nodogsplash.conf
 
 (relevant changes only)
