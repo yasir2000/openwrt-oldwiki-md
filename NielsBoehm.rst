@@ -7,9 +7,9 @@
 
 == Favourite Pages ==
 
- . ["WRT54GL"]
- . ["MMC"]
- . PackagesOnExternalMediaHowTo
+ . ["OpenWrtDocs/Hardware/Linksys/WRT54GL"]
+ . ["OpenWrtDocs/Customizing/Hardware/MMC"]
+ . OpenWrtDocs/KamikazeConfiguration/PackagesOnExternalMediaHowTo
 
 ----
 CategoryHomepage
