@@ -10,7 +10,7 @@ See also: ["RunningKamikazeOnQEMUHowTo"]
  1. Open the vmx file with VMWare Player (or simply double click on it)
 You can access via VMware, or via serial: On a Windows host-system the virtual serial console is accessible e.g. using PuTTY connected to \\.\pipe\com_1 @ 115200 8n1 (N.B.: I do not know if the baud rate of 115200 is still correct). You can also ssh to openwrt (run 'passwd' beforehand in the vmware, Usually you need to run "udhcpc -i eth0" to get an IP from your local network)
 
-The 8.09 Kamikaze builds don't include the kmod-e1000 package which results in booting without the eth0 and eth1 interfaces.  You can build your own image to include it or you can create a second hard disk image with the additional packages you wish to install:
+The 8.09 Kamikaze builds don't include the kmod-e1000 package which results in booting without the eth0 and eth1 interfaces (some versions of VMWare use the kmod-pcnet32 module, also not installed).  You can build your own image to include it or you can create a second hard disk image with the additional packages you wish to install:
 
  1. Create a blank hard disk image: {{{dd if=/dev/zero of=disk.img bs=1M count=1}}} (creates a 1 'M'egabyte image)
  1. Make a filesystem in the image: {{{mkfs.ext2 disk.img}}}
