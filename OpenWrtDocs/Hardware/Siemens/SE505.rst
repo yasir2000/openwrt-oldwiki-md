@@ -126,7 +126,7 @@ A self compiled CFE which can set new "sdram_init" values can be found here:
 
 You need serial console access to the rooter and a tftp server for flashing the new CFE.
 
-If you are running White Russian, you can also use rwflash.o and the mtd-package (the one that comes with WR does NOT work) to flash the cfe from the running system. But be careful: If something goes wrong you will need JTAG.
+If you are running White Russian, you can also use rwflash.o and the mtd-package (the one included in the WR image does NOT work, so install the "real" mtd-package) to flash the cfe from the running system. But be careful: If something goes wrong you will definitively need JTAG.
 
 {{{
 cd /tmp
