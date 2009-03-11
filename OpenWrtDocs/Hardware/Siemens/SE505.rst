@@ -124,7 +124,19 @@ Using chips from a 4 chip PC133 SDRAM module is the safest option. RAM chips fro
 A self compiled CFE which can set new "sdram_init" values can be found here:
 ([http://forum.openwrt.org/viewtopic.php?id=9379: see forum thread])
 
-You need serial console access to the rooter and a tftp server for flashing the new CFE. 
+You need serial console access to the rooter and a tftp server for flashing the new CFE.
+
+If you are running White Russian, you can also use rwflash.o and the mtd-package (the one that comes with WR does NOT work) to flash the cfe from the running system. But be careful: If something goes wrong you will need JTAG.
+
+{{{
+cd /tmp
+ipkg update; ipkg install mtd
+wget http://myantihero.net/pub/openwrt/rwflash.o
+insmod rwflash.o
+wget ftp://funnel.homelinux.net/se505/cfe/cfez_64.bin
+mtd -f write /tmp/cfez_64.bin rwcfe
+}}}
+
 
 === Retrofitting USB ===
 The SE505V2 can be retrofitted a USB1.1 port. Note that a mass storage device (as a thumb drive) attached to USB1.1 is much faster than SD-cards attached using the MMC mod (transfers use only a small fraction of the CPU cycles of a simulated "bit-banging" SPI interface). Writing to a thumb drive formatted with the EXT2 is typically 10 times faster than writing to a JFFS file system ([http://forum.openwrt.org/viewtopic.php?id=8656: see forum thread])!
