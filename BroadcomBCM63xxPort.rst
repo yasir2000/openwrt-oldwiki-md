@@ -38,6 +38,7 @@ There are also some other variants like bcm6341, which is a DSP used in VoIP pro
 
 == Known 63xx platforms ==
 === Known 6345 platforms:* ===
+||[http://www.voyager.bt.com/wireless_devices/voyager_2100/product_info.htm BT Voyager 2100] ||
 ||[http://www.dynalink.com.au/modemsadsl_cur.htm?prod=RTA230 Dynalink RTA230] ||
 ||[:OpenWrtDocs/Hardware/Dynalink/RTA770W:Dynalink RTA770W] ||
 ||[:OpenWrtDocs/Hardware/Linksys/WAG54GS:ZTE ZXDSL 831A] ||
