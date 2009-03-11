@@ -1,4 +1,4 @@
-The AVM 7141 has 32MB memory/8MB flash.
+The AVM 7141 has 32MB memory/8MB flash, Wifi, ADSL2, USB and 2 telephone ports.
 
 Similar to 7170, but lacking the ISDN telephone port.
 There's 1 Ethernet port instead of a 4-ports switch.
