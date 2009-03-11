@@ -10,6 +10,8 @@
  . ["OpenWrtDocs/Hardware/Linksys/WRT54GL"]
  . ["OpenWrtDocs/Customizing/Hardware/MMC"]
  . OpenWrtDocs/KamikazeConfiguration/PackagesOnExternalMediaHowTo
+ . ReplaceJFFS2WithExternalMedia
+ . UsbStorageHowto
 
 ----
 CategoryHomepage
