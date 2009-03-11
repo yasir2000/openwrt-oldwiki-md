@@ -8,6 +8,7 @@ NOTE3: F5D7231-4 seems to have the same firmware. Hardware looks exactly the sam
 NOTE4: The Siemens [:OpenWrtDocs/Hardware/Siemens/SE505: SE505] (v2) is nearly exact the same router. It has fewer RAM (8MB) but more flash (4MB). Flashing a Belkin firmware is possible on the Siemens. LED control should be the same as SE505V2 - the same diag module patches for Whiterussian 0.9 "RC6+" should work! Refer to the SE505 (V2) section for RAM upgrade  and details on the new CFE! (Timo Beil).   
 
 NOTE5: See http://forum.openwrt.org/viewtopic.php?id=4929 for info on using OpenWRT with the v2000 revision.
+Those patches don't work against recent trunk because the bcm947xx code was changed significantly since 2006. - frank33
 
 NOTE6: A cut down version of RC5 will run on the v1444. Use the 4MB JFFS2 images. (Must be below 2MB) - star882
 
