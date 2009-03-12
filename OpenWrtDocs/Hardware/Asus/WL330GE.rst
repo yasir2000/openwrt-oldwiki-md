@@ -2,7 +2,7 @@
 
 == Hardware Info ==
 
-The hardware is very similar to the [:OpenWrtDocs/Hardware/Asus/WL520GU:WL-520gU] and uses the heavily integrated BCM5354 core. '''This device is not to be confused with the WL-330gE''', which is a distinctly different piece of hardware.
+The hardware is very similar to the [:OpenWrtDocs/Hardware/Asus/WL520GU:WL-520gU] and uses the heavily integrated BCM5354 core. '''This device is not to be confused with the WL-330g''', which is a distinctly different piece of hardware.
 
 == Bootloader Recovery Mode ==
 
