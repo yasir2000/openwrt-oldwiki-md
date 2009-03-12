@@ -53,6 +53,10 @@ attachment:834top_small.jpg
 }}}
 The console is JP603 and is oriented with pin1 closest to the edge of the board like the v1 . It is located roughly behind the tick led on the front left of the board, just off the edge of the MiniPCI connector. It was half hidden by the MAC address sticker on my unit. It's the only header I could find; only 4 pins and wasn't soldered up at all. I took a voltage tap of an adjacent 74xx chip to power my MAX232. Settings are 115200,8,N,1.
 
+== Installing OpenWRT ==
+
+Details of how to install OpenWRT on the Netgear DG834 V2, including ethernet and Wifi capability, can be found at http://www.praguespringpeople.org/Software/OpenWRT%20on%20NetGear%20DG834G%20v2/index.txt
+
 = Netgear DG834G V3 =
 == Hardware ==
 '''Update please'''
