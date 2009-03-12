@@ -10,7 +10,7 @@ The device can be booted in bootloader recovery mode by powering on while holdin
 
 == Support in 8.09 ==
 
-Unfortunately, [http://lists.openwrt.org/pipermail/openwrt-devel/2009-February/003900.html the patch] that added support for detecting and configuring this device was added after 8.09 was released (see [https://dev.openwrt.org/changeset/14624 r14624]). Everything works fine out of the box with the standard 8.09 image, but the reset button and power LED are not supported. Minor features, yes, but without them it's impossible to get the device in to [:OpenWrtDocs/Troubleshooting:failsafe mode]. Since this device has only one ethernet port, you may find yourself locked out of this device. With failsafe mode you can recover without reflashing.
+Unfortunately, [http://lists.openwrt.org/pipermail/openwrt-devel/2009-February/003900.html the patch] that added support for detecting and configuring this device was added after 8.09 was released (see [https://dev.openwrt.org/changeset/14624 r14624]). Everything works fine out of the box with the standard 8.09 image, but the reset button and power LED are not supported. Minor features, yes, but without them it's impossible to get the device in to [:OpenWrtDocs/Troubleshooting:failsafe mode]. Since this device has only one ethernet port, you may find yourself locked out. With failsafe mode you could recover without reflashing.
 
 Your options are applying the patch to the 8.09 sources or downloading a pre-compiled firmware that I'm providing as a courtesy. This firmware matches the 8.09 release exactly, with the patch added and without the kmod-switch package (this is unneeded).
 
