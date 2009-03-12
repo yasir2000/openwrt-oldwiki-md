@@ -14,5 +14,5 @@ Unfortunately, [http://lists.openwrt.org/pipermail/openwrt-devel/2009-February/0
 
 Your options are applying the patch to the 8.09 sources or downloading a pre-compiled firmware that I'm providing as a courtesy. This firmware matches the 8.09 release exactly, with the patch added and without the kmod-switch package (this is unneeded).
 
- * [http://priv.kupesoft.com/openwrt/wl-330ge/openwrt-WL-330gE-8.09-brcm-2.4-squashfs.trx openwrt-WL-330gE-8.09-brcm-2.4-squashfs.trx]
- * [http://etc.kupesoft.com/openwrt/wl-330ge/WL-330gE.patch WL-330gE.patch]
+ * [http://priv.kupesoft.com/openwrt/wl-330ge/openwrt-WL-330gE-8.09-brcm-2.4-squashfs.trx openwrt-WL-330gE-8.09-brcm-2.4-squashfs.trx] ([http://etc.kupesoft.com/openwrt/wl-330ge/WL-330gE.config WL-330gE.config])
+ * [http://priv.kupesoft.com/openwrt/wl-330ge/WL-330gE.patch WL-330gE.patch]
