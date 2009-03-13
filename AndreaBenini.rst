@@ -2,7 +2,14 @@
 #format wiki
 == Andrea Benini ==
 
-Email: 
+Interests:[[BR]]
+creating toolchains for MIPS, ARM, IXP4xx hardware
+customize my own personal images
+
+
+
+See you in the forum (Ben72) :-)
+
 
 ...
 
