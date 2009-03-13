@@ -35,8 +35,7 @@ See TableOfHardware.
 = Choosing the right firmware =
 If you're new to OpenWrt, you'll probably want the latest release, Kamikaze, available here:
 
- * [http://downloads.openwrt.org/kamikaze/7.09/ Kamikaze 7.09]
-
+ * [http://downloads.openwrt.org/kamikaze/8.09/ Kamikaze 8.09]
 The general method for picking the right image is visiting the TableOfHardware, then matching the "Platform & Frequency" of your device with the image you're downloading.  Sometimes, the "Status" column will have additional for your device, such as building its image or device-specific installation instructions.
 
 If there isn't a pre-built image for your device, follow the OpenWrtDocs/BuildingKamikazeHowTo instructions to build a custom image.
@@ -45,7 +44,6 @@ The legacy White Russian release is also available, but Kamikaze is strongly enc
 
  * [http://downloads.openwrt.org/whiterussian/newest/ Final White Russian release]
  * [OpenWrtDocs/WhiteRussian/Distribution]
-
 Any bugs in the firmware should be reported via the ticket system [https://dev.openwrt.org/newticket here].
 
 == TRX vs. BIN ==
@@ -53,7 +51,6 @@ The firmware files are shipped as either "trx" or "bin" files. The bin file is n
 
  * openwrt-brcm-2.4-<type>.trx
   . This is the firmware in raw format, exactly as it will be written to the flash. This format is used when upgrading from within OpenWrt or during the initial install on one of the following:
-
  * openwrt-wrt54g-<type>.bin; openwrt-wrt54gs-<type>.bin; openwrt-wrt54gs_v4-<type>.bin; openwrt-wrtsl54gs-<type>.bin
   . This is the exact same as the trx file above, with one exception -- a small header has been added to the start of the file, marking it as a valid upgrade for Linksys models. Supported models:
    * openwrt-wrt54g-<type>.bin
@@ -103,12 +100,12 @@ Reflashing OpenWrt will overwrite the filesystem, erasing all previous applicati
 mtd -r write firmware.trx linux
 }}}
 ----
-For models low on memory (8MB), the firmware can be flashed directly from a web site.
+ For models low on memory (8MB), the firmware can be flashed directly from a web site.
 
 /!\ ''Do not use this unless absolutely necessary. A dropped connection will result in a partially flashed router. You have been warned.''
+
 {{{
 wget http://www.somesite.com/firmware.trx -O - | mtd -e linux -r write - linux
 }}}
-
 = What's Next? =
 Begin by [:OpenWrtDocs/Using:logging in with telnet] to 192.168.1.1 and setting a password.  Kamakaze users will then want to see OpenWrtDocs/KamikazeConfiguration.
