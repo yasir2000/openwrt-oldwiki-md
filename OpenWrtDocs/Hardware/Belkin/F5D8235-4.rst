@@ -640,6 +640,8 @@ For 1.01.19 firmware - F5D8235v1-1.01.19-GPL.tar.gz
 
 For 1.01.21 firmware - F5D8235v1-1.01.21-GPL.tar.gz
 
+For 1.01.24 firmware - F5D8235v1-1.00.24-GPL.tar.gz
+
 == Enable telnet ==
 Go to http://belkin/ver.htm and set "Start telnetd for debug" parameter to 1. You will also need to add telnetd binary to firmware image or recompile busybox with telnetd applet. To disable telnetd go to http://belkin/ver.htm and set "Start telnetd for debug" parameter to 0.
 
