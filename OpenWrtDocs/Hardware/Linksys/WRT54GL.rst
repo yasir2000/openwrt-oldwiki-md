@@ -92,13 +92,13 @@ Once you have set the NVRAM parameters above it is possible to use a TFTP client
  * Unplug the router's power cord.
  * Connect the router's LAN1 port directly to your PC.
  * Configure your PC with a static IP address between 192.168.1.2 and 192.168.1.254. E. g. 192.168.1.2 (gateway and DNS is not required).
- * Download the openwrt-wrt54g-2.4-squashfs.bin firmware image to your PC
+ * Download the openwrt-wrt54g-squashfs.bin firmware image to your PC
  * Execute the TFTP commands (the commands are for Linux) below:
  {{{
 tftp 192.168.1.1
 tftp> binary
 tftp> trace
-tftp> put openwrt-wrt54g-2.4-squashfs.bin}}}
+tftp> put openwrt-wrt54g-squashfs.bin}}}
  * Plug the power on and the TFTP transfer should start immediately
  * Wait 2 minutes. The router will reboot itself automatically after the upgrade is complete.
  * You are done! You should be able to telnet to your router (IP address: 192.168.1.1) and start configuring.
@@ -107,7 +107,7 @@ If you have already installed !OpenWrt and like to reflash for e.g. upgrading to
 
 {{{
 cd /tmp/
-wget http://downloads.openwrt.org/kamikaze/7.09/brcm-2.4/openwrt-brcm-2.4-squashfs.trx
+wget http://downloads.openwrt.org/kamikaze/8.09/brcm-2.4/openwrt-brcm-2.4-squashfs.trx
 mtd write /tmp/openwrt-brcm-2.4-squashfs.trx linux && reboot}}}
 = Linksys WRT54GL specific configuration =
 == Interfaces ==
