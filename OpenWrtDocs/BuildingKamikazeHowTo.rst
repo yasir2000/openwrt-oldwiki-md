@@ -37,7 +37,7 @@ $ ./scripts/feeds install <name_1> <name_2> # Creates the symlinks for the packa
 Call the configuration menu, set the desired target, select the wanted packages and save. Then start building with make.
 {{{
 $ make menuconfig                           # Select your target, packages and other options. Only select the packages you need.
-$ make ; echo -e '\a'                       # The echo is a bell/beep/alert in BASH (here Debian GNU/Linux), when make finishes
+$ make V=99 ; echo -e '\a'                       # The echo is a bell/beep/alert in BASH (here Debian GNU/Linux), when make finishes
 }}}
 == Configuring a custom kernel ==
 While you won't typically need to do this, if you need to modify the Linux kernel configuration, use this command to enter the regular Linux menuconfig:
@@ -54,6 +54,7 @@ Directions are available [http://downloads.openwrt.org/docs/buildroot-documentat
  * http://downloads.openwrt.org/docs/buildroot-documentation.html
 
 == Packages that do not compile ==
+ * If a package can not be compiled due to a missing source code file in subfolder dl (e.g. download problems), then check out the corresponding Makefile, try to download the source manually and put it into ~/kamikaze-trunk/dl
  * '''dsl-qos-queue''' in revision 14750 ([https://dev.openwrt.org/ticket/4706 Ticket]) {{{
  ./scripts/feeds uninstall dsl-qos-queue}}}
  * '''kmod-ucmb''' in revision 14750 ([https://dev.openwrt.org/ticket/4711 Ticket]) {{{
