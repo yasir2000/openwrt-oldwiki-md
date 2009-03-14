@@ -58,8 +58,6 @@ Directions are available [http://downloads.openwrt.org/docs/buildroot-documentat
  ./scripts/feeds uninstall dsl-qos-queue}}}
  * '''kmod-ucmb''' in revision 14750 ([https://dev.openwrt.org/ticket/4711 Ticket]) {{{
  ./scripts/feeds uninstall kmod-ucmb}}}
- * '''lftp''' in revision 14750 ([https://dev.openwrt.org/ticket/4705 Ticket]); apply patch from ticket
- ./scripts/feeds uninstall libgd bandwidthd php4-mod-gd php5-mod-gd st2205tool vnstati}}}
  * '''quagga''' & '''quagga-unstable''' in revision 14750 (Ticket) {{{
  ./scripts/feeds uninstall quagga quagga-unstable}}}
  * '''qwo''' in revision 14750 (Ticket) {{{
