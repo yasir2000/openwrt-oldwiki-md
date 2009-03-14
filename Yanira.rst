@@ -5,7 +5,6 @@
 
 This is a short guide to get an MMC/SD card working with !OpenWrt Kamikaze 8.09 and an 2.6 Kernel. The driver can be configured using either UCI CLI or the LuCI WebUI.
 
-= SD/MMC mod =
 = GPIO Pinouts =
 {{{
 Description                GPIO
@@ -24,7 +23,7 @@ Images from PCB.
 
 == Using UCI CLI ==
 
-== Install packages ==
+=== Install packages ===
 
 Required packages:
 
@@ -58,4 +57,4 @@ root@OpenWrt:~# uci set fstab.@mount[0].options=rw,sync,noatime
 root@OpenWrt:~# uci commit fstab
 root@OpenWrt:~# /etc/init.d/fstab restart
 }}}
-==== Using the LuCI WebUI ====
+== Using the LuCI WebUI ==
