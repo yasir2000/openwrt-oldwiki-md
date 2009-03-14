@@ -48,6 +48,7 @@ root@OpenWrt:~# /etc/init.d/mmc_over_gpio start
 root@OpenWrt:~# /etc/init.d/mmc_over_gpio enable
 }}}
 === Mount the MMC/SD card via fstab ===
+To get partition mounted automatically you have to edit and change START=20 to START=98 in the /etc/init.d/fstab init script.
 {{{
 root@OpenWrt:~# uci set fstab.@mount[0].enabled=1
 root@OpenWrt:~# uci set fstab.@mount[0].fstype=ext3
