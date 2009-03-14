@@ -1,6 +1,9 @@
-MMC/SD card mod
+#pragma section-numbers off
+||<tablebgcolor="#f1f1ed" tablewidth="40%" tablestyle="margin: 0pt 0pt 1em 1em; font-size: 0.9em; float: right;"style="padding: 0.5em;">[[TableOfContents]]||
 
-This is a short guide to get an MMC/SD card working with OpenWrt Kamikaze 8.09 and an 2.6 Kernel. The driver can be configured using either UCI CLI or the LuCI WebUI.
+'''MMC/SD card mod'''
+
+This is a short guide to get an MMC/SD card working with !OpenWrt Kamikaze 8.09 and an 2.6 Kernel. The driver can be configured using either UCI CLI or the LuCI WebUI.
 
 = SD/MMC mod =
 = GPIO Pinouts =
