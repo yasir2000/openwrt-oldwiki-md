@@ -1,4 +1,4 @@
-'''Note: There is a better method for doing this found at the UsbStorageHowto page.'''
+/!\ '''Note: There is a better method for doing this found at the UsbStorageHowto page. Further alternative methods are at OpenWrtDocs/KamikazeConfiguration/PackagesOnExternalMediaHowTo and OpenWrtDocs/KamikazeConfiguration/BootFromExternalMediaHowTo.'''
 
 [[TableOfContents(3)]]
 
