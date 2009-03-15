@@ -164,7 +164,7 @@ On the antenna side of the PCB add the following components:
   R733 and R734: shorten (better use 22R - 33R)
   J51: USB-plug (Reichelt.de part# "USB AW-VL")
 }}}
-Software side: installing the USB kernel modules is simple, just follow the steps described in UsbStorageHowto. Note that the SE505V2 has an OHCI controller.
+Software side: installing the USB kernel modules is simple, just follow the steps described in UsbStorageHowto. Note that the SE505V2 has an OHCI controller. In offical builds for kernel 2.6 USB will not work. You have to compile your own kernel with the option "OHCI support for Broadcom SSB OHCI core" (Use make kernel_menuconfig). 
 
 === Reset Button Mod ===
 The reset button is hard wired to the CPU reset generator chip (7703I). Failsafe mode, and running scripts in /etc/hotplug.d/buttons require removing this capacitor! 
