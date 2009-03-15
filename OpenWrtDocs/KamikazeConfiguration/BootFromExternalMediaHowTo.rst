@@ -206,3 +206,7 @@ Then simply execute this and reboot afterwards:
 {{{
 /etc/init.d/bootext enable
 }}}
+
+
+----
+CategoryHowTo
