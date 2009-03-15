@@ -256,7 +256,7 @@ See ["OpenWrtDocs/Customizing/Hardware/MMC"] for details.
 
 Relocate the writable filesystem to the SD card and let the SquashFS (boot and read-only) parition stay on the flash chip. Any changes and new packages will then be stored on the SD card.
 
-See OpenWrtDocs/KamikazeConfiguration/PackagesOnExternalMediaHowTo for details.
+See OpenWrtDocs/KamikazeConfiguration/PackagesOnExternalMediaHowTo and OpenWrtDocs/KamikazeConfiguration/BootFromExternalMediaHowTo for details.
 
 Config /etc/config/bootfromexternalmedia:
 
