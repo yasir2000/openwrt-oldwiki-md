@@ -373,6 +373,9 @@ Use the new additional storage to install and store packages on the SD card.
 
 In the case of Kamikaze, the writable parition can be relocated to the external media while the original SquashFS root read-only files stays on the flash chip.
 
- * White Russian: http://wiki.openwrt.org/PackagesOnExternalMediaHowTo
- * Kamikaze: http://wiki.openwrt.org/OpenWrtDocs/KamikazeConfiguration/PackagesOnExternalMediaHowTo
+ * White Russian: PackagesOnExternalMediaHowTo
+ * Kamikaze:
+  * OpenWrtDocs/KamikazeConfiguration/PackagesOnExternalMediaHowTo
+  * OpenWrtDocs/KamikazeConfiguration/BootFromExternalMediaHowTo
+
 [http://x-wrt.org/ X-Wrt] also makes it easy to use and manage the MMC/SD card hack.
