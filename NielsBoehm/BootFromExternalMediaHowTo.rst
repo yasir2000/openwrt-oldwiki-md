@@ -104,6 +104,74 @@ rmdir /tmp/orig
 rm -r /mnt/etc/*   # we don't need a duplicate /etc tree
 }}}
 
-----
 
-## [[Include(NielsBoehm/EtcConfigBootExt,,editlink)]]
+== Preparing the script ==
+
+=== Putting up the script ===
+
+Put the following script at '''/etc/init.d/bootext''' by copy&pasting it into vi, transfering it via scp or any other method you prefer:
+## [[Include(/EtcConfigBootExt,,editlink)]]
+
+Don't forget to make the script executable:
+{{{
+chmod a+x /etc/init.d/bootext
+}}}
+
+=== Configuring the script ===
+
+Configure the script either by using '''uci''' or by editing the file '''/etc/config/bootfromexternalmedia''' to look similar to this:
+{{{
+config bootfromexternalmedia
+	option enabled	'1'
+	option device	'/dev/mmc/disc0/part1'
+	option name	'mmc'
+	option target	'/mnt'
+	option putold	'/mnt'
+	option modules	'mmc jbd ext3'
+	option gpiomask	'0x9c'
+	option waitdev	'0'
+	option filesys	'ext3'
+	option mountopt	'noatime'
+}}}
+
+==== option enabled ====
+
+Set to 1 to enable or to 0 to disable switching to your mass storage device, respectively. Default is enabled.
+
+==== option device ====
+
+This option is required. It determines the block special device node under /dev your mass storage device uses.
+
+==== option name ====
+
+Name of your mass storage device for error message display purposes only. If not specified, defaults to the device name.
+
+==== option target ====
+
+Path of the mountpoint where to mount your mass storage device under the original root. Defaults to the filesystem name if specified, otherwise to '''/new'''.
+
+==== option putold ====
+
+Path of the mountpoint where to move the original root to under the new root filesystem. Defaults to the same as the target mountpoint if specified, otherwise to '''/old'''.
+
+==== option modules ====
+
+Explicitly specify all modules required to access your block device as well as mount your filesystem here. Don't rely on any other script having loaded these modules.
+
+==== option gpiomask ====
+
+When using the MMC/SD card mod, set up the correct gpiomask before inserting the kernel module (which must also be in the list of modules for this to work automatically). Find the correct value at OpenWrtDocs/Customizing/Hardware/MMC.
+
+==== option waitdev ====
+
+For USB devices, it usually takes a couple of seconds after inserting the kernel module for the device node to appear. Specify here the maximum delay it will take in seconds. To be on the safe side, add a couple of seconds. The script won't wait this fixed amount, but will rather check for the device in one second intervals up to the maximum of the waitdev value.
+
+==== option filesys ====
+
+Specify the filesystem you are using. If omitted, it will try all known and inserted filesystems in turn.
+
+==== option mountopt ====
+
+If you need to hand any options to mount, you can give them here.
+
+----
