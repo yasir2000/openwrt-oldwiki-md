@@ -164,7 +164,7 @@ root@radio:~# insmod msdos
 Using /lib/modules/2.4.20/msdos.o
 }}}
 {{{
-root@radio:~# mount /dev/mmc/disc0/part1 /mnt -tmsdos
+root@radio:~# mount -t msdos /dev/mmc/disc0/part1 /mnt
 root@radio:~# ls -al /mnt
 drwxr-xr-x    2 root     root        16384 Jan  1  1970 .
 drwxr-xr-x    1 root     root            0 Jan  1 00:01 ..
