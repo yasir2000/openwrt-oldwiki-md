@@ -114,7 +114,7 @@ umount /mnt
 === Putting up the script ===
 
 Put the following script at '''/etc/init.d/bootext''' by copy&pasting it into vi, transfering it via scp or any other method you prefer:
-[[Include(/EtcConfigBootext,,0,editlink)]]
+[[Include(/EtcConfigBootExt,,0,editlink)]]
 
 Don't forget to make the script executable:
 {{{
@@ -206,7 +206,3 @@ Then simply execute this and reboot afterwards:
 {{{
 /etc/init.d/bootext enable
 }}}
-
-
-----
-CategoryHowTo
