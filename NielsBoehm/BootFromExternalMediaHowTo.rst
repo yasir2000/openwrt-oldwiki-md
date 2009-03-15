@@ -4,6 +4,9 @@
 
 This is about how to swap in external media, such as MMC/SD cards or USB drives, as the root filesystem using the existing init.d/rc.d and uci/config infrastructure. In contrast to OpenWrtDocs/KamikazeConfiguration/PackagesOnExternalMediaHowTo, this is done without replacing files and will keep the original /etc tree in place in order to ensure consistency of your configuration.
 
+At the moment it is designed for Kamikaze 8.09 with kernel 2.4. I haven't tried it with other releases. Also I haven't tried it with the kernel 2.6 flavour, but I suspect the necessary adjustments to be minimal - if they are required at all.
+
+
 == Motivation ==
 
 While OpenWrtDocs/KamikazeConfiguration/PackagesOnExternalMediaHowTo also describes a way to use your mass storage devices on your router for package installation etc., I felt I wanted to use a more robust way to achieve that and also wanted to have consistent configuration, no matter if my SD card was mounted as / or not.
@@ -16,6 +19,91 @@ Unfortunately, duplicating all of it would mean you would have two separate conf
 
 This is calling for trouble, so our solution is to bind mount the original /etc tree to the same place on the new root. This works quite well (also for squashfs+jffs2-images with mini_fo overlay) and means you only have to deal with a single config at all times, mass storage swapped in or not.
 
+
+== Preparing your router and mass storage device ==
+
+/!\ The command line examples provided here are for the MMC/SD card modification of broadcom chipsets and an ext3 filesystem, but would easily be adapted to other combinations.
+
+=== Collecting important information ===
+
+Find out everything necessary to have OpenWRT access your mass storage device, like:
+ * required kernel modules for the block device itself
+ * required kernel modules for the intended filesystem
+ * name of the block device under /dev/
+ * correct gpiomask in case of MMC/SD
+ * delay between inserting the kernel modules and the node appearing under /dev/ for USB
+
+=== Install kernel module packages for the block device ===
+
+For MMC/SD on broadcom:
+{{{
+opkg install kmod-broadcom-mmc
+insmod mmc
+ls /dev/mmc/*/*
+}}}
+
+If that fails, you may have to get a [:OpenWrtDocs/Customizing/Hardware/MMC:different MMC driver].
+
+=== Install kernel module packages for the filesystem ===
+
+For ext3:
+{{{
+opkg install kmod-fs-ext3
+insmod ext3
+grep ext3 /proc/filesystems
+}}}
+
+=== Install utilities to set up your mass storage device ===
+
+For ext3 and cfdisk:
+{{{
+opkg install cfdisk e2fsprogs 
+}}}
+
+Of course, you can also use fdisk instead of cfdisk if you are more comfortable with that.
+
+=== Set up at least one partition ===
+
+/!\ You can skip that step if your mass storage device is already partitioned.
+
+For MMC/SD on broadcom:
+{{{
+cfdisk /dev/mmc/disc0/disc
+dmesg | tail
+cat /proc/partitions
+}}}
+
+If the new partition didn't turn up, try removing and inserting the kernel module for the block device. You could also try rebooting.
+
+=== Create a filesystem on the partition ===
+
+/!\ You can skip that step if you already have the correct filesystem in place.
+
+For ext3 on MMC/SD on broadcom:
+{{{
+mkfs.ext3 /dev/mmc/disc0/part1
+}}}
+
+=== Create a mountpoint and mount the filesystem there ===
+
+For ext3 on MMC/SD on broadcom:
+{{{
+[ -d /mnt ] || mkdir /mnt
+mount -t ext3 -o noatime /dev/mmc/disc0/part1 /mnt
+grep /mnt /proc/mounts
+}}}
+
+=== Duplicate the existing tree on the mass storage device ===
+
+{{{
+mkdir /tmp/orig
+mount -o bind / /tmp/orig   # this is necessary to prevent duplicating /proc /dev and so forth
+tar -c -C /tmp/orig -f - . | tar -xv -C /mnt -f -
+umount /tmp/orig
+rmdir /tmp/orig
+rm -r /mnt/etc/*   # we don't need a duplicate /etc tree
+}}}
+
 ----
 
-[[Include(NielsBoehm/EtcConfigBootExt,,editlink)]]
+## [[Include(NielsBoehm/EtcConfigBootExt,,editlink)]]
