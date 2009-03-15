@@ -1,9 +1,10 @@
 ##master-page:HomepageTemplate
-#format wiki
+
 = Niels Böhm =
 
  . Email: [[MailTo(bitbucket AT SPAMFREE arcor DOT de)]]
  . Jabber: `blubberdiblub@jabber.org`
+ . IRC: blubberdiblub @ [irc://irc.freenode.org/openwrt #openwrt @ irc.freenode.org]
 
 == Favourite Pages ==
 
