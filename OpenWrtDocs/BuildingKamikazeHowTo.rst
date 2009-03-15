@@ -37,7 +37,7 @@ $ ./scripts/feeds install <name_1> <name_2> # Creates the symlinks for the packa
 Call the configuration menu, set the desired target, select the wanted packages and save. Then start building with make.
 {{{
 $ make menuconfig                           # Select your target, packages and other options. Only select the packages you need.
-$ make V=99 ; echo -e '\a'                       # The echo is a bell/beep/alert in BASH (here Debian GNU/Linux), when make finishes
+$ make V=99 ; echo -e '\a'                  # The echo is a bell/beep/alert in BASH (here Debian GNU/Linux), when make finishes
 }}}
 == Configuring a custom kernel ==
 While you won't typically need to do this, if you need to modify the Linux kernel configuration, use this command to enter the regular Linux menuconfig:
@@ -57,16 +57,9 @@ Directions are available [http://downloads.openwrt.org/docs/buildroot-documentat
  * '''Missing source code file, due to download problems'''.
  First check if the URL path in the make file contains a trailing slash, then try with it removed (helped several times).
  Otherwise try to download the source code manually and put it into ~/kamikaze-trunk/dl
- * '''dsl-qos-queue''' in revision 14750 ([https://dev.openwrt.org/ticket/4706 Ticket]) {{{
- ./scripts/feeds uninstall dsl-qos-queue}}}
- * '''kmod-ucmb''' in revision 14750 ([https://dev.openwrt.org/ticket/4711 Ticket]) {{{
- ./scripts/feeds uninstall kmod-ucmb}}}
- * '''quagga''' & '''quagga-unstable''' in revision 14750 (Ticket) {{{
- ./scripts/feeds uninstall quagga quagga-unstable}}}
- * '''qwo''' in revision 14750 (Ticket) {{{
- ./scripts/feeds uninstall qwo}}}
- * '''xsupplicant''' in revision 14750 (Ticket) {{{
- ./scripts/feeds uninstall xsupplicant}}}
-
+ * '''Compilation errors'''.
+ Try to update the main source and all the feeds (Warning! May result in other problems).
+ Check for a related bug in ([https://dev.openwrt.org/query TRAC]), use the filters to find it.
+ Otherwise report the problem there, by mentioning the package, the target data (CPU, image, etc.) and the code revisions (main & package).
 
 CategoryHowTo
