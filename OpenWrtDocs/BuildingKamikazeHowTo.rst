@@ -54,7 +54,9 @@ Directions are available [http://downloads.openwrt.org/docs/buildroot-documentat
  * http://downloads.openwrt.org/docs/buildroot-documentation.html
 
 == Packages that do not compile ==
- * If a package can not be compiled due to a missing source code file in subfolder dl (e.g. download problems), then check out the corresponding Makefile, try to download the source manually and put it into ~/kamikaze-trunk/dl
+ * '''Missing source code file, due to download problems'''.
+ First check if the URL path in the make file contains a trailing slash, then try with it removed (helped several times).
+ Otherwise try to download the source code manually and put it into ~/kamikaze-trunk/dl
  * '''dsl-qos-queue''' in revision 14750 ([https://dev.openwrt.org/ticket/4706 Ticket]) {{{
  ./scripts/feeds uninstall dsl-qos-queue}}}
  * '''kmod-ucmb''' in revision 14750 ([https://dev.openwrt.org/ticket/4711 Ticket]) {{{
