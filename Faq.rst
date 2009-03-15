@@ -568,10 +568,34 @@ ipkg install pptp
 }}}
 '''TIP:''' If you have no Internet connection for installing the package, you can flash the PPTP optimized images (with preinstalled PPTP packages instead of PPPoE packages) from his [http://downloads.openwrt.org/whiterussian/newest/pptp/ download directory].
 
-When you have done this set the following NVRAM variables.
+/!\ '''IMPORTANT:''' Use the correct [:OpenWrtDocs/Configuration#NetworkInterfaceNames:network interface name] for your hardware version in the {{{pptp_ifname}}} NVRAM variable (for nvram-based config) and uci option device (for uci-based config). If your provider uses round-robin dns records for VPN server you may want to hardcode the IP address for the server since the pptp.sh is unable to add routes for all VPN server IP addresses for now.
 
-/!\ '''IMPORTANT:''' Use the correct [:OpenWrtDocs/Configuration#NetworkInterfaceNames:network interface name] for your hardware version in the {{{pptp_ifname}}} NVRAM variable.
+For Kamikaze 8.09 edit /etc/config/network
+{{{
+option interface wan
+  option proto pptp
+  option ipproto dhcp
+  option device eth0.1
+  option username "username"
+  option password "secret"
+  option server "10.0.0.0"
+  option persist 1
+}}}
 
+You will need to edit /lib/network/pptp.sh and fix the typo there:
+{{{
+ setup_interface_pptp() {
+  local config="$2"
+  local ifname
+	
+   config_get device "$config" device
+   config_get ipproto "$config" ipproto
+-  config_get server "$cfg" server
++  config_get server "$config" server
+}}}
+
+For older releases:
+Set the following NVRAM variables.
 {{{
 nvram set wan_proto=pptp
 nvram set wan_ifname=ppp0
@@ -587,7 +611,7 @@ nvram set wan_ipaddr=<your_wan_ip>
 nvram set wan_netmask=255.255.255.0
 nvram commit
 }}}
-Than bring up your WAN interface where your modem is connected to via:
+Then bring up your WAN interface where your modem is connected to via:
 
 {{{
 ifup wan
