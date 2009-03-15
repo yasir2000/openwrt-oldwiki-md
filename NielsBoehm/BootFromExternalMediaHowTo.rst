@@ -2,10 +2,8 @@ test
 
 [[Include(NielsBoehm/BootExt,,editlink)]]
 
-image:test.sh
-
-inline:test.sh
+[[ImageLink(test.png)]]
 
 attachment:test.sh
 
-drawing:test
+inline:test.sh
