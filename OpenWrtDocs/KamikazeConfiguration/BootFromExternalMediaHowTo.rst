@@ -114,7 +114,7 @@ umount /mnt
 === Putting up the script ===
 
 Put the following script at '''/etc/init.d/bootext''' by copy&pasting it into vi, transfering it via scp or any other method you prefer:
-[[Include(/EtcConfigBootExt,,0,editlink)]]
+[[Include(/EtcConfigBootext,,0,editlink)]]
 
 Don't forget to make the script executable:
 {{{
