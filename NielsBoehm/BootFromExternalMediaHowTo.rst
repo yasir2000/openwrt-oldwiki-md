@@ -181,8 +181,7 @@ If you need to hand any options to mount, you can give them here.
 
 /!\ I strongly recommend you don't enable the script for startup at boot time unless you have verified that it works without problems.
 
-First, make sure you don't have your device mounted anymore or alternatively, that it is mounted at the same path as your configured target mountpoint.
-
+First, make sure you don't have your device mounted anymore or alternatively, that it is mounted at the same path as your configured target mountpoint. [[BR]]
 Then check if the script is working as it should:
 {{{
 /etc/init.d/bootext stop    # should report that device is not on /
