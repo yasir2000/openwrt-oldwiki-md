@@ -461,7 +461,7 @@ The ["Optware"] packages already make use of a similar concept, by which ipkg-op
 
 -Works for me (ElbenfreunD)
 
-/!\ '''NOTE:''' PackagesOnExternalMediaHowTo contains additional important infos.
+/!\ '''NOTE:''' PackagesOnExternalMediaHowTo, OpenWrtDocs/KamikazeConfiguration/PackagesOnExternalMediaHowTo and OpenWrtDocs/KamikazeConfiguration/BootFromExternalMediaHowTo contain additional important infos.
 
 /!\ '''NOTE:''' Destination needs not to have trailing slash in order to make following script work (Nijel).
 
