@@ -1,3 +1,3 @@
 test
 
-[[Include(NielsBoehm/BootExt, "bootext script")]]
+[[Include(NielsBoehm/BootExt,,editlink)]]
