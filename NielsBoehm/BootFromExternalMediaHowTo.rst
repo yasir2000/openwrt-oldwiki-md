@@ -1,5 +1,3 @@
-#PRAGMA section-numbers off
-
 = Boot from external media HowTo =
 
 This is about how to swap in external media, such as MMC/SD cards or USB drives, as the root filesystem using the existing init.d/rc.d and uci/config infrastructure. In contrast to OpenWrtDocs/KamikazeConfiguration/PackagesOnExternalMediaHowTo, this is done without replacing files and will keep the original /etc tree in place in order to ensure consistency of your configuration.
@@ -111,7 +109,7 @@ umount /mnt
 === Putting up the script ===
 
 Put the following script at '''/etc/init.d/bootext''' by copy&pasting it into vi, transfering it via scp or any other method you prefer:
-## [[Include(/EtcConfigBootExt,,editlink)]]
+[[Include(NielsBoehm/EtcConfigBootExt,,editlink)]]
 
 Don't forget to make the script executable:
 {{{
@@ -161,7 +159,7 @@ Explicitly specify all modules required to access your block device as well as m
 
 ==== option gpiomask ====
 
-When using the MMC/SD card mod, set up the correct gpiomask before inserting the kernel module (which must also be in the list of modules for this to work automatically). Find the correct value at OpenWrtDocs/Customizing/Hardware/MMC.
+When using the MMC/SD card mod, set up the correct gpiomask before inserting the kernel module (which must also be in the list of modules for this to work automatically). Find the correct value at ["OpenWrtDocs/Customizing/Hardware/MMC"].
 
 ==== option waitdev ====
 
