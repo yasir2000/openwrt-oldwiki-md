@@ -1,9 +1,3 @@
-test -- NielsBoehm [[DateTime(2009-03-15T10:03:29Z)]]
+test
 
-[[Include(NielsBoehm/BootExt,,editlink)]]
-
-[[ImageLink(test.png)]]
-
-attachment:test.sh
-
-inline:test.sh
+[[Include(NielsBoehm/EtcConfigBootExt,,editlink)]]
