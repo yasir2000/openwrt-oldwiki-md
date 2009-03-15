@@ -102,6 +102,7 @@ tar -c -C /tmp/orig -f - . | tar -xv -C /mnt -f -
 umount /tmp/orig
 rmdir /tmp/orig
 rm -r /mnt/etc/*   # we don't need a duplicate /etc tree
+umount /mnt
 }}}
 
 
@@ -174,4 +175,31 @@ Specify the filesystem you are using. If omitted, it will try all known and inse
 
 If you need to hand any options to mount, you can give them here.
 
-----
+
+== Testing the script with your setup ==
+
+/!\ I strongly recommend you don't enable the script for startup at boot time unless you have verified that it works without problems.
+
+First, make sure you don't have your device mounted anymore or alternatively, that it is mounted at the same path as your configured target mountpoint.
+
+Then check if the script is working as it should:
+{{{
+/etc/init.d/bootext stop    # should report that device is not on /
+/etc/init.d/bootext start   # should perform the switch without producing any output
+grep '^[^ ]* / '            # verify that the device is now on /
+grep '^[^ ]* /etc '         # verify that there is now a mounted /etc
+/etc/init.d/bootext start   # should report that device is already on /
+/etc/init.d/bootext stop    # should switch back without producing any output
+grep '^[^ ]* / '            # verify that the original tree is back on /
+grep '^[^ ]* /etc '         # verify that there is no /etc mounted anymore
+/etc/init.d/bootext stop    # should report that device is not on /
+}}}
+
+== Enabling the script for automatic start at boot time ==
+
+/!\ Be sure you have followed the above procedures and checked that everything works before enabling start at boot time, since otherwise there is a chance that you lock yourself out of your router if something goes wrong. To prepare yourself for this event, no matter how unlikely, find out in advance how to gain failsafe access to your router in such a case.
+
+Then simply execute this and reboot afterwards:
+{{{
+/etc/init.d/bootext enable
+}}}
