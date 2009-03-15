@@ -1,4 +1,7 @@
-= Boot from external media HowTo =
+#PRAGMA section-numbers off
+||<tablebgcolor="#f1f1ed" tablewidth="40%" tablestyle="margin: 0pt 0pt 1em 1em; float: right; font-size: 0.9em;"style="padding: 0.5em;">[[TableOfContents]]||
+
+~+'''Boot from external media !HowTo'''+~
 
 This is about how to swap in external media, such as MMC/SD cards or USB drives, as the root filesystem using the existing init.d/rc.d and uci/config infrastructure. In contrast to OpenWrtDocs/KamikazeConfiguration/PackagesOnExternalMediaHowTo, this is done without replacing files and will keep the original /etc tree in place in order to ensure consistency of your configuration.
 
@@ -109,7 +112,7 @@ umount /mnt
 === Putting up the script ===
 
 Put the following script at '''/etc/init.d/bootext''' by copy&pasting it into vi, transfering it via scp or any other method you prefer:
-[[Include(NielsBoehm/EtcConfigBootExt,,editlink)]]
+[[Include(NielsBoehm/EtcConfigBootExt,,0,editlink)]]
 
 Don't forget to make the script executable:
 {{{
