@@ -7,6 +7,8 @@ This guide describes how to use your USB pen drive, USB or IDE harddrive or your
 
 This guide is based on http://forum.openwrt.org/viewtopic.php?id=11495.
 
+There is also an [:../BootFromExternalMediaHowTo:alternative HowTo] that follows a different concept.
+
 = Configuration files for the different routers =
 Save the configuration file to /etc/config/bootfromexternalmedia.
 
