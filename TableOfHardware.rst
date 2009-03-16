@@ -102,6 +102,7 @@ Just because a device is listed doesn't mean that OpenWRT will run on this devic
  * ["Hardware/TP-Link"]
  * ["Hardware/Trendnet"]
  * ["Hardware/Tranzeo"]
+ * ["Hardware/Openmoko"]
  * ["Hardware/US Robotics"]
  * ["Hardware/Ubiquiti"]
  * ["Hardware/Viewsonic"]
