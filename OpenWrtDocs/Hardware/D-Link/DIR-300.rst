@@ -67,9 +67,9 @@ DD-WRT> reset
 }}}
 = install OpenWrt =
 == compile image ==
-select 'atheros' in menuconfig and run 'make'
+Get the OpenWrt sources with: 'svn co https://svn.openwrt.org/openwrt/branches/8.09'. For vlan-support you have to apply the icplus-v3.1 patch before you compile. Download it [http://inst.eecs.berkeley.edu/~pathorn/ip175c/phylib/icplus-v3.1.patch here] change into your source directory and apply with 'patch -p1 < icplus-v3.1.patch'. Inside the source directory run 'make menuconfig' and select 'Atheros 231x/5312 [2.6]'.  Select "Kernel modules", "Other modules", and select kmod-switch to be built in ('[*]' not '[M]').  Press exit and save your configuration.
 
-for vlan-support you have to apply this patch: http://jan.willies.info/990-phyfix.patch (2.6.26.5) and read about it here: http://inst.eecs.berkeley.edu/~pathorn/ip175c/ and http://forum.openwrt.org/viewtopic.php?pid=74189#p74189
+Compile with 'make' and find the images in 'build_dir/linux-atheros'.
 
 == dir300-flash ==
 
