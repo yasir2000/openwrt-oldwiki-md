@@ -71,6 +71,8 @@ Get the OpenWrt sources with: 'svn co https://svn.openwrt.org/openwrt/branches/8
 
 Compile with 'make' and find the images in 'build_dir/linux-atheros'.
 
+More information on the patch can be found [http://inst.eecs.berkeley.edu/~pathorn/ip175c/ here] and [http://forum.openwrt.org/viewtopic.php?pid=74189#p74189 here]
+
 == dir300-flash ==
 
 A nice script called [http://x-alina.freifunk-potsdam.de/downloads/dir300-flash/ dir300-flash] wraps the manual steps for replacing the original bootloader and/or flashing firmware images into a single command line. The script requires a running tftpd service. See --help for further details.
