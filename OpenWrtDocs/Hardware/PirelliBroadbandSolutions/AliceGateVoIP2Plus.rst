@@ -1,5 +1,5 @@
 = ALICE GATE VoIP 2 Plus Wi-Fi Business =
-The web page said board AGPF-S1, but the bootloader and the tag on the image refer to AGPF-S0.
+The browser admin interface said board AGPF-S1, but the bootloader and the tag on the image refer to AGPF-S0.
 == Hardware ==
 || CPU || [http://www.broadcom.com/products/DSL/xDSL-CPE-Solutions/BCM6358 BCM6358KFBG ] ||
 || Flash || 16 MByte SPANSION [http://www.spansion.com/datasheets/s29gl-p_00_a11_e.pdf S29GL128P] ||
