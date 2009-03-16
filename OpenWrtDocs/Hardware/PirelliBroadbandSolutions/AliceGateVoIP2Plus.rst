@@ -74,7 +74,7 @@ I used the JTAG port with [http://urjtag.org urjtag], just use the svn version. 
 == OpenWrt on the machine :-) ==
 
 There are some work to be done but you can boot openwrt on the router without too much problems. Just be carefull and make a backup of the flash.
-Until I post some more information take a look at this  [http://forum.openwrt.org/viewtopic.php?pid=78247#p78247 thread]
+You can just download the image for AGPF-S0 from [http://downloads.openwrt.org/snapshots/brcm63xx/ here], skip the jffs2 with 64k erase block as the flash use 128k block, anyway using 64k should not give much problem, just some wasted space and some errors messages. Don't use image dated 15 march 2009.
 
 == Picture with highlighted Serial and Jtag ==
 
