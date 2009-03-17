@@ -6,5 +6,6 @@
 ||[http://www.ubnt.com/products/ns2.php NanoStation2] || ||Atheros AR2315 @ 150mhz || 4MB || 16MB || Atheros || None || [wiki:Self:OpenWrtDocs/Bootloaders/RedBoot RedBoot] || - || - || no || [wiki:Self:OpenWrtDocs/Hardware/Ubiquiti/NanoStation2 NanoStation2 page]||
 ||[http://www.ubnt.com/products/ns5.php NanoStation5] || ||Atheros AR2313 @ 180MHz || 4MB || 16MB || Atheros || None || [wiki:Self:OpenWrtDocs/Bootloaders/RedBoot RedBoot] || - || - || no || [wiki:Self:OpenWrtDocs/Hardware/Ubiquiti/NanoStation5 NanoStation5 page]||
 || PowerStation5 || ||  || || || || || [wiki:Self:OpenWrtDocs/Bootloaders/RedBoot RedBoot] ||  ||  || || [wiki:Self:OpenWrtDocs/Hardware/Ubiquiti/PowerStation2 PowerStation2 page]||
+|| RouterStation5 || || Atheros AR2313 @680 MHz || 16MB || 64MB RAM || 3x miniPCI || 3x RJ-45 || [wiki:Self:OpenWrtDocs/Bootloaders/RedBoot RedBoot] || YES || || 1x || YES http://www.ubnt.com/products/rs.php ||
 
 CategoryBrand
