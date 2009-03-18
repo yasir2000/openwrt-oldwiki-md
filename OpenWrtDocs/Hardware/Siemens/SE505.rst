@@ -144,6 +144,9 @@ root@openwrt:/mnt/disc0_1# dd if=/dev/mtd/0 of=/mnt/disc0_1/backup_0.bin
 512+0 records out
 }}}
 
+alternatively use JTAG
+{{{./wrt54g -backup:cfe}}}
+
 
 ===== restore/write CFE using a serial cable =====
 You need serial console access to the rooter and a tftp server for flashing the new CFE.
