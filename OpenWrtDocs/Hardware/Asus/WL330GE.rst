@@ -24,4 +24,4 @@ Your options are applying the patch to the 8.09 sources or downloading a pre-com
 
 == Serial Port ==
 
-I have yet tried the serial port on the board, but see [http://forum.openwrt.org/viewtopic.php?pid=84118#p84118 this forum post] for more info.
+I have not yet tried the serial port on the board, but see [http://forum.openwrt.org/viewtopic.php?pid=84118#p84118 this forum post] for more info.
