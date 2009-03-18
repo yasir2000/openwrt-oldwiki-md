@@ -124,12 +124,33 @@ Using chips from a 4 chip PC133 SDRAM module is the safest option. RAM chips fro
 A self compiled CFE which can set new "sdram_init" values can be found here:
 ([http://forum.openwrt.org/viewtopic.php?id=9379: see forum thread])
 
-===== install it via serial cable =====
+===== consider making a backup from the actual cfe =====
+
+Easiest way to achieve it is using telnet/ssh. After you connected to the router look which mtd holds the cfe
+{{{
+root@openwrt:~# cat /proc/mtd
+dev:    size   erasesize  name
+mtd0: 00040000 00010000 "cfe"
+mtd1: 003b0000 00010000 "linux"
+mtd2: 000c9e60 00010000 "rootfs"
+mtd3: 00010000 00008000 "nvram"
+mtd4: 00270000 00010000 "OpenWrt"
+}}}
+
+write it somewhere you could reach it even if you brick the router later. Consider making a copy of the NVRAM (here it is mtd3) as well.
+{{{
+root@openwrt:/mnt/disc0_1# dd if=/dev/mtd/0 of=/mnt/disc0_1/backup_0.bin
+512+0 records in
+512+0 records out
+}}}
+
+
+===== restore/write CFE using a serial cable =====
 You need serial console access to the rooter and a tftp server for flashing the new CFE.
 '''someone could go famous writing this'''
 
 
-===== install it via JTAG =====
+===== restore/write CFE via JTAG =====
 ''not tested yet''
 first thing to do is you have to connect your JTAG to your computer. Secondly get the debrick-utility from ([http://www.wlan-skynet.de/download/index.shtml: here]). If you are running a linux-pc install it in wine and compile the sourcecode (e.g. ~/.wine/drive_c/SKYNET/WRTJTAG/Sources) with {{{make}}}. Use {{{chmod +x wrt54g}}} to make it executable. Put your new CFE.bin file in the working directory and erase the old cfe on the router with 
 {{{
@@ -141,7 +162,7 @@ afterwards install the new one with
 }}}
 
 
-===== install it on running machine (console) =====
+===== restore/write CFE by telnet/ssh =====
 If you are running White Russian, you can also use rwflash.o and the mtd-package (the one included in the WR image does NOT work, so install the "real" mtd-package) to flash the cfe from the running system. But be careful: If something goes wrong you will definitively need JTAG.
 
 {{{
@@ -152,6 +173,23 @@ insmod rwflash.o
 wget ftp://funnel.homelinux.net/se505/cfe/cfez_64.bin
 mtd -f write /tmp/cfez_64.bin rwcfe
 }}}
+
+I stumbled over another way to do this but couldn't test it yet (going to test it all in the next 3 weeks and will edit it all accordingly to my findings)
+{{{
+cd /tmp
+ipkg update; ipkg install mtd
+mtd unlock cfe
+mtd write -f /tmp/cfe_new.bin cfe
+}}}
+
+or try it with the backup-way
+{{{
+cd /tmp
+ipkg update; ipkg install mtd
+mtd unlock cfe
+dd if=/tmp/cfe_new.bin cfe of=/dev/mtd/0
+}}}
+
 
 
 === Retrofitting USB ===
