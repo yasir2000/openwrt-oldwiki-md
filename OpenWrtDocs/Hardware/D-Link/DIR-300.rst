@@ -6,7 +6,7 @@ http://img528.imageshack.us/img528/8263/seriedir300gc7.jpg
 
 My USB->Serial Adapter was only 3,3V whereas this device needs 5V!
 
-= replace Bootloader =
+= Replace Bootloader =
 
 Get ap61.ram/ap61.rom from here: [http://www.dd-wrt.com/dd-wrtv2/down.php?path=downloads/v24/Atheros+WiSoc/Airlink+101+AR430W/ http://www.dd-wrt.com/dd-wrtv2/down.php?path=downloads%2Fv24%2FAtheros+WiSoc%2FAirlink+101+AR430W/] and put it in your tftp-dir
 
@@ -17,7 +17,7 @@ I have done this via serial, but it's also possible with just telnet (see [http:
 {{{
 load ap61.ram
 go
-�+**Warning** FLASH configuration checksum error or invalid key
+**Warning** FLASH configuration checksum error or invalid key
 Use 'fconfig -i' to [re]initialize database
 ... waiting for BOOTP information
 Ethernet eth0: MAC address 00:1e:58:84:85:e2
@@ -65,15 +65,16 @@ An image named 'RedBoot' exists - continue (y/n)? y
 ... Program from 0x80ff0000-0x81000000 at 0xbffe0000: .
 DD-WRT> reset
 }}}
-= install OpenWrt =
-== compile image ==
-Get the OpenWrt sources with: 'svn co https://svn.openwrt.org/openwrt/branches/8.09'. For vlan-support you have to apply the icplus-v3.1 patch before you compile. Download it [http://inst.eecs.berkeley.edu/~pathorn/ip175c/phylib/icplus-v3.1.patch here] change into your source directory and apply with 'patch -p1 < icplus-v3.1.patch'. Inside the source directory run 'make menuconfig' and select 'Atheros 231x/5312 [2.6]'.  Select "Kernel modules", "Other modules", and select kmod-switch to be built in ('[*]' not '[M]').  Press exit and save your configuration.
+= Install OpenWrt =
+== Compile Image ==
+Get the OpenWrt sources with: 'svn co https://svn.openwrt.org/openwrt/branches/8.09'. For vlan-support you have to apply the [http://inst.eecs.berkeley.edu/~pathorn/ip175c/phylib/icplus-v3.1.patch icplus-v3.1] patch before you compile. Download the patch to your source directory and apply with 'patch -p1 < icplus-v3.1.patch'. Inside the source directory run 'make menuconfig' and select 'Atheros 231x/5312 [2.6]' under 'Target'.  Select 'Kernel modules' -> 'Other modules' -> 'kmod-switch' to be built in ('[*]' not '[M]').  Press exit and save your configuration.
 
-Compile with 'make' and find the images in 'bin'.
+Compile with 'make' (this will take a while) and find the images in 'bin'.  If compilation fails run 'make V=99' for debugging output.
 
-More information on the patch can be found [http://inst.eecs.berkeley.edu/~pathorn/ip175c/ here] and [http://forum.openwrt.org/viewtopic.php?pid=74189#p74189 here]
+More information on the patch can be found [http://inst.eecs.berkeley.edu/~pathorn/ip175c/ on the website] and [http://forum.openwrt.org/viewtopic.php?pid=74189#p74189 the forum].
 
-== dir300-flash ==
+== Flash Image ==
+=== dir300-flash script ===
 
 A nice script called [http://x-alina.freifunk-potsdam.de/downloads/dir300-flash/ dir300-flash] wraps the manual steps for replacing the original bootloader and/or flashing firmware images into a single command line. The script requires a running tftpd service. See --help for further details.
 
@@ -101,7 +102,7 @@ Resetting the wireless router... done
 Happy Hacking! ;)
 }}}
 
-== initial flash (manually) ==
+=== Manual Flash ===
 
 {{{
 DD-WRT> fis init
@@ -156,8 +157,8 @@ Now booting linux kernel:
 Linux version 2.6.26.2 (jan@jan) (gcc version 4.1.2) #1 Tue Aug 12 10:14:23 CEST 2008
 [...]
 }}}
-== reflash ==
-for reflashing via redboot use
+== Reflash ==
+For reflashing via redboot use
 
 {{{
 load -r -b %{FREEMEMLO} openwrt-atheros-vmlinux.lzma
@@ -172,5 +173,37 @@ mtd -e vmlinux.bin.l7 write openwrt-atheros-vmlinux.lzma vmlinux.bin.l7
 mtd -r write openwrt-atheros-root.squashfs rootfs
 }}}
 == Setting up the switch ==
+
+If you applied the patch as described in 2.1 you can set up the switch with VLAN's by editing /etc/config/network :
+{{{
+config 'interface' 'loopback'
+	option 'ifname' 'lo'
+	option 'proto' 'static'
+	option 'ipaddr' '127.0.0.1'
+	option 'netmask' '255.0.0.0'
+
+#Setup the swith
+config 'switch' '0'
+	option 'vlan1' '0 1 2 3 5*t'  #assign port 0 1 2 & 3 to VLAN1
+	option 'vlan2' '4 5t'         #assign port 4 to VLAN2
+
+#Create a local interface
+config 'interface' 'lan'
+	option 'ifname' 'eth0.1' 
+	option 'type' 'bridge'
+	option 'proto' 'static'
+	option 'ipaddr' '192.168.1.1'
+	option 'netmask' '255.255.255.0'
+	option 'defaultroute' '0'
+	option 'peerdns' '0'
+
+#Create a WAN (internet) interface
+config 'interface' 'wan'
+	option 'ifname' 'eth0.2'
+	option 'proto' 'dhcp'
+
+}}}
+
+TODO: I haven't tested to see if the VLAN port numbers correspond to the actual switch port numbers, you might find that port 4 is the WAN port now and the 'WAN' port is part of the lan VLAN.
 
 This part is not finished yet, but here you can read about it: https://dev.openwrt.org/ticket/4050 (see '2.1 compile image' also)
