@@ -7,7 +7,7 @@ The ZyXEL P-334WT is a Firewall router with 4-port Switch with built-in 802.11g 
 ||'''OS''' ||ZyNOS ||
 ||'''Flash''' ||4MB 1xMacronix MX29LV320BTC-90 ||
 ||'''RAM''' ||16MB 1xHynix HY57V283220T-7 ||
-||'''WLAN''' ||Texas Instruments TNETW113OGVF (mini-PCI) ||
+||'''WLAN''' ||Texas Instruments TNETW1130GVF (mini-PCI) ||
 ||'''USB''' ||no ||
 ||'''Serial''' ||yes ||
 ||'''JTAG''' ||yes ||
