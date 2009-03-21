@@ -105,7 +105,7 @@ This rule applies to packets to be forwarded from one interface to the other.  I
 Note that the FORWARD chain automatically accepts packets that are related to a previous connection.
 
 == forwarding_wan (filter) ==
-This rule applies to packets to be forwarded from the WAN interface to the LAN interface.  If you have a redirect from an external port to an internal service, it will be necessary to add it here.
+This rule applies to packets to be forwarded from the WAN interface to any other interface (including to the LAN interface).  If you have a custom redirect from an external port to an internal service, add it here.  (Note that OpenWrt lets you define basic port forwards via the GUI or the file /etc/config/firewall, so you seldom need to do custom port forwarding using forwarding_wan unless you have something more complex in mind.)
 
 == postrouting_rule (nat) ==
 This rule applies to packets originating from the OpenWrt port destinated for the WAN.  The default postrouting rules takes care of masquerading for packets destined for the WAN interface.  Under normal circumstances it will not be necessary to modify this rule.
