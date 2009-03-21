@@ -17,6 +17,7 @@
  * OpenWrtDocs/KamikazeConfiguration/PackagesOnExternalMediaHowTo
  * ["ReplaceJFFS2WithExternalMedia"]
  * UsbStorageHowto
+ * BuildRoot
 
 == Working On ==
 
