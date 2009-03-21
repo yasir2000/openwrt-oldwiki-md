@@ -19,7 +19,13 @@ OpenWRT defines a set of rules for network address translation (NAT) and packet 
 The reader should already be familiar with iptables and have reviewed the [http://iptables-tutorial.frozentux.net/iptables-tutorial.html Iptables Tutorial], available in many places including [http://iptables-tutorial.frozentux.net/iptables-tutorial.html here] and [http://www.faqs.org/docs/iptables/ here].
 
 = The Firewall Startup Script =
-OpenWRT begins firewall initialization by running a startup script in ''/etc/init.d''. This script sets default policies for all chains, creates basic targets for accepting and dropping packets, and configures basic network address translation. It then calls the user configuration file ''/etc/firewall.user''. '''It is neither necessary nor desirable to modify the startup script. Customization should be done in the user configuration file.'''
+OpenWRT begins firewall initialization by running a startup script in ''/etc/init.d''. This script sets default policies for all chains, creates basic targets for accepting and dropping packets, and configures basic network address translation. Before version 8.09, it then calls the user configuration file ''/etc/firewall.user''. '''It is neither necessary nor desirable to modify the startup script. Customization should be done in the user configuration file.'''  From version 8.09 onward, you need to enable an include file in the /etc/config/firewall file by adding this stanza:
+
+{{{
+# add this to /etc/config/firewall for version 8.09 and later
+config 'include'
+    option 'path' '/etc/firewall.user'
+}}}
 
 == Environment Variables ==
 The following environment variables are available to your ''/etc/firewall.user'' script:
