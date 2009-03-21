@@ -27,19 +27,7 @@ Please add/confirm info here if you can.
 ||'''Model''' ||'''CPU''' ||'''Wireless''' ||'''Flash''' ||'''RAM''' ||'''S/N''' ||'''FCC ID''' ||'''!OpenWrt Kamikaze''' ||
 ||WRT160N v1.0 ||? ||? ||4MB ||32MB || ? || || X ||
 ||WRT160N v1.1 || BCM4703||BCM4321 ||4MB ||16MB ||CSE01 ||Q87WRT160N || X (See Below)||
-
----- /!\ '''Edit conflict - other version:''' ----
 ||WRT160N v2.0 || RT2880F||Ralink || 4MB ||16MB ||CSE11 ||Q87WRT160NV2 || not supported ||
-
-
-
----- /!\ '''Edit conflict - your version:''' ----
-||WRT160N v2.0 || RT2880F||Ralink || 4MB ||16MB ||CSE11 ||Q87WRT160NV2 || not supported ||
-
-
-
----- /!\ '''End of edit conflict''' ----
-
 
 = Hardware =
 
@@ -75,14 +63,7 @@ Please add/confirm info here if you can.
 
  * BCM5325 [http://www.broadcom.com/collateral/pb/5325-PB05-R.pdf Product_Brief]
 
-
----- /!\ '''Edit conflict - other version:''' ----
  * Flashchip - EN29LV320AB.  This device is capable of operating in 8-bit or 16-bit mode. [http://www.eonsdi.com/pdf/EN29LV320.pdf Data Sheet]
-
----- /!\ '''Edit conflict - your version:''' ----
- * Flashchip - EN29LV320AB.  This device is capable of operating in 8-bit or 16-bit mode. [http://www.eonsdi.com/pdf/EN29LV320.pdf Data Sheet]
-
----- /!\ '''End of edit conflict''' ----
 
  * BCM4321 [http://www.broadcom.com/collateral/pb/4321_2055-PB02-R.pdf Product_Brief]
 
@@ -90,8 +71,6 @@ Please add/confirm info here if you can.
 
 === V2.0 ===
 
-
----- /!\ '''Edit conflict - other version:''' ----
 There has been a lot of discussion about what exactly is on this board, and a lot of complaints about it having reduced memory.  The messages appear to be mixed, what's presented here is as accurate as possible.
 
  * CPU: RaLink RT2880F [http://www.ralinktech.com.tw/data/RT2880.pdf Product_brief]
@@ -105,23 +84,6 @@ There has been a lot of discussion about what exactly is on this board, and a lo
  * RAM is provided by two WindBond EN29LV320AB-70TCP SDRAMS.  Each chip is 1 MB x 4 BANKS x 16 BITS for a total of 64MBits per chip, or 128MBits total = 16 megabytes.  This is confirmed by the stock kernel boot messages.
 
  * Flashchip - first reported on this wiki as a Samsung 813; K8P3215UQB.  However, the most recent version 2 board shipped has one EON Silicon EN29LV320AB, which is a 32 megabit (configurable as 4MB x 8 or 2MB x 16) chip.
-
----- /!\ '''Edit conflict - your version:''' ----
-There has been a lot of discussion about what exactly is on this board, and a lot of complaints about it having reduced memory.  The messages appear to be mixed, what's presented here is as accurate as possible.
-
- * CPU: RaLink RT2880F [http://www.ralinktech.com.tw/data/RT2880.pdf Product_brief]
-
- * CPU speed is reported by users as 266 MHz.  However, when the stock (linksys) kernel boots, it reports the speed as 133 MHz.  The manufacturer describes the core as 266 MHz.
-
- * CPU Core is MIPS4Kec with 16K instruction, 16K data caches
-
- * RTL8306SD - a 6-port fast ethernet switch with five integrated physical layer 10BaseT/100BaseT transceivers
-
- * RAM is provided by two WindBond EN29LV320AB-70TCP SDRAMS.  Each chip is 1 MB x 4 BANKS x 16 BITS for a total of 64MBits per chip, or 128MBits total = 16 megabytes.  This is confirmed by the stock kernel boot messages.
-
- * Flashchip - first reported on this wiki as a Samsung 813; K8P3215UQB.  However, the most recent version 2 board shipped has one EON Silicon EN29LV320AB, which is a 32 megabit (configurable as 4MB x 8 or 2MB x 16) chip.
-
----- /!\ '''End of edit conflict''' ----
 
 == Pads/headers on PCB ==
 
@@ -152,18 +114,9 @@ JTAG
 
 === V2.0 ===
 
-
----- /!\ '''Edit conflict - other version:''' ----
 J10 is an empty 5-pin header, and is likely a serial port (console)
 
 J11 is an empty 14-pin header and is likely a JTAG port to the CPU.
-
----- /!\ '''Edit conflict - your version:''' ----
-J10 is an empty 5-pin header, and is likely a serial port (console)
-
-J11 is an empty 14-pin header and is likely a JTAG port to the CPU.
-
----- /!\ '''End of edit conflict''' ----
 
 '''J10'''
 
