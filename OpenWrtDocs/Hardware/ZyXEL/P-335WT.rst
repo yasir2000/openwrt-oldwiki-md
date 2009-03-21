@@ -1,14 +1,13 @@
-{{{
-Bootloader : Bootbase
-OS : ZyNOS
-Flash : 4Mb Macronix 29LV320BT-90
-RAM : 16Mb Hynix
-WLAN : Texas Instruments TNETW113OGVF (mini-PCI)
-USB : yes
-Serial : yes
-JTAG : yes
-}}}
-
+== Details ==
+||'''CPU''' ||Infineon/ADMtek ADM5120 (BGA) ||
+||'''Bootloader''' ||["Bootbase"] ||
+||'''OS''' ||ZyNOS ||
+||'''Flash''' ||4MB 1xMacronix MX29LV320BT-90 ||
+||'''RAM''' ||16MB 1xHynix ||
+||'''WLAN''' ||Texas Instruments TNETW1130GVF (mini-PCI) ||
+||'''USB''' ||yes ||
+||'''Serial''' ||yes ||
+||'''JTAG''' ||yes ||
 
 Photo :
 [http://f.fainelli.free.fr/openwrt/images/zyxel-p335wt.jpg]
