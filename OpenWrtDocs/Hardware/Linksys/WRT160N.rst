@@ -81,7 +81,7 @@ There has been a lot of discussion about what exactly is on this board, and a lo
 
  * RTL8306SD - a 6-port fast ethernet switch with five integrated physical layer 10BaseT/100BaseT transceivers
 
- * RAM is provided by two WindBond EN29LV320AB-70TCP SDRAMS.  Each chip is 1 MB x 4 BANKS x 16 BITS for a total of 64MBits per chip, or 128MBits total = 16 megabytes.  This is confirmed by the stock kernel boot messages.
+ * RAM is provided by two WindBond W9864G6IH 64Mbit SDRAMS.  Each chip is 1 MB x 4 BANKS x 16 BITS for a total of 64MBits per chip, or 128MBits total = 16 megabytes.  This is confirmed by the stock kernel boot messages.
 
  * Flashchip - first reported on this wiki as a Samsung 813; K8P3215UQB.  However, the most recent version 2 board shipped has one EON Silicon EN29LV320AB, which is a 32 megabit (configurable as 4MB x 8 or 2MB x 16) chip.
 
