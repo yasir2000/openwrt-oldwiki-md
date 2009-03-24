@@ -27,6 +27,11 @@ $ mkdir ~/kamikaze-trunk/
 $ cd ~/kamikaze-trunk/
 $ svn checkout https://svn.openwrt.org/openwrt/trunk/ .
 }}}
+If you want to store all downloaded source code packages outside the trunk, e.g. for easier backup or to use with multiple checkouts, then do the following:
+{{{
+mkdir ~/kamikaze-dl/
+ln -s ../kamikaze-dl/ dl
+}}}
 Get all the extra packages, the ones for Luci and if you wish the ones for Xwrt too.
 Then install the packages you need, so that you can choose them later in the menuconfig.
 {{{
