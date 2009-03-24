@@ -336,5 +336,21 @@ tiatm                 123936   0
 }}}
 
 The settings for the serial console are "38400 8N1", with hardware and software flow control both disabled.
+
+= WAG54G v3 =
+
+== Hardware ==
+
+SoC : Ti TNETD7200ZDW
+
+Wireless : Ti TNETW1350A
+
+Ethernet : ADM6996I
+
+RAM : MIRA P2V56S40BTP 256Mbit (32MB) SDRAM
+
+Flash: 8MB Intel JS28F640J3D75
+
+This is essentially the same unit as the AG300, except for the wireless controller.
 ----
 ["CategoryAR7Device"]
