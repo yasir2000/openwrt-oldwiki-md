@@ -10,11 +10,11 @@ Please let me know what commands should be run on this router to provide needed 
 
 == Specs for WGT624 v4 -- HW REV V4 ==
 
- * CPU:
- * Flash: 
- * RAM: 
- * Switch: 
- * Wireless: 
+ * CPU:Atheros AR2318
+ * Flash:MX25L3205AMC-20G (32 Mb/4 MB)
+ * RAM:Samsung 743 K4S281632I-UC75 (128 Mb/16 MB) 
+ * Switch:Infineon ADM6996FC
+ * Wireless:Atheros AR2318 (WiSOC)
  * One External Antenna 
  * One Internal Antenna, etched onto PCB. ???
  * 1 WAN-Ports
