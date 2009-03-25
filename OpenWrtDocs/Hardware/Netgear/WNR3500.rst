@@ -9,7 +9,7 @@ The [http://www.netgear.com/Products/RoutersandGateways/RangeMaxWirelessNRouters
  * 88E1112 gigabit Ethernet PHY
  * 88W8060 2T3R Transceiver.
 
-All these parts are the same as in the [:OpenWrtDocs/Hardware/Netgear/WNR854:WNR854T], except the Baseband/MAC, which is an 88W8161 in the WNR854T.  It's just a cut down version of the WNR854T:
+All these parts are the same as in the [:OpenWrtDocs/Hardware/Netgear/WNR854T:WNR854T], except the Baseband/MAC, which is an 88W8161 in the WNR854T.  It's just a cut down version of the WNR854T:
 
  * Wireless on pcb instead of mini pci card
  * No Heatsink On The CPU (854T Does)
