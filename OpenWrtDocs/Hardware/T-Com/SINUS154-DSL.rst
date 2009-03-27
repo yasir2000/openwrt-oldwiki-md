@@ -20,5 +20,7 @@ It also has a USB Port and different miniPCI WLAN card which can not be seen on 
 
  attachment:SINUS154-DSL-Hardware.jpg
 
+== Power ==
+The power supply is called 'SNG 3-acc'. Specs: 12V, 1A max, - -(o- +
 ----
  . CategoryBrand ["OpenWrtDocs/Hardware/T-Com"]
