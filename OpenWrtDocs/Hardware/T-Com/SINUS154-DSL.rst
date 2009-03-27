@@ -3,7 +3,7 @@
 This device is not based on Texas Instrument AR7 (like other members of the Sinus family), but on an ARM processor
 (see hardware image below)!
 
-For more info about hardware please see: [http://forum.openwrt.org/viewtopic.php?id=2654] post #16.
+For more info about hardware please see: [http://forum.openwrt.org/viewtopic.php?id=2654#p24145] (post #16).
 
 Patches which support the BRN bootloader are needed. You might get them from http://ar7-firmware.berlios.de/, but the device is not listed as officially supported because it is not AR7 based.
 
