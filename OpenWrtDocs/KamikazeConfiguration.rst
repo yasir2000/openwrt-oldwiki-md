@@ -270,6 +270,15 @@ config dhcp
         option ignore   1}}}
 This will make dnsmasq will offer up to 150 address leases, starting from address .100 of your network with a lease time of 12 hours. e.g. 10.0.0.100-10.0.0.249
 
+If you need to assign specific IP addresses to your workstations based on their MAC addresses, add the following for each ws to /etc/config/dhcp:
+{{{
+config host
+        option name config_item_name
+        option mac  de:ad:be:ef:aa:bb
+        option ip   192.168.1.5
+}}}
+''config_item_name'' is a configuration item name, you may use a hostname. ''mac'' should be the MAC of your workstation and ''ip'' is the IP to be assigned to the workstation.
+
 If you think dnsmasq is not offering addresses as configured, use ''ps w'' to see what command-line arguments it was run with:
 
 {{{
