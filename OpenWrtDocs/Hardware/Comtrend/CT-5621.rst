@@ -1,22 +1,16 @@
+
 = Comtrend CT-5621 =
-
 == General Information ==
-
 This is an ADSL2+ Modem + 4-port Switch with USB (it can act as a USB network device).  It is manufactured by Comtrend who, as best I can determine from their voice prompts for assistance, only sell their equipment to ISP's and Telcos, thus bypassing regular users as customers and therefore recipients of source code.
 
 == Specifications ==
-
 === Chipset ===
-
 This is based on the Broadcom BCM96348 SoC, BCM5325EQKM switch, Fujitsu MPM29DL32B-70PFTN Flash, Hynix 409A HY57 283220I-7 SDRAM, and ADM202EARN RS-232c Line Driver
 
 === System Type ===
-
 96348GW-11
 
-
 === CPU ===
-
 CPU is BigEndian
 
 {{{
@@ -45,7 +39,6 @@ VCEI exceptions		: not available
 }}}
 
 ==== From kamikaze (kernel 2.6.27) ====
-
 {{{
 /proc/cpuinfo
 system type		: bcm63xx/96348GW-11 (0x6348/0x00A2)
@@ -65,15 +58,12 @@ VCEI exceptions		: not available
 }}}
 
 === RAM ===
-
 16 MiB RAM
 
 === Flash ===
-
 4 MiB Fujitsu MPM29DL32B-70PFTN
 
 == Messages ==
-
 === Boot Log ===
 ==== Stock firmware (2.4.17 kernel) ====
 {{{
@@ -492,15 +482,15 @@ Base MAC Address                :  00:40:dd:37:ad:e4
 }}}
 
 == Accessing the Stock Device ==
-
  * You can get shell prompt by using telnet or ssh (if they are enabled in the web interface) or using a serial console attached to the console jack, and typing sh at the menu prompt.  ls is missing but cat * works.
 
  * the CFE ["OpenWrtDocs/Customizing/Firmware/CFE"] can be accessed by pressing any key within the timeout period (default 1s).  From there you program various parameters of the device, erase and flash the flash and nvram or run a kernel from a remote host (i.e. without flashing)
 
  * The stock firmware is quite locked up, with most executables being run from one master binary (not symlinked like busybox either) which controls the execution, and they can't be called individually as standalone commands, only the way the binary is configured to use them.  Also the mtd partitions are not all shown, and only one mtd block device is visible (i.e. none of the raw devices).
 
-== Serial Console Pinout ==
 
+
+== Serial Console Pinout ==
 {{{
 RJ45 connector
 
@@ -511,15 +501,18 @@ RJ45 connector
 }}}
 
 == JTAG ==
-
 Located near the front left, beside the CPU.  Pin 1 has white box surrounding it and the whole connection area is surrounded by a white border (thin).  There is no existing header, if you want one you have to add it (there are only solder pads in the stock configuration).
 
 Pinout: 
 
-|| 6  ||  5  || 4  ||  3  ||  2  ||  1 ||
-|| 12 || 11  || 10 ||  9  ||  8  ||  7 ||
 
-Meaning and mapping to LPT for an unbuffered cable (see ["OpenWrtDocs/Customizing/Hardware/JTAG_Cable"])
+||6||<:>5||4||<:>3||<:>2||<)>1||
+||12||11||10||<:>9||<:>8||<)>7||
+
+
+
+Meaning and mapping to LPT for an unbuffered cable (see ["OpenWrtDocs/Customizing/Hardware/JTAG_Cable"] )
+
 {{{
 Pin 3 - TDI - DATA0  - Pin 2
 Pin 5 - TD0 - SELECT - Pin 13
@@ -527,30 +520,76 @@ Pin 7 - TMS - DATA2  - Pin 4
 Pin 9 - TCK - DATA1  - Pin 3
 }}}
 
-== USB ==
-
-This board only needs some resistors and a capacitor, and the connector, to have a USB host port on the board (i.e. to drive USB mass storage, wireless, etc)
 == Status ==
-
 This router is partially supported.  
 
- * The ADSL modem is currently not supported with a GPL'ed kernel module and the closed source module is for too old a kernel (2.6.8).  
+ * The ADSL modem is currently not supported with a GPL'ed kernel module and the closed source modules known to exist are for old (2.6.8) kernels that are not compitable with present-day kamikaze.  
  * The USB Host device is supported, 
- * The USB slave (that is the connector that allows you to connect a host computer to the router and 'see' an ethernet device) is not.
- * The switch currently does not appear to support VLAN's (work is in progress on this)
+ * The USB slave (that is the connector that allows you to connect a host computer to the router and 'see' an ethernet device) is also supported.
+ * The switch is supported and VLAN's are possible
+
 
 == Tools ==
-
-If you want to play with the stock firmware and know the required offsets and size, you can use the [http://cshore.is-a-geek.com/libre/openwrt/imagetag-rootfs+kernel-0.1.0.tar.gz a modified imagetag], which will generate a correct image header so you can flash the modified firmware to the router (using cfe).  The instruction for use, such as they, can be found on [http://www.bmts.com/~cshore/libre/openwrt/index.html The C Shore; OpenWRT Contributions] and [http://forum.openwrt.org/viewtopic.php?pid=82331#p82331 on the OpenWRT Forum]
+If you want to play with the stock firmware and know the required offsets and size, you can use [http://cshore.is-a-geek.com/libre/openwrt/imagetag-rootfs+kernel-0.1.0.tar.gz an modified imagetag], which will generate a correct image header so you can flash the modified firmware to the router (using the CFE).  The instruction for use, such as they, can be found on [http://www.bmts.com/~cshore/libre/openwrt/index.html The C Shore; OpenWRT Contributions] and [http://forum.openwrt.org/viewtopic.php?pid=82331#p82331 on the OpenWRT Forum]
 
 The modified imagetag does a minimal amount of work; you already need to know the entry point of the kernel, the size and offset of the kernel in the flash (once flashed), and size of the mtd partition that is used around the rootfs+kernel. 
 
 This information can be obtained from the boot logs of the original (manufacturer's) firmware plus a ramdisk-based boot of openwrt with the stock kernel in the flash.
 
 == Pictures ==
+attachment:CT-5621-board-trimmed.jpg
+attachment:CT-5621-front-trimmed.jpg
+attachment:CT-5621-back-trimmed.jpg
 
-attachment:CT-5621-board.jpg
-attachment:CT-5621-front.jpg
-attachment:CT-5621-back.jpg
+== USB ==
+This board only needs 3 x 15 kΩ resistors and one 470μF capacitor, and the USB host (USB A Female) connector, to have a USB host port on the board (i.e. to drive USB mass storage, wireless, etc)
+
+Two of the resistors and the capacitor get voltages right, while the third resistor is used to tie the USB host enabled pin on the BCM63xx to Vcc, so that it is seen as enabled.
+
+There is a schematic from a NetGear that might be helpful.  The only components that matter to our board are the 15k resistors.
+
+attachment:usb-schematic.png
+
+Now we look at the space on the board that is for the USB host.
+
+attachment:usb-host-space.jpg
+
+The following image shows what needs to be done in order to enable host usb.
+
+attachment:usb-host-marked-up.jpg
+
+And here's what a badly done mod looks like (I had a terrible time soldering)
+
+attachment:usb-post-mod.jpg
+
+----
+
+ '''Author''': ''Daniel F. Dickinson''
+
+ '''Address''': ''[cshore@brucetelecom.com]''
+
+ '''Version''': ''2.0''
+
+ '''Date''': ''Saturday, March 28, 2009''
+
+ '''Language''': ''en''
+
+ '''Copyright''': Copyright 2009 Daniel F. Dickinson and any additional contributors
+ This file is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+ This file is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ You should have received a copy of the GNU General Public License along
+ with this file, if not, write to the Free Software Foundation,
+ Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
 ----
 ["CategoryBCM63xx"]
+
+
+## moin code generated by txt2tags 2.3 (http://txt2tags.sf.net)
+## cmdline: txt2tags --encoding utf-8 --target moin -i ct-5621.ttag -o ct-5621.moin
