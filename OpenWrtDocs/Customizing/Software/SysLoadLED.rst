@@ -1,6 +1,6 @@
 = LED System Load Monitor =
 
-== pre-Kamikaze script ==
+== pre-Kamikaze (WhiteRussian) ==
 
 Credit goes to SeRi for starting this mod. He had it use the wrt's white and amber LEDs (version 3 only) to show system load. The project was looking a little out of date, and it didnt work with most routers. I figured id fix it up a little. This script will cause the front light to be off with load below 0.20, white above 0.20 and below 0.40, A light orange (looks yellow to me) from 0.40 to 0.70, orange from 0.70 to 1.0, and blinking orange above 1.0.
 
@@ -57,7 +57,9 @@ chmod +x /etc/init.d/S60loadmon
 
 Now reboot and test it out :)
 
-== Kamikaze script start-up ==
+== Kamikaze scripts ==
+
+=== Kamikaze script start-up ===
 
 Create /usr/sbin/loadmon.sh as given above, or use the enhanced version given below. But to start at boot, create /etc/init.d/loadmon
 {{{
